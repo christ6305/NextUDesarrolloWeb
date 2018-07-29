@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-with, user-scalable=no">
+    <title>Etiqueta g</title>
+  </head>
+  <body>
+    <svg width="1200px" height="1200px" viewBox="0 0 1200 1200">
+      <g id="Agrupacion" fill="red" stroke="black" stroke-width="5"></g>
+        <rect x="150px" y="100px" width="80px" height="80px" fill="brown" stroke="black" stroke-width="3"></rect>
+        <rect x="350px" y="120px" width="150px" height="150px" fill="brown" stroke="black" stroke-width="3"></rect>
+    </svg>
+    <svg width="1200px" height="1200px" viewBox="0 0 1200 1200">
+      <defs>
+        <linearGradient id="Gradiente1">
+          <stop offset="20%" stop-color="#39F"/>
+          <stop offset="90%" stop-color="#F3F"/>
+        </linearGradient>
+      </defs>
+      <rect x="100" y="100" width="250px" height="400px" fill="brown" fill="url(#Gradiente1)"></rect>
+    </svg>
+    <svg width="1200px" height="1200px" viewBox="0 0 1200 1200">
+      <g>
+        <title>Titulo en SVG</title>
+        <desc>Gradiente Basico by Christ</desc>
+        <linearGradient id="Gradiente1">
+          <stop offset="20%" stop-color="#39F"/>
+          <stop offset="90%" stop-color="#F3F"/>
+        </linearGradient>
+      </g>
+      <rect x="100" y="100" width="250px" height="400px" fill="brown" fill="url(#Gradiente1)"></rect>
+    </svg>
+    <svg width="1200px" height="1200px" viewBox="0 0 1200 1200">
+      <defs>
+          <rect id="Recta" fill="red" stroke-width="5" width="150" height="120"></rect>
+      </defs>
+      <use x="200" y="200" xlink:href="#Recta"></use>
+      <use x="400" y="200" xlink:href="#Recta"></use>
+      <use x="300" y="450" xlink:href="#Recta"></use>
+    </svg>
+    <svg width="1200px" height="1200px" viewBox="0 0 1200 1200">
+      <path d="M 100 100 L 300 100 L 200 200 z" fill="red" stroke="black" stroke-width="5">
+      </path>
+    </svg>
+    <svg width="1200px" height="1200px" viewBox="0 0 1200 1200">
+      <path id="LineaA" d="M 100 350 L 150 -300" fill="red" stroke="black" stroke-width="5" fill="none">
+      </path>
+      <path id="LineaAB" d="M 250 50 L 150 300" fill="red" stroke="black" stroke-width="5" fill="none">
+      </path>
+      <path d="M 175 200 L 150 0" fill="red" stroke="black" stroke-width="5" fill="none">
+      </path>
+      <path d="M 100 350 q 150 -300 300 0" fill="red" stroke="black" stroke-width="5" fill="none">
+      </path>
+    </svg>
+
+  </body>
+</html>

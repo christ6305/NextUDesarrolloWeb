@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-with, user-scalable=no">
+    <title>Etiquetas para audio y video</title>
+  </head>
+  <body>
+    <h2>Autoplay</h2>
+    <p>Reproduce el video inmediatamente se abre la web. sin necesidad de dar clic en el boton de reproduccion</p>
+    <audio src="media/audio.mp3" controls autoplay>
+    </audio>
+    <h2>Loop</h2>
+    <p>Este atributo se encarga automaticamente de reproducir el audio siempre que termine</p>
+    <audio src="media/audio.mp3" controls loop>
+    </audio>
+    <h2>Preload</h2>
+    <p>Este atributo tiene un comportamiento especial. Cuando se trabaja con pesados archivos multimedia</p>
+    <ul>
+      <li>none: No almacena los archivos</li>
+      <audio src="media/audio.mp3" controls preload="none"></audio>
+      <li>auto: Almacena temporalmente el archivo multimedia</li>
+      <audio src="media/audio.mp3" controls preload="auto"></audio>
+    </ul>
+</audio>
+  </body>
+</html>
