@@ -1,0 +1,15 @@
+h1{
+  text-decoration: line-through;
+  word-spacing: 30px;
+  color: orange;}
+p{
+  text-align: justify;
+  text-indent: 2cm;
+  text-transform: capitalize;
+  letter-spacing: 5px;
+}
+p::selection{
+  background: green;
+  color: black;
+  text-shadow: 1px 1px #fff
+}

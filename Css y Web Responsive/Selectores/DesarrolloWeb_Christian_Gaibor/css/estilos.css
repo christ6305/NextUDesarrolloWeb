@@ -1,0 +1,85 @@
+body{
+  background-color: gray;
+}
+
+footer{
+  margin-top: 20px
+}
+
+img{
+  border-radius: 50px --efecto redondeado
+}
+#indice{
+
+}
+#contenedor{
+  font-family: helvetica;
+  font-size: 16px;
+}
+#encabezado{
+  display: block;
+  margin: 0 auto;
+}
+/*.itemIndice{
+  list-style-type: upper-roman;
+}*/
+.enlace{
+  color: blue;
+}
+
+a[href^='#']{
+  color:red;
+}
+img[src$='.svg']{
+  border-radius: 50px;
+}
+img[src$='jpg'],img[src$='png']{
+  border: 1px solid black;
+  border-radius: 5px;
+}
+*{
+  margin: 1vh 1vw;
+}
+h3+h4{
+  text-decoration: underline;
+}
+h2~p{
+  text-align: justify;
+}
+article>h2{
+  text-decoration: underline;
+}
+ul li{
+  list-style: circle;
+}
+a[href^='http://']:visited{
+  color: red;
+}
+a:hover{
+  color: green;
+}
+input:focus{
+  width: 160px;
+  height: 140px;
+}
+p::first-letter{
+  text-transform: capitalize;
+}
+p::first-line{
+  font-size: 12px;
+}
+p::selection{
+
+}
+#estudios>ul>li:first-child>a::after{
+  content: '" - after"'
+}
+#estudios>ul>li:last-child>a::before{
+  content: '"before - "'
+}
+#estudios>ul>li:nth-child(2)>a::after{
+  content: '"hijo 2.2"'
+}
+#estudios>ul>li:nth-child(2)>a::before{
+  content: '"hijo 2.1"'
+}

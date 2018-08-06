@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Imagenes adaptativas</title>
+    <meta name="viewport" content="width:device-width,user-scalable=no">
+  </head>
+  <body>
+    <figure>
+      <figcaption>Imagen del concierto</figcaption>
+      <img src="img/concert.jpg" alt="logo concierto" width="100%">
+    </figure>
+    <picture>
+      <source media="(min-width:768px)" srcset="img/concert.jpg">
+      <source media="(min-width:480px)" srcset="img/logoNextU.png">
+      <img src="img/concert.jpg" alt="logo concierto" width="100%">
+    </picture>
+  </body>
+</html>
