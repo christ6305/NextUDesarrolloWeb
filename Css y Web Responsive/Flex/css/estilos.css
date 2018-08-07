@@ -56,8 +56,8 @@ div [class*="bloque"]{
   flex-flow: row wrap;
 }
 
-.contenedor{
+/*.contenedor{
   display:flex;
   flex-direction: row;
   flex-wrap:wrap;
-}
+}*/

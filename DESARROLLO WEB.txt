@@ -1,0 +1,688 @@
+														DESARROLLO WEB
+
+1. FUNDAMENTOS DE HTML
+	U1. BROWSER RENDERING Y ESTRUCTURA XML
+		L1. COMO FUNCIONA EL BROWSER
+			1. COMO FUNCIONA LA WEB
+				- internet gran red de computadores conectados
+				- web es una de las maneras en la que fluye la informacion
+				- la web esta sobre la red
+				- 200ok peticion satisfactoria de tcp
+			2. COMO FUNCIONA EL NAVEGADOR
+				- intert se basa en cliente-servidor
+				- el navegador renderiza la respuesta
+				- estructura:
+					-interfaz de usuario: bara de direcciones y menus excepto ventana principal.
+					-motor de busqueda: muestra el contenido solicitado entre la interfaz y el motor de renderizacion
+					-red: solicitudes http
+					-servidor de la interfaz: widgets, ventanas y cuadros
+					-interprete javascript:analiza y ejecuta js
+					-almacenamiento de datos: cookies que gurdan informacion de los usuarios
+			3. LECTURA
+				- pilares basicos de la arquitecura logica de la web
+					- URI: permite referenciar y describir todos los objetos. Una version elemental es la URL que corresponde a la direccion web
+					- HTML: Hypert Text Markup Language que permite redirigir de un punto a otro en el texto. Son los enlaces en la web.
+					- HTTP: protocolo que envia y recibe la informacion en HTML
+			4. MOTORES DE RENDERIZADO
+				- se renderiza a partir de un modelo
+				- el motor de renderizado esta dividido del navegador para ser reutilizado
+				- ejemplos: blink(chrome),gecko(firefox), webkit(safari), edgehtml(microsoft)
+
+		L2. QUE ES XML
+			1. DEFINICION Y USOS
+				- HTML es un lenguaje de marcado y etiquetas, muestra y define datos
+				- XML(Lenguaje de Marcado Extensible) almacena, transporta datos, tipos de datos. Crea de forma especifica las etiquetas para cada proyecto.
+			3. SINTAXIS XML
+				- conjunto de reglas para garantizar la integridad de datos.
+				- contienen elementos, atributos(propiedades de un elemento) y modificadores
+				- Case sensitive(mayus y minu)
+		L3. QUE ES HTML
+			1. DEFINICION DE HTML
+				- Hyper Text Markup Language
+				- tendencia: clasificacion semantica
+				- arquitectura entre otras:
+							header
+					nav section	aside
+						header
+						article
+							footer
+				- funciones de geolocalizacion, 2d, video y audio, sin conexion, compatibilidad con dispositivos moviles.
+			2. EVOLUCION DE HTML
+				- version 1.0 1993
+				- version 2.0 1995 (tablas simples)
+				- version 3.2 1997(respaldada por W3C organizacion de los estandares)
+				-version 4.0 1998(tablas complejas, formularios,estilos)
+				- version 5.0 (adaptacion a pantalla, geolocalizacion, multimedia,etc)
+			3. COMO SE RENDERIZA HTML
+				- DOM(Document Object Model), representa los elementos html en el navegador, estructura arbol, los elementos son un nodo
+				- <DOCTYPE>-->indica la version html
+				-html5
+					<! DOCTYPE html>
+				-html4
+					<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"u"http://www.w3.org/TR/REC-html40/strict.dtd">>
+				-html3
+					<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+				-html2
+					<!DOCTYPE HTML PUBLIC "-//IETF/DTD HTML//EN">u
+				- se renderiza de forma incremental
+				- parsea el HTML a nodos DOM (convertir)
+		L4. QUE NECESITO PARA COMENZAR
+			1. NOMBRES DE ARCHIVOS Y CARPETAS
+				- para el archivo principal: index.html
+				- los nombres de los archivos con mayus la primera letra
+				- imagenes por nombre sin numeracion
+			2. RUTAS Y ESTRUCTURAS DE DIRECTORIOS
+				- ruta absoluta: toda la ruta
+				- ruta relativa: a partir del lugar ubicado
+				- usar rutas relativas para los proyectos
+			3. EDITORES WEB
+				- gratis: coffeeCup, kompozer, aptana, notepad++,sublimetext,atom
+				-pago: coda, webstorm, zend framework, komodo, dreamweaver
+			4. GIT Y GITHUB
+				- sistema de control de versiones para monitoreo de proyectos
+	U2. ETIQUETAS Y ATRIBUTOS
+		L1. INICIAR CON HTML
+			1. ESTRUCTURA DEL DOCUMENTO BASE
+				- <meta charset="utf-8" para que los caracteres especiales de todos los idiomas sean renderizados por el navegador
+				- <meta name="viewport"=adapatar visualmente la pagina a cualquier dispositivo
+				- content="with=device-with, sea igual al ancho del sipositvo
+				- user-scalable=no, el usuario no podra hacer zoom en la pagina
+			2. ETIQUETA META 
+				- se utiliza para el posicionamiento dentro del buscador, mediante palabras publicas
+				- atributo name: copyright, lan,generator, etc.
+		L2. ETIQUETAS DE ESTRUCTURA
+			1. ETIQUETAS PARA TEXTO Y PARRAFO
+				- las etiquetas h para encabezados o titulos, con numeros dependiendo de las jerarquias
+				- se debe utilizar una sola vez la etiqueta h1
+				- <em></em> <strong></strong> texto resaltado e informa a los buscadores que tienen mas peso desde el punto de vista semantico
+			2. ETIQUETAS PARA LISTAS
+				- ol: listas ordenadas
+				- ul:listas sin ordenar
+				- <dl>: define la creacion de un listado de terminos
+				- <dt>: definir el termino
+				- <dd>: contenido de la definicion
+			3. MANEJO BASICO DE IMAGENES
+				- <img src="" alt="">, alt: ver el titulo cuando pasa el mouse sobre la imagen
+				- para escalar el tamaño de una imagen sin que se deforme, se debe cambiar uno solo atributo: width o height
+			4. ETIQUETAS Y ATRIBUTOS PARA TABLA
+				- tabla: celdas organizadas en filas y columnas
+				- <thead>, <tbody>, <tfoot>: estructura html5 para tablas
+				- colspan="2" combina columnas
+				- rowspan="2" combina filas
+				- <td>: etiqueta resaltada
+		L3. ETIQUETAS DE FORMULARIO
+			1. ETIQUETA FORM Y SUS ATRIBUTOS
+				- <fieldset> envuelve todo el contenido despues de la etiqueta form
+				- <legend> titulo del formularion
+				- autocomplete atributo que complementa campos del formulario
+				- <label>
+				- <input>
+			2. ETIQUETAS PARA CAPTURA DE DATOS
+				- <input type="color", <input type="date", <input type="datetime", <input type="datetime-local", <input type="file", <input type="email",<input type="month",
+					<input type="number", <input type="range",<input type="search", <input type="tel", <input type="time", <input type="url", <input type="week", 
+					<input type="reset", <input type="button", <input type="submit">
+				- type="text" disabled value="Texto", type="text" readonly value="Texto", type="text" maxlength="5", type="number" max="100", type="number" min="10", 
+					type="text" value="Texto ejemplo", type="number" step="5", 
+				- <select class="" name="">: sirve para crear lista desplegable de opciones
+				- <textarea: area de texto
+				- <h1...6>,<em>,<strong>,<b>,<label>:etiquetas de enunciado: sirven para asignar un nombre a las entradas de texto o nombre
+				- https://caniuse.com/ buscar compatibilidad de controles con navegadores
+			3. VALIDACIONES EN HTML5
+				- atributo required: realiza validacion de tipo de dato y dato vacio para tipo input: email, url, number, tel, day
+				- autofocus: elemento predeterminado al ingresar al formulario, se utiliza para un solo elemento 
+		L4. OTRAS ETIQUETAS
+			1. CREACION DE ENLACES
+				- <a href="#"></a>
+				- para internet enlaces absolutos
+				- target="_blank" : atributo para cargar enlace en otra pestaña
+				- etiquetas ancla, utiliza <a href="#"></a>, se puede navegar mediante los ids de las etiquetas
+				- <img src="img" alt=""> agregar un enlace a una imagen
+				- <a href="mailto:joe@example.com?subject=feedback">email me</a> etiqueta para enviar mail
+				- download: para descargar imagen
+			2. ETIQUETAS SEMANTICAS
+				- el concepto de semantica aparecio con html5, en html4, para separar las secciones de una página, se utilizaban etiquetas <div>
+				- son las etiquetas que le dan significado a las partes de una pagina
+				- son interpretadas rapidamente por el navegador, permiten ser renderizadas y visualizadas facilmente
+				- header: logo, nombre de la pagina web
+				- nav: seccion que contiene todos los enlaces de navegacion
+				- section: agrupa contenido que hacen referencia a un mismo tema en general
+				- article: utilizado para representar cualquier contenido, ej. noticias, publicacion, mensaje de foro
+				- aside: utilizado para la creacion de un submenu lateral, ayuda para tener enlaces a otras paginas
+				- footer: informacion relacionada con los creadores, contactos, copyright, etc.
+	U3. HTML5 - ETIQUETAS MULTIMEDIA
+		L1. FORMATOS Y OPTIMIZACION DE MEDIA PARA LA WEB
+			1. MEDIA WEB
+				- imagenes(bits,vectoriales), colores, formatos de sonido, audio digital, video, resoluciones, relaciones de aspecto.
+			2. INFOGRAFIA: MODOS DE COLOR WEB
+				- El color digital son números en computadores ordenados de tal forma que al ser representados en dispositivos como monitores(RGB) a dispositivos de salida como 	impresoras(CMYK) los percibimos como color
+				- https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/01_Fundamentos_HTML/Infograficos/WEB16S_C1U3L1_Infografia1_Imagen_Digital_V1-2.png
+			3. INFOGRAFIA: IMAGEN DIGITAL
+				- Una imagen digital o gráfico digital es la representación bidimensional de una imagen empleando bits, que se genera con procesos de la informática y con cualquier dispositivo de tipo digital
+				- https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/01_Fundamentos_HTML/Infograficos/WEB16S_C1U3L1_Infografia1_Imagen_Digital_V1-1.png
+			4. INFOGRAFIA: AUDIO DIGITAL
+				- El audio digital es la codificación digital de una señal eléctrica que representa una onda sonora. Consiste en una secuencia de valores enteros y se obtienen de dos procesos: el muestreo y la cuantificación digital de la señal eléctrica.
+				- https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/01_Fundamentos_HTML/Infograficos/WEB16S_C1U3L1_Infografia2_Audio_Digital_V1.jpg
+			5. INFOGRAFIA: VIDEO DIGITAL
+				- El video digital es un tipo de sistema de grabación de video que funciona usando una representación digital de la señal de vídeo, en vez de señal analógica.
+				- https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/01_Fundamentos_HTML/Infograficos/WEB16S_C1U3L1_Infografia3_Video_Digital_V1.jpg
+		L2. ETIQUETA <audio> y <video>
+			1. DEFINICION E IMPLEMENTACION
+				- autoplay: Reproduce el video inmediatamente se abre la web. sin necesidad de dar clic en el boton de reproduccion
+				- Loop: Este atributo se encarga automaticamente de reproducir el audio siempre que termine
+				- Preload none: Este atributo tiene un comportamiento especial. Cuando se trabaja con pesados archivos multimedia, No almacena los archivos
+				- Preload auto: Almacena temporalmente el archivo multimedia
+				- atributo controls poster: en caso de que el video no se muestre, se visualiza una imagen
+				- atributo controls preload="auto", evita que se cargue constamente el video, lo almacena
+			2. ETIQUETA <source>
+				- añadir dentro del elemento la etiqueta source para que en caso de que el navegador no soporte audio o video, tome como segunda opcion
+				- <source src="video/video.ogg" type="video/ogg">
+		L3. ETIQUETA IFRAME
+			1. DEFINICION E IMPLEMENTACION ETIQUETA VIDEO
+				- incrusta paginas extenas, muestra otro sitio web
+				- tener en cuenta que los sitios no tengan popup
+				- paginas que no soliciten datos
+				- sandbox="allow-forms" : permite que los formularios dentro del iframe envien datos, 
+				- sandbox="allow-popups" : permiten que se ejecuten ventanas emergentes
+				- sandbox="allow-scripts" : permite que se ejecuten archivos javascripts
+				- sandbox="allow-top-navigation" : permite que el sitio contenido en el iframe por otro propuesto por el mismo
+				- srcdoc="" : permite agregar directamente al iframe codigo html
+				- para agregar iframes de paginas, buscarlas en internet
+				- atributo allowfullscreen: pantalla completa
+	U4. HTML GRAFICO
+		L1. QUE ES UN ARCHIVO SVG
+			1. LECTURA
+				- Los Gráficos Vectoriales Redimensionables o más conocidos por sus siglas en inglés SVG (Scalable Vector Graphics), son una especificación recomendada por el World Wide Web Consortium (W3C) desde septiembre de 2001 como estándar para describir gráficas de dos dimensiones en formato XML. Este estándar surge a partir de la idea de generar un formato de archivo para describir elementos gráficos vectoriales. Varias empresas como Microsoft con el VML (Vector Markup Language) y Adobe en coordinación con IBM, Netscape y SUN con su PGML (Precision Graphics Markup Language), participaron en las versiones previas de lo que luego se convertiría en SVG.
+				
+				Entre las ventajas que tienen las imágenes SVG, se encuentran las siguientes: generar archivos que ocupen poco espacio en la memoria y puedan comprimirse de manera óptima; permitir que las imágenes puedan escalarse a cualquier tamaño sin perder nitidez (exceptuando tamaños muy pequeños); facilitar la creación de gráficas tanto estáticas como animadas la cuales pueden ser de los siguientes tipos: figuras vectoriales (por ejemplo: trazos que consisten en líneas rectas y curvas), imágenes y textos.
+
+				Las imágenes en formato SVG pueden agruparse, estilizarse, transformarse y componerse de objetos previamente renderizados. Dentro de sus características principales se encuentran las transformaciones anidadas, trazos recortados, capas de transparencia, efectos de filtro y objetos de plantilla.
+
+				Los dibujos SVG pueden ser interactivos y dinámicos; sus animaciones se definen e inician de manera declarativa (incrustando elementos SVG animados dentro del contenido) o utilizando lenguajes de script (por ejemplo JavaScript). Pueden desarrollarse aplicaciones sofisticadas utilizando lenguajes de script avanzados para manipular los archivos SVG a partir del Document Object Model (DOM).
+			2. DEFINICION DE LA ETIQUETA Y ESPACIO DE TRABAJO
+				- <image xlink:href="img/concert.jpg"width="500px" height="500px"> dentro de la etiqueta 
+		L2. ETIQUETA SVG Y SUS ATRIBUTOS
+			1. FIGURAS BASICAS Y ATRIBUTOS
+				- cuenta con etiquetas para construir cualquier objeto, para tener control independiente con cada uno mediante javascript
+				- las figuras basicas son: circle,rect,polygon, polyline, ellipse, line
+			2. ETIQUETAS COMPLEMENTARIAS
+				- etiquetas de agrupamiento, definicion de elementos, configurar el diseño, uso de texto, degradado. etc
+				- <g>: elemento contenedor para agregar mas elementos dentro, que heredan los atributos
+				- <defs> define parte de codigo que puede ser reutilizable
+				- <desc> asigna una descripcion
+				- <use> hace referencia a elementos dentro de dev mediante href
+				- <path> recibe valores para formar trazos que forman lineas basicas y complejas
+		L3. HERRAMIENTAS SVG
+			1. CREACION DE SVG CON HERRAMIENTAS ONLINE
+				- https://github.com/SVG-Edit
+				- crear imagen, guardar, abrirla, guardarla, abrirla con atom
+			2. CREACION DE SVG CON OTRAS HERRAMIENTAS
+				- https://inkscape.org/es/ herramienta de codigo abierto, puede convertir cualquier imagen a svg
+
+2. CSS Y DISEÑO WEB RESPONSIVE 
+	U1. INTRODUCCION A CSS
+		L1. QUE ES EL CSS
+			1. Lectura 1
+				- Hoja de estilo en cascada o CSS por su sigla en inglés (Cascading Style Sheets) es un mecanismo simple que sirve para adicionar estilos a un documento web con el fin de modificar su presentación. Al diseñar una página web empleamos el HTML para definir la estructura del documento y CSS para aplicar el formato gráfico.
+				Con CSS especificamos la manera en que deben renderizarse los diferentes elementos de un documento HTML en las pantallas, los medios impresos o en cualquier otro dispositivo. El estándar CSS cuenta con diversas funcionalidades tales como: un conjunto de selectores avanzados, la relación con tipografías web, propiedades orientadas hacia el mejoramiento de la accesibilidad de usuarios con discapacidades, opciones para manipular elementos HTML en 2 y 3 dimensiones, herramientas para generar animaciones sin usar lenguajes de script, modos de color avanzados e integración con la mayoría de los navegadores.
+				Las especificaciones del estándar CSS son definidas por el World Wide Web Consortium (W3C) y están orientadas por principios que buscan una web para todos con acceso desde cualquier dispositivo, estipulando una serie de metodologías y estándares para mejorar la experiencia de los usuarios web desde cualquier parte del mundo.
+				En la actualidad, las opciones del CSS puede ser extendidas y potencializadas a través de preprocesadores y postprocesadores CSS, de la mano de herramientas de automatización de procesos (Gulp) y de frameworks CSS (Bootstrap).
+			2. CSS HISTORIA Y EVOLUCION
+				- 1994 La W3C genera recomendaciones y estandares
+				- 1995 La W3C propuso la generacion de las hojas de estilos para html, Bert bos propuso CSS
+				- 1996 CSS NIVEL 1, fuentes, texto, cajas, espaciados, listas
+				- 1998 CSS NIVEL 2, ampliacion de la anterior version que incluye, posicionamiento x,y, types, css auditivas, texto bidireccional
+				- 2008 CSS NIVEL 2 (REVISION), 
+				- 2009 CSS 3D, aparece un primer boceto que permite a los desarrolladores crear interfaces en 3d
+				- 2011 CSS 2.1, modulo de color nivel 3, espacios de nombres, selector nivel 3
+				- 2012 CSS 2.1(ESPECIFICACION MEDIA QUERIES) sale la especificacion para Media Queries
+				- 2013 CSS 2.1 (REVISION) aparece la especificacion sobre el atributo style
+				- 2015 CSS NIVEL 3, definida en modulos, cada uno de los cuales añade funcionalidad de la css2
+				- 2019 CSS NIVEL 4.
+			3. TENDENCIAS CSS
+				- MOVILIDAD WEB:
+					- Responsive Web Design (Diseño web adaptativo)
+					Consiste en una serie de técnicas y metodologías que buscan que un contenido web se vea correctamente en cualquier dispositivo, a través del uso de media-queries (módulo CSS3). Una media-query permite controlar la presentación de un mismo contenido HTML a partir de condiciones basadas en el ancho, el alto y el color de los dispositivos de salida.
+					- Mobile first 
+					Es una metodología que hace parte del diseño web adaptativo y que se usa para desarrollar los sitios web de manera que se rendericen en condiciones óptimas, primero en dispositivos móviles y luego, según el tamaño, en pantallas de computador.
+					- Frameworks y librerías CSS
+					Los frameworks son entornos de desarrollo o de trabajo que cuentan con múltiples opciones de herramientas que podemos usar según las necesidades de cada proyecto. Utilizar un buen framework CSS mejorará el resultado final de nuestros desarrollos y al mismo tiempo nos permitirá ahorrar cientos de líneas de código. En la actualidad, la mayoría de los frameworks CSS tienen incorporados sistemas de grid, así como decenas de componentes preconfigurados, tipografías web, entre muchas otras opciones. Algunos de los más populares son Bootstrap, Less Framework, Skeleton y Foundation.
+				- MULTIMEDIA
+					- 3D
+					La especificación CSS3, que reúne las transformaciones CSS 2D, CSS 3D y SVG, permite construir reglas para poder aplicar a los elementos transformaciones en espacios de dos y tres dimensiones.
+					- Animate
+					Este módulo de CSS permite animar los valores de las propiedades sobre una línea de tiempo, usando keyframes. Con él, puede especificarse la duración, el número de repeticiones y el comportamiento de los keyframes. Existen librerías especializadas que nos permiten crear animaciones complejas sin necesidad de emplear lenguajes de script.
+				- ACCESIBILIDAD
+					Accesibilidad web se refiere a las herramientas y metodologías que tienden a facilitar el acceso de cualquier persona a la web, independientemente del tipo de hardware, software, infraestructura de red, idioma, cultura, localización geográfica y capacidades de los usuarios.
+					El W3C cuenta con un proyecto llamado Iniciativa de Accesibilidad Web que desarrolla y propone actividades que motivan el acceso a la web de personas con discapacidades. El CSS tiene un conjunto de propiedades que llama “aurales o auditivas” y que utiliza una combinación de síntesis de voz y efectos de sonido para hacer que el usuario escuche en vez de tener que leer la información.
+			4. QUE ES EL CSS3
+				- se definen independientemente del html
+				- se realiza a traves de selectores: son formas de referenciar etiquetas o elementos del dom
+			5.  VALIDADOR W3C
+				- Un recurso interesante para los desarrolladores web son los validadores que son herramientas que permiten verificar que el código HTML o CSS sea correcto, es decir, que cumpla con los lineamientos y recomendaciones de la Word Wide Web Consortium (W3C). Este organismo, formado por varias organizaciones, tiene como misión establecer estándares para la web, publicar directrices para crear webs usables y accesibles. Una de las más importantes ventajas de seguir estos estándares es que nos garantiza la interoperabilidad entre navegadores.
+				- La W3C provee una herramienta para realizar las validaciones de HTML y CSS  http://validator.w3.org/
+				 	- Validate by URI: Es posible validar el HTML y CSS de una URI que ya exista utilizando la opción
+					- Validate by file Upload: Si aún no se encuentra el recurso que quieres validar en internet, es posible cargarlo y aplicarle la validación haciendo uso de la opción
+					- Validate by Direct input: En esta opción es posible validar una porción de código.
+				Cuando validas tu código aumentas su interoperabilidad, te aseguras que la visualización sea la correcta y deseada en la mayoría de los navegadores y facilitas el mantenimiento debido a que cumpliendo los estándares tú código es mucho más legible. Cada día los navegadores actuales están convergiendo y comprendiendo la importancia de los estándares establecidos por la W3C.
+		L2. COMO FUNCIONA Y SINTAXIS
+			1. HOJA DE ESTILOS COMO ATRIBUTO, ETIQUETA Y ARCHIVO EXTERNO
+				- diferencia entre la etiqueta style y el atributo style, en la modificacion de todas o solo una etiqueta
+				- archivo externo css en carpeta llamada css
+				- <link rel="stylesheet" href="css/estilos.css">
+			2. HERENCIA EN HOJAS DE ESTILO
+				- todos las etiquetas hijo heredan las caracteristicas de los padres
+				- se puede evitar la herencia, agregando estilos a cada etiqueta en el archivo css
+			3. HOJAS DE ESTILO EN CASCADA
+				- se refiere a cual estilo tiene prioridad jerarquica
+				- hojas de estilos de usuario
+				- hojas de estilos de autor: el css externo
+				- si en html se tienen varios estilos de autor, se da prioridad a los estilos del ultimo archivo
+				- si se quiere obligar al navegador a mostrar un estilo exacto que sea prioritario sobre los demas estilos, utiliza la expresion important sobre la etiqueta 
+				- si se utiliza la etiqueta <style> sobre un archivo html tendra prioridad exceptuando los estilos que tengan la expresion important
+				- prioridades de los estilos de menor a mayor
+					1. Estilos del navegador.
+					2. Hoja de estilos del usuario (archivo vinculado).
+					3. Etiqueta <style>.
+					4. Atributo <style>.
+					5. !Important
+		L3. SELECTORES
+			1. SELECTORES DE ETIQUETA
+				- conjunto de elementos que sirven para referir a los elementos del dom
+				- de etiqueta: buscan directamente por el nombre de la etiqueta
+			2. SELECTORES ID, CLASS
+				- id: para elementos individuales #
+				- class: para varios elementos .
+			3. SELECTORES DE ATRIBUTOS
+				- son capaces de realizar busquedas a traves de todos los atributos de las etiquetas
+				- img[src$=svg] hace que el selector busque al final de la palabra al final del atributo
+				- img[src^=svg] busca al principio del valor de atributo
+				- img[src~=svg] cuando el atributo tiene muchos valores por separado, entonces busca la palabra completa entre todos los valores
+				- img[src|-=svg] busca el valor al principio del contenido seguido de un guion
+				- [title*='descripcion'] selector universal, para todos los atributos que contengan la regla especifica
+			4. SELECTORES AVANZADOS
+				- * selector universal, a todos los elementos
+				- h1+h2 sirve para refenciar un elemento con la condicion de que el segundo elemento debe estar precedido por el primer elemento.
+				- h2~p selecciona todos los elementos que estan precedidos por el primer elemento
+				- article>h2 todos los elementos que son hijos 
+				- ul li igual que el anterior, se referencia a todos los elementos
+		L4. PSEUDOCLASES Y PSEUDOELEMENTOS
+			1. APLICACION DE PSEUDOCLASES Y PSEUDOELEMENTOS
+				- palabras claves que pueden representar el estado de un elemento html
+				- a[href^='http://']:visited{
+				- a:hover{
+				- input:focus{
+				- p::first-line{
+				- p::first-letter{
+				- #estudios>ul>li:first-child>a::after{
+				- #estudios>ul>li:last-child>a::before{
+				- #estudios>ul>li:nth-child(2)>a::after{
+				- #estudios>ul>li:nth-child(2)>a::before{
+				- Las pseudo-clases son palabras clave que representan el estado en el que se puede encontrar un elemento HTML, algunas pseudo-clases son :link, :active, :hover, :focus, :checked, :first-child, :last-child, :nth-child. Por otro lado, los pseudo-elementos se refieren a partes de la estructura HTML que se encuentran ocultas pero que, al igual que las pseudo clases, podemos usar en cualquier momento. Todos los elementos HTML tienen pseudo-elementos, los pseudo-elementos existentes son ::after, ::before, ::first-letter, ::first_line y ::selection.
+	U2. PROPIEDADES CSS
+		L1. MODELO DE CAJAS Y PROPIEDADES DE CUADRO
+			1. MODELO DE CAAJS EN CSS
+				- Uno de los conceptos fundamentales del lenguaje CSS es el modelo de caja (Box Model), debido a que todos los elementos HTML son tratados como si fueran cajas que se organizan jerárquicamente unas dentro de otras, siendo la caja principal la que corresponde a la etiqueta < html > del documento web
+				- Cada etiqueta HTML representa una caja con propiedades especiales que son fundamentales a la hora de realizar posicionamientos. Estas propiedades son:
+					- Margin: Es el espacio que se genera desde el borde de la caja hacia afuera.
+					- Border: Es la línea que se genera alrededor de la caja. En orden jerárquico, border se encuentra más abajo que margin.
+					- Padding: El padding o relleno es el espacio que se genera dentro de la caja, entre el borde y el contenido.
+					- Width y height representan el ancho y alto de la caja respectivamente.
+				- ancho total de un elemento: 
+					margin-left: 30px + border: 10px + padding-left: 50px + width: 300px + padding-right: 50px + border: 10px + margin-right: 30px = 480px
+			2. MARGIN, PADDING, BORDER Y CONTENT 
+				- tipos de borde: 
+					- none: sin borde, el ancho es definido como 0. Es por defecto
+					- hidden: igual que none, solo que en caso de conflictos en elementos de tabla.
+					- dashed: serie de guines ----
+					- dotted: serie de puntos ...
+					- double: dos lineas rectas continuas separadas un numero de pixeles definido como borde-width
+					- groove: efecto de hundimiento del borde
+					- inset: efecto de hundimiento de la caja
+					- outset: efecto inverso a inset, la caja parece salir como 3d
+					- ridge: efecto inverso a groove, el borde parece salir como 3d
+					- solid: linea unica, recta, solida
+				- margin:{superior}{derecha}{inferior}{izquierda} como manecillas del reloj
+				- margin{todosloslados}
+				- margin{superior inferior}{izquierda derecha}
+				- padding: espacio contenido entre la caja y el borde
+			3. UNIDADES DE MEDIDA EN CSS3
+				- En CSS3 es necesario utilizar medidas ya que son usadas por muchas de las propiedades más importantes. Con estas propiedades definimos altos, anchos, márgenes y tamaños de letra entre muchos otros formatos. Hasta el momento hemos mencionado los píxeles, pero en realidad en la web existen dos grandes grupos de unidades de medida disponibles para realizar nuestras maquetaciones y estructuras HTML de forma profesional
+				- Unidades Absolutas
+				Estas unidades son las que están completamente definidas y no dependen de otros valores de medida. Entre las unidades de medida absoluta se encuentran:
+					in: (Pulgadas en inglés). Una pulgada equivale a 2.54cm.
+					cm: Centímetros.
+					mm: Milímetros.
+					pt: Puntos, Un punto equivale a 1 pulgada/72, aproximadamente 0.35 milímetros.
+					pc: Picas. Una pica equivale a 12 puntos, aproximadamente 4.23 milímetros.
+				La ventaja de las unidades absolutas es que siempre tendremos un valor fijo, sin preocuparnos por cálculos externos, siempre estaremos seguros de que el valor definido no cambiará en ninguna pantalla ni resolución en la que sea vista nuestra página web. La desventaja de las unidades de medida absolutas es que son las menos eficientes a la hora de trabajar bajo el modelo de Mobile-first o Responsive Design, ya que las resoluciones y medidas de pantalla cambian constantemente.
+				- Unidades Relativas
+				Las unidades de medida son mucho más flexibles, ya que dependen de otros valores de referencia para adaptarse. Un ejemplo de esta unidad es el porcentaje (%), Si aplicamos al hijo de un elemento HTML una propiedad para que ocupe el 50% del ancho de su padre, éste siempre medirá exactamente el 50%, sin importar el tamaño de su padre. Si el elemento padre se hace más grande o más pequeño el hijo siempre ocupará la mitad del valor total (50%).
+				Las unidades de medida relativas se dividen en dos partes:
+					- Relativas a la tipografía
+					Existen tres tipos de medidas relativas que se basan en el tamaño de la tipografía.
+						em: Se basa en el elemento que contenga al elemento.
+						rem: Se basa en el tamaño de fuente que tenga la raíz del documento HTML es decir el < body >.
+						ex: relativa con respecto a la altura de la letra “x” minúscula del tipo y tamaño de letra del elemento padre.
+					- Relativas al viewport (Área visible del navegador/ventana)
+						vw: (Viewport Width) Relativo al ancho del viewport. Si el ancho es 1280px entonces 1vw es equivalente a 1280px.
+						vh: (Viewport Height) Relativo al alto del viewport, si el alto son 900px entonces 1vh es equivalente a 900px.
+						vmin: Entre vw y vh toma el que tenga menor valor.
+						vmax: Entre vw y vh toma el que tenga mayor valor.
+					 Las medidas relativas al viewport son muy importantes cuando estamos haciendo diseños web que se adaptarán a múltiples dispositivos.
+		L2. FLUJO Y POSICIONAMIENTO DE CAJAS
+			1. DISPLAY
+				- sus opciones establecen la forma de la caja, todos los elementos html tienen esta propiedad
+				- las cajas se cargan en el navegador de arriba hacia abajo y de izquierda a derecha. ocupando el ancho total.
+			2. FLOAT
+				- especifica si un elemento se puede salir del flujo normal de las cajas 
+			3. POSITION
+				- la posicion de las cajas es estatica
+				- segun las caracteristicas del proyecto, las cajas deben posicionarse de tal forma que se queden fija en una posicion independientemente de la navegacion de la pagina
+				- fixed: ubica la caja en una posicion fija en relacion con el border de la pantalla
+					- top, left,bottom,right
+				- absolute: posiciona las cajas en un lugar especifico dentro de un contenedor en relacion al contenedor
+				- relative: establece el punto de partida de referencia para el posicionamiento de un elemento a partir de las propiedades de la caja contenedora 
+			4. FLEX
+				- permite la distribucion de la cajas de manera fluida y dinamica de tal manera que se ajusten a los cambios de la ventana
+				- involucra a un (contenedor) padre y los hijos(item). 
+				- flex-direction:  column,row, column reverse,row reverse
+				- flex-wrap: nowrap, wrap, wrap-reverse : Determina si los elementos 	se van a agrupar en una sola línea o si pasan a la línea 		siguiente cuando ocupen el 100% del tamaño de la pantalla
+				- flex-flow: agrupa las dos propiedades anteriores: 
+				- flex-grow: determina como crecera un elemento,  
+				- flex-shrimp: determina como decrecera un elemento.
+				- flex-basis: indica el tamaño de los elementos antes de su distribucion de las propiedades anteriores
+			5. DISEÑO O MAQUETACION FLUIDA
+				- Al pensar un poco en lo que son las diferentes resoluciones de pantalla y los diferentes dispositivos que pueden acceder a nuestra página o aplicación web, es necesario mencionar una técnica adicional que sirve un poco cuando estamos haciendo diseños adaptables.
+				La combinación de estas dos, nos genera un diseño o maquetado en el que los elementos van fluyendo de manera correcta, sin dañar su estilo y posicionamiento, adecuándose al tamaño y resolución de pantalla que esté accediendo al dispositivo. Realizemos un ejemplo para tener más claro el concepto de diseño fluido.
+				Esta técnica se basa exclusivamente en tener contenedores y elementos con anchos en porcentajes, también se suele utilizar las unidades de medidas relativas al viewport (VH y VW)
+		L3. PRPIEDADES DE TEXTO Y DE FUENTE
+			1. TIPOGRAFIAS WEB
+				- usa las tipografias del ordenador
+				- tipografia estandar: arial,georgia,verdana, soportadas por todos los so
+				- para pc y mac son diferentes
+				- em: tamaño por defecto de la fuente del navegador (16px), mac(12px)
+				- font-size: tamaño, utilizar em
+				- font-variant: se convierten los elementos del texto en versalitas
+				- font-style: formato cursiva
+				- font-weight:negrita
+				- OpenType(OTF)
+				- Web Open Font Format(WOFF)
+				- Open Sans(Google Fonts)
+				- http://ftp.gnu.org/gnu/freefont/
+				- @font-face: se puede utilizar mediante esta propiedas las tipografias anteriores.
+				- etiqueta link haciendo referencia al servidor en donde se alojan los archivos de fuente dentro del head
+			2. PROPIEDADES BASICAS DE TEXTO
+				- text-align: alineacion de texto, left, right,center, justify
+				- text-indent: sangria
+				- text-decoration: underline, overline, line-through, none
+				- text-transform: uppercase, lowercase, capitalize
+				- letter-spacing: en pixeles
+				- word-spacing: espacio entre letas
+				- Las propiedades de fuente se pueden especificar en una sola línea, por ejemplo: 
+					font: normal small-caps normal 16px/1.4 Georgia;
+					es equivalente a:
+					font-family: Georgia;
+					line-height: 1.4;
+					font-weight: normal;
+					font-stretch: normal;
+					font-variant: small-caps;
+					font-size: 16px;
+			3. SOMBRAS Y EFECTOS
+				- text-shadow: la sombra es una repeticion de texto usando otro color
+				- 1px(pixeles hacia la derecha) 2px(hacia abajo) 3px(blur,desenfoque) red(color);
+		L4. PROPIEDADES DE VISUALIZACION Y ORGANIZACION 
+			1. PROPIEDADES DE COLOR Y FONDO
+				- rgb(51, 153, 204);
+				- hsl(0, 0%, 21%) representa en color mediante matiz, saturacion e intensidad
+				- valor a(alfa): 0 transparencia 1 sin transparencia
+				- background: url(../img/papel_dobaldo.jpg) left top repeat;
+				- background-size: largo, espacio, ancho
+			2. EFECTOS DE CAJA, DEGRADADOS Y SOMBRA
+				- border-radius: 5px;
+				- border-radius: 50px 30px;
+				- border-radius: 50px 30px 15px;
+				- border-radius: 50px 30px 15px 5px;
+				- -moz-border-radius:5px
+		          -webkit-border-radius:5px
+		        - degradado lineal: background: linear gradient(#fff,#67B8DE,#CDEDFF);
+		        - radial-gradient(#fff,#3399cc,#fff)
+		        -box-shadow:
+		        	- h-shadow: posicion horizontal de la sombra
+		        	- v-shadow: posicion vertical de la sombra
+		        	- blur: distancia del desenfoque
+		        	- spread: tamaño de la sombra
+		        	- color: color de la sombra
+		        - box-shadow: 3px 5px 10px 0 rgba(0,0,0,0.2)
+		        - box-shadow: 30px 30px
+		    3. PROPIEDADES PARA TABLAS
+		        - border-collapse:collapse se utiliza para para combinar los bordes de una tabla en uno solo
+		    	- text-align: center,left,justify,right,inherit
+		    	- vertical-align: baseline,bottom,middle,sub,super,text-bottom, text-top,top,inherit
+		    	- tr:nth-child(odd)
+		    	- tr:nth-child(even)
+	U3. CSS ADAPTATIVO
+		L1. DISEÑO WEB ADAPTATIVO  
+			1. DISEÑO WEB ADAPTATIVO
+				- Responsive Web Design (RWD) o Diseño Web Adaptativo es una técnica que permite desarrollar páginas web que se adapten a cualquier dispositivo. Consiste en usar HTML y CSS3 con el fin de acomodar los contenidos de una página para que se vean bien en cualquier tipo de plataforma.
+				Antes de que se difundieran las técnicas de desarrollo web adaptativo, debíamos construir	páginas específicas para cada dispositivo donde queríamos que se vieran.
+				ahora, usando estas metodologías, sólo tendremos que desarrollar una página HTML que luego	podrá ser compatible con cualquier tipo de dispositivo, lo cual reducirá notablemente los costos y el tiempo.
+				Para lograr que un proyecto web sea adaptativo, debemos determinar el viewport, o el área de la página web que será visible para el usuario, y definir un conjunto de condiciones (media queries) y reglas CSS3 de acuerdo con cada tamaño de pantalla, esto, estableciendo las características de los elementos para que puedan verse correctamente en cada dispositivo.
+				Actualmente existe una amplia gama de frameworks CSS para diseños web de este tipo, la cual	cuenta con herramientas muy útiles al momento de desarrollar proyectos que requieran adaptabilidad.
+			2. 	VENTAJAS DEL DISEÑO WEB ADAPTATIVO
+				- permite que los proyectos se vean bien en cualquier dispositivo
+				- compatibilidad visual con diferentes dispositivos
+				- los contenidos se ajustan al movil optimizando la pantalla
+				- adaptacion de un solo tipo web para todos los dispositivos
+				- unifica la informacion en todas las plataformas
+				- permite que los portales sean encontrados con mayor facilidad, google en moviles da prioridad a paginas con diseño adaptativo
+			3. LA ERA DE LOS DISPOSITIVOS MOVILES
+				- 1956. telefono celular, gran tamaño y peso por lo que solo se usaban en vehiculos, ej el MTA
+				- 1983. el DynaTAC 8000X, de motorola, sus baterias solo duraban 60 minutos y costos elevados.
+				- 1992, IBM-Simon, primer smartphone, contaba con calendario, reloj mundial, correo, fax, 1mb de memoria interna, pantalla tactil 160x293px, precio alto.
+				- 2007, Iphone, apple lanza el Iphone 1a, de marcacion sensible al movimiento. introduce el concepto de app y tienda de apps
+				- 2008, Android, so de codigo abierto, aparece con el T-Mobile G1.
+				- 2010, Windows Phone y iPad, ms lanza su so para moviles, apple lanza un dispositivo con pantalla mas grande. Se acuña el concepto de Diseño Web Adaptativo por Marcotte Ethan 
+				- 2011 diseño responsive, se publica el libro Responsive Web Design, especificando la teoria 
+				- 2013. 4g, el 20% de la poblacion mundial posee un smartphone y 10% una tablet. las redes 4g permiten navegar a altas velocidades
+				- 2016. dispositivos moviles sobre equipos de escritorio, la navegacion movil supera a la de escritorio. El 70% de usuarios prefieren paginas que se vean bien en dispositivos moviles.
+				- todas las paginas seran adaptativas
+		L2. USO DEL VIEWPORT
+			1. DEFINICION VIEWPORT
+				- El viewport es un concepto que aparece junto con el Diseño Web Adaptativo y el Diseño web, inicialmente fue pensado para que los sitios web pudieran adaptarse a dispositivos móviles.
+				Este concepto hace referencia al área disponible para renderizar una página web, es decir, el área visible del navegador (Excluyendo la barra de búsqueda, marcadores, pestañas y demás cosas del navegador).
+				- El viewport se configura dentro de la etiqueta a través de un elemento . Entre los valores de configuración que podemos especificarle se encuentran:
+					- Nivel de escalado que puede realizar el usuario.
+					- El zoom inicial que debe realizar el navegador.
+					- El área disponible para renderizar.
+				<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0>  
+					- width=device-width: Área disponible para renderizar, en este caso todo el ancho que tenga el viewport del dispositivo.
+					- user-scalable=no: El usuario no puede hacer escala.
+					- initial-scale=1.0: Nivel de zoom/escala Inicial.
+				Esta es la definición oficial para que tu página web se adapte de forma correcta a los móviles. Así se ve una página web en un dispositivo móvil sin y con viewport
+			2. RESOLUCIONES DE PANTALLA
+				- La era de los dispositivos móviles trajo con sigo algunos problemas para los desarrolladores y diseñadores web. A la hora de comenzar un proyecto web aparecen preguntas como ¿Qué resolución de pantalla es la adecuada para realizar un diseño o maquetación web?, ¿La página web será flexible o fija?, ¿Será usable en móviles? .
+				La respuesta a todo esto es simple y la hemos mencionado en temas anteriores. “¡Diseñar sitios web adaptables y usables en móviles en la actualidad no es ni un valor añadido, ni una característica especial de una página, es una obligación!”, por tanto, tenemos que tener en cuenta todas las resoluciones posibles, diseño flexible y usabilidad.
+				- El problema
+				La cantidad de resoluciones de pantalla que encontramos en el mercado es demasiado amplia. Teléfonos celulares, Tablets, Computadores Portátiles. Aparte de todo esto debemos tener en cuenta la orientación del dispositivo, el tipo de densidad de píxeles y si es retina display como es el caso de muchos de los dispositivos 	Apple.
+				- Entre las medidas más comunes de cada dispositivo se encuentran las siguientes:
+					- Celulares
+					iPhone 4 y 4S: 320 x 480
+					iPhone 5 y 5S: 320 x 568
+					iPhone 6: 375 x 667
+					iPhone 6+: 414 x 736
+					Nexus 4: 384 x 598
+					Nexus 5: 360 x 598
+					Galaxy S3, S4, S5: 360 x 640
+					HTC One: 360 x 640
+					- Tabletas
+					iPad (*) 1024 x 768
+					Galaxy Tab 2 y 3 (7.0 pulgadas): 600 x 1024
+					Galaxy Tab 2 y 3 (10.1 pulgadas): 800 x 1280
+					Nexus 7: 603 x 966
+					Nexus 10: 800 x 1280
+					- Computadoras
+					Pantallas pequeñas: 1024x600
+					Pantallas medianas: 1280 x 720 / 1280x800
+					Galaxy Tab 2 y 3 (10.1 pulgadas): 800 x 1280
+					Pantallas grandes: ancho superior a 1400 píxeles, ejemplo 1400x900 o 1600 x 1200.
+			3. DECLARACIONES DEL VIEWPORT
+				- width: anchura virtual del viewport dispositivo
+				- height: altura virtual del viewport dispositivo
+				- initial-scale: escala inicial del documento, le indica al navegador del dispositivo el zoom inicial
+				- maximum-scale: escala maxima del documento.
+				- minimum-scale: escala minima del documento.
+				- user-scalable: se le permite o no al usuario hacer zoom.
+		L3. USO ADAPTATIVO DE IMAGENES Y VIDEO
+			1. IMAGENES ADAPTATIVAS
+				- <figure> contenedora de las imagenes img
+				- <picture> el navegador selecciona imagenes que mejor se adapten, efectiviza la carga de las imagenes en los dispositivos.
+			2. VIDEO ADAPTATIVO
+				- se debe quitar las propiedades width y height, agregar el css video{width: 50%;max-width: 100%;}
+		L4. MEDIA QUERIES
+			1. MEDIA QUERIES
+				- Los media queries son una extensión muy útil del CSS que permiten detectar las características de los dispositivos que accedan a nuestra web y a partir de esos datos crear hojas de estilo más personalizadas que llevan finalmente a aumentar y mejorar la experiencia del cliente en nuestro sitio.
+				- Los media queries, permiten que el browser decida cómo mostrar contenido dependiendo de las condiciones que encuentre en el dispositivo y esas condiciones se dan a través de unos media types los cuales podemos agrupar en:
+					- print - Vista de Impresión.
+					- min-width - Tamaño mínimo en horizontal.
+					- max-width - Tamaño máximo en horizontal.
+					- min-height - Tamaño mínimo en vertical.
+					- max-height - Tamaño máximo en vertical.
+					- orientation - Posición en la que se encuentre el dispositivo.
+					- resolution - Tamaño ocupado por el browser en píxeles.
+					- color - Detecta si la pantalla en que se visualiza el sitio es a color o en blanco y negro.
+					- light-level - Densidad de la luz del dispositivo
+				Dependiendo de los media types deben crearse estilos individuales que se ajusten a las condiciones detectadas. El dispositivo renderizará los estilos creados específicamente para cada condición.
+					VENTAJAS
+					- Permite ajustar el sitio web a cualquier dispositivo.
+					- Aparecen para mejorar la visualización del diseño adaptable.
+					DESVENTAJA
+                    - Se requiere escribir repetidamente algunas de las reglas css que deseen aplicarse por cada dispositivo agregado.
+            2. MEDIA QUERIE APLICADOS
+            	- para imprimir el sitio: @media print{}
+            	- especifica el momento en el que se debe ejecutar un media querie: @media screen {}
+            	- para computadoras:@media(min-width:720px)  {}
+            	- los media types son screen y print
+        L5. PATRONES DE DISEÑO ADAPTATIVO
+        	1. TINY TWEAKS
+        		- un patron de diseño defina las caracteristicas de un sitio web, como la adaptabilidad a diversos dispositivos
+        		- este patron se ha definido para sitios diseñados en una sola columna, para portales de lectura, simples o con poco contenido
+        		- las dimesiones de media querie ya estan definidos
+        	2. MOSTLY FLUID
+        		- es uno de los patrones mas usados en la web, conserva el tamaño y organizacion de los contenidos en paginas grandes y medianas
+        		- en pequeñas los dispone verticalmente
+        		- se basa en un contenedor o wrapper.
+        		- se fija una ancho maximo del wrapper
+        		- Crea el estilo para móviles agregando
+        			.c1, .c2, .c3, .c4, .c5 {
+					width: 100%;}
+				- Crea el estilo para tabletas juntando las cajas c2 hasta c5 ocupando 50%.
+					@media (min-width: 600px) {
+					.c2, .c3, .c4, .c5 {
+					width: 50%;}}
+				- Crea el estilo para desktop colocando c1 al 100%, c2 al 100% y el resto a 33%
+					@media (min-width: 800px) {
+					.c1 {
+					width: 100%;}
+					.c2 {
+					width: 100%;}
+					.c3, .c4, .c5 {
+					width: 33.33%;}
+					.container {
+					width: 800px;
+					margin-left: auto;
+					margin-right: auto;}}
+			3. COLUMN DROP
+				- es un patron para sitios distribuidos en multiples columnas, se redistribuyen prioritariamente a medida que se reduce la pantalla
+				- la diferencia con mostly fluid radica en que no todos los elementos se redimensionan ya que algunas columnas prevalecen sobre otras
+				- se deben identificar el orden de importancia del as columnas 
+				- El patrón Column Drop se centra en la disposición de las columnas.
+			4. LAYOUT SHIFTER
+				- es un patron que redimensiona y reubica los elementos de una pagina web conforme cambia el tamaño de la pantalla
+				- es mas complejo, cambia por completo y mejor se acomoda
+				- se debe implementar varios puntos de quiebre mediante media queries
+				- tiene un diseño diferente por cada break point
+			5. OFF CANVAS
+				- Off Canvas es un patrón de diseño adaptativo con un concepto diferente a los patrones ya estudiados en esta lección. Los patrones más usados intentan acomodar elementos de cierta manera para que todos quepan en la pantalla o se apilen verticalmente. En tamaños de pantalla pequeños, el patrón Off Canvas sólo deja en pantalla un elemento y permite el acceso a los demás mediante gestos o botones, desplazando lateralmente el contenido actual.
+				- Este patrón se popularizó en aplicaciones móviles nativas, ya que permite una fácil navegación y una manera óptima de presentar los contenidos. Sin embargo, en páginas web es uno de los patrones que menos se utiliza, debido a su alta complejidad y dificultad en su desarrollo.
+				- Para aplicar este patrón en una página web usando CSS, se deben utilizer propiedades de transformación, animación y otras que veremos más adelante en el curso.
+				- Este patrón se popularizó en aplicaciones móviles nativas, ya que permite una fácil navegación y una manera óptima de presentar los contenidos. Sin embargo, en páginas web es uno de los patrones que menos se utiliza, debido a su alta complejidad y dificultad en su desarrollo.
+	U4. CSS3
+		L1. TRANSFORMACIONES
+			1. ROTATE
+				- las transformaciones son efectos css3 que permiten modificar la forma, tamaño y posicion de un elemento
+				- se debe agregar el atributo transform seguido del metodo
+				- transform: rotate(180deg); permite rotar un elemento con respecto a un eje segun los grados(2d)
+				- transform: rotatex(180deg);transform: rotatey(180deg);transform: rotateZ(180deg); (3d)
+			2. SCALE
+				- permite modificar el tamaño de un elemento segun los cambios en sus dimensiones
+				- (ancho,alto)
+				- 1 para no modificar un tamaño
+				- transform: scale(0.3,2.5), permite modificar independientemente las medidas
+				- Necesitas escalar el ancho a la mitad, por eso utilizas el valor 0.5 y para escalar el alto al doble utilizas el valor 2. 
+			3. PERSPECTIVE
+				- define la perspectiva ubicandolo en un espacio tridimensional, es la distancia de un elemento y la distancia en donde se renderiza la pagina. 
+				- en la pantalla representa la distancia entre la persona y un elemento.
+				- se recomienda para transformaciones 3d
+				- se puede definir individualmente o en para algunos elementos
+				- el origen de la perspectiva es el centro del elemento
+				- para el origen,(x,y)(left,center,right,px top,center,bottom,)
+				- El valor del parámetro de perspective determina la distancia que hay entre el usuario y el objeto 3D.
+			4. TRANSLATE
+				- se encarga de alterar la ubicacion de un elemento a partir de su posicion original
+				- (despalazamiento h, desplazamiento v)
+				- para una direccion translatex, translatey
+				- para el desplazamiento en el eje z, primero se define la perspectiva, luego translatez
+				- para transladar en tres ejes: translate3d
+			5. SKEW
+				- modifica la forma de un elemento al sesgarlo a lo largo del eje indicado, 
+				- en grados(inclinacion x inclinacion y)
+				- individualmente: skewx,skewy,skewz
+		L2. ANIMACIONES
+			1. TRANSITION Y PROPIEDADES
+				- propiedad que permite animar los cambios de propiedades que se realizan a los elementos. 
+				- transition(propiedad  tiempo)
+				- transition-property: width;
+          		- transition-duration: 1s;
+				- transition-timing-function:linear;
+          	2. ANIMATION Y PROPIEDADES @KEYFRAMES
+          		- consiste en una animacion personalizada
+          		- % para los efectos
+          		- @-webkit-keyframes, utilizar esta propiedad ya que no todos los navegadores soportan keyframes
+          		- -webkit-animation-delay: 1s;
+                - -oz-animation-delay: 1s;
+                - -o-animation-delay: 1s;
+          		- agregar la propiedad animation a cada elemento.
+        L3. FILTROS DE IMAGENES
+        	1. FILTROS EN CSS3
+        		- En muchas ocasiones cuando se diseñan páginas y aplicaciones web, se aplican efectos especiales a las imágenes para lograr hacer más atractivas las interfaces de usuario (UI). Anteriormente cuando los diseñadores querían lograr estos efectos debían realizar una cantidad de trabajos y recurrir a herramientas externas como CorelDraw o Photoshop. Los filtros en el mundo de la web tienen sus orígenes en el estándar SVG. Alrededor del 2008 se definieron etiquetas especiales para lograr los efectos deseados (CON SVG)
+        		<svg id="svg-filter"> 
+				    <filter id="opacityEffect"> 
+				      <feColorMatrix type="opacity" in="SourceGraphic" values="1"/> 
+				   </filter> 
+				</svg>
+          		-A Partir de CSS3 se incorporó esta nueva funcionalidad que dio solución a estos problemas, y aunque los filtros se pueden aplicar a cualquier elemento como textos, videos etcétera, suele ser utilizado solo en imágenes.
+				Actualmente debido a la incompatibilidad de CSS3 con los navegadores, la propiedad filter que es la que se utiliza para lograr estos efectos, solo funciona anteponiendo el prefijo -webkit- como indica la página http://caniuse.com
+			2. TIPOS DE FILTROS Y USOS
+				- blur(): efecto de desenfoque px 
+				- grayscale() efecto de escala de grises
+				- drop-shadow() efecto de sombras 4 valores
+				- sepia() efecto de sepia
+				- brightness() efecto de brillo
+				- contrast() efecto de contraste
+				- hue-rotate() este efecto incrementa el valor de los colores combinandolos totalmente
+				- invert() efecto de invertir la imagen
+				- saturate() efecto de saturacion
+				- opacity() efecto de opacidad
+				- valor de 0% a 100%
+				- -webkit-filter: /* Chrome, Safari, Opera */
+		L4. PASOS PARA DISEÑAR O PROYECTAR UN PROYECTO HTML5 CSS3
+			1. Identificar el funcionamiento del flujo de cajas CSS en la estructura HTML.
+			Analizamos el funcionamiento del modelo de caja de CSS y su posibilidad de especificar cuál estilo tiene prioridad jerárquica, cuál debe aplicarse sobre los demás. Para renderizarse en el navegador, nuestra página web tiene varias fuentes de estilos que se van cargando una después de la otra, de ahí viene el término cascada.
+			2. Aplicar el estándar CSS.
+			Estudiamos CSS que es el lenguaje utilizado para organizar la presentación y el aspecto de una página Web. Es un conjunto de reglas que determina cómo lucen los elementos que conforman nuestro documento HTML. CSS funciona de una manera particular, los estilos se definen en una hoja independiente que luego se vincula desde el HTML, también se puede usar incrustado en el mismo documento, pero esta no es una buena práctica y se recomienda siempre implementarlo como un documento externo.
+			3. Aplicar propiedades de forma a la estructura.
+			Para poder renderizar un archivo HTML, el navegador utiliza las tipografías (tipos de letra) existentes en el sistema operativo del usuario (cliente), es por ello que en este curso estudiamos la importancia de este tema, así como también aplicamos diferentes	propiedades que afectan la visualización y organización de la forma de los documentos HTML.
+			4. Utilizar propiedades de transformación y efectos especiales.
+			Utilizamos las transformaciones que son efectos CSS3 que permiten modificar la forma, tamaño y posición de un elemento. Para realizar una transformación se debe añadir el atributo transform en el CSS correspondiente al elemento que se desea transformar, seguido del método de transformación que usaremos. En este curso estudiamos rotate, scale, perspective, translate y skew.
+			5. Aplicar propiedades de animación de la estructura.
+			Las transiciones que son representadas con la propiedad transition son formas de animar los cambios de propiedades que se realizan a los elementos del DOM. Cuando realizamos un cambio de background, por ejemplo de blanco a rojo, este cambio sucede instantáneamente. Lo que propone la propiedad transition es generar un pequeño lapso de tiempo entre el cambio de estas propiedades.
