@@ -7,6 +7,10 @@ body {
 	flex-direction: column;
 }
 
+#estrella{
+	background-color: #F7A188;
+}
+
 #destacados {
 	background-color: #669999;
 }
@@ -34,6 +38,13 @@ footer {
 .contenedor {
 	display: flex;
 	flex-direction: row;
+}
+#estrella .contenedor > div {
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+	background-color: white;
+	width: 100%;
 }
 
 #destacados .contenedor > div {

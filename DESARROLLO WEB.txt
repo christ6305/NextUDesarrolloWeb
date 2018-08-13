@@ -1,4 +1,4 @@
-														DESARROLLO WEB
+																			DESARROLLO WEB
 
 1. FUNDAMENTOS DE HTML
 	U1. BROWSER RENDERING Y ESTRUCTURA XML
@@ -686,3 +686,124 @@
 			Utilizamos las transformaciones que son efectos CSS3 que permiten modificar la forma, tamaño y posición de un elemento. Para realizar una transformación se debe añadir el atributo transform en el CSS correspondiente al elemento que se desea transformar, seguido del método de transformación que usaremos. En este curso estudiamos rotate, scale, perspective, translate y skew.
 			5. Aplicar propiedades de animación de la estructura.
 			Las transiciones que son representadas con la propiedad transition son formas de animar los cambios de propiedades que se realizan a los elementos del DOM. Cuando realizamos un cambio de background, por ejemplo de blanco a rojo, este cambio sucede instantáneamente. Lo que propone la propiedad transition es generar un pequeño lapso de tiempo entre el cambio de estas propiedades.
+
+3. FRAMEWORKS Y LIBRERIAS CSS
+	U1. SISTEMA DE REJILLA
+		L1. QUE ES UNA REJILLA
+			1. QUE ES UNA REJILLA Y QUE COMPATIBILIDAD TIENE
+			 	- Una rejilla es una cuadrícula para distribuir elementos en una página HTML. Es muy utilizada en los sitios web para la organización de sus contenidos, así como en los diferentes frameworks CSS que veremos en las unidades siguientes. Se basa en la definición de un conjunto de filas y columnas que indican un tamaño relativo de los 	elementos con respecto al tamaño de la pantalla, haciendo que el diseño sea adaptativo. Una rejilla se define mediante la división del espacio en columnas, las cuales servirán de unidad de medida para cada elemento.
+				El tamaño horizontal de los bloques de contenido es definido por el número de columnas que abarca, el tamaño vertical se define según su contenido o diseño propio. El 	posicionamiento de un elemento se define según la fila de la rejilla en la que se encuentre. La compatibilidad de este tipo de diseño es una de sus principales ventajas, debido a que las propiedades en las que se fundamenta son aceptadas en todos los navegadores. Esto quiere decir, que un proyecto web con sistema de rejilla puede ser renderizado exitosamente en cualquier navegador.
+			2. WIDTH CON PORCENTAJE Y BOX-SIZING
+				- width: determina el ancho del elemento, cuando se asigna valores en porcentajes
+				- box-sizing: indica como determinar el tamaño de una caja a partir del ancho y alto con widtht y height
+					- content-box: valor por default,indica que el contenido adopta las dimensiones de ancho definidas sin incluir padding,border y margin, esto significa que aumenta su tamaño
+					- paddig-box:indica que toma las dimensiones de width y height incluyendo padding pero excluyendo border y margin, el contenido se reduce para incuir el padding
+					- border-box: en donde las dimensiones de width y height incluyen padding y border, solo exculyen border. es el mas usado. 
+		L2. MAQUETACION CON SISTEMA DE REJILLAS
+			1. SISTEMA CON 12 COLUMNAS
+				- se debe crear una clase por cada una
+				- col1,col2....
+				- la longitud de los contenedores debe sumar 12
+				- se deben elegir unas propiedades generales que tengan padding y float con el valor left:[class*="col-"]{float:left;padding:15px..
+				- comprende 2 partes:
+				- definir propiedades generales: deben tener un padding definido, y propiedad float=left, indica que los contenidos aparecen de izquierda a derecha, tambien width para cada clase columna, dividir el 100% del ancho de la pagina entre 12
+				- definir propiedades individuales: se incluye contenedores dentro de una columna y redefinir un sistema de rejillas
+				.col-1 {width: 8.33%;}
+				.col-2 {width: 16.66%;}
+				.col-3 {width: 25%;}
+				.col-4 {width: 33.33%;}
+				.col-5 {width: 41.66%;}
+				.col-6 {width: 50%;}
+				.col-7 {width: 58.33%;}
+				.col-8 {width: 66.66%;}
+				.col-9 {width: 75%;}
+				.col-10 {width: 83.33%;}
+				.col-11 {width: 91.66%;}
+				.col-12 {width: 100%;}
+				- Cómo se le llama al cambio de tamaño de un elemento en un sistema de rejilla por medio de un media-quer:Column reset
+			2. CONTENEDORES Y CLEARFIX
+				- es una solucion para un problema en el sistema de rejilla debido a la propiedad float.
+				- sucede porque todos los elementos son flotantes,  por lo tanto en contenedor padre no posee contenido fijo o absoluto. 
+				- consiste en la definicion de una clase clearfix seguido de una pseudoclase after
+			3. SISTEMA DE REJILLAS ADAPTATIVA
+				- Los sistemas de rejilla además de facilitar la disposición estructural de una página web, también ofrecen la capacidad de modelar esquemas adaptativos para diferentes dispositivos. Como ya se ha visto, el diseño adaptativo se obtiene a partir de la definición de media-queries relacionadas con tamaños de pantalla específicos y el sistema de rejilla no es la excepción en este asunto. A partir del diseño base de la página, se realizan una serie de cambios que adapten mejor los contenidos, cuando la pantalla reduce o aumenta su tamaño.
+				Esto se obtiene a partir de una media-query por cada tamaño estándar de pantalla, que generalmente corresponde al tamaño pequeño para smartphones, tamaño mediano para tablets y tamaño grande para computadoras de escritorio
+				- En cada una de las media-queries definidas se realizan cambios en el tamaño de los contenedores y bloques de contenido para acomodar mejor la información de acuerdo al dispositivo desde el que se visualice. De esta manera, en pantallas grandes un contenedor puede tener un tamaño de 8 columnas pero en pantallas medianas puede que se reduzca a 6, o ya bien, aumente su tamaño, cambie de fila o simplemente desaparezca. El cambio en el tamaño de un elemento por medio de un media-query en el sistema de rejilla se denomina column reset.
+				La importancia del column reset es principalmente la facilidad que da al desarrollador de modificar la estructura de la página para que se adapte a pantallas más pequeñas y sea mostrado de manera más óptima. Esto permite que una sección se resalte o prevalezca sobre otras al visualizar los contenidos desde un smartphone, por ejemplo.
+				En la siguiente lección veremos en profundidad los frameworks CSS, los cuales están basados en el sistema de rejilla estudiado en esta lección y que cuentan con herramientas específicas para el manejo del column reset en diseños adaptativos.
+		L3. QUE ES UN FRAMEWORK CSS?
+			1. QUE ES UN FRAMEWORK CSS Y POR QUE USARLO?
+				- En general, un framework es un conjunto de librerías, herramientas y buenas prácticas que facilitan la labor del desarrollador al encapsular labores repetitivas en elementos reutilizables. En cualquier ámbito del desarrollo existen estos instrumentos que potencian las labores de codificación y optimizan los tiempos de construcción de software. Un framework CSS es un conjunto de carpetas que contienen archivos y hojas de estilo que le ahorran al diseñador web tareas como compatibilidad, diseño de estructura adaptabilidad, entre otras.
+				- Se recomienda usar un framework CSS porque permite que el desarrollador web se dedique a lo verdaderamente importante: construir un diseño adecuado y estético de acuerdo a las necesidades del proyecto. De esta manera, la codificación se reduce en gran medida, ya que la herramienta ya ha realizado parte del trabajo. Imagina un framework como tu ayudante personal, que se encarga de labores simples y repetitivas, pero que a ti te tomarían mucho tiempo si no existiera. El desarrollo actual requiere rapidez y efectividad, es por tal motivo que los frameworks CSS son altamente usados. El tiempo y esfuerzo ahorrados en el desarrollo, son las principales razones por las cuales se deben usar estas herramientas. No es preciso reinventar la rueda en el desarrollo web, para eso existen los frameworks.
+			2. IMPORTACION Y USO DE UN FRAMEWORK
+				- cada framework posee sintaxis y herramientas diferentes sin embargo comparte metodo similar en la importacion
+				- seleccionar el framework segun las necesidades:
+					- rapidez en la instalacion
+					- facilidad en la comprension
+					- opciones ofrecidas
+					- integracion con otros sistemas
+					- calidad en el soporte
+				- descargar desde el repositorio oficial, carpetas y archivos 
+				- instalacion de compiladores,requisitos, programas etc, 
+				- implementacion, ubica los html en una carpeta especifica o añadir etiquetas de enlace en las paginas html
+			3. FRAMEWORKS CSS
+				- Un framework de CSS es una librería de estilos genéricos que puede ser usada para implementar diseños web. Aportan una serie de utilidades que pueden ser aprovechadas frecuentemente en los distintos diseños web.
+				A continuación hemos preparado para ti un descargable sobre algunos Frameworks CSS.
+				https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/03_Frameworks_y_Librerias_CSS/Infograf%C3%ADas/WEB16S_C3U1L3_Infografia2_Frameworks_CSS_V1.png
+	U2. BOOTSTRAP Y CSS
+		L1. QUE ES BOOTSTRAP
+			1. QUE ES BOOTSTRAP?
+				- 1. Definición
+				Bootstrap es un framework, es decir, un conjunto de librerías CSS creado por Twitter para facilitarnos y estandarizar los desarrollos de aplicaciones web. Este framework trae bastantes componentes en su interior que nos permitirán mejorar la presentación del cuerpo, formularios, botones, barras de navegación, entre otros. Su gran particularidad es que ofrece un diseño adaptativo para múltiples plataformas. Otra de las integraciones que tiene el Framework Bootstrap aparte del manejo de CSS es la integración de Javascript, el cual estudiaremos más adelante.
+				- 2. Ventajas
+					- Maneja el modelo multiplataforma con diseño responsive.
+					- Puede ser codificado en 1 o 2 días de arduo trabajo, en solo minutos o en pocas horas. Es decir, permite que optimicemos nuestro tiempo.
+					- Supongamos que estamos ante un cliente con un diseño web y a última hora quiere modificar la estructura inicial, básicamente nos tocaría cambiar toda la estructura del sitio lo que nos tomaría varias horas de trabajo, mientras que con este framework lo podemos hacer ante sus ojos casi de inmediato y sin muchas complicaciones.
+					- Cuando desarrollamos un sitio web, debemos pensar no solo en los dispositivos que accederán al sitio sino también en los diferentes navegadores que existen, y crear entonces reglas para cada navegador, lo cual consumirá mucho tiempo de desarrollo; usando Bootstrap, nuestro sitio siempre se verá igual en todos los navegadores que sean usados y esta será una preocupación menos a tener en cuenta.
+					- El framework Bootstrap maneja la filosofía mobile first, la cual ayuda a desarrollar sitios inicialmente para las plataformas móviles y para luego hacerlos extensibles a tablets y pantallas de gran formato.
+				- 3. ¿Dónde y cómo lo obtengo?
+				Solo debes ingresar a la página oficial de Bootstrap http://getbootstrap.com/ allí puedes descargarlo e incluso ver algunos ejemplos de sitios que integran este framework en sus sitios web.
+			2. COMO LO USO?
+				- Online: velocidad de procesamiento del framework, no es necesario descargar los archivos.
+				- Offline: cuando no se tiene internet, o se quiere tener todos los archivos almacenados de manera local
+		L2. SISTEMA DE REJILLAS, CLASES Y REGLAS
+			1. SISTEMA DE REJILLAS, REGLAS Y TAMAÑOS PARA MOBILE,TABLET Y DESKTOP, COLUMN RESET
+				- la clase principal es conteiner
+				- col-lg cuando la pantalla sea menor a 1200px, colapsa las columnas y las pone una debajo de la otra
+				- col-md: las columnas colapsan cuando el ancho sea menos a 992px
+				- col-sm: colapsa las columnas con un tamaño menos a 768px
+				- col-xs: impide que las columnas colapsen
+				- Las columnas siempre deben estar contenidas en las filas.
+				- La etiqueta HTML que representa una fila debe tener asignada la clase “row”.
+				- Las filas deben estar contenidas dentro de una etiqueta y ésta debe tener asignada la clase “container”.
+				- La clase text-center es propia de Bootstrap CSS y sirve para alinear al centro los elementos o el texto que contiene una etiqueta.
+				- para especificar varios tamaños: column reset: establece el comportamiento cada vez que dismunuye la pantalla con respecto a las columnas de las rejillas
+					- col-lg-10 col-md-8 col-sm-7 col-xs-6
+			2. Column Wrapping y Offsetting Columns
+				- offset: para columnas en blanco sin informacion
+				- Column Wrapping: cuando supera el numero de columnas, baja y se acomoda en cualquier sitio
+			3. COLUMN ORDERING COM PULL Y PUSH
+				- push: movimiento hacia la derecha
+				- pull:moviemiento hacia la izquierda
+		L3. MANEJOS DE TEXTOS E IMAGENES
+			1. MANEJO DE TEXTOS
+				- <small> se pueden agregar notas
+				- class="lead" aumenta el tamaño del texto y espaciado
+				- class="lead text-center", class="lead text-left", class="lead text-right",class="lead text-justify",class="lead text-none-wrap"
+				- <abbr> enfasias abreviaturas 
+				- class="uppercase",class="lowercase",class="capitalize"
+				- <mark> resalta el texto
+				- <code> resalta las lineas de codigo
+				- <kbd> marca teclas de acceso directo
+			2. PROPIEDADES PARA LISTAS ORDENADAS, NO ORDENADAS Y DEFINICION DE TERMINOS
+				- <dl>: Abrir o iniciar una lista por definición.
+				- <dt>: Primera etiqueta que se asigna después de abrir la lista por definición. En ésta se podría decir que va el término o palabra que se desea definir o describir.
+				- <dd>: Etiqueta que va después de la etiqueta dt. En ésta se pone la definición o descripción del término o palabra que se puso en el dt.
+				- class="list-unstyled": Clase utilizada para quitar la numeración o viñetas de una lista.
+				- class"list-inline": Clase utilizada para mostrar las listas de manera horizontal.
+				- class="dl-horizontal": Clase utilizada para mostrar las listas por definición de manera horizontal.
+			3. MANEJO DE IMAGENES
+				- se pueden aplicar a cualquier etiqueta de imagen html
+				- class="img-rounded": redondea las esquinas a 16px
+				- class="img-circle": redondea las esquinas con un radio del 50%
+				- class="img-thumbnail": pone un marco al rededor de la imagen  
