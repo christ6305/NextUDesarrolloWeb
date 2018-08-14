@@ -806,4 +806,64 @@
 				- se pueden aplicar a cualquier etiqueta de imagen html
 				- class="img-rounded": redondea las esquinas a 16px
 				- class="img-circle": redondea las esquinas con un radio del 50%
-				- class="img-thumbnail": pone un marco al rededor de la imagen  
+				- class="img-thumbnail": pone un marco al rededor de la imagen
+		L4. ELEMENTOS DE FORMULARIO
+			1. CLASES PARA FORM,INPUT Y BUTTON CON DISEÑO ADAPTATIVO
+				- agregar el atributo role="form" a la etiqueta form, porque se debe tomar en cuenta las personas con algunas discapacidades. el navegador lee mejor el formulario para estas personas
+				- class="form-group" agrupa los elementos en un contenedor independiente del contenedor principal, asi lograr que el elemento se expanda al 100% en horizontal, para brindar el diseño adaptativo
+				- class="form-control" para ocupan el ancho de la pantalla y bordes redondeados.
+				- class="btn btn-default" adapta propiedades de botones 
+			2. CLASES PARA RADIO BOTONES, CAJAS DE CHEQUEO, LISTAS DESPLEGABLES Y FORMULARIO EN UNA SOLA LINEA
+				- class="checkbox", class="checkbox-inline"
+				- class="radio", class="radio-inline"
+				- <select class="form-control" name="">
+	U3. FOUNDATION CSS
+		L1. QUE ES FOUNDATION?
+			1. FOUNDATION Y SUS VENTAJAS
+				- Foundation es un framework front-end catalogado como uno de los mejores en el diseño y estructuración de proyectos web adaptativos.
+				Fue creado por la empresa de diseño interactivo ZURB con el objetivo de desarrollar código más rápido y mejor. Está construido en HTML, CSS y JavaScript, lo cual lo hace compatible con cualquier tecnología back-end y permite su aplicación en cualquier tipo de proyecto.
+				La versión vigente de Foundation es la número 6, que respecto a versiones anteriores ha optimizado sus características tales como el 50% en la reducción del código, la construcción de componentes pensados para la accesibilidad web, menor cantidad de estilos para sobreescribir, sistema de rejilla sass personalizable, herramientas de prototipado ZURB, movimiento en la interfaz de usuario y patrones de diseño más flexibles.
+				La principal ventaja de Foundation es que es el único framework profesionalmente soportado por una organización, la cual posee amplia experiencia en el ámbito de los proyectos web para todo tipo de empresas. Adicionalmente, es un proyecto con más de cinco años de trayectoria, teniendo múltiples versiones que lo hacen cada vez mejor y actualizado en cuanto a herramientas y tecnologías de vanguardia.
+				- En la actualidad, muchos portales en la web usan este framework. En la siguiente lista, hay una corta selección de compañías populares cuyas páginas web son diseñadas usando Foundation. Echa un vistazo a sus sitios oficiales para que puedas observar todo lo que esta herramienta puede hacer:
+				Car and Driver. http://www.caranddriver.com/
+				Polar: http://www.polar.com/us-en
+				EA Star Wars: http://starwars.ea.com/es_ES/
+				HP Store: http://store.hp.com/us/en/
+				Universidad de Cambridge: http://www.cambridge.org/
+				Dominos Careers: https://jobs.dominos.com/dominos-careers/
+				Toms: http://www.toms.com/
+				JQuery: https://jquery.com/
+			2. COMO INICIAR CON FOUNDATION?
+				- https://foundation.zurb.com/sites/download.html/
+				- archivos y carpetas con la informacion del framework
+			3. COMO USO FOUNDATION?
+				- se puede aplicar de dos formas, empezar desde 0 o importar el framework en una pagina web
+				- app.css, archivo con el que se trabaja en el desarrollo del proyecto web
+				- primero se debe enlazar foundation.min.css y luego app.css
+		L2. SISTEMA DE REJILLAS EN FOUNDATION
+			1. CONCEPTOS BASICOS DE GRID
+				- se define mediante divs con clases
+				- 12 columnas
+				- clase row dentro clase column 
+				- a las clases columnas se les asigna el numero antes el prefijo de tamaño 
+				- small cualquier pantalla smarthphones
+				- medium 640px o mas como tablets 
+				- large 1024px o mas para desktop 
+				- class="row column" columna de la totalidad del ancho
+				- el ancho de las filas de foundation tienen 1200px
+				- class="expanded row" se expande a mas de 1200px
+			2. OPCIONES DE COLUMNA DE GRID
+				- offset: mueve bloques hacia la derecha de la rejilla
+				- cuando la suma del tamaño de los contenedores es mayor a 12, el ultimo bloque baja a la siguiente fila.
+				- cuando es menor a 12, desplaza el ultimo bloque al final
+				- end para dejar en blanco el ultimo bloque
+				- collapse: para que haya espaciado
+				- uncollapse: para que no haya espaciado
+				- center: para centrar un bloque en una fila
+				- uncenter: sin centrado
+				- push: derecha
+				- pull: izquierda
+			3. FLEX GRID
+				- 
+
+

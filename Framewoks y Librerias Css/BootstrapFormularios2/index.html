@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Formularios</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <form action="" role="form">
+        <legend>Formulario de contacto</legend>
+        <div class="form-group">
+          <label for="Nombre">Nombre</label>
+          <input type="text" name="nombre" id="Nombre">
+        </div>
+        <div class="form-group">
+          <label for="Telefono">Telefono</label>
+          <input type="number" name="telefono" id="Telefono" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="Email">Email</label>
+          <input type="email" name="email" id="Email" class="form-control">
+        </div>
+        <div class="form-group">
+          <div class="checkbox-inline">
+            <label for="Hobbie1">Hobbie 1</label>
+            <input type="checkbox" name="hobbie1" id="Hobbie1" class="form-control">
+          </div>
+          <div class="checkbox-inline">
+            <label for="Hobbie2">Hobbie 2</label>
+            <input type="checkbox" name="hobbie2" id="Hobbie2" class="form-control">
+          </div>
+          <div class="checkbox-inline">
+            <label for="Hobbie">Hobbie 3</label>
+            <input type="checkbox" name="hobbie3" id="Hobbie3" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="radio-inline">
+            <label for="Sexo">Sexo</label>
+            <input type="radio" name="sexo" id="Sexo" class="form-control">
+          </div>
+          <div class="radio-inline">
+            <label for="Sexo">Sexo</label>
+            <input type="radio" name="sexo" id="Sexo" class="form-control">
+          </div>
+        </div>
+        <select class="form-control" name="">
+          <option value="">Primero</option>
+          <option value="">Segundo</option>
+          <option value="">Tercero</option>
+          <option value="">Cuarto</option>
+          <option value="">Quinto</option>
+        </select>
+        <div class="form-group">
+          <label for="Comentario">Comentario</label>
+          <textarea name="comentario" rows="8" cols="80" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="button" name="button" value="Enviar" class="btn btn-default">
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
