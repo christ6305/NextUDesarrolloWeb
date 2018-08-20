@@ -1,0 +1,32 @@
+.barra-superior{
+  min-height: 4rem;
+}
+div[class*="columna"]{
+  min-height: 50rem;
+}
+div[class*="bloque"]{
+  height: 25rem;
+}
+.columna-chat, .columna-news{
+  padding: 0 !important;
+}
+.contenedor-write-publicacion{
+  min-height: 7rem;
+}
+.contenedor-publicacion{
+  min-height: 17rem;
+  padding: 2rem;
+}
+.logo{
+  width: 43px;
+  margin-top: 0.5rem;
+}
+.contenedor-noticias{
+  margin-top: 1rem;
+  min-height: 50rem;
+  padding: 0.5rem;
+}
+.responsive-img{
+  border: 0.6rem solid #ff8f00;
+  border-radius: 5px;
+}

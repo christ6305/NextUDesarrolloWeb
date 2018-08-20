@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <!--Importar la fuente de los íconos de Google-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Importar la hojas de estilos de materialize css-->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <title>CARD CHIPS Y COLLECTIONS EN MATERIALIZE</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <div class="navbar-fixed">
+      <nav>
+          <div class="nav-wrapper">
+            <a href="#" class="brand-logo left">logo</a>
+            <ul class="right hide-on-med-and-down">
+              <li class="active"><a href="index.html"><i class="material-icons left ">dashboard</i>INICIO</a> </li>
+              <li><a href="productos.html"><i class="material-icons left ">shopping_cart</i>PRODUCTOS</a> </li>
+              <li><a href="servicios.html"><i class="material-icons left ">navigation</i>SERVICIOS</a> </li>
+            </ul>
+          </div>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="col s6">
+        <div class="card light-blue darken-2 medium">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="img/flor.jpg" alt="imagen de una flor">
+          </div>
+          <div class="card-reveal">
+            <span class="card title">OTRO TITULO <i class="material-icons right"></i>CLOSE</span>
+            <p>OTRO TEXTO DE PRUEBA</p>
+          </div>
+
+          <div class="card content white-text">
+            <span class="card title">SOY EL TITULO</span>
+            <p>SOY UN TEXTO DE PRUEBA
+            </p>
+            <div class="card-action">
+              <a href="#">ENLACE 1</a>
+              <a href="#">ENLACE 2</a>
+              <a href="#">ENLACE 3</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s6">
+        <div class="chip">
+          <img src="img/flor.jpg" alt="segunda flor">
+          SEGUNDA FLOR
+        </div>
+        <div class="collection with-header">
+          <h4 class="collection-header">TITULO DE LA LISTA</h4>
+          <a href="#" class="collection-item">ENLACE 1</a>
+          <a href="#" class="collection-item">ENLACE 2</a>
+          <a href="#" class="collection-item">ENLACE 3</a>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

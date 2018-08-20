@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <!--Importar la fuente de los íconos de Google-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Importar la hojas de estilos de materialize css-->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <title>CARD CHIPS Y COLLECTIONS EN MATERIALIZE</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <div class="row">
+      <div class="col s12">
+        <h1>FORMULARIOS MATERIALIZE CSS</h1>
+      </div>
+    </div>
+    <div class="row">
+      <form>
+        <div class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix">perm_identity</i>
+              <input id="nombre" type="text" class="validate">
+              <label for="nombre">Nombre y Apellidos</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix">vpn_key</i>
+              <input id="contrasena" type="password" class="validate">
+              <label for="contrasena">Contraseña</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix">email</i>
+              <input id="email" type="email" class="validate">
+              <label for="email" data-success="Correcto" data-error="Debes completar este campo">Email</label>
+            </div>
+            <div class="input-field col s6">
+              <select class="browser-default" name="">
+                <option value="" disabled selected>Elige</option>
+                <option value="1">OPCION 1</option>
+                <option value="2">OPCION 2</option>
+                <option value="3">OPCION 3</option>
+              </select>
+            </div>
+            <div class="input-field col s6">
+              <p>
+                <input id="check1" type="checkbox">
+                <label for="check1">Automovil</label>
+              </p>
+              <p>
+                <input id="check2" type="checkbox" checked="checked">
+                <label for="check2">Bus</label>
+              </p>
+              <p>
+                <input id="check3" type="checkbox" class="filled-in">
+                <label for="check3">Bicicleta</label>
+              </p>
+            </div>
+            <div class="input-field col s6">
+              <div class="switch">
+                <label>
+                  NO
+                  <input type="checkbox">
+                  <span class="lever"></span>
+                  SI
+                </label>
+              </div>
+            </div>
+            <div class="input-field col s6">
+              <p>
+                <input id="masculino" type="radio" name="sexo" value="masculino" class="validate">
+                <label for="masculino">Masculino</label>
+              </p>
+              <p>
+                <input id="femenino" type="radio" name="sexo" value="femenino" class="validate with-gap">
+                <label for="femenino">Femenino</label>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <textarea id="texto" class="materialize-textarea"></textarea>
+              <label for="texto">Texto</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="file-field input-field col12">
+              <div class="btn">
+                SUBIR
+                <input type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input type="text" class="file-path-validate">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+  </body>
+</html>

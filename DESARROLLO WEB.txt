@@ -784,7 +784,7 @@
 				- Column Wrapping: cuando supera el numero de columnas, baja y se acomoda en cualquier sitio
 			3. COLUMN ORDERING COM PULL Y PUSH
 				- push: movimiento hacia la derecha
-				- pull:moviemiento hacia la izquierda
+				- pull: movimiento hacia la izquierda
 		L3. MANEJOS DE TEXTOS E IMAGENES
 			1. MANEJO DE TEXTOS
 				- <small> se pueden agregar notas
@@ -864,6 +864,223 @@
 				- push: derecha
 				- pull: izquierda
 			3. FLEX GRID
-				- 
+				- es una alternativa a la rejillas, consiste en flex y no en columnas
+				- se debe descargar la personalizada con flexgrid
+				- se basa en 12 columnas
+				- no es necesario completar si no llega a 12 
+				- shrink indica a la columna que su tamaño se dara segun el contenido que posea
+				- expand indica a la columna que adopte el tamaño disponible en su contenedor, es util cuando hay cambio de estructura en dispositivos
+			4. ALINEACION Y ORDEN EN FLEX GRID
+				- por defecto las columnas estan alineadas a la izaquierda
+				- align-right alineacion derecha
+				- align-center alineacion centrada
+				- align-justify   
+				- align-spaced Sirve para distribuir las columnas para que el espacio alrededor de ellas sea el mismo, incluyendo el borde de la fila.
+				- align-top
+				- align-middle
+				- align-bottom
+				- align-self-middle 
+				- align-self-bottom
+				- order-#
+		L3. ELEMENTOS DE FORMULARIOS
+			1. LABELS Y HELP TEXT
+				- se debe definir siempre la etiqueta label
+				- placeholder: el texto que aparece dentro de la etiqueta
+				- para radio y check se utiliza fieldset en lugar de label utilizar la clase fieldset
+				- help text: texto que le indica al usuario ayuda para un elemento, se añade dentro de una etiqueta p la clase help-text seguido de un id
+				- se lo llama desde una etiqueta label: required aria-describedby "id"
+			2. CONTROLES
+				- Podemos cambiar el color de los botones añadiendo la palabra secondary para usar el color secundario de la página, success para el color de éxito, alert para el de alerta y warning para el de advertencia. Adicionalmente podemos usar la clase hollow para un estilo de botón sin relleno. Modifiquemos los botones creados para asignarle colores
+				- botones: etiqueta a con clase button,tiny button,small button, large button, large expanded button
+				- colores: secondary tiny button, success small button, alert button,
+				warning large button
+				- clase hollow estillo de button sin relleno, hollow secondary tiny button, hollow success small button, hollow alert button,
+				hollow warning large button
+				- class="button-group stacked-for-medium"
+				- class="swith" en el contenedor con una etiqueta input con la clase switch-input y un id , una etqueta label con clase swith-paddle, incluir si es el caso la clase swith-active o switch-inactive
+		L4. VISIBILIDAD Y POSICIONAMIENTO
+			1. VISIBILIDAD SEGUN TAMAÑO DE PANTALLA
+				- clase show-for-medium
+				- clase show-for large
+				- hide-for-medium
+				- hide-for-large
+				- show-for-medium-only
+				- hide-for-medium-only
+			2. ORIENTACION Y ACCESIBILIDAD
+				- orientacion vertical: portrait
+				- orientacion horizontal(panoramica): landscape
+				- show-for-lanscape
+				- show-for-portrait
+				- cuando no se accede a una pagina desde un movil sino desde un computador la orientacion por defecto en pantallas grandes es landscape
+				- show-for-sr: leen todo el contenido de una pagina html
+				- show-for-sr aria-hidden="true" contenido no se muestra
+			3. CLASES FLOTANTES
+				- clearfix:limpieza de flotantes
+				- float-left: parte izquierda relativa a su contenedor en cualquier dipositivo
+				- float-right: parte derecha relativa a su contenedor en cualquier dipositivo
+				- float-center: centra, tiene una restriccion, solo puede aplicarse a elementos con ancho absolute(px)
+	U4. MATERIALIZE CSS
+		L1. TEORIA Y CONCEPTO DE MATERIAL DESIGN
+			1. QUE ES MATERIAL DESIGN?
+				- es una normativa de diseño creada por google, que sintetiza los principios basicos de diseño, permite un unico sistema que permite una experiencia unificada en varios dispositivos
+				- tres principios: 
+				- material: En este principio la luz, la superficie y el movimiento son la clave para transmitir: movimiento, interacción y existencia de los objetos en el espacio.
+				- peso, visualizacion y la intencionalidad: Este principio se basa en los elementos del diseño para la impresión: la tipografía, las cuadrículas, el espacio, la escala, el color y el uso de imágenes, son los elementos que guían el tratamiento visual, dando jerarquía, significado y enfoque.
+				- movimiento: Este principio es significativo y apropiado, sirve para centrar la atención y mantener la continuidad.
+			2. VENTAJAS DE MATERIALIZE CSS
+				- Materialize CSS creado y diseñado por Google, Material Design es un lenguaje de diseño que combina los principios clásicos del diseño exitoso junto con la innovación y la tecnología. El objetivo de Google consiste en desarrollar un sistema de diseño que permite una experiencia de usuario unificada a través de todos sus productos en cualquier plataforma.
+				A continuación hemos preparado para ti un descargable sobre Materialize CSS.
+				- https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/03_Frameworks_y_Librerias_CSS/Infograf%C3%ADas/C3U4L1_Infografia2_VentajasMaterializeCSS_V1.png
+				- Es extremadamente ligero pues pesa 30 Kb aproximadamente.
+				- Se basa en los principios y elementos de Material Design.
+				- Implementa componentes y animaciones que brindan una retroalimentación a cada usuario
+			3. COMO LO USO?
+				- descargar de la pagina https://materializecss.com/getting-started.html
+				- <meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1.0"/>
+				- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+				- <link rel="stylesheet" href="css/materialize.css" type="text/css" media="screen, projection">
+				- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"> </script>
+				- <script type="text/javascript" src="js/materialize.min.js"></script>
+		L2. SISTEMA DE REJILLA
+			1. COLORES EN MATERIALIZE
+				- se basan en los colores de material design
+				- cada color esta compuesta por una clase con su nombre y otra con su sombra
+			2. CONTENEDORES Y NOMENCLATURA DE 12 COLUMNAS
+				- se divide en filas y columnas
+				- cada fila se divide en 12 columnas
+				- dispositivos moviles: s
+				- tablets:m
+				- desktop:l
+				- col s4 m6 l12: cuatro columnas para moviles, 6 columnas para tablets y 12 columnas para desktop
+				-En Materialize para pintar el fondo de los contenedores se utilizan clases definidas por el Framework.
+				La respuesta correcta es: Se crea un card-panel de color blue lighten-5 y color de la letra deep-orange darken-1 con un ancho de 6 columnas.
+			3. DESPLAZAMIENTO Y ORDENAMIENTO
+				- se utiliza offset: Genera un espacio en blanco, antes del contenedor que contiene la propiedad
+				- push-pn: empuja en contenedor "n" columnas hacia la derecha en el tamaño del dispositivo "p"
+				- pull-pn: jala el contenedor "n" posiciones a la izquierda en el tamaño del dispositivo "p"
+		L3. VISIBILIDAD Y POSICIONAMIENTO MEDIA
+			1. ALINEACION Y FORMATEO
+				- align-wrapper: alinear verticalmente elementos contenidos en el
+				- left-align
+				- right-align
+				- center-align
+				- .hide: se oculta en todos los dispositivos
+				- .hide-on-small-only: es oculta solo en dispositivos moviles
+				- .hide-on-med-only: se oculta solo en tablets
+				- .hide-on-med-and-down: se oculta en tablets y pantallas mas pequeñas
+				- .hide-on-med-and-up: se oculta en tablets y pantallas mas grandes
+				- .hide-on-large-only: se oculta solo en pantallas desktop
+				- truncate: recorta el texto segun pantalla
+				- hoverable: sombra cuando se pasa el mouse por el control
+				- En Materialize se necesitan dos contenedores para centrar verticalmente.
+					La respuesta correcta es:
+					[HTML]
+					   <div class="valign-wrapper">
+					      <p class="valign">Texto alineado verticalmente</p>
+					   </div>
+					[/HTML]
+			2. SOMBRAS, CITAS Y TEXTO ADAPTATIVO
+		 		- ¿Qué hace la propiedad z-depth? Genera una sombra del contenedor teniendo en cuenta la distancia de éste, con respecto al plano x-y.
+		 		- blockquote: cita o mencion
+		 		- flow-text: ajustar el texto segun tamaño de pantalla
+		 	3. TABLAS Y MULTIMEDIA
+		 		- bordered: pone bordes
+		 		- striped: color en la fila
+		 		- highlight: se resalta cuando se pasa el cursor
+		 		- responsive-table: tabla adaptativa
+		 		- responsive-img: imagen adaptativa, pude ser: circle responsive-img, 
+		 		- <iframe src="https://www.youtube.com/watch?v=uq2vVa-qCjU" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+		 		- <video class="responsive-video" controls>
+          			<source src="video/next.ogv" type="video/ogg">
+        		  </video>
+        L4. COMPONENTES DE MATERIALIZE
+        	1. CARDS, CHIPS Y COLLECTIONS
+        		- cards: cajas contenedoras
+        		- chips:etiquetas o contactos
+        		- collection: Alternativa a las listas propias de HTML para presentar, con un diseño estético, un contenedor con un conjunto de elementos agrupados.
+        		- collection-with-header: Permite crear un contenedor con un grupo de elementos y un encabezado.
+        		- collection-header: Permite crear, en el contenedor, el elemento encabezado de la lista.
+        		- collection-item: Permite crear el elemento de la lista.
+        	2. ICONOS Y NAV BAR
+        		- En Materialize existe un tipo de fuente que genera los íconos de Material Design.
+				La respuesta correcta es: <i class="material-icons">nombre_icono</i>material-icon
+        	3. BOTONES Y PAGINACION
+        		- se hace por medio de etiquetas "a" a las cuales se les define la clase btn-large 
+        	4. FORMULARIOS
+        		- <div class="input-field col s6">
+		              <i class="material-icons prefix">perm_identity</i>
+		              <input id="nombre" type="text" class="validate">
+		              <label for="nombre">Nombre y Apellidos</label>
+            	  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

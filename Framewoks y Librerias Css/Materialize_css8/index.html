@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <!--Importar la fuente de los íconos de Google-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Importar la hojas de estilos de materialize css-->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/index.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <title>Contenedores y Sistema de Rejilla</title>
+</head>
+<body>
+  <div class="row">
+    <div class="s12 col amber darken-3 barra-superior">
+      <img src="img/browser.png" alt="ShareUrCode" class="logo"/>
+    </div>
+    <div class="s2 m2 l2 col blue-grey lighten-5 columna-grupos push-s10">
+      <span>Columna para los grupos</span>
+    </div>
+    <div class="s10 m7 l7 col white columna-principal pull-s2 z-depth-1">
+      <div class="row">
+        <div class="s12 m12 l8 col white columna-publicaciones">
+          <div class="contenedor-write-publicacion card amber lighten-4">
+
+          </div>
+          <div class="contenedor-publicacion card amber lighten-4">
+            <div class="row contenido-publicacion">
+              <div class="s12 col">
+                <video src="media/vid1.mov" autoplay controls class="responsive-video media-element"></video>
+              </div>
+            </div>
+          </div>
+          <div class="contenedor-publicacion card amber lighten-4">
+            <div class="row contenido-publicacion">
+              <div class="s12 col">
+                <p class="flow-text">
+                  Hola, quiero compartirles mi experiencia como programador web.
+                  He aprendido mucho de diseño front-end mediante diversos frameworks
+                  CSS y la verdad me siento muy a gusto desarrollando con Materialize CSS.
+                </p>
+                <blockquote>
+                  En esta ocasión estoy aprendiendo a implementar texto adaptativo, imágenes y video.
+                  Me ha resultado muy sencillo implementar cada uno de estos elementos puesto que el Framework
+                  lo hace muy sencillo. Sin embargo me surge una pregunta, tengo problemas
+                  al usar un video desde la web, ¿Alguien puede ayudarme?
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="l3 offset-l1 col white columna-news hide-on-med-and-down">
+          <div class="contenedor-noticias amber lighten-4">
+            <h5 class="center-align">Últimas noticias</h5>
+            <p class="truncate">
+              -Se ha publicado la última versión de Java 8.
+            </p>
+            <img src="img/img2.jpg" class="responsive-img"/>
+            <p class="truncate">
+              -Nueva versión de JavaScript
+            </p>
+            <img src="img/img3.jpg" class="responsive-img"/>
+            <p class="truncate">
+              -Se aproxima la conferencia de desarrollo web.
+            </p>
+            <img src="img/img4.jpg" class="responsive-img"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="m3 l3 col white columna-chat hide-on-small-only">
+      <div class="row">
+        <div class="s12 col blue-grey bloque-feed">
+          <h5>Bloque para las actividades recientes</h5>
+        </div>
+        <div class="s12 col grey lighten-1 bloque-chat">
+          <h5>Bloque para el chat</h5>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+</html>

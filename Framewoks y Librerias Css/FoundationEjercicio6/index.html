@@ -1,0 +1,98 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <div class="row">
+      <div class="column">
+        <h1>Formulario</h1>
+      </div>
+    </div>
+    <form>
+      <div class="row small-stack medium-unstack">
+        <div class="columns">
+          <label>Texto
+            <input type="text" placeholder="Texto" required aria-describedby="ayudaTexto"/>
+          </label>
+          <p class="help-text" id="ayudaTexto"> Aquí debes llenar un texto cualquiera </p>
+          <label>Fecha
+            <input type="date" required/>
+          </label>
+          <label>Fecha y hora
+            <input type="datetime-local"/>
+          </label>
+          <label>Email
+            <input type="email" placeholder="Email" required/>
+          </label>
+          <label>Mes
+            <input type="month" required/>
+          </label>
+          <label>Numero
+            <input type="number" placeholder="Numero"/>
+          </label>
+          <label>Text Area
+            <textarea placeholder="Text Area"></textarea>
+          </label>
+          <label>Menu de seleccion
+            <select>
+              <option value="1">Opcion 1</option>
+              <option value="2">Opcion 2</option>
+              <option value="3">Opcion 3</option>
+              <option value="4">Opcion 4</option>
+            </select>
+          </label>
+        </div>
+        <div class="columns">
+          <label>Contraseña
+            <input type="password" placeholder="contraseña"/>
+          </label>
+          <label>Telefono
+            <input type="tel" placeholder="telefono"/>
+          </label>
+          <label>Tiempo
+            <input type="time"/>
+          </label>
+          <label>Url
+            <input type="url"/>
+          </label>
+          <label>Semana
+            <input type="week"/>
+          </label>
+          <div class="row">
+            <div class="column">
+              <fieldset class="fieldset">
+                <legend>Radio Button</legend>
+                <input type="radio" name="color" value="Rojo" id="Rojo" required><label for="Rojo">Rojo</label>
+                <input type="radio" name="color" value="Azul" id="Azul"><label for="Azul">Azul</label>
+              </fieldset>
+            </div>
+
+            <div class="column">
+              <fieldset class="fieldset">
+                <legend>Checkbox</legend>
+                <input id="checkbox1" type="checkbox"><label for="checkbox1">Verde</label>
+                <input id="checkbox2" type="checkbox"><label for="checkbox2">Morado</label>
+              </fieldset>
+
+            </div>
+          </div>
+
+          <input type="submit" class="button float-right"/>
+        </div>
+      </div>
+    </form>
+
+
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
