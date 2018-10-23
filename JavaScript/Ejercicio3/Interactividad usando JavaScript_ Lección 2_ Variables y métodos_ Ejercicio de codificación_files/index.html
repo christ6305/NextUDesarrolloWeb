@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!-- saved from url=(0132)https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U2_L2_Ejercicio1_1/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<link href="./jquery-ui.min.css" rel="stylesheet">
+	<link href="./bootstrap.min.css" rel="stylesheet">
+	<link href="./style.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="">
+
+	<div id="exerciseContainer" class="container exercises"><style>
+
+#jz-hora-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+}
+
+#jz-solucion-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  letter-spacing: 0.1em;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 200px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 12pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 85px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 20px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 11pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 667px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 55px;
+  }
+
+  #jz-hora-header .img img{
+    width: 45px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 90px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+
+}
+
+@media screen and (min-width: 768px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 60px;
+  }
+
+  #jz-hora-header .img img{
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 896px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .img img{
+    width: 60px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 17pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  #jz-container{
+    font-size: 13pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 35px;
+    padding-left: 10px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-left: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+h5.padded.title {
+    color: #CCCCCC;
+    font-size: 1.3em;
+}
+
+</style>
+<div class="titulo" id="jz-container">
+	<div id="jz-hora-header" class="bounceInDown animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img" id="headerImage"><img src="./caja_codigo.png"></div>
+		<div class="headerText text">HORA DE<br><strong>codificar</strong></div>
+		<div class="minutos" id="time"><img src="./clock.png"><div class="time_text">40 MINUTOS</div></div>
+	</div>
+</div>
+
+<div id="jz-hora-de-codificar-body" class="bounceInLeft animated">
+	<div id="jz-hora-de-codificar-text">
+
+		<div id="exerciseDescription"><p>La creación de algoritmos, desde simples hasta complejos, involucra gran cantidad de información a ser manipulada y, en ocasiones, el uso de sólo variables puede tornarse perjudicial en el desarrollo.<br>La programación orientada a objetos es un paradigma de desarrollo de software que permite crear estructuras de datos fácilmente entendibles y reutilizables, de tal manera que el código se torna más organizado y puedes crear grandes cantidades de código que manipulen información sin ningún problema.<br><br>En <b>JavaScript</b> es muy común el uso de objetos y funciones, el uso de operaciones matemáticas asistidas por objetos predefinidos en el lenguaje y el objeto <b>Math</b>. De manera similar, el objeto <b>Date</b> permite realizar importantes operaciones con las fechas, años, meses, días, minutos y segundos. Como desarrollador web, debes conocer muy bien cada una de estas herramientas que el propio lenguaje tiene para ti, ya que te pueden hacerte la vida mucho más fácil cuando llegues a necesitarlos.<br><br></p><center><img src="./img1.png" style="width: 400px; margin: 0 auto;"></center><br><br><center><img src="./img2.png" style="width: 600px; margin: 0 auto;"></center><p></p><div border="5px"><p>Para realizar este ejercicio, supongamos que: una clínica toma los datos de sus pacientes por medio de una página web. Sin embargo, la página hasta el momento no posee ningún tipo de acciones que interactúen con el usuario. Te solicitan que, con tus conocimientos en JavaScript, asocies a un objeto los datos que se muestran en la pantalla y que, por medio de un método del mismo, se muestren en consola todos los datos correspondientes al paciente, incluyendo algunos cálculos adicionales.<br><br></p><center><img src="./img3.png" style="width: 600px; margin: 0 auto;"></center><p></p><br></div></div>
+    <div id="content_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Contenido</h5></div>
+		<div class="" id="content"> </div>
+		<div id="base"><div id="jz-descargar-solucion"><a style="color: #20bcf3" href="https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U2_L2_Ejercicio1_1/solucion/codBase.zip"><p>Descargar archivo base <span class="glyphicon glyphicon-download-alt" style="font-size: 25px;"></span></p></a></div></div>
+    <div id="instructions_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Instrucciones</h5></div>
+		<ol class="padded" id="instructions"><li>Descarga el <b>codBase.zip</b> que continene la página web.</li><li>En el archivo <b>index.js</b> hay un evento definido que se dispara cuando se hace click en el botón perfil de la barra de navegación. Sin embargo, antes de crear código al interior de este evento, debes crear un objeto Persona con todos los datos del paciente como atributos.</li><li>Los datos nombre, ciudad y entidad de salud deben ser cadenas de caracteres.</li><li>Los datos peso y estatura deben ser numéricos.</li><li>La fecha de nacimiento debe ser un objeto de tipo Date.</li><li>La última consulta debe ser un objeto anidado. Esto quiere decir que, al definir esta propiedad en el objeto Persona, indicas el nombre y la haces igual a un nuevo objeto.<br><br>Ejemplo:<br><br><center><img src="./img4.png" style="width: 200px; margin: 0 auto;"></center><br>Las dos propiedades del objeto anidado son: la fecha de la última consulta de tipo Date y las anotaciones como un vector en el que se almacena cada anotación en una posición distinta.</li><li>La historia clínica debe ser una matriz que almacene el evento con su respectiva fecha, en cadenas de caracteres.</li><li>Crea un método al objeto Persona que calcule y retorne su edad aproximada. Esto lo puedes lograr restando los años de la fecha actual y la fecha de nacimiento.</li><li>Crea un método al objeto Persona que calcule y retorne, en forma de cadena de caracteres, el Índice de Masa Corporal que se calcula con la siguiente fórmula:<br><br><center><img src="./img5.png" style="width: 200px; margin: 0 auto;"></center><br></li><li>Crea un método del objeto Persona que imprima todos los datos de la persona en consola, incluyendo su edad y su IMC.</li><li>Dentro del bloque de código del evento click en el botón perfil, invoca el método para imprimir los datos de la persona.</li></ol>
+<hr>
+
+		<div id="practices_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Buenas Prácticas</h5></div>
+		<ul class="padded" id="practices"><li>El uso de objetos en JavaScript es muy útil, no sólo en el manejo ordenado de la información, sino que también contribuye al control de la ejecución del código. Recuerda que al ser un lenguaje asincrónico, es difícil saber qué cosas se ejecutan en qué momento, sin embargo, los objetos te dan más control en estas situaciones.</li></ul>
+    <div id="uknow_title"></div>
+		<ul class="padded" id="uknow">
+		</ul>
+
+	</div>
+</div>
+
+<div id="jz-container">
+	<div id="jz-solucion-header" class="bounceInRight animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img">
+			<img src="./bombillo.png">
+		</div>
+		<div class="text">
+			SOLUCIÓN
+		</div>
+	</div>
+
+	<div id="jz-solucion-body"><p> Intenta completar la actividad por tu cuenta pero ten presente que si se te dificulta, puedes contactar a un <strong style="color: #00bff0"> tutor </strong> a través del chat de ayuda.<br><br>Aprender estos conceptos y saber cómo llevarlos a la práctica, te permitirá tener éxito en tu carrera como desarrollador. Entonces, esfuérzate al máximo y descarga la solución sólo si necesitas verificar tu trabajo o asegurarte de que estás en el camino correcto.<br>Recuerda, esta actividad te debería tomar aproximadamente <strong style="color: #00bff0">40 minutos</strong> en completar.</p></div>
+	<div id="buttons"><div id="jz-descargar-solucion"><a style="color: #20bcf3" href="https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U2_L2_Ejercicio1_1/solucion/solucion.zip"><p>Descargar Solución <span class="glyphicon glyphicon-download-alt" style="font-size: 25px;"></span></p></a></div></div>
+
+</div>
+</div>
+
+<script type="text/javascript" src="./iframeResizer.contentWindow.min.js.descarga"></script>
+<script src="./jquery.js.descarga"></script>
+<script src="./jquery-ui.min.js.descarga"></script>
+<script src="./bootstrap.min.js.descarga"></script>
+<script src="./config.js.descarga"></script>
+
+
+<div style="clear: both; display: block;"></div></body></html>

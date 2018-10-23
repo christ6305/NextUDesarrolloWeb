@@ -1,0 +1,17 @@
+body{
+  background-image: url('../img/fondo.jpg');
+  background-size: cover;
+}
+.formulario-container{
+  background-color: rgba(230, 230, 230, 0.9);
+  margin-top: 0.5rem;
+}
+
+.fieldset legend{
+  background-color: inherit;
+}
+
+textarea{
+  resize: none;
+  height: 6rem;
+}

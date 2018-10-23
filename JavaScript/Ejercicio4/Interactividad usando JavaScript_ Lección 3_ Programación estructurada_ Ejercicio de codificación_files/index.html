@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!-- saved from url=(0132)https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U2_L3_Ejercicio1_1/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<link href="./jquery-ui.min.css" rel="stylesheet">
+	<link href="./bootstrap.min.css" rel="stylesheet">
+	<link href="./style.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="">
+
+	<div id="exerciseContainer" class="container exercises"><style>
+
+#jz-hora-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+}
+
+#jz-solucion-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  letter-spacing: 0.1em;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 200px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 12pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 85px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 20px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 11pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 667px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 55px;
+  }
+
+  #jz-hora-header .img img{
+    width: 45px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 90px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+
+}
+
+@media screen and (min-width: 768px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 60px;
+  }
+
+  #jz-hora-header .img img{
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 896px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .img img{
+    width: 60px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 17pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  #jz-container{
+    font-size: 13pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 35px;
+    padding-left: 10px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-left: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+h5.padded.title {
+    color: #CCCCCC;
+    font-size: 1.3em;
+}
+
+</style>
+<div class="titulo" id="jz-container">
+	<div id="jz-hora-header" class="bounceInDown animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img" id="headerImage"><img src="./caja_codigo.png"></div>
+		<div class="headerText text">HORA DE<br><strong>codificar</strong></div>
+		<div class="minutos" id="time"><img src="./clock.png"><div class="time_text">25 MINUTOS</div></div>
+	</div>
+</div>
+
+<div id="jz-hora-de-codificar-body" class="bounceInLeft animated">
+	<div id="jz-hora-de-codificar-text">
+
+		<div id="exerciseDescription"><p><b>Las operaciones matemáticas básicas o aritméticas</b> son muy importantes en la programación, ya que la mayoría de los sistemas de información requieren hacer cálculos basados en números para entregar un resultado al usuario.<br>Por otro lado, <b>las estructuras condicionales</b> nos sirven para guiar los procesos de nuestro sistema, basado en las acciones o datos que son ingresados por el usuario. Éstas son fundamentales para el desarrollo de una aplicación, independiente del lenguaje de programación que se utilice, pues siempre habrá situaciones en las que tendrás que evaluar el valor de una variable o dato, para tomar una decisión acerca del siguiente paso a realizar en el programa.<br><br>Por último, tenemos <b>los ciclos</b>. Estos son otras estructuras que nos permiten repetir un conjunto de acciones, un número de veces definido o indefinido. Generalmente son usadas dentro de los lenguajes de programación para recorrer estructuras de datos de tipo Arreglo, como los vectores y matrices.<br><br></p><center><b>Ejemplo:</b></center><br><br><center><img src="./img1.png" style="width: 400px; margin: 0 auto;"></center><br><br><center><b>En código JavaScript:</b></center><br><br><center><img src="./img2.png" style="width: 400px; margin: 0 auto;"></center><br><br><center><b>Implementando un Ciclo con un vector de edades:</b></center><br><br><center><img src="./img3.png" style="width: 400px; margin: 0 auto;"></center><p></p><div border="5px"><p>Para realizar este ejercicio, supongamos que: estás trabajando para un supermercado, en el área de sistemas, y <b>te piden desarrollar una aplicación para calcular el precio de un pedido, con base a los precios de todos los productos, las cantidades y el IVA.</b><br>Los otros desarrolladores te han ayudado con el HTML y te han dejado listo, en un archivo JavaScript, un objeto de datos con la información de un pedido para simular un pedido real.<br>Además de esto, la aplicación debe mostrar una alerta cuando el valor total del pedido sobrepase los 100.000, ya que el supermercado entrega un premio a los clientes que realizan compras mayores a este valor.<br>Ten en cuenta que tu aplicación se verá similar a esta imagen:<br><br></p><center><img src="./img4.png" style="width: 600px; margin: 0 auto;"></center><p></p><br></div></div>
+    <div id="content_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Contenido</h5></div>
+		<div class="" id="content"> </div>
+		<div id="base"><div id="jz-descargar-solucion"><a style="color: #20bcf3" href="https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U2_L3_Ejercicio1_1/solucion/codBase.zip"><p>Descargar archivo base <span class="glyphicon glyphicon-download-alt" style="font-size: 25px;"></span></p></a></div></div>
+    <div id="instructions_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Instrucciones</h5></div>
+		<ol class="padded" id="instructions"><li>Descarga el <b>codBase.zip</b> que contiene la página web.</li><li>En el archivo <b>index.js</b> está definido un objeto llamado “Pedido”, una variable llamada “IVA” y una variable “Resultado” inicializada en 0, que funciona como acumulador del resultado. Debes usar estas variables para realizar las operaciones.</li><li>El objeto “Pedido” contiene 3 arreglos: los productos, los precios y las cantidades. Cada posición tiene relación con cada arreglo, es decir, si la posición cero de los productos corresponde a una manzana, la posición cero de los precios equivale al precio de la manzana y la posición cero del arreglo de cantidades corresponde a la cantidad de manzanas.</li><li>Utilizando sólo un ciclo de tipo “for in”, almacena en la variable el resultado de sumar y multiplicar correctamente los valores por las cantidades.</li><li>En otra variable llamada “valor total”, almacena el resultado de aplicar el IVA a la suma que se obtuvo de todo el pedido.</li><li>Crear una variable llamada “Premio” y utilizar una condición para evaluar si el valor total sobrepasa los 100.000. De ser así, dale como valor a la variable “tiene derecho a un premio” de lo contrario asignarle “no tiene derecho a un premio”.</li><li>En el archivo base hay un evento click para el botón de procesar compra, dentro de este evento debes ejecutar una alerta mostrando el siguiente mensaje: “Señor(a) { nombreUsuario }, el valor total de su pedido es { valor sin iva } y aplicando el iva el total es: { valor Total } y debido al valor de tu compra: { premio }” reemplazando las llaves por las variables correspondientes.</li></ol>
+<hr>
+
+		<div id="practices_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Buenas Prácticas</h5></div>
+		<ul class="padded" id="practices"><li>Utilizar un sólo ciclo para recorrer múltiples arreglos simultáneamente puede optimizar mucho tu código, reduciendo el número de procesos que debes realizar para tratar los datos. Recuerda que esto solo aplica cuando recorres múltiples arreglos del mismo tamaño.</li></ul>
+    <div id="uknow_title"></div>
+		<ul class="padded" id="uknow">
+		</ul>
+
+	</div>
+</div>
+
+<div id="jz-container">
+	<div id="jz-solucion-header" class="bounceInRight animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img">
+			<img src="./bombillo.png">
+		</div>
+		<div class="text">
+			SOLUCIÓN
+		</div>
+	</div>
+
+	<div id="jz-solucion-body"><p> Intenta completar la actividad por tu cuenta pero ten presente que si se te dificulta, puedes contactar a un <strong style="color: #00bff0"> tutor </strong> a través del chat de ayuda.<br><br>Aprender estos conceptos y saber cómo llevarlos a la práctica, te permitirá tener éxito en tu carrera como desarrollador. Entonces, esfuérzate al máximo y descarga la solución sólo si necesitas verificar tu trabajo o asegurarte de que estás en el camino correcto.<br>Recuerda, esta actividad te debería tomar aproximadamente <strong style="color: #00bff0">25 minutos</strong> en completar.</p></div>
+	<div id="buttons"><div id="jz-descargar-solucion"><a style="color: #20bcf3" href="https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U2_L3_Ejercicio1_1/solucion/solucion.zip"><p>Descargar Solución <span class="glyphicon glyphicon-download-alt" style="font-size: 25px;"></span></p></a></div></div>
+
+</div>
+</div>
+
+<script type="text/javascript" src="./iframeResizer.contentWindow.min.js.descarga"></script>
+<script src="./jquery.js.descarga"></script>
+<script src="./jquery-ui.min.js.descarga"></script>
+<script src="./bootstrap.min.js.descarga"></script>
+<script src="./config.js.descarga"></script>
+
+
+<div style="clear: both; display: block;"></div></body></html>

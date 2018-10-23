@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!-- saved from url=(0132)https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U3_L1_Ejercicio1_1/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<link href="./jquery-ui.min.css" rel="stylesheet">
+	<link href="./bootstrap.min.css" rel="stylesheet">
+	<link href="./style.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="">
+
+	<div id="exerciseContainer" class="container exercises"><style>
+
+#jz-hora-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+}
+
+#jz-solucion-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  letter-spacing: 0.1em;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 200px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 12pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 85px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 20px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 11pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 667px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 55px;
+  }
+
+  #jz-hora-header .img img{
+    width: 45px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 90px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+
+}
+
+@media screen and (min-width: 768px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 60px;
+  }
+
+  #jz-hora-header .img img{
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 896px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .img img{
+    width: 60px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 17pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  #jz-container{
+    font-size: 13pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 35px;
+    padding-left: 10px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-left: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+h5.padded.title {
+    color: #CCCCCC;
+    font-size: 1.3em;
+}
+
+</style>
+<div class="titulo" id="jz-container">
+	<div id="jz-hora-header" class="bounceInDown animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img" id="headerImage"><img src="./caja_codigo.png"></div>
+		<div class="headerText text">HORA DE<br><strong>codificar</strong></div>
+		<div class="minutos" id="time"><img src="./clock.png"><div class="time_text">25 MINUTOS</div></div>
+	</div>
+</div>
+
+<div id="jz-hora-de-codificar-body" class="bounceInLeft animated">
+	<div id="jz-hora-de-codificar-text">
+
+		<div id="exerciseDescription"><p>Los <b>selectores</b> son una herramienta fundamental que nos permite interactuar desde el código JavaScript con los elementos HTML de una página web. Esto abre las posibilidades de manipular su contenido, obtener información a partir de ellos y modificar sus atributos. En resumen, <b>los selectores son los que unen la página web y su contenido con las acciones de JavaScript.</b><br><br>Existen diversas formas de seleccionar elementos usando JavaScript, debido a que no todas las estructuras HTML están definidas de la misma manera, y no siempre encontraremos elementos con un id o una clase definida. Por tal motivo, además de los selectores, por cada uno de los atributos anteriores encontramos los selectores de etiqueta, de nombre y de sentencia CSS.<br><br></p><center><img src="./img1.png" style="width: 350px; margin: 0 auto;"></center><div border="5px"><p>Para realizar este ejercicio, debes suponer lo siguiente:<br>La página web de una empresa que registra los datos de sus afiliados, cuenta con una estructura base del formulario con el que se registran a los usuarios a sus servicios. Tu deber será obtener todos los datos que se ingresen en el formulario y asignarlos a un objeto Usuario, para mostrar después toda su información en consola.<br><br></p><center><img src="./img2.png" style="width: 600px; margin: 0 auto;"></center><p></p></div></div>
+    <div id="content_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Contenido</h5></div>
+		<div class="" id="content"> </div>
+		<div id="base"><div id="jz-descargar-solucion"><a style="color: #20bcf3" href="https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U3_L1_Ejercicio1_1/solucion/codBase.zip"><p>Descargar archivo base <span class="glyphicon glyphicon-download-alt" style="font-size: 25px;"></span></p></a></div></div>
+    <div id="instructions_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Instrucciones</h5></div>
+		<ol class="padded" id="instructions"><li>Descarga el <b>codBase.zip</b> que contiene la estructura de la página web.</li><li>En el archivo <b>index.js</b> encontrarás un evento para cuando se haga click en el botón enviar, por ahora no vas a escribir código en él.</li><li>Crea un objeto <b>Usuario</b> con todos los atributos que se le pueden asignar según el formulario, es decir, nombre completo, nombre de usuario, contraseña, correo electrónico, entre otros; e inicialízalos como vacíos. Para esto puedes utilizar las comillas únicamente:<br><br><center><img src="./img3.png" style="width: 200px; margin: 0 auto;"></center></li><li>Crea un método que imprima todos los atributos del objeto en consola.</li><li>Asigna a cada atributo del objeto Usuario el valor ingresado en el formulario. Para lograrlo debes hacer el atributo correspondiente, igual a un selector que apunte al elemento del formulario. Al final del selector debes usar <b>.value</b> para obtener el valor del elemento seleccionado. Con los elementos tipo radio button y checkbox usa <b>.checked</b>.<br><br><center><img src="./img4.png" style="width: 350px; margin: 0 auto;"></center></li><li>Para el paso anterior, debes usar 3 selectores de clase, 3 de nombre, 2 de etiqueta, 2 querySelector, 2 querySelectorAll, y 4 de Id.</li><li>Después de las asignaciones anteriores, invoca el método del objeto Usuario para imprimir toda la información en consola.</li></ol>
+<hr>
+
+		<div id="practices_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Buenas Prácticas</h5></div>
+		<ul class="padded" id="practices"><li>Los selectores ayudan en gran medida a la interacción con los elementos del DOM. Sin embargo, es muy importante tener en cuenta qué selectores ubican un sólo elemento y cuáles retornan un arreglo de ellos, debido a que una mala distinción entre estas condiciones puede causar errores o problemas en tus algoritmos</li></ul>
+    <div id="uknow_title"></div>
+		<ul class="padded" id="uknow">
+		</ul>
+
+	</div>
+</div>
+
+<div id="jz-container">
+	<div id="jz-solucion-header" class="bounceInRight animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img">
+			<img src="./bombillo.png">
+		</div>
+		<div class="text">
+			SOLUCIÓN
+		</div>
+	</div>
+
+	<div id="jz-solucion-body"><p> Intenta completar la actividad por tu cuenta pero ten presente que si se te dificulta, puedes contactar a un <strong style="color: #00bff0"> tutor </strong> a través del chat de ayuda.<br><br>Aprender estos conceptos y saber cómo llevarlos a la práctica, te permitirá tener éxito en tu carrera como desarrollador. Entonces, esfuérzate al máximo y descarga la solución sólo si necesitas verificar tu trabajo o asegurarte de que estás en el camino correcto.<br>Recuerda, esta actividad te debería tomar aproximadamente <strong style="color: #00bff0">25 minutos</strong> en completar.</p></div>
+	<div id="buttons"><div id="jz-descargar-solucion"><a style="color: #20bcf3" href="https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U3_L1_Ejercicio1_1/solucion/solucion.zip"><p>Descargar Solución <span class="glyphicon glyphicon-download-alt" style="font-size: 25px;"></span></p></a></div></div>
+
+</div>
+</div>
+
+<script type="text/javascript" src="./iframeResizer.contentWindow.min.js.descarga"></script>
+<script src="./jquery.js.descarga"></script>
+<script src="./jquery-ui.min.js.descarga"></script>
+<script src="./bootstrap.min.js.descarga"></script>
+<script src="./config.js.descarga"></script>
+
+
+<div style="clear: both; display: block;"></div></body></html>

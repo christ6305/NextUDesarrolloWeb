@@ -1013,17 +1013,846 @@
 		              <label for="nombre">Nombre y Apellidos</label>
             	  </div>
 
+4. JAVASCRIPT
+	U1. HERRAMIENTAS DEL NAVEGADOR
+		L1. QUE ES JAVASCRIPT
+			1. DEFINICION DE JAVASCRIPT
+				- JavaScript es un lenguaje de programación creado por Netscape que nos permite crear paginas web interactivas, es decir, páginas dinámicas en las que los usuarios pueden participar y aportar. Este es un lenguaje interpretado que no necesita de un servidor para analizar todo el código escrito pues está presente en todos los navegadores y son estos los encargados de interpretar los scripts (códigos). Básicamente, JavaScript nos permite crear eventos en una página web y responder a estos. Por ejemplo, cuando presionamos un botón JavaScript identifica un evento, que es la acción que queremos realizar, ante esto nos entrega una respuesta/solución desencadenando otro evento o tarea. Entre los tipos de lenguajes de programación y sus características JavaScript se define como un lenguaje de programación orientado a objetos, imperativo, debilmente tipado e interpretado. Aunque esto puede ser muy extraño inicialmente, iremos comprendiendo a lo largo de esta unidad qué significa cada uno de estos términos.
+				- ¿Cómo nace JavaScript?
+				Como mencionamos antes, JavaScript fue creado en sus inicios para extender un poco más la funcionalidad de un simple documento HTML, el cual se limita a presentar un contenido estático sin ningun tipo de interacción con el usuario, por ejemplo, emitir una alerta o mensaje de aviso y abrir una nueva ventana. En la actualidad JavaScript es uno de los lenguajes más populares entre los amantes de la tecnología, quienes lo prefieren por su nivel de flexibilidad y dinamismo, la especialidad del lenguaje, la interacción con el DOM y la programación de paginas web dinámicas.
+			2. HISTORIA DE JAVASCRIPT
+				- JavaScript fue creado por Brenda Eich de Netscape quien inicialmente lo llamó ‘Mocha’, más tarde recibió el nombre de LiveScript para finalmente consolidarse como JavaScript.
+				Actualmente JS es una marca registrada de Oracle y fue llamada JavaScript debido a que JAVA, un lenguaje de programación muy popular de la misma compañía, estaba en una época bastan- te brillante, Oracle decidió entonces llamarlo JavaScript como una estrategia para venderlo mejor.
+				Cuando JS estaba en una buena posición en el mercado, Microsoft decidió sacar su propia versión y lo llamó JScript, el cual fue lanzado en la version 3.0 de Internet Explorer. Aunque era una especificación muy parecida a JavaScript, este era totalmente incompatible.
+				En 1997 los autores propusieron a JavaScript para que fuera considerado como un estándar ante la European Computer Manufacturers Association (ECMA) y poco después un estandar ISO.
+				En la actualidad existen miles de tecnologías y herramientas basadas en JavaScript, las cuales facilitan tareas y ofrecen muchas soluciones prácticas al día a día de un desarrollador.
+			3. SINTAXIS Y SEMANTICA
+			 	- SE TIENE ACCESO A TRES CARACTERISTICAS IMPORTATES
+					- EL NAVEGADOR//navigator
+					- EL DOM // document
+					- VENTANA DEL NAVEGADOR // window
+				- OBJETOS QUE PUEDEN MODIFICARSE TRAS UNA INTERACCION
+					- document
+					- navigator
+					- window
+				- PUEDE USARSE CON ETIQUETA <SCRIPT> O ARCHIVO .JS EXTERNO
+				- UNA FUNCION SE DEFINE CON LA PALABRA CLAVE FUNCTION SEGUIDO DE UN NOMBRE, PARENTESIS Y LLAVES 
+			4. ECMASCRIPT, HISTORIA Y SU ACTUALIDAD
+				- Al retomar un poco la historia y los estándares que definen a JavaScript, es necesario hablar sobre ECMAScript, lenguaje de programación publicado por ECMA International, que es el que define el comportamiento, las funcionalidades, las formas de trabajar y todo lo relacionado con el lenguaje. ECMAScript está basado en JavaScript (estándar propuesto por la compañía Netscape). Podemos ver un poco mas de información en su sitio oficial:
+				http://www.ecma-international.org/publications/standards/Ecma-262.htm
+				- Historia
+				ECMAScript fue creado por Brenda Eich, un empleado de Netscape, y tuvo varios nombres como Mocha y LiveScript antes de conocerse como JavaScript. Fue anunciado oficialmente en 1996 con una especificación llamada ECMA-262.
+				A lo largo de la historia se han publicado seis versiones oficiales, pero aún existe un alto grado de incompatibilidad entre los navegadores y la versión ECMAScript 6 (o ECMAScript 2015 porque fue liberada en junio de ese año). Debido a esto, la versión 5 es la más utilizada en la actualidad por ser precisamente la más compatible.
+				El siguiente es el listado de las versiones oficialmente liberadas por ECMA International (Tomado de: https://es.wikipedia.org/wiki/ECMAScript)
+				- La versión 6 publicó cambios considerables en cuanto al lenguaje: se tomaron muchas de las mejores características de otros lenguajes y se implementaron, introduciendo conceptos como constantes, clases y módulos.
+				-ECMAScript en la actualidad
+				Actualmente se encuentra en etapa de desarrollo la versión 7 y sigue orientada a reformar el lenguaje y aplicar mejoras en la parte matemática y de datos numéricos.
+		L2. ETIQUETA Y USO DE JAVASCRIPT
+			1. COMO SE USA LA ETIQUETA
+				- Como vimos en la lección anterior, apareció una nueva etiqueta que usamos para agregar un poco de código JavaScript y generar interacción en nuestra página web. Existen varias formas de usar el lenguaje JavaScript dentro de una página web, al igual que con CSS, podemos hacer- lo directamente en la definición del HTML o vinculando un archivo externo.Como vimos en la lección anterior, apareció una nueva etiqueta que usamos para agregar un poco de código JavaScript y generar interac- ción en nuestra página web. Existen varias formas de usar el lenguaje JavaScript dentro de una página web, al igual que con CSS, podemos hacerlo directamente en la definición del HTML o vinculando un archivo externo.La sintaxis de la etiqueta script es la siguiente:
+				<script type="text/javascript">
+					//codigo javascript
+				</script>
+				- Aunque la mayoría de los navegadores moder- nos ya no necesitan el atributo type, es recomendable agregarlo ya que nunca sabemos desde qué tipo de navegador visitan nuestra página web.La etiqueta <script> debe agregarse dentro del body de nuestra página, pero otra de las buenas prácticas recomendadas es agregarlo antes de la etiqueta de cierre </body>.
+				- Esto es debido a que con el lenguaje JavaScript se manipulan los elementos del DOM, y si agregamos el código antes de que el motor de render cree nuestros elementos, JavaScript no encontrará los objetos que queremos manipular y por lo tanto se generará un error.Esta forma de incluir código JavaScript dentro del HTML solo es recomendada cuando vamos a realizar pequeñas acciones o el código no es muy extenso, ya que si incluimos todo el código junto con el HTML esto daría como resultado un documento dificil de comprender, dificil de mantener y muy poco escalable a futuro, esto quiere decir que será muy dificil que en un futuro el proyecto pueda crecer sin tener complicaciones. En el próximo tema veremos cómo incluir un archivo externo tipo JavaScript dentro de nuestro documento HTML para tener una mejor organización del proyecto.
+			2. ARCHIVOS .JS
+				- DIVIDIR EL CODIGO EL MODULOS
+				- <script src="Archivo.js"></script>
+			3. CARACTERISTICAS PRINCIPALES
+				- En este lenguaje de scripting se encuentran muchas características que son determinantes para la interpretación del código. Entre las más importantes se encuentran:
+					- Espacios en blanco
+					Los caracteres de espacio en blanco tienen un comportamiento especial. Aunque no interfieren con el funcionamiento de los scripts es necesario tener en cuenta que los espacios en JavaScript son ignorados, sean pocos o muchos el intérprete no tendrá en cuenta los espacios.
+					Por lo tanto:
+						var   a=2
+					es lo mismo que tener:
+						var a=2
+				- Diferencia entre minusculas y mayusculas
+				JavaScript es un lenguaje sensible a las minusculas y mayusculas, por lo tanto no es lo mismo tener una cadena de texto escrita en mayúscula que una en minúscula.
+				Por ejemplo:
+					var x=6
+				No es lo mismo que :
+					var X=6
+				‘x’ y ‘X’ Serian dos variables diferentes.
+				- Comentarios
+				Los comentarios son una parte fundamental en el desarrollo de proyectos, son una gran ayuda para poner información acerca del código. Los comentarios son útiles para describir lo que se está haciendo y asi facilitar la tarea de otros desarrolladores que tengan que intervenir en el proyecto.
+				Los comentarios en JavaScript se pueden agregar de dos maneras:
+				Comentarios de línea ( // )
+				Se utilizan las dos barras al principio de una expresión o línea de código para comentarla.
+					// var a,b,c
+					// a=2
+					// b=3
+					// c=a + b
+				- Comentarios de bloque ( /* ….. */ )
+				Los comentarios de bloque se utilizan para comentar mas de una línea de código o bloques de instrucciones. Se utiliza la barra y un asterisco para abrir la zona que será comentada y para cerrar la zona se utiliza primero el asterisco y luego la barra: 
+					/* var a,b,c
+						a=2
+						b=3
+						c=a + b*/ 
+				- El punto y coma ( ; )
+				La mayoría de lenguajes de programación utilizan el simbolo de punto y coma para finalizar cada instrucción o línea de código, en JavaScript esto no es obligatorio; al ser un lenguaje tan dinámico esta es una de sus características importantes, la única situación en donde es necesario el punto y coma es cuando queremos ponervarias expresiones en la misma línea:
+				Ejemplo:
+					- Sin punto y coma:
+						var a,b,c
+						a=3
+						b=4
+						c=a+b
+					Instrucciones en una sola línea añadiendo el punto y coma:
+						var a,b,c;
+						a=3; b=4; c=a + b;
+		L3. CONSOLAS Y HERRAMIENTAS DE DEPURACION DE CODIGO DE LOS NAVEGADORES
+			1. NAVEGADORES PARA DESARROLLO
+				- INSPECTOR DE ELEMENTOS: INSPECTOR DEL DOM DE LA PAGINA WEB, POSICIONAMIENTO DE LOS ELEMENTOS
+				- CONSOLA: MOTOR DE JAVASCRIPT DEL NAVEGADOR
+				- DEPURADOR: ACCESO A LOS ARCHIVOS JS, AYUDA A DEPURAR EL CODIGO
+				- EDITOR DE ESTILOS: ACCESO A LOS ARCHIVOS CSS  
+				- RENDIMIENTO: VER EL RENDIMIENTO A TRAVES DE METRICAS DEL NAVEGADOR
+				- RED: CANTIDAD DE PETICIONES HTTP QUE REALIZA EL SERVIDOR PARA PEDIR ARCHIVOS ESTADISTICOS, CSS, JS, IMAGENES, TIEMPO DE ESPERA DE SOLICITUDES, DOMINIO DESDE EL CUAL FUE REQUERIDO
+			2. CONSOLAS Y DEPURACION DE CODIGO
+				- console.log('escribiendo mensaje en la consola desde javascript')
+				- function escribirEnConsola(){
+  					console.log('Hola desde la consola javascript');
+					}
 
+					setInterval(escribirEnConsola,1000)
 
+					var vble1='TEXTO DE PRUEBA'
+					var vble2=10
+			3. CONTROL DE ERRORES Y DEBUG
+				- function sumar(val1,val2){
+  					var resultado=val1+val2;
+					return resultado;
+				}
+				var resultadoSuma=sumar(2,10);
+				console.log(resultadoSuma);
+	U2. FUNDAMENTOS DE PROGRAMACION EN JAVASCRIPT
+		L1. INTRODUCCION A LA PROGRAMACION CON JAVASCRIPT
+			1. QUE ES UN ALGORITMO
+				- EMPIEZA EN BAGHDAD AÑOS 780AC Y 850AC 
+				- SUS APORTES FUERON: ALGORITMI DE NUMERO INDORUM Y COMPEDIO DE CALCULO POR COMPLECCION Y COMPARACION
+				- ALGORITMO: GRUPO FINITO DE OPERACIONES ORGANIZADAS DE MANERA LOGICA Y ORDENADA QUE PERMITE SOLUCIONAR UN DETERMINADO PROBLEMA
+				- TIENEN 4 PROPIEDADES: 
+					- PRECISO
+					- DEFINIDO
+					- FINITO
+					- COMPUESTO POR: ENTRADA-PROCESO-SALIDA
+				- CON LA LLEGADA DE LAS COMPUTADORES SE BUSCA AUTOMATIZAR LOS ALGORITMOS, CALCULO DE OPERACIONES GRANDES
+				- SE REQUIERE DE UN LENGUAJE DE PROGRAMACION 
+			2. LENGUAJES COMPILADOS VS LENGUAJES INTERPRETADOS
+				- Los lenguajes de programación son conjuntos limitados de palabras y de símbolos que representan procedimientos, cálculos y otras operaciones que llevan a cabo las computadoras.
+				- A continuación hemos preparado para ti un descargable sobre las ventajas y desventajas de los lenguajes de programación compilados e interpretados.
+				https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Infograf%C3%ADas/WEB16S_C4U2L1_Infografi%CC%81a2.pdf
+			3. VARIABLES, DECLARACION, ASIGNACION
+				- VARIABLE: CONTENEDOR QUE ALMACENA VALORES NUMERICOS O TEXTO
+				- UNA VARIABLE PUEDE ALMACENAR UN VALOR Y A MEDIDA QUE SE RECORRE EL SCRIPT, LA MISMA VARIABLE PUEDE ALMACENAR TEXTO SIN NECESIDAD DE CAMBIAR DICHA VARIABLE
+				var ejemplo;
+				ejemplo=12;
+				console.log(ejemplo+5)
+				ejemplo='hola mundo'
+				console.log(ejemplo)
+				- DECLARACION DE VARIABLE: ES DECIRLE A LA MAQUINA QUE VOY A TENER UNA VARIABLE CON UN NOMBRE DETERMINADO
+					VAR NOMBRE_VARIABLE;
+				- VALOR DETERMINADO PARA LAS VARIABLES: UNDEFINED
+				- ASIGNACION: SE HACE CON EL =
+					NOMBRE_VARIABLE=12;
+				- PALABRAS RESERVADAS MAS COMUNES: BOOLEAN, BYTE, CHAR, CLASS, CONST, DO, DOUBLE, FALSE, FLOAT, IMPORT, INT, LOG, NULL, SHORT, TRUE, VAR, VOID, FUNCTION
+				- https://developer.mozilla.org/es/docs/web/javascript/referencia/palabras_reservadas
+				- Ten en cuenta que una buena práctica de programación es agrupar en una sola sentencia varias operaciones.
+					var id = "";
+					var nombre = "";
+					var edad = 0;
+					var estatura = 0;
+					var salon = "";
+					id="1021461808", nombre="Juan Andrés Patiño", edad=15, salon="9A";
+			4. TIPOS DE DATOS
+				- NUMEROS: CANTIDADES ENTERAS O DECIMALES
+					VAR NUM1=12;
+					VAR NUM2=1.85;
+					VAR MSG='HOLA' O "HOLA"
+				- BOOLEANOS
+				- CADENA DE CARACTERES
+				- VECTORES: SERIE DE VALORES DEL MISMO TIPO, ALMACENADOS EN UNA FILA, COMIENZAN DESDE INDICE 0
+					VAR VECTOR_NUM=[3,12,3,4,5,6,8,2,77,9,2];
+					VAR NOMBRES=["CHRISTIAN","THALIA"];
+				- OBJETOS
+		L2. VARIABLES Y METODOS
+			1. NUMEROS Y SUS METODOS 
+				- INFINITY: VALOR QUE DEVUELVE JS SI EL CALCULO EXCEDE EL NUMERO MAXIMO O SI SE DIVIDE UN NUMERO EN 0
+					- 540e+200*1.540e+200
+					- 2/0
+				- NaN: EL VALOR ALMACENADO NO ES NUMERO
+					- 100/'HOLA'
+				- PARA IDENTIFICAR EL TIPO DE DATO DE UN VALOR O VARIABLE SE UTILIZA: typeof
+					- typeof 13
+					- typeof 'christian'
+					- typeof true
+				- MATH: OBJETO COMPUESTO DE CONSTANTES Y OPERACIONES MATEMATICAS CON VALORES FIJOS Y METODOS
+					- Math.E
+					- Math.PI
+					- Math.SQRT2
+					- Math.SQRT1_2
+					- Math.LN2
+					- Math.LN10
+					- Math.LOG2E
+					- Math.LOG10E
+					- abs(x)
+					- sen(x)
+					- cos(x)
+					- acos(x)
+					- cell(x)
+					- exp(x)
+					- floor(x)
+					- log(x)
+					- max(x,y,z,......,n)
+					- min(x,y,z,......,n)
+					- pow(x,y) etc
+			2. FECHAS, FORMATOS Y METODOS
+				- COMO CADENA DE CARACTERES
+				- COMO UN NUMERO
+				- new Date();
+				- new Date("September 25, 2018 11:50:56");
+				- new Date(2018,09,25,11,50;54);
+				- 0 ENERO, 11 DICIEMBRE
+				- DIA ENTRE 1 Y 31
+				- LA HORA RECIBE UN VALOR ENTRE 0 Y 23
+				- LOS MINUTOS Y SEGUNDOS RECIBEN VALORES ENTRE 0 Y 59
+				- LOS MILISEGUNDOS RECIBEN VALORES ENTRE 0 Y 999
+				- getTime(): DEVUELVE EL VALOR EL MILISEGUNDOS DESDE 1-1-970
+				- getDate(): DEVUELVE EL DIA DEL MES ENTRE 1 Y 31
+				- getDay(): DEVUELVE EL DIA DE LA SEMANA ENTRE 0 Y 6
+					var fecha=new Date();
+					fecha
+					2018-10-09T02:23:09.969Z
+					fecha.getTime();
+					1539051789969
+					fecha.getDate();
+					8
+					fecha.getDay();
+					1
+			3. ARREGLOS Y VECTORES
+				- MATRIZ: AGRUPACION DE VARIOS VECTORES
+					var fila1=["christian",10,90];
+					var fila2=["andres",2,8];
+					var fila3=["gaibor",4,89];
+					var fila4=["erazo",1,6];
+					var matriz=[fila1,fila2,fila3,fila4];
+				- concat(a,b): CONCATENA ELEMENTOS a Y b
+					var vector1=[1,2,3,4,5]
+					var vector2=[6,7,8,9,10]
+					vector1.concat(vector2);
+					[1,2,3,4,5,6,7,8,9,10]
+				- splice(a,b): GENERA UN SUBVECTOR QUE QUE INICIA EN UNA POSICION Y TERMINA EN OTRA, OMITIENDO EN PRIMER VALOR
+					var frutas=["MANZANAS","UVAS","NARANJA","DURAZNO","PIÑA"];
+					frutas.splice(1,3);
+					["UVAS","NARANJA","DURAZO","PIÑA"];
+			4. OBJETOS
+				- ESTRUCTURA DE DATOS QUE AGRUPA VARIABLES DE CUALQUIER TIPO QUE SE DENOMINAN PROPIEDADES
+					var estudiante={
+						nombre="christian",
+						edad=28,
+						nota1=10,
+						nota2=13,
+						nota3=1,
+						obtener_nombre:function(){
+							return this.nombre
+							},
+						obtener_promedio:function(){
+							var promedio=(this.nota1+this.nota2+this.nota3)/3 
+							return promedio}
+					};
+					var persona = {
+						nombre: '',
+						edad: 0,
+						peso: 0,
+						estatura: 0,
+						IMC: function calIMC (pes, est) {
+							var imc = pes / (est ^ 2);
+							return imc;
+						}
+					}
+					persona.nombre = prompt("Ingrese el nombre.");
+					persona.edad = Number(prompt("Ingrese la edad."));
+					var pesoPersona = Number(prompt("Ingrese el peso en Kg."));
+					var estaturaPersona = Number(prompt("Ingrese la estatura en m."));
+					alert(persona.nombre + ' tiene ' + persona.edad + ' años, pesa ' + persona.peso + 'kg y mide '+
+					persona.estatura + 'm y su IMC es ' + persona.IMC(pesoPersona, estaturaPersona))
+				- CONVERSION DE DATOS
+					var x=3.78;
+					x.toString();
+					"3.78"
+					x.toExponential(4);
+					"3.7846e+2"
+					x.toFixed(5);
+					"378.45800"
 
+					var x=356.9865;
+					x.toPrecision(7);
+					"356.9865";
 
+					var num_booleano;
+					typeon num_booleano;
+					"boolean";
+					String(true);
+					"true"
+					false.toString();
+					"false"
+					var temp=true;
+					String (temp);
+					"true"
+					temp.toString();
+					"true"
 
+					var unaFecha=new Date(2018,11,12);
+					string(unaFecha);
+					unaFecha.toString();
 
+					var numDesdeCadena=Number("89.543");
 
+					Number("");
+					0
+					Number(" ")
+					0
+					Numer("10 12")
+					NaN
 
+					7+null
+					7
 
+					null+"45"
+					null45
 
+					67+"48"
+					6748
 
+					"5"*"6"
+					30
+
+					"67"-78
+					-11
+
+					"67"*78
+					5226
+		L3. PROGRAMACION ESTRUCTURADA
+			1. OPERACIONES ARITMETICAS Y LOGICAS
+				- SUMA(+)
+				- RESTA(-)
+				- MULTIPLICACION(*)
+				- DIVISION(/)
+				- MODULO(%)
+				- INCREMENTO(++)
+				- DECREMENTO(--)
+				- UNARIO(-X)
+				- AND (&&)
+				- OR (||)
+				- NOT (!)
+			2. OPERADORES DE COMPARACION
+				- IGUAL A (==)
+				- IGUAL VALOR E IGUAL TIPO(===)
+				- DIFERENTE(!=)
+				- DIFERENTE VALOR Y DIFERENTE TIPO (!==)
+				- MAYOR QUE (>)
+				- MENOR QUE (<)
+				- MAYOR O IGUAL QUE (>=)
+				- MENOR O IGUAL QUE (<=)
+				5==3
+				false
+				5==5
+				true
+				5=="5"
+				true
+				5===5
+				true
+				5===3
+				false
+				5==="5"
+				false
+				5!=5
+				false
+				5!=3
+				true
+				5!="3"
+				true
+				5!==5
+				false
+				5!==3
+				true
+				5!=="3"
+				true
+				5>5
+				false
+				5>3
+				true
+				5>"3"
+				true
+				"5">3
+				true
+				3>5
+				false
+				"3">5
+				false
+				3>"5"
+				false
+				5<5
+				false
+				5<3
+				false
+				5<"3"
+				false
+				3<5
+				true
+				5===5
+				true
+				5===3
+				false
+				5==="5"
+				false
+				5!=5
+				false
+				5!=3
+				true
+				5!="3"
+				true
+				5!==5
+				false
+				5!==3
+				true
+				5!=="3"
+				true
+			3. SECUENCIAS
+				- ESTRUCTURAS ALGORITMICAS
+					- SECUENCIALES (VARIABLES, PROCESO, MOSTRAR AL USUARIO)
+						- ASIGNACION
+						- ENTRADA
+						- SALIDA
+					- CONDICIONALES
+						- SIMPLES 
+						- DOBLES
+						- MULTIPLES
+					- CICLICAS
+						- PARA
+						- MIENTRAS QUE
+						- REPITA HASTA
+			4. CONDICIONALES
+				- CONDICIONAL SIMPLE
+					var a=0,b=0,r=0;
+					a=prompt("Ingrese el valor de a");
+					b=prompt("Ingrese el valor de b");
+					if(a>b){
+						r=a*b;
+					}
+					alert("El resultado es: "r);
+				- CONDICIONAL DOBLE
+					var a=0,b=0,r=0;
+					a=prompt("Ingrese el valor de a");
+					b=prompt("Ingrese el valor de b");
+
+					if(a>b){
+						r=a*b;
+					}else{
+						r=a/	b;
+					}
+
+					alert("El resultado es: "+r);
+				- CONDICIONAL ANIDADO
+					var suma1 = 56 + 54;
+					var suma2 = 66 + 64;
+					if (suma1 > suma2) {
+						alert("La suma1 es mayor que la suma2");
+					} else if (suma2 > suma1) {
+						alert("La suma2 es mayor que la suma1");
+					} else {
+						alert("La suma2 es igual a la suma1");
+					}
+				- CONDICIONAL MULTIPLE
+					var a=0,b=0,r=0,opcion=0;
+					a=prompt("Ingrese el valor de a");
+					b=prompt("Ingrese el valor de b");
+
+					opcion=prompt("Ingrese el numero correspondiente a la operacion que desea: \n 1. r=a+b \n 2. r=a-b \n 3. r=a*b \n (*) Si ingresa un valor diferente a estos numeros se ejecutara la opcion r=a/b")
+
+					a=Number(a);
+					b=Number(b);
+
+					switch(opcion){
+					  case 1:
+					    r=a+b;
+					    break;
+					  case 2:
+					    r=a-b
+					    break;
+					  case 3:
+					    r=a*b;
+					    break;
+					  default:
+					    r=a/b;
+					}
+
+					alert("El valor de r es: "+r)
+			5. CICLOS
+				- INDETERMINADOS
+					- DO-WHILE
+						var lista_nombres=["christian","andres","gaibor","erazo","marilyn","thalia","andrade","oviedo"];
+						var i=1;
+						var resultado="";
+
+						do{
+						  resultado=resultado+lista_nombres[i]+"\n";
+						  i=i+1;
+						}while(i<=7)
+
+						alert(resultado);
+					- WHILE
+						var lista_nombres=["christian","andres","gaibor","erazo","marilyn","thalia","andrade","oviedo"];
+						var i=4;
+						var resultado="";
+
+						while(i<=7){
+						  resultado=resultado+lista_nombres[i]+"\n";
+						  i=i+1;
+						}
+
+						alert(resultado);
+
+				- DETERMINADOS
+					- FOR
+						var lista_nombres=["christian","andres","gaibor","erazo","marilyn","thalia","andrade","oviedo"];
+						var resultado="";
+
+						for(var i=4;i<=5;i++){
+						  resultado=resultado+lista_nombres[i]+"\n";
+						}
+
+						alert(resultado);
+					- FOR-IN
+						var lista_nombres=["christian","andres","gaibor","erazo","marilyn","thalia","andrade","oviedo"];
+						var resultado="";
+
+						for(nombre_temp in lista_nombres){
+						  resultado=resultado+lista_nombres[nombre_temp]+"\n";
+						}
+
+						alert(resultado); 
+				- SENTENCIAS
+					- break: INTERRUMPE UN CICLO SIN NECESIDAD DE QUE LA CONDICION DE FINALIZACION SE ALCANCE
+						var lista_nombres=["christian","andres","gaibor","erazo","marilyn","thalia","andrade","oviedo"];
+						var resultado="Las personas aceptadas a la conferencia son:\n";
+
+						for(var i=0;i<=7;i++){
+						  if(i==6){
+						    break;
+						  }
+						  resultado=resultado+lista_nombres[i]+"\n";
+						}
+
+						alert(resultado);
+
+					- continue: PERMITE SALTA A LA SIGUIENTE ITERACCION SIN EJECUTAR EL CODIGO QUE ESTE DESPUES DE LA SENTENCIA
+						var lista_nombres=["christian","andres","gaibor","erazo","marilyn","thalia","andrade","oviedo"];
+						var resultado="Las personas aceptadas a la conferencia son:\n";
+
+						for(var i=4;i<=7;i++){
+						  if((i%2)==0){
+						    continue;
+						  }
+						  resultado=resultado+lista_nombres[i]+"\n";
+						}
+
+						alert(resultado);
+		L4. PROGRAMACION FUNCIONAL
+			1. FUNCIONES, INVOCACION, PARAMETROS Y RESPUESTA
+				- function alertarMensaje(nombre, edad, estatura) {
+					  alert('Mi nombre es : '+ nombre +' , tengo ' +edad+ ' años y mi estatura es: ' + estatura + ' CM')
+				}
+
+				alertarMensaje('Edward', 24, '1.88')
+
+				function alertarMensaje2(nombre, edad, estatura){
+					var mensaje='Mi nombre es : '+ nombre +' , tengo ' +edad+ ' años y mi estatura es: ' + estatura + ' CM';
+				  	return mensaje;
+				}
+
+				console.log(alertarMensaje2('Edward', 24, '1.88'));
+ 			2. TIPOS DE FUNCIONES Y CONTEXTO
+ 				- CLOSURES
+ 				- CALLBACKS:funcion que se envia como parametro a otra funcion con el proposito de tener bajo control el tiempo de ejecucion del codigo
+ 					function Personalizada(num1, num2, funcion2){
+				    var resultado=num1+num2;
+				    funcion2(resultado);
+				}
+
+				Personalizada(4,8,function(resultado){alert(resultado);});
+
+ 				- ANONIMAS
+ 					setInterval(function(){console.log('Mensaje repetitivo');},2000);
+					setTimeout(function(){console.log('Mensaje luego de una espera');},2000);
+ 				- AUTOEJECUTABLES: sirven para definir un proceso dentro de una funcion y ejecutarlo 
+ 					(function(){
+					    console.log(this);
+					});
+
+					(function(nombre,apellido){
+					    console.log(nombre+' '+apellido);
+					})('THALIA','ANDRADE');
+				- CADA FUNCION ESTA LIGADA AL CONTEXTO Y ESTE DEPENDE DE LA FORMA EN QUE ES INVOCADA DICHA FUNCION, SE REPRESENTA CON LA PALABRA THIS
+					var myObject={
+					  property:'hola christian',
+					  func:function(){
+					    return this.property;
+					  }
+					}
+
+					console.log(myObject.func());
+
+					var myObject2={
+					  property:'hola christian'
+					};
+
+					function retornarPropiedad(){
+					  alert(this.property);
+					};
+
+					myObject2.f=retornarPropiedad;
+					myObject2.f();
+			3. CLOSURES Y CALLBACKS
+				- CLOSURES: FUNCIONES INTERNAS QUE MANEJAN VARIABLES INDEPENDIENTES, SE UTILIZA PARA EL PATRON DE MODULO, ENGLOBA TODAS LAS VARIABLES Y FUNCIONALIDADES DE UN OBJETO
+					function inicializa(){
+					  var prop=42
+					  function mostrarProp(){
+					    alert(prop);
+					  }
+					  mostrarProp();
+					};
+
+					inicializa();
+				- CALLBACKS: FUNCIONES ASINCRONAS QUE NO SE TIENE EL CONTROL TOTAL DE EJECUCION DE LAS MISMAS
+					function aviso(mensaje){
+					  alert(mensaje);
+					}
+
+					function OperacionLarga(param1,param2,aviso){
+					  aviso('termino de realizar la operacion')
+					}
+
+					function funcionCompleja(callback1, callback2, callback3){
+					  callback1('termino el proceso 1')
+					  callback2('termino el proceso 2')
+					  callback3('termino toda la funcion')
+					}
+
+					funcionCompleja(
+					  function(mensaje){
+					    alert(mensaje)
+					  },
+					  function(mensaje){
+					    alert(mensaje)
+					  },
+					  function(mensaje){
+					    alert(mensaje)
+					  }
+					)
+
+			4. SCOPE DE LAS VARIABLES
+				- AMBITO DE UNA VARIABLE ES LA ZONA DEL PROGRAMA EN LA QUE SE DEFINE LA VARIBLE Y ES VISIBLE: LOCAL Y GLOBAL
+				- HOISTING(ELEVACION): NO IMPORTA EL LUGAR DE DEFINICION DE LA VARIABLE, EL INTERPRETE LA ELEVA Y LA PONE AL COMIENZO DEL CONTEXTO
+	U3. SELECTORES BASICOS DEL DOM Y SU USO EN HTML
+		L1. SELECTORES
+			1. getElementById
+				- var object=document.getElementById('identificador')
+				- var nombrePaciente = document.getElementById('nombrePaciente').value
+			2. getElementsByClassName
+				- document.getElementsByClassName('nombre-clase')
+				- document.getElementsByClassName('card-panel')
+				var tarjeta_amarilla=document.getElementsByClassName('card-panel yellow')
+				for(i=0;i<tarjeta_amarilla.length;i++){
+					tarjeta_amarilla[i].getElementsByClassName('texto_tarjeta')[0].innerHTML='NUEVO TEXTO '+i; 
+				}
+				var resultados = document.getElementsByClassName('btn_red');
+				for(i=0; i < resultados.length; i++){
+					resultados[i].innerHTML = "Nuevo texto";
+				}
+			3. getElementsByName
+				- document.getElementsByName('valor_nombre'); 
+				- document.getElementsByName('nombre')
+				var resultados=document.getElementsByName('nombre')
+				resultados[0].value
+				"christian"
+				resultados[1].value
+				"christian2"
+			4. getElementsByTagName
+				- document.getElementsByTagName('nombre_tag')
+				- document.getElementsByTagName('i')
+				- var iconos=document.getElementsByTagName('i')
+				for(i=0;i<iconos.length;i++){
+					iconos[i].className='large material-icons'
+				}
+			5. querySelector y querySelectorAll
+				- document.querySelector('a')
+				- document.querySelector('.card-image')
+				- imagenes_tarjetas=document.querySelectorAll('.card-image')
+				for (i=0;i<imagenes_tarjetas.length;i++){
+					imagenes_tarjetas[i].style.width="100px"
+				}
+		L2. MODIFICACION DE ESTILOS CON JAVASCRIPT
+			1. MODIFICAR ESTILOS DEL MODELO DE CAJA
+				- document.getElementsByClassName('card large')
+				- document.getElementsByClassName('card large')[0].style.border="3px solid red"
+				- document.getElementsByClassName('card large')[0].style.padding="20px"
+			2. MODIFICAR EL FLUJO Y POSICIONAMIENTO DE CAJAS
+				- flex-start
+				- flex-end
+				- center
+				- space-between
+				- space-around
+				- stretch
+				- var tarjetas=document.getElementsByClassName('card')
+				 tarjetas[0].style.order='4'
+				 tarjetas[3].style.order='1'
+				 document.getElementById('contenedor_tarjetas').style.flexFlow='row-reverse nowrap'
+				 document.getElementById('contenedor_tarjetas').style.flexFlow='column wrap'
+			3. MODIFICAR LAS PROPIEDADES DEL TEXTO
+				- var titulos=document.getElementsByClassName('card-title')
+				 titulos[0].style.textTransform='uppercase'
+				 titulos[1].style.textTransform='lowercase'
+				 titulos[2].style.textTransform='capitalize'
+				- var parrafos=document.getElementsByTagName('p')
+				 parrafos[0].style.fontFamily='cursive'
+				 parrafos[1].style.fontFamily='fantasy'
+				 parrafos[2].style.fontFamily='monospace'
+				- <div class="row">
+					<div class="col s6 m3 l3">
+					  <div class="card large">
+					    <div class="card-image waves-effect waves-block waves-light">
+					      <img class="activator responsive-img" src="img/clarinete.jpg" alt="Clarinete"/>
+					    </div>
+					    <div class="card-content">
+					      <span class="card-title grey-text text-darken-4">Clarinete</span>
+					      <p>El clarinete es un instrumento musical de la familia de los instrumentos de viento-madera que consta de una boquilla con caña simple.</p>
+					    </div>
+					  </div>
+					</div>
+					</div>
+				 document.querySelector("span[class~='card-title']").style.textTransform= "uppercase";
+				 document.querySelector("div[class='card-content'] p").style.fontFamily="cursive";
+			4. MODIFICAR PROPIEDADES DE COLOR Y FONDOS
+				- document.getElementById('caja1').style.backgroundImage ="url(img/carnero.png)";
+				- document.getElementById('caja1').style.backgroundRepeat ="no-repeat";
+				- document.getElementById('caja1').style.backgroundSize ="100px 100px";
+				- document.getElementById('caja1').style.backgroundPosition ="right top";
+				- document.getElementsByClassName('encabezado')[0].style.background="url('img/logoNextU.png') no-repeat left top"
+				- document.getElementsByClassName('encabezado')[0].style.backgroundSize='250px'
+				- document.getElementsByClassName('promoNextU')[0].style.background="##33cccc"
+				- document.getElementsByClassName('promoNextU')[0].style.color="#000"
+				- document.getElementsByClassName('promoNextU')[0].style.borderRadius="20px"
+				- document.getElementsByClassName('promoNextU')[0].style.boxShadow="2px 3px 5px 7px rgba(0,0,0,0.3)"
+				- document.getElementsByClassName('piePagina')[0].style.background="url('img/papel_doblado.jpg') repeat right"
+				- var hojaEstilos=document.createElement('style')
+				 hojaEstilos.innerHTML='nav ul li(border-radius:10px)'
+				 document.head.appendChild(hojaEstilos)
+		L3. MODIFICACION DE ESTADOS CON JAVASCRIPT
+			1. RADIOBUTTONS Y CHECKBOXES
+				- document.getElementById('activar_rb').checked="true"
+				- document.getElementById('activar_rb').disabled="true"
+				- <input type='checkbox' class='user-check' id='final-user' name='final-user'/>
+					<label for='final-user'>Usuario Final</label>
+					<input type='checkbox' class='user-check' id='final-admin' name='final-admin'/>
+					<label for='final-admin'>Usuario Administrador</label>
+					<input type='radio' class='account-radio' id='unic-account' name='unic-account'/>
+					<label for='unic-account'>Cuenta unica</label>
+					<input type='radio' class='account-radio' id='shared-account' name='shared-account'/>
+					<label for='shared-account'>Cuenta compartida</label>
+				 document.getElementById('final-user').disabled=true;
+				 document.getElementById('shared-account').disabled=true;
+			2. SELECTS
+				- document.getElementById('sel_animales').disabled='true'
+				- $(document).ready(function(){$('select').material_select()})
+				- document.getElementById('sel_postres').querySelector("option[value='helado']").selected='true'
+				- $(document).ready(function(){$('select').material_select()})
+				- document.getElementById('sel_postres').querySelector("option[value='torta_chocolate']").selected='true'
+				- $(document).ready(function(){$('select').material_select()})
+				- <select id='WebDev'>
+					<option value="HTML">HTML</option>
+					<option value="JavaScript">JavaScript</option>
+					<option value="CSS">CSS</option>
+					<option value="JQuery">JQuery</option>
+				</select>
+				document.getElementById('WebDev').querySelector('option[value="CSS"]').selected="true"
+			3. INNERHTML Y APPENDS
+				- INNERHTML: PERMITE ACCEDER AL CONTENIDO DE UN OBJETO DOM Y PERMITE MODIFICARLO COMPLETAMENTE CON OTRO CONTENIDO
+					- document.getElementsByTagName("h5")[1].innerHTML="SELECCIONA TU ANIMAL FAVORITO Y TUS POSTRES PREFERIDOS"
+				- APPENDCHILD: AÑADE ELEMENTOS ADICIONALES A LA PAGINA
+					- var cont_lista
+					 var cont_lista_nueva=document.createElement('div')
+					 cont_lista_nueva.className='input-field col s4'
+					 cont_lista_nueva.id="lista_musica"
+					 cont_lista_nueva.className='input-field col s4'
+					 document.getElementById("contenedor_listas").appendChild(cont_lista_nueva)
+					 var lista_musica =document.createElement("select")
+					 lista_musica.id="sel_musica"
+					 lista_musica.className="icons"
+					 var disp_opt=document.createElement("option")
+					 disp_opt.value=""
+					 disp_opt.disabled=true
+					 disp_opt.selected="true"
+					 disp_opt.innerHTML=("selecciona tu instrumento favorito")
+					 var opt_trompeta=document.createElement('option')
+					 opt_trompeta.value="trompeta"
+					 opt_trompeta.dataset.icon="img/trompeta.png"
+					 opt_trompeta.className="left circle"
+					 opt_trompeta.innerHTML="trompeta"
+					 var opt_clarinete=document.createElement('option')
+					 opt_clarinete.value='clarinete'
+					 opt_clarinete.dataset.icon="img/clarinete.png"
+					 opt_clarinete.className="left circle"
+					 opt_clarinete.innerHTML="Clarinete"
+					 lista_musica.appendChild(disp_opt)
+					 lista_musica.appendChild(opt_trompeta)
+					 lista_musica.appendChild(opt_clarinete)
+					 cont_lista_nueva.appendChild(lista_musica)
+					 var musica_label=document.createElement('label')
+					 musica_label.innerHTML="Instrumentos musicales"
+					 cont_lista_nueva.appendChild(musica_label)
+					 $(document).ready(function(){$('select').material_select()})
+					- <div class="row">
+				     <div class="col s6 m3 l3">
+				       <div class="card">
+				         <div class="card-image waves-effect waves-block waves-light">
+				           <img class="activator responsive-img" src="img/piano.png" alt="Piano"/>
+				         </div>
+				         <div class="card-content">
+				           <span class="card-title activator">
+				             <i class="material-icons right">more_vert</i>
+				           </span>
+				           <p>
+				             El piano (palabra que en italiano significa «suave»,
+				 y en este caso es apócope del término original, «pianoforte», que hacía referencia
+				 a sus matices suave y fuerte) es un instrumento musical armónico clasificado como
+				 instrumento de teclado y de cuerdas percutidas por el sistema de clasificación
+				 tradicional, y según la clasificación de Hornbostel-Sachs es un cordófono
+				 simple. El músico que toca el piano se llama pianista.
+				           </p>
+				         </div>
+				       </div>
+				     </div>
+				   </div>
+				   function asociarEstado(){
+					 var elementoWeb=document.querySelector(".card");
+					 elementoWeb.onkeyup=funcionCambioEstado(elementoWeb);
+					}
+					function funcionCambioEstado(elementoWeb){
+					 var elementoDIV=document.createElement("div");
+					 elementoDIV.className="card-action";
+					 var enlace=document.createElement("a");
+					 enlace.href="#";
+					 enlace.innerHTML="Nuevo enlace";
+					 elementoDIV.appendChild(enlace);
+					 elementoWeb.appendChild(elementoDIV);
+					}
+					asociarEstado();
+		L4. EVENTOS
+			1. EVENTOS DE TECLADO
+				- KEYPRESS
+				- KEYDOWN
+				- KEYUP
+				- 
 
 
 

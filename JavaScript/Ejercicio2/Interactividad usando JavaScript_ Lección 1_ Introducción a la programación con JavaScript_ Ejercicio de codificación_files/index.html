@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!-- saved from url=(0132)https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U2_L1_Ejercicio1_1/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<link href="./jquery-ui.min.css" rel="stylesheet">
+	<link href="./bootstrap.min.css" rel="stylesheet">
+	<link href="./style.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="">
+
+	<div id="exerciseContainer" class="container exercises"><style>
+
+#jz-hora-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+}
+
+#jz-solucion-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  letter-spacing: 0.1em;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 200px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 12pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 85px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 20px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 11pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 667px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 55px;
+  }
+
+  #jz-hora-header .img img{
+    width: 45px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 90px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+
+}
+
+@media screen and (min-width: 768px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 60px;
+  }
+
+  #jz-hora-header .img img{
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 896px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .img img{
+    width: 60px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 17pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  #jz-container{
+    font-size: 13pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 35px;
+    padding-left: 10px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-left: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+h5.padded.title {
+    color: #CCCCCC;
+    font-size: 1.3em;
+}
+
+</style>
+<div class="titulo" id="jz-container">
+	<div id="jz-hora-header" class="bounceInDown animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img" id="headerImage"><img src="./caja_codigo.png"></div>
+		<div class="headerText text">HORA DE<br><strong>codificar</strong></div>
+		<div class="minutos" id="time"><img src="./clock.png"><div class="time_text">25 MINUTOS</div></div>
+	</div>
+</div>
+
+<div id="jz-hora-de-codificar-body" class="bounceInLeft animated">
+	<div id="jz-hora-de-codificar-text">
+
+		<div id="exerciseDescription"><p>La programación comprende un extenso mundo de conceptos y estructuras que debes dominar para lograr crear proyectos web de alta calidad, con funcionalidades dinámicas e interacciones intuitivas con el usuario. Los primeros pasos con los fundamentos de programación son fundamentales en tu evolución como desarrollador.<br>En primera instancia, el concepto de <b>algoritmo</b> nos sirve como base para afrontar cualquier proceso de desarrollo.Recordemos cuál es esa definición: “serie de pasos a seguir para alcanzar un objetivo.”<br>No olvides que los computadores sólo pueden seguir órdenes y que está en ti como programador indicar correctamente los pasos que debe seguir para que haga lo que deseas. Por otro lado, las variables y su tipo de dato corresponden al elemento esencial sobre el cual se trabajan las acciones en JavaScript. Su definición con la palabra reservada var y su capacidad para almacenar diversos tipos de datos, permiten usarlas en muchas ocasiones a lo largo del código.<br><br></p><center><img src="./img1.png" style="width: 300px; margin: 0 auto;"></center><p></p><div border="5px"> <p>Para realizar este ejercicio, supongamos que: el equipo de diseño, de la empresa para la cual trabajas, te entrega los archivos con los cuales podrás publicar una página web de recetas de cocina. Uno de los requisitos es que los eventos click, en los dos botones para ver las dos preparaciones que se muestran en pantalla, aparezcan en consola.<br><br></p><center><img src="./img2.png" style="width: 600px; margin: 0 auto;"></center><p></p></div></div>
+    <div id="content_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Contenido</h5></div>
+		<div class="" id="content"> </div>
+		<div id="base"><div id="jz-descargar-solucion"><a style="color: #20bcf3" href="https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U2_L1_Ejercicio1_1/solucion/codBase.zip"><p>Descargar archivo base <span class="glyphicon glyphicon-download-alt" style="font-size: 25px;"></span></p></a></div></div>
+    <div id="instructions_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Instrucciones</h5></div>
+		<ol class="padded" id="instructions"><li>Descarga el <b>codBase.zip</b> que contiene la página web.</li><li>Dentro de la carpeta, ubica el archivo <b>recetas.txt</b> pues allí encontrarás la información de los ingredientes y la preparación de las dos opciones.</li><li>Enlaza el archivo <b>index.js</b> que se encuentra en la carpeta js, al <b>documento HTML</b>. No olvides hacerlo  justo antes del cierre de la etiqueta body.</li><li>En el archivo index.js encontrarás dos eventos de tipo click definidos, pero sin ningún código en ellos. El primero corresponde al botón del postre de limón y el segundo al del Martini.</li><li>Crea varias variables en para almacenar los ingredientes de la preparación. Esto lo debes hacer una vez por cada preparación.</li><li>Crea así mismo variables que contengan las cantidades por cada ingrediente que debe usar en la preparación. Dichas variables sólo podrán almacenar datos numéricos.</li><li>Crea un algoritmo para describir la receta, imprimiendo cada uno de los pasos en consola. Cuando se mencione un ingrediente y su cantidad, debes usar las variables de ingredientes y las variables de cantidad definidas previamente.<br>Recuerda que para imprimir cadenas y variables usas el operador +.<br><br>Por ejemplo:<br><br><center><img src="./img3.png" style="width: 850px; margin: 0 auto;"></center></li></ol>
+<hr>
+
+		<div id="practices_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Buenas Prácticas</h5></div>
+		<ul class="padded" id="practices"><li>El manejo de variables facilita la comprensión y reusabilidad del código, sin embargo es posible que el mal nombramiento de las variables haga que tu código sea ilegible e incluso, después de un tiempo, que ni tú mismo seas capaz de identificar para qué sirve cada una. Por tal razón, es muy recomendable que todas las variables que crees en tus scripts, tengan un nombre que dé a entender su funcionalidad en el código.</li></ul>
+    <div id="uknow_title"></div>
+		<ul class="padded" id="uknow">
+		</ul>
+
+	</div>
+</div>
+
+<div id="jz-container">
+	<div id="jz-solucion-header" class="bounceInRight animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img">
+			<img src="./bombillo.png">
+		</div>
+		<div class="text">
+			SOLUCIÓN
+		</div>
+	</div>
+
+	<div id="jz-solucion-body"><p> Intenta completar la actividad por tu cuenta pero ten presente que si se te dificulta, puedes contactar a un <strong style="color: #00bff0"> tutor </strong> a través del chat de ayuda.<br><br>Aprender estos conceptos y saber cómo llevarlos a la práctica, te permitirá tener éxito en tu carrera como desarrollador. Entonces, esfuérzate al máximo y descarga la solución sólo si necesitas verificar tu trabajo o asegurarte de que estás en el camino correcto.<br>Recuerda, esta actividad te debería tomar aproximadamente <strong style="color: #00bff0">25 minutos</strong> en completar.</p></div>
+	<div id="buttons"><div id="jz-descargar-solucion"><a style="color: #20bcf3" href="https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U2_L1_Ejercicio1_1/solucion/solucion.zip"><p>Descargar Solución <span class="glyphicon glyphicon-download-alt" style="font-size: 25px;"></span></p></a></div></div>
+
+</div>
+</div>
+
+<script type="text/javascript" src="./iframeResizer.contentWindow.min.js.descarga"></script>
+<script src="./jquery.js.descarga"></script>
+<script src="./jquery-ui.min.js.descarga"></script>
+<script src="./bootstrap.min.js.descarga"></script>
+<script src="./config.js.descarga"></script>
+
+
+<div style="clear: both; display: block;"></div></body></html>

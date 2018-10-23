@@ -1,0 +1,130 @@
+body {
+		font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+		line-height: 1.429;
+		margin: 0;
+		padding: 0;
+}
+nav, aside, section, article, footer{
+	margin: 10px;
+	padding: 15px;
+}
+
+ul{
+	list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li{
+	background: hsla(196, 90%, 54%, 0.5);
+	margin-top: 10px;
+}
+
+li a{
+	text-decoration: none;
+	color: #000000;
+	display: block;
+	padding: 5px;
+}
+
+li a:active, li a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+
+article{
+		border-radius: 20px 15px 10px 5px;
+}
+article a{
+	margin: 5px;
+	width: 200px;
+	display: block;
+	text-decoration: none;
+	color: #000000;
+	background: #fff;
+	box-shadow: 2px 3px 7px 0 rgba(0, 0, 0, 0.2)
+}
+
+.contenedor_prin{
+	display: flex;
+	flex-flow: row wrap;
+	margin: 0 auto;
+	width: 90%;
+
+}
+
+.encabezado{
+	order: 1;
+	width: 100%;
+}
+
+.encabezado h1{
+	margin-left: 250px;
+}
+
+.menu{
+	order: 2;
+	width: 15%;
+}
+.promoNextU{
+	order: 3;
+	width: 70%;
+	background:linear-gradient(#000,#fff,#000);
+	color: #f38d20;
+
+}
+
+.nextUDesc{
+	order: 4;
+	margin-top: 10px;
+	width: 100%;
+	border: 3px solid black;
+	border-radius: 10px;
+}
+
+.iOSDesc{
+	order: 5;
+	width: 100%;
+	background:#fdd902;
+	color: #fff;
+}
+
+.iOSDesc:hover{
+	background:url("../img/iOS-icon.svg") no-repeat right bottom;
+	background-size: 200px;
+	border: 2px solid #fdd902;
+	color: #000;
+}
+
+.webDesc{
+	order: 6;
+	width: 100%;
+	background: #20bcf3;
+	color: #fff;
+}
+
+.webDesc:hover{
+	background:url("../img/web-icon.svg") no-repeat right bottom;
+	background-size: 200px;
+	border: 2px solid #20bcf3;
+	color: #000;
+}
+
+.jsDesc{
+	order: 7;
+	width: 100%;
+	background: #fc531f;
+	color: #fff;
+}
+
+.jsDesc:hover{
+	background:url("../img/javascript-icon.svg") no-repeat right bottom;
+	background-size: 200px;
+	border: 2px solid #fc531f;
+	color: #000;
+}
+
+.piePagina{
+	order: 7;
+	width: 100%;
+	background: radial-gradient(white,gray,white)
+}

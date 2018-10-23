@@ -1,0 +1,83 @@
+CONTROL DE VERSIONES Y GIT
+	U1. CONTROL DE VERSIONES, UTILIDAD Y EJEMPLO
+		L1.CONTROL DE VERSIONES, UNA INTRODUCCION VISUAL
+			1. INTRODUCCION
+				- sistema que permite gestionar los cambios en archivos
+				- se retoma versiones anteriores
+				- git: alamcena versiones de archivos, con o sin internet, ofrece trazabilidad, es decir ofrece informacion de quien realizo los cambio
+				- mide el progreso de trabajo, tiene versiones experimentales antes de la oficial, reduccion de copias
+				- trabajo en equipo
+		L2.INTRODUCCION A GIT
+			1. QUE ES UN REPOSITORIO? 
+				- lugar dentro del sistema de control de versiones donde se guardan los archivos
+				- en cada commit guarda la representacion de un archivo que es mas pequeño
+				- terminadas las modificaciones, se adiciona(add) a un staging area(archivos que se van a guardar en un commit)
+				- con commit se agrega al repositorio
+				- area de preparacion: es un lugar intermedio donde se colocan los archivos que se requieren guardar en el commit
+				- commit: es la consigancion de un conjunto de cambios en los archivos del proyecto,
+				- version: es la representacion de un instante de un proyecto dentro del repositorio
+	U2.GIT, ESTRUCTURA Y USO
+		L1. INTRODUCCION
+			1. INSTALACION Y CONFIGURACION
+				- git --version
+				- git config --global user.name "christian gaibor"
+				- git config --global user.email "christian_6366@hotmail.com"
+		L2. ESTRUCTURA Y FUNCIONAMIENTO DE GIT
+			1. ESTRUCTURA Y FUNCIONAMIENTO DE GIT
+				- git init repositorio vacio
+				- git clone https://github.com/MariaClaraNextU/Cenicienta.git
+		L3. UTILIZANDO GIT EN LA VIDA REAL
+			1.UTILIZANDO GIT EN LA VIDA REAL
+				- actividad de seleccion multiple: guarda archivo, se añade al area de preparacion, commit
+				- git add cuento.txt
+				- git commit -am "comentario"
+		L4.VERSIONES ANTERIORES
+			1. VERSIONES ANTERIORES
+				- git status
+				- git log
+				- git diff 2f411 81c5b
+				- git checkout 2f411 (volver a la version indicada)
+				- git tag -a "comentario"
+		L5.LAS RAMAS
+			1. LAS RAMAS
+				- git branch nombre de la rama (crea rama)
+				- git merge rama (une ramas especificas)
+				- git checkout rama (navegar entre ramas)
+				- git branch (navegar entre ramas)
+	U3. INTERACCION CON EL EXTERIOR
+		L1. GIT Y LOS REPOSITORIOS REMOTOS, GITHUB
+			1. GIT Y LOS REPOSITORIOS REMOTOS, GITHUB
+				- Repositorio de archivos almacenados en internet
+				- trabajo colaborativo
+		L2. EXPLORACION DE INTERFACES GRAFICAS - SOURCE TREE
+			1. EXPLORACION DE INTERFACES GRAFICAS - SOURCE TREE
+				- SourceTree
+			2. EXPLORACION DE INTERFACES GRAFICAS - GITHUB
+				- Github
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

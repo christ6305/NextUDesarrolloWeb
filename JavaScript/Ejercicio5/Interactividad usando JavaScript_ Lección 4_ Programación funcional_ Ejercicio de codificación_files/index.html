@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!-- saved from url=(0132)https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U2_L4_Ejercicio1_1/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<link href="./jquery-ui.min.css" rel="stylesheet">
+	<link href="./bootstrap.min.css" rel="stylesheet">
+	<link href="./style.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="">
+
+	<div id="exerciseContainer" class="container exercises"><style>
+
+#jz-hora-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+}
+
+#jz-solucion-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  letter-spacing: 0.1em;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 200px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 12pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 85px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 20px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 11pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 667px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 55px;
+  }
+
+  #jz-hora-header .img img{
+    width: 45px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 90px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+
+}
+
+@media screen and (min-width: 768px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 60px;
+  }
+
+  #jz-hora-header .img img{
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 896px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .img img{
+    width: 60px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 17pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  #jz-container{
+    font-size: 13pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 35px;
+    padding-left: 10px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-left: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+h5.padded.title {
+    color: #CCCCCC;
+    font-size: 1.3em;
+}
+
+</style>
+<div class="titulo" id="jz-container">
+	<div id="jz-hora-header" class="bounceInDown animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img" id="headerImage"><img src="./caja_codigo.png"></div>
+		<div class="headerText text">HORA DE<br><strong>codificar</strong></div>
+		<div class="minutos" id="time"><img src="./clock.png"><div class="time_text">25 MINUTOS</div></div>
+	</div>
+</div>
+
+<div id="jz-hora-de-codificar-body" class="bounceInLeft animated">
+	<div id="jz-hora-de-codificar-text">
+
+		<div id="exerciseDescription">Las funciones son bloques de código que se crean con el fin de ser reutilizados e invocados desde cualquier parte de la aplicación o en el contexto en el que sean creadas, también busca generalizar procesos que se repetirán con muchos valores, estos valores los recibe la función y son conocidos como parámetros. En javascript existen varios tipos de funciones, las anónimas, las autoejecutables, los closures y los callbacks, y cada una tiene un objetivo en común.<br><br>Entre las ventajas más fuertes que tiene el uso de la funciones está la reutilización de código y el nivel de modularidad que le das a tu aplicación, generalizando funciones que se repiten en muchas partes.<br><p>Para realizar este ejercicio, continuemos con el caso de la lección anterior: estás trabajando en el supermercado y, esta vez, tienes un reto más grande: dos compras se encuentran acumuladas y en el archivo javascript hay un nuevo arreglo con el pedido número 2 y toda su información.<br><br></p><center><img src="./img1a.png" style="width: 600px; margin: 0 auto;"></center><br><br>Lo que debes hacer es crear una función con el nombre que tu quieras y recibir como parámetro el vector con los datos de un pedido. Debes mover el algoritmo que realiza el cálculo en la lección anterior hacia adentro y adecuarlo para que trabaje con el vector que llega como parámetro. Adicional a esto, debes recibir un callback como segundo parámetro y ejecutarlo al final de esta función, pasándole como parámetro el mensaje que se genera al final, es decir: “Señor(a) el valor total de su compra es:“ <p></p></div>
+    <div id="content_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Contenido</h5></div>
+		<div class="" id="content"> </div>
+		<div id="base"><div id="jz-descargar-solucion"><a style="color: #20bcf3" href="https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U2_L4_Ejercicio1_1/solucion/codBase.zip"><p>Descargar archivo base <span class="glyphicon glyphicon-download-alt" style="font-size: 25px;"></span></p></a></div></div>
+    <div id="instructions_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Instrucciones</h5></div>
+		<ol class="padded" id="instructions"><li>Descarga el <b>codBase.zip</b> que contiene la página web.</li><li>La interfaz ha cambiado. Ahora tiene el nuevo pedido y un nuevo botón para procesar el segundo pedido: en el archivo <b>index.js</b> está definido un nuevo objeto llamado Pedido2, además de un nuevo evento que atenderá el click sobre el nuevo botón.</li><li>Debes crear una función con el nombre que tu quieras y mover el algoritmo que realiza el cálculo al interior de esta función para que pueda ser reutilizado en otros cálculos. Esta función debe recibir un vector llamado Pedido como parámetro y operar sobre este.</li><li>La función debe recibir un callback como segundo parámetro y ejecutarlo al finalizar todos sus procesos.</li><li>Dentro de la función debes declarar una nueva variable llamada mensaje y almacenar en ella el mensaje que se mostraba anteriormente en la alerta, el que contiene el nombre del cliente, el valor de compra con y sin IVA y la verificación del premio.</li><li>Dentro de cada evento click de los botones, debes hacer el llamado a la función y si es el boton numero 1 pasar el pedido 1, si es el boton numero 2 pasar el pedido 2.</li><li>En los llamados a la función que realiza el cálculo, el callback lo debes pasar de la siguiente manera:<ul><li>En el botón 1, el callback debe ser una función con nombre, previamente definida, por ejemplo:<br><br><center><img src="./img2.png" style="width: 500px; margin: 0 auto;"></center></li><li>En el botón 2, el callback debe ser una función anónima enviada directamente en la invocación, por ejemplo:<br><br><center><img src="./img3.png" style="width: 500px; margin: 0 auto;"></center></li></ul></li></ol>
+<hr>
+
+		<div id="practices_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Buenas Prácticas</h5></div>
+		<ul class="padded" id="practices"><li>Adecuar funciones para realizar un proceso que se realiza muchas veces, te ayuda a tener un proyecto altamente escalable y fácil de mantener. Además de facilitarte la vida a la hora de realizar grandes cambios en la aplicación, ya que tienes la posibilidad de modificar una sola función que trabaja para varias partes y no la misma función en muchas partes.</li></ul>
+    <div id="uknow_title"></div>
+		<ul class="padded" id="uknow">
+		</ul>
+
+	</div>
+</div>
+
+<div id="jz-container">
+	<div id="jz-solucion-header" class="bounceInRight animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img">
+			<img src="./bombillo.png">
+		</div>
+		<div class="text">
+			SOLUCIÓN
+		</div>
+	</div>
+
+	<div id="jz-solucion-body"><p> Intenta completar la actividad por tu cuenta pero ten presente que si se te dificulta, puedes contactar a un <strong style="color: #00bff0"> tutor </strong> a través del chat de ayuda.<br><br>Aprender estos conceptos y saber cómo llevarlos a la práctica, te permitirá tener éxito en tu carrera como desarrollador. Entonces, esfuérzate al máximo y descarga la solución sólo si necesitas verificar tu trabajo o asegurarte de que estás en el camino correcto.<br>Recuerda, esta actividad te debería tomar aproximadamente <strong style="color: #00bff0">25 minutos</strong> en completar.</p></div>
+	<div id="buttons"><div id="jz-descargar-solucion"><a style="color: #20bcf3" href="https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U2_L4_Ejercicio1_1/solucion/solucion.zip"><p>Descargar Solución <span class="glyphicon glyphicon-download-alt" style="font-size: 25px;"></span></p></a></div></div>
+
+</div>
+</div>
+
+<script type="text/javascript" src="./iframeResizer.contentWindow.min.js.descarga"></script>
+<script src="./jquery.js.descarga"></script>
+<script src="./jquery-ui.min.js.descarga"></script>
+<script src="./bootstrap.min.js.descarga"></script>
+<script src="./config.js.descarga"></script>
+
+
+<div style="clear: both; display: block;"></div></body></html>

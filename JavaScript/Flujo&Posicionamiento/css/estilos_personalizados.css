@@ -1,0 +1,27 @@
+.card{
+  width: 20%;
+}
+
+#contenedor_tarjetas{
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+#tarjeta1{
+  order: 1;
+}
+
+#tarjeta2{
+  order: 2;
+}
+
+#tarjeta3{
+  order: 3;
+}
+
+#tarjeta4{
+  order: 4;
+}

@@ -1,0 +1,97 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <div class="row top-bar expanded">
+      <div class="column">
+        <h1>Formulario</h1>
+      </div>
+    </div>
+    <form>
+      <div class="row small-stack medium-unstack formulario-container">
+        <div class="columns">
+          <label>Nombre completo
+            <input type="text" required class="nombre"/>
+          </label>
+          <label>Nombre de usuario
+            <input type="text" required class="nombre_usuario"/>
+          </label>
+          <label>Crea una contraseña
+            <input type="password" class="password"/>
+          </label>
+          <label>Digita de nuevo la contraseña
+            <input type="password" required name="password_repetida"/>
+          </label>
+          <label>Correo electrónico
+            <input type="email" required name="email"/>
+          </label>
+          <label>Fecha de nacimiento
+            <input type="date" name="fecha_nacimiento"/>
+          </label>
+          <label>Descripción breve
+            <textarea placeholder="Cuéntanos sobre ti" name="descripcion"></textarea>
+          </label>
+          <label>Tipo de suscripción
+            <select name="suscripcion">
+              <option value="basica">Básica</option>
+              <option value="estandar">Estándar</option>
+              <option value="premium">Premium</option>
+              <option value="gold">Gold</option>
+            </select>
+          </label>
+        </div>
+        <div class="columns">
+          <label>Ciudad de residencia
+            <input type="text" name="ciudad_residencia"/>
+          </label>
+          <label>Dirección
+            <input type="text" name="direccion"/>
+          </label>
+          <label>Telefono
+            <input type="tel" name="telefono"/>
+          </label>
+          <label>Celular
+            <input type="tel" name="celular"/>
+          </label>
+          <label>Nacionalidad
+            <input type="text" name="nacionalidad"/>
+          </label>
+          <div class="row">
+            <div class="column small-12">
+              <fieldset class="fieldset">
+                <legend>Género</legend>
+                <input type="radio" name="genero" value="masculino" id="masculino" required><label for="masculino">Masculino</label>
+                <input type="radio" name="genero" value="femenino" id="femenino"><label for="azul">Femenino</label>
+              </fieldset>
+            </div>
+
+            <div class="column">
+              <fieldset class="fieldset">
+                <legend>Tipo de pago</legend>
+                <input id="efectivo" type="checkbox" value="efectivo" name="tipo_pago"><label for="efectivo">Efectivo</label>
+                <input id="credito" type="checkbox" value="credito" name="tipo_pago"><label for="credito">Crédtio</label>
+              </fieldset>
+
+            </div>
+          </div>
+
+          <input type="submit" class="button float-right" value="Enviar" id="submit"/>
+        </div>
+      </div>
+    </form>
+
+
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

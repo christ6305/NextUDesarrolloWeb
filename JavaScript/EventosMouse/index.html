@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <!--Importar la fuente de los íconos de Google-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Importar la hojas de estilos de materialize css-->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/estilos.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <title>Eventos de Mouse</title>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col s10 offset-s1">
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <!--Primer Tarjeta-->
+              <div class="card col s4 offset-s1">
+                <div class="card-content">
+                  <img id="astronauta" src="img/astronauta.jpg" class="responsive-img"/>
+                </div>
+                <div class="card-action">
+                  <a href="#">Astronauta</a>
+                </div>
+              </div>
+
+              <!--Segunda Tarjeta-->
+              <div class="card col s4 offset-s2">
+                <div class="card-content">
+                  <img id="extraterrestre" src="img/extraterrestre.jpg" class="responsive-img"/>
+                </div>
+                <div class="card-action">
+                  <a href="#">Extraterrestre</a>
+                </div>
+              </div>
+
+              <!--Tercer Tarjeta-->
+              <div class="card col s4 offset-s1">
+                <div class="card-content">
+                  <img id="planetas" src="img/planetas.jpg" class="responsive-img"/>
+                </div>
+                <div class="card-action">
+                  <a href="#">Planetas</a>
+                </div>
+              </div>
+
+              <!--Cuarta Tarjeta-->
+              <div class="card col s4 offset-s2">
+                <div class="card-content">
+                  <img id="nave_espacial" src="img/nave_espacial.jpg" class="responsive-img"/>
+                </div>
+                <div class="card-action">
+                  <a href="#">Nave Espacial</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script>
+     $(document).ready(function() {
+        $('select').material_select();
+    });
+  </script>
+  <script type="text/javascript" src="js/eventos.js"></script>
+  </body>
+</html>

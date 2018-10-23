@@ -1,0 +1,19 @@
+var configuration = {
+	activityName: "Documento básico",
+	ActivityDescription: "<p>Los <b>selectores</b> son una herramienta fundamental que nos permite interactuar desde el código JavaScript con los elementos HTML de una página web. Esto abre las posibilidades de manipular su contenido, obtener información a partir de ellos y modificar sus atributos. En resumen, <b>los selectores son los que unen la página web y su contenido con las acciones de JavaScript.</b><br><br>Existen diversas formas de seleccionar elementos usando JavaScript, debido a que no todas las estructuras HTML están definidas de la misma manera, y no siempre encontraremos elementos con un id o una clase definida. Por tal motivo, además de los selectores, por cada uno de los atributos anteriores encontramos los selectores de etiqueta, de nombre y de sentencia CSS.<br><br><center><img src='img1.png' style='width: 350px; margin: 0 auto;'></center><div border='5px'><p>Para realizar este ejercicio, debes suponer lo siguiente:<br>La página web de una empresa que registra los datos de sus afiliados, cuenta con una estructura base del formulario con el que se registran a los usuarios a sus servicios. Tu deber será obtener todos los datos que se ingresen en el formulario y asignarlos a un objeto Usuario, para mostrar después toda su información en consola.<br><br><center><img src='img2.png' style='width: 600px; margin: 0 auto;'></center></p>",
+	program: "WEB",
+	content : " ",// el texto Contenido no irá si este array está vacio o no está
+	didyouknow : [], // el texto ¿Saqbias qué? no irá si este array está vacio o no está
+	goodp: ["Los selectores ayudan en gran medida a la interacción con los elementos del DOM. Sin embargo, es muy importante tener en cuenta qué selectores ubican un sólo elemento y cuáles retornan un arreglo de ellos, debido a que una mala distinción entre estas condiciones puede causar errores o problemas en tus algoritmos"], // el texto Buenas Prácticas no irá si este array está vacio o no está
+	goodPractices : [''],
+	instructions : ["Descarga el <b>codBase.zip</b> que contiene la estructura de la página web.","En el archivo <b>index.js</b> encontrarás un evento para cuando se haga click en el botón enviar, por ahora no vas a escribir código en él.","Crea un objeto <b>Usuario</b> con todos los atributos que se le pueden asignar según el formulario, es decir, nombre completo, nombre de usuario, contraseña, correo electrónico, entre otros; e inicialízalos como vacíos. Para esto puedes utilizar las comillas únicamente:<br><br><center><img src='img3.png' style='width: 200px; margin: 0 auto;'></center>","Crea un método que imprima todos los atributos del objeto en consola.","Asigna a cada atributo del objeto Usuario el valor ingresado en el formulario. Para lograrlo debes hacer el atributo correspondiente, igual a un selector que apunte al elemento del formulario. Al final del selector debes usar <b>.value</b> para obtener el valor del elemento seleccionado. Con los elementos tipo radio button y checkbox usa <b>.checked</b>.<br><br><center><img src='img4.png' style='width: 350px; margin: 0 auto;'></center>","Para el paso anterior, debes usar 3 selectores de clase, 3 de nombre, 2 de etiqueta, 2 querySelector, 2 querySelectorAll, y 4 de Id.","Después de las asignaciones anteriores, invoca el método del objeto Usuario para imprimir toda la información en consola."], // el texto Instrucciones no irá si este array está vacio o no está
+	type: "exercise-code",
+	time: [25,'min.','minutos'],
+	solution: 'solucion/solucion.zip',  // si no está o está vacio no aparecerá
+	base : 'solucion/codBase.zip' // si no está o está vacio no aparecerá
+}
+
+$.getScript( "../../includes/js/" + configuration.type + ".js" )
+$('.backdrop').on('click', function() {
+	$('#alert').toggleClass('active');
+})

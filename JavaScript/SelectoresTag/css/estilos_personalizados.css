@@ -1,0 +1,11 @@
+nav .brand-logo{
+  margin-left: 2%;
+}
+
+.card .card-image img{
+  border-radius: 50%;
+}
+
+.btn-block{
+  width: 100%;
+}

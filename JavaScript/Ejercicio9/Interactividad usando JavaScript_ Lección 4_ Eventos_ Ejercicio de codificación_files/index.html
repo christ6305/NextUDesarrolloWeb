@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<!-- saved from url=(0129)https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U3_L4_Ejercicio/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<link href="./jquery-ui.min.css" rel="stylesheet">
+	<link href="./bootstrap.min.css" rel="stylesheet">
+	<link href="./style.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="">
+
+	<div id="exerciseContainer" class="container exercises"><style>
+
+#jz-hora-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+}
+
+#jz-solucion-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  letter-spacing: 0.1em;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 200px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 12pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 85px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 20px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 11pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 667px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 55px;
+  }
+
+  #jz-hora-header .img img{
+    width: 45px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 90px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+
+}
+
+@media screen and (min-width: 768px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 60px;
+  }
+
+  #jz-hora-header .img img{
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 896px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .img img{
+    width: 60px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 17pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  #jz-container{
+    font-size: 13pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 35px;
+    padding-left: 10px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-left: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+h5.padded.title {
+    color: #CCCCCC;
+    font-size: 1.3em;
+}
+
+</style>
+<div class="titulo" id="jz-container">
+	<div id="jz-hora-header" class="bounceInDown animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img" id="headerImage"><img src="./caja_codigo.png"></div>
+		<div class="headerText text">HORA DE<br><strong>codificar</strong></div>
+		<div class="minutos" id="time"><img src="./clock.png"><div class="time_text">40 MINUTOS</div></div>
+	</div>
+</div>
+
+<div id="jz-hora-de-codificar-body" class="bounceInLeft animated">
+	<div id="jz-hora-de-codificar-text">
+
+		<div id="exerciseDescription">Cuando se habla de páginas web interactivas y dinámicas, siempre se hace referencia a un usuario que entra en contacto con el flujo de información de la página, y cuyo objetivo es que diversas acciones se vean evidenciadas en la presentación de los datos en el navegador. Para conseguir esta característica en una página web, es muy importante hacer uso de los eventos, que son maneras en que se le indica a la página qué hacer cuando el usuario realice algo en el navegador.Existen varios métodos que determinan tipos de interacciones que el usuario puede realizar en un portal web. Eventos para detectar clicks o doble clicks en algún elemento, o ya bien para realizar acciones al posar el cursor del mouse sobre un objeto, o al presionar una tecla, entre otros. Cada tipo de interacción posee un método específico para asignar acciones: onclick, ondblclick, onmouseleave, onmouseover, onmouseout, onkeypress, y muchas otras.<center><img src="./img1.png"></center><br>En este ejercicio terminaremos el portal de aprendizaje que hemos construido en lecciones anteriores. Esta vez usaremos varios eventos para invocar las funciones que definimos en los ejercicios anteriores y así darle funcionalidad a la página web.<br><br><center><img src="./img2.png" style="width: 450px"></center><br></div>
+    <div id="content_title"></div>
+		<div class="" id="content">
+
+		</div>
+		<div id="base"></div>
+    <div id="instructions_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Instrucciones</h5></div>
+		<ol class="padded" id="instructions"><li>Como ya lo sabes, éste ejercicio es la última parte del proyecto que llevamos construyendo. Por lo tanto, lo primero que debes hacer es abrir el resultado del ejercicio anterior para seguir avanzando.</li><li>Crea un objeto con el nombre <b>Eventos</b>, el cual tendrá todos los métodos que usaremos para asignar y definir los eventos de la página web.</li><li>Crea uno o cuantos métodos consideres necesarios, para definir dos eventos a los botones con las clases “boton-accion” y “boton-next”. El primer evento será invocar la función que creamos para cambiar el color de los botones, para que al posar el cursor sobre un botón, éste cambie su color. El segundo evento debe invocar la otra función para cambiar el color a los botones, para que al retirar el cursor del mouse de un botón, éste recupere su color original.<br><center><video width="450" height="240" controls=""><source src="3.mp4" type="video/mp4"></video></center><br></li><li>Crea uno o cuantos métodos consideres necesarios, para que al hacer click sobre cada contenedor principal se aplique sobre él la función que permite mostrar el contenido, haciendo su ancho mayor al de los otros dos. Sobre estos mismos contenedores asigna un evento para que al hacer doble click aparezca, en el elemento que disparó el evento, el párrafo de texto de la función que creamos en la lección anterior.<br><center><video width="450" height="240" controls=""><source src="4.mp4" type="video/mp4"></video></center><br></li><li>Crea uno o cuantos métodos consideres necesarios, para que al presionar el número 0 en el teclado, se active la selección del radio button con la función que realizaste en el ejercicio anterior. Igualmente, que al hacer click en el 9 se desactive usando la función del ejercicio anterior.<center><video width="450" height="240" controls=""><source src="5.mp4" type="video/mp4"></video></center><br></li><li>Crea uno o cuantos métodos consideres necesarios, para que al hacer click en el botón con el ícono A+ se invoque la función para aumentar el tamaño de letra. De la misma manera, crea uno para que al hacer click en el ícono A- se invoque la función que reduce el tamaño de letra.<br><center><video width="450" height="240" controls=""><source src="6.mp4" type="video/mp4"></video></center><br></li><li>Crea uno o cuantos métodos consideres necesarios, para que al hacer click en el botón de enviar del modal, se invoque la función que ubica el valor del campo de texto en un elemento nuevo en la página. Además, debes definir en este método que el estilo del ítem con el id “myModal” tenga un display none.<center><video width="450" height="240" controls=""><source src="7.mp4" type="video/mp4"></video></center><br></li><li>Crea un método del objeto Eventos llamada init, en la que invoques todos los métodos anteriores y así se asignen todos los eventos indicados.</li><li>Por último invoca el método init del objeto Eventos para que se ejecuten todas las acciones del ejercicio.</li></ol>
+<hr>
+
+		<div id="practices_title"></div>
+		<ul class="padded" id="practices"></ul>
+    <div id="uknow_title"></div>
+		<ul class="padded" id="uknow">
+		</ul>
+
+	</div>
+</div>
+
+<div id="jz-container">
+	<div id="jz-solucion-header" class="bounceInRight animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img">
+			<img src="./bombillo.png">
+		</div>
+		<div class="text">
+			SOLUCIÓN
+		</div>
+	</div>
+
+	<div id="jz-solucion-body"><p> Intenta completar la actividad por tu cuenta pero ten presente que si se te dificulta, puedes contactar a un <strong style="color: #00bff0"> tutor </strong> a través del chat de ayuda.<br><br>Aprender estos conceptos y saber cómo llevarlos a la práctica, te permitirá tener éxito en tu carrera como desarrollador. Entonces, esfuérzate al máximo y descarga la solución sólo si necesitas verificar tu trabajo o asegurarte de que estás en el camino correcto.<br>Recuerda, esta actividad te debería tomar aproximadamente <strong style="color: #00bff0">40 minutos</strong> en completar.</p></div>
+	<div id="buttons"><div id="jz-descargar-solucion"><a style="color: #20bcf3" href="https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U3_L4_Ejercicio/solucion/Solucion.zip"><p>Descargar Solución <span class="glyphicon glyphicon-download-alt" style="font-size: 25px;"></span></p></a></div></div>
+
+</div>
+</div>
+
+<script type="text/javascript" src="./iframeResizer.contentWindow.min.js.descarga"></script>
+<script src="./jquery.js.descarga"></script>
+<script src="./jquery-ui.min.js.descarga"></script>
+<script src="./bootstrap.min.js.descarga"></script>
+<script src="./config.js.descarga"></script>
+
+
+<div style="clear: both; display: block;"></div></body></html>
