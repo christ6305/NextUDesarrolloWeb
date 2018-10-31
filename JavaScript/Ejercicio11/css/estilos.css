@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Amaranth', sans-serif;
+}
+
+.biblioteca-body {
+  background: url(../img/fondo.jpg) no-repeat;
+  background-size: cover;
+}
+
+.biblioteca-navigation {
+  height: 8.8%;
+  background: rgba(111, 12, 12, 0.85);
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.biblioteca-logo {
+  height: 57%;
+}
+
+.biblioteca-container {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.biblioteca-users {
+  width: 99%;
+  height: 100%;
+  margin-top: 2px;
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+}
+
+.biblioteca-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 35px;
+  background: rgba(111, 12, 12, 0.7);
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  color: #FFFFFF;
+  width: 100%;
+  font-size: 20px;
+}
+
+.users-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2px;
+  width: 100%;
+  height: 100%;
+  text-align: -webkit-center;
+}
+
+.user-data {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 25px;
+  margin-right: 2px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.image-container {
+  border: 1px solid #FFFFFF;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-image {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 8px;
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+  width: 100%
+}
+
+.input-class {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+  width: 85%;
+  margin-top: 4px;
+  padding: 4px;
+  color: white;
+  font-family: 'Amaranth', sans-serif;
+  font-size: 14px;
+  text-align: center;
+}
+
+.authors-data {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-title {
+  width: 100%;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.button-save {
+  width: 200px;
+  background-color: rgba(111, 12, 12, 0.9);
+  height: 40px;
+}

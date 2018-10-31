@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!-- saved from url=(0129)https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U4_L2_Ejercicio/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<link href="./jquery-ui.min.css" rel="stylesheet">
+	<link href="./bootstrap.min.css" rel="stylesheet">
+	<link href="./style.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="">
+
+	<div id="exerciseContainer" class="container exercises"><style>
+
+#jz-hora-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+}
+
+#jz-solucion-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  letter-spacing: 0.1em;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 200px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 12pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 85px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 20px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 11pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 667px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 55px;
+  }
+
+  #jz-hora-header .img img{
+    width: 45px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 90px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+
+}
+
+@media screen and (min-width: 768px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 60px;
+  }
+
+  #jz-hora-header .img img{
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 896px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .img img{
+    width: 60px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 17pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  #jz-container{
+    font-size: 13pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 35px;
+    padding-left: 10px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-left: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+h5.padded.title {
+    color: #CCCCCC;
+    font-size: 1.3em;
+}
+
+</style>
+<div class="titulo" id="jz-container">
+	<div id="jz-hora-header" class="bounceInDown animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img" id="headerImage"><img src="./caja_codigo.png"></div>
+		<div class="headerText text">HORA DE<br><strong>codificar</strong></div>
+		<div class="minutos" id="time"><img src="./clock.png"><div class="time_text">20 MINUTOS</div></div>
+	</div>
+</div>
+
+<div id="jz-hora-de-codificar-body" class="bounceInLeft animated">
+	<div id="jz-hora-de-codificar-text">
+
+		<div id="exerciseDescription"><p>Es muy importante que tengas presente que hay dos formas de construir un <b>JSON:</b></p><ol><li>Si vas a crear la estructura de datos <b>JSON</b>dentro de un archivo <b>.json</b>, debes iniciar usando{}(llaves). </li><li>Si vas a crear la estructura <b>JSON</b> dentro de un archivo <b>JavaScript (.js)</b> es necesario definir una variable, haciéndola igual a un objeto, empleando <b>{}(llaves) </b> y agregando adentro las propiedades y sus respectivos valores.</li><p></p></ol><h3>SINTAXIS JSON</h3><p>Las propiedades de un <b>JSON</b> deben ir dentro de comillas dobles (“ ”), seguidas de dos puntos (:), los cuales se usan para asignar el valor a la propiedad, seguido a los dos puntos se agrega el valor que va a llevar la propiedad. Finalmente, si vas a agregar otra propiedad, agregas una coma (,) después del valor de la última propiedad que creaste y asignas una nueva propiedad, de lo contrario omites la coma.</p><p><b>Recuerda que a una propiedad de un JSON, se le puede asignar un valor de cualquier tipo de dato (una cadena de texto, un valor numérico, un valor booleano, un objeto o un arreglo).</b></p><center><img src="./img1.png" style="width: 450px"></center><br><h3>ESTRUCTURAS DE DATOS JSON COMPLEJAS</h3><p>Una estructura de datos JSON compleja, se da cuando definimos una propiedad con un valor de tipo objeto o arreglo y dentro de estos creamos más propiedades JSON con su respectivo valor, por ejemplo:</p><br><center><img src="./img2.png" style="width: 450px"></center><br><h3>BÚSQUEDAS DENTRO DE UN ARCHIVO JSON</h3><p>Un archivo json es interpretado por JavaScript como un objeto, por lo tanto, para buscar el valor de una propiedad dentro de un JSON, usando JavaScript lo podemos así:</p><ul><li>nombre_de_la_variable.nombre_del_objeto[posición].propiedad</li><li>nombre_de_la_variable[“nombre_del_objeto”][posición].propiedad</li></ul><b>Ejemplo:</b><ul><li><code>person.personas[0].nombre</code></li><li><code>person['personas'][0].nombre</code></li></ul><p></p><p>En el ejercicio de la lección anterior, creaste la estructura de datos que almacenará la información de los usuarios de la Biblioteca Nacional en un archivo <b>JSON</b>. Ahora, la Biblioteca te necesita que crees un archivo tipo <b>JSON</b> con la estructura de datos adecuada para almacenar, la información de los diferentes libros que están en sus estantes y para ello te proporcionan los datos que debes recolectar en el <b>JSON</b>. A continuacion, encontraras la pagina de la Biblioteca Nacional y recuerda usar adecuadamente la estructura de los datos de <b>JSON</b>.<br></p><center><img src="./img3.png" style="width: 550px"></center><br><p></p></div>
+    <div id="content_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Contenido</h5></div>
+		<div class="" id="content"> </div>
+		<div id="base"><div id="jz-descargar-solucion"><a style="color: #20bcf3" href="https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U4_L2_Ejercicio/solucion/Biblioteca-Libros.zip"><p>Descargar archivo base <span class="glyphicon glyphicon-download-alt" style="font-size: 25px;"></span></p></a></div></div>
+    <div id="instructions_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Instrucciones</h5></div>
+		<ol class="padded" id="instructions"><li>Crea descarga el archivo <b>Biblioteca-Libros.zip</b>, descomprimelo y crea el archivo libros con la extensión .json dentro de la carpeta, para almacenar los datos de cada libro según lo solicita la biblioteca.</li><li>Una vez hayas creado el archivo <b>JSON</b>, crea la propiedad libros e inicialízala como un arreglo de tipo vector vacío, ya que dentro de esta es donde deberás almacenar todos los datos de 3 de los libros de la biblioteca posteriormente.<center><img src="./img1.png" style="width: 450px"></center></li><li>Con la propiedad <b>libros</b> creada, es momento de llenarla con la información de 3 de los libros de la biblioteca, dicha información consta de los siguientes datos:<ul><li><b>código: <b>titulo:</b> título del libro</b></li><li><b><b>editorial:</b> editorial </b></li><li><b><b>fecha_publicacion:</b> fecha en la que se publicó el libro</b></li><li><b><b>edicion:</b> edición del libro (primera, segunda, tercera)</b></li><li><b><b>estado:</b> disponibilidad del libro</b></li><li><b><b>numero_paginas:</b> cantidad de páginas que tiene el libro</b></li><li><b><b>numero_copias:</b> número de copias del libro</b></li><li><b><b>autores:</b> <ul><li>nombre: nombre del autor</li><li>fecha_nacimiento: fecha de nacimiento del auto</li><li>nacionalidad: nacionalidad del autor</li></ul></b></li></ul><b>A cada uno de los 3 libros vas a guardar dentro de la estructura JSON debes agregarles como mínimo 2 autores.<center><img src="./img4.png" style="width: 300px"></center></b></li><li><b>Crea el archivo <b>libros.js</b>, importalo en el <b>index.html</b> y almacena dentro archivo js el <b>JSON</b> de los libros de la biblioteca que creaste anteriormente, pero debes tener presente que lo debes hacer con la estructura <b>JavaScript</b>.</b></li><li><b>Por último, agrega un alert al final del archivo <b>JavaScript libros.js</b> que imprima un mensaje en el que busques los siguientes datos del primer libro de la estructura JSON. titulo, codigo y fecha de publicación. La estructura del mensaje debe ser la siguiente:<code>“El libro ” + titulo_del libro + “ tiene el código ” + codigo_del_libro +  “ y fue publicado el ” + fecha_de_publicación</code><br><br><b>El resultado al abrir el archivo index.html que debe ser similar a esto: <br><br></b> <center><img src="./img5.png" style="width: 450px"></center></b></li></ol>
+<hr>
+
+		<div id="practices_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Buenas Prácticas</h5></div>
+		<ul class="padded" id="practices"><li>Recuerda que puedes que en <b>JSON</b> puedes asignar arreglos y objetos como el valor de una propiedad.</li><li>Recuerda que el dato de cada propiedad tiene un tipo, así que asegúrate de poner dentro de comillas lo datos tipo texto, sin comillas los datos numéricos y booleanos, de utilizar corchetes para los array o vectores y de utilizar llaves para los datos de tipo objeto.</li></ul>
+    <div id="uknow_title"></div>
+		<ul class="padded" id="uknow">
+		</ul>
+
+	</div>
+</div>
+
+<div id="jz-container">
+	<div id="jz-solucion-header" class="bounceInRight animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img">
+			<img src="./bombillo.png">
+		</div>
+		<div class="text">
+			SOLUCIÓN
+		</div>
+	</div>
+
+	<div id="jz-solucion-body"><p> Intenta completar la actividad por tu cuenta pero ten presente que si se te dificulta, puedes contactar a un <strong style="color: #00bff0"> tutor </strong> a través del chat de ayuda.<br><br>Aprender estos conceptos y saber cómo llevarlos a la práctica, te permitirá tener éxito en tu carrera como desarrollador. Entonces, esfuérzate al máximo y descarga la solución sólo si necesitas verificar tu trabajo o asegurarte de que estás en el camino correcto.<br>Recuerda, esta actividad te debería tomar aproximadamente <strong style="color: #00bff0">20 minutos</strong> en completar.</p></div>
+	<div id="buttons"><div id="jz-descargar-solucion"><a style="color: #20bcf3" href="https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U4_L2_Ejercicio/solucion/SolucionEjercicio.zip"><p>Descargar Solución <span class="glyphicon glyphicon-download-alt" style="font-size: 25px;"></span></p></a></div></div>
+
+</div>
+</div>
+
+<script type="text/javascript" src="./iframeResizer.contentWindow.min.js.descarga"></script>
+<script src="./jquery.js.descarga"></script>
+<script src="./jquery-ui.min.js.descarga"></script>
+<script src="./bootstrap.min.js.descarga"></script>
+<script src="./config.js.descarga"></script>
+
+
+<div style="clear: both; display: block;"></div></body></html>

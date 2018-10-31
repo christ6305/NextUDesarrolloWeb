@@ -1,0 +1,17 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#map-container {
+  margin: 5vh auto;
+  width: 90%;
+  height: 70%;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}

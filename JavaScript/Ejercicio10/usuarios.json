@@ -1,0 +1,54 @@
+{
+  "usuarios": [
+    {
+      "identificacion": "13345812",
+      "nombre": "Juan Camilo",
+      "apellido": "Gonzalez",
+      "edad": 13,
+      "email": "juanc@nextu.com",
+      "telefono": "3183057",
+      "direccion": "Avenida NextU #12-83",
+      "estado": "activo"
+    },
+    {
+      "identificacion": "1214893702",
+      "nombre": "Jason",
+      "apellido": "Roberts",
+      "edad": 24,
+      "email": "jason@nextu.com",
+      "telefono": "0093486",
+      "direccion": "Calle 18 #37-26",
+      "estado": "activo"
+    },
+    {
+      "identificacion": "4793675",
+      "nombre": "Edward",
+      "apellido": "Muller",
+      "edad": 19,
+      "email": "emuller@nextu.com",
+      "telefono": "0079317",
+      "direccion": "Calle 48#91A-17",
+      "estado": "activo"
+    },
+    {
+      "identificacion": "10417894",
+      "nombre": "Mateo",
+      "apellido": "Daniels",
+      "edad": 22,
+      "email": "mdaniels@nextu.com",
+      "telefono": "0658428",
+      "direccion": "Avenida NextU #12-14",
+      "estado": "activo"
+    },
+    {
+      "identificacion": "9080456",
+      "nombre": "Guillermo",
+      "apellido": "Williams",
+      "edad": 30,
+      "email": "wguillermo@nextu.com",
+      "telefono": "0457869",
+      "direccion": "Calle 12W #11-19",
+      "estado": "activo"
+    }
+  ]
+}

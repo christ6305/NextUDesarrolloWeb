@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Geolocation API</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="materialize/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header>
+    <div class="navbar-fixed">
+      <nav class="red">
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo center">Mis sitios favoritos</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <a class="waves-effect waves-light btn black" id="btn-geo">Localizate en el mapa!</a>
+  <div class="card" id="map-container">
+    <section id="map"></section>
+  </div>
+
+  <!-- Modal Structure -->
+  <a style="display:none;" class="waves-effect waves-light btn modal-trigger modalM" href="#modalMensaje">Modal</a>
+  <div id="modalMensaje" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Agenda de tus Sitios Favoritos</h4>
+      <p class="flow-text">
+        Esta aplicación sirve para que guardes la ubicación de tus sitios favoritos y tenerlos siempre
+        disponibles, debes hacer click en el mapa y automaticamente se pedira información acerca del sitio.
+        Para ver tu Agenda, solo haz click en el boton de la parte inferior derecha.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Entendido</a>
+    </div>
+  </div>
+
+  <!-- Informacion de los sitios guardados -->
+
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Lugares Guardados</h4>
+      <ul class="collection guardados">
+        <li class="collection-item avatar">
+          <i class="material-icons circle blue">thumb_up</i>
+          <span class="title">Integ.ro</span>
+          <p> Latitud: 33.566 <br> Longitud: -94.168 <br> Descripcion: Empresa de soluciones tecnologicas.</p>
+          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Captura de informacion de los sitios -->
+  <a style="display:none;" class="waves-effect waves-light btn modal-trigger modalInfo" href="#modalCaptura">Modal</a>
+  <div id="modalCaptura" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Ingrese la información</h4>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s8">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="icon_prefix" type="text" class="nombre validate">
+              <label for="icon_prefix">Nombre:</label>
+            </div>
+          </form>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix">mode_edit</i>
+            <textarea id="icon_prefix2" class="descripcion materialize-textarea"></textarea>
+            <label for="icon_prefix2">Descripcion</label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col s4 offset-s3">
+              <a href="#!" class="waves-effect waves-green btn blue guardaInfo">Guardar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large black modal-trigger" href="#modal1">
+      <i class="material-icons">menu</i>
+    </a>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+  <script src="materialize/js/materialize.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOSJ01wfza-kHun3hRMGQO03hnHvjJLmg&signed_in=true"
+  async defer>
+  </script>
+  <script src="index.js"></script>
+</body>
+</html>

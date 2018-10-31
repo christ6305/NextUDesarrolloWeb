@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<!-- saved from url=(0129)https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U4_L4_Ejercicio/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<link href="./jquery-ui.min.css" rel="stylesheet">
+	<link href="./bootstrap.min.css" rel="stylesheet">
+	<link href="./style.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="">
+
+	<div id="exerciseContainer" class="container exercises"><style>
+
+#jz-hora-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+}
+
+#jz-solucion-header{
+  background-color: #CCCCCC;
+  padding: 10px;
+  color: white;
+  letter-spacing: 0.1em;
+  width: 100%;
+  display: table;
+  font-weight: 100;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 200px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 12pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 85px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 20px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 11pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 667px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 55px;
+  }
+
+  #jz-hora-header .img img{
+    width: 45px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 90px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 15px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13pt;
+    padding-right: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+
+}
+
+@media screen and (min-width: 768px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 60px;
+  }
+
+  #jz-hora-header .img img{
+    width: 50px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 25px;
+  }
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 14pt;
+    padding-right: 10px;
+  }
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 896px) {
+
+  #jz-container{
+    font-size: 12pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .img img{
+    width: 60px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 17pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos img{
+    width: 110px;
+  }
+
+
+  #jz-solucion-header .img img{
+    width: 20px;
+  }
+
+
+
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  #jz-container{
+    font-size: 13pt;
+  }
+
+  #jz-container p{
+    padding: 0px 10px;
+  }
+
+  #jz-hora-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+  }
+
+  #jz-hora-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-right: 10px;
+  }
+
+  #jz-hora-header .minutos{
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+  }
+
+  #jz-solucion-header .img{
+    display: table-cell;
+    vertical-align: middle;
+    width: 35px;
+    padding-left: 10px;
+  }
+
+
+  #jz-solucion-header .text{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20pt;
+    padding-left: 10px;
+  }
+
+  #jz-descargar-solucion img{
+    width: 30px;
+    vertical-align: middle;
+  }
+
+}
+
+h5.padded.title {
+    color: #CCCCCC;
+    font-size: 1.3em;
+}
+
+</style>
+<div class="titulo" id="jz-container">
+	<div id="jz-hora-header" class="bounceInDown animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img" id="headerImage"><img src="./caja_codigo.png"></div>
+		<div class="headerText text">HORA DE<br><strong>codificar</strong></div>
+		<div class="minutos" id="time"><img src="./clock.png"><div class="time_text">20 MINUTOS</div></div>
+	</div>
+</div>
+
+<div id="jz-hora-de-codificar-body" class="bounceInLeft animated">
+	<div id="jz-hora-de-codificar-text">
+
+		<div id="exerciseDescription"><p><span style="font-weight: 400;">Las API´s que se incluyeron en la versión 5 de HTML extendieron las funcionalidades de los navegadores, entre las más interesantes se encuentran la </span><strong>geolocalización</strong><span style="font-weight: 400;"> y el </span><strong>WebStorag.</strong><span style="font-weight: 400;"> En éste último está basado este ejercicio.</span></p><p><strong>WebStorage</strong><span style="font-weight: 400;"> es un método de almacenamiento local que tiene varias alternativas: </span><strong>IndexDB</strong><span style="font-weight: 400;">, </span><strong>LocalStorage</strong><span style="font-weight: 400;"> y </span><strong>SessionStorage</strong><span style="font-weight: 400;">.</span></p><p><strong><strong>&nbsp;</strong></strong></p><p><strong>LocalStorage y SessionStorage </strong><span style="font-weight: 400;">son dos atributos del objeto </span><strong>window</strong><span style="font-weight: 400;">, que se encargan de almacenar información en formato JSON, directamente en la computadora de los usuarios que ingresan al sitio web.</span></p><p><span style="font-weight: 400;">La diferencia entre Local y SessionStorage es que con el segundo los datos son persistentes, siempre y cuando, el usuario no cierre el navegador. </span></p><p><strong><span style="font-weight: 400;">Con LocalStorage los datos persisten aunque se cierre el navegador y, la única manera en que estos datos se eliminan, es borrando la caché del navegador, acción que sólo puede hacer el propio usuario.</span></strong></p><br>Una reconocida agencia de viajes de la ciudad te ha buscado para implementar una página web que les servirá a los clientes para hacer reservas de tiquetes para viajar a los diferentes destinos que ofrece la agencia. La agencia contrató a una empresa de diseño web para que realizara la maquetación del sitio en HTML5 y CSS, por lo tanto, sólo debes encargarte de darle la funcionalidad. Usando JavaScript y LocalStorage debes proporcionarle la capacidad de verificar si el usuario está registrado o no, para mostrar o no el formulario de registro. Además, si el usuario ya se encuentra registrado, al ingresar el número de documento y pulsar Enter en el formulario de registro, se deben completar automáticamente los demás campos extrayéndolos de LocalStorage.<br><br><center><img src="./img1.png"></center><center><img src="./img2.png"></center></div>
+    <div id="content_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Contenido</h5></div>
+		<div class="" id="content"><p>A continuación te presentamos el archivo base: </p></div>
+		<div id="base"><div id="jz-descargar-solucion"><a style="color: #20bcf3" href="https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U4_L4_Ejercicio/solucion/Base.zip"><p>Descargar archivo base <span class="glyphicon glyphicon-download-alt" style="font-size: 25px;"></span></p></a></div></div>
+    <div id="instructions_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Instrucciones</h5></div>
+		<ol class="padded" id="instructions"><li><p><strong><span style="font-weight: 400;">Descarga el codBase.zip que contiene la página web.</span></strong></p></li><li><p><strong><span style="font-weight: 400;">La página web tiene dos contenedores con un respectivo formulario cada uno: un formulario para registrar a un usuario y otro para reservar un tiquete. Lo primero que debes hacer es abrir el archivo </span>app.js<span style="font-weight: 400;"> pues allí, al inicio, &nbsp;encontrarás una variable llamada </span>Storage<span style="font-weight: 400;"> que almacena el objeto </span>localStorage<span style="font-weight: 400;">. Además, encontrarás un condicional que verifica si este objeto contiene una propiedad llamada </span>usuario.<span style="font-weight: 400;"> Debes mostrar el formulario de reserva y ocultar el de registro y viceversa.</span></strong></p></li><li><p><strong><span style="font-weight: 400;">En caso de tener que registrar a un cliente y definir una función que al pulsar el botón guardar recoja los datos del formulario y los ingrese a LocalStorage como un objeto llamado usuario, este nombre es obligatorio para que funcione el condicional que evalúa cuál de los dos formularios debe mostrar.&nbsp;y viceversa.</span></strong></p></li><li><p><span style="font-weight: 400;">Para el formulario de reserva debes crear dos funciones: una para que cuando el usuario ingrese el documento y pulse Enter se consulte el usuario guardado en </span><strong>LocalStorage </strong><span style="font-weight: 400;">y se completen los demás campos del formulario. Y otra para escuchar el evento</span><strong> click </strong><span style="font-weight: 400;">del boton Guardar y adicionarle una propiedad llamada </span><strong>“reserva” </strong><span style="font-weight: 400;">que sea otro objeto. En éste, agregar la información de la reserva. (Captura todos los campos). </span></p><p><strong><span style="font-weight: 400;">Ejemplo de cómo detectar el evento Enter: </span></strong></p><center><img src="./img3.png"></center></li></ol>
+<hr>
+
+		<div id="practices_title"><h5 class="padded title" style="color: rgb(32, 188, 243);">Buenas Prácticas</h5></div>
+		<ul class="padded" id="practices"><li>Debes tener en cuenta al agregar un elemento al árbol del DOM todas las repercusiones que pueda traer a la estructura de la página. Un elemento en un lugar no debido puede dañar tu esquema completo y hacer que la información que se requiera transmitir se pierda completamente de la visual del usuario. Por tal motivo antes de hacer una adición verifica que has usado el selector correcto y que tu estructura HTML y CSS permitirá hacer la adición sin ningún problema.</li></ul>
+    <div id="uknow_title"></div>
+		<ul class="padded" id="uknow">
+		</ul>
+
+	</div>
+</div>
+
+<div id="jz-container">
+	<div id="jz-solucion-header" class="bounceInRight animated" style="background-color: rgb(32, 188, 243);">
+		<div class="img">
+			<img src="./bombillo.png">
+		</div>
+		<div class="text">
+			SOLUCIÓN
+		</div>
+	</div>
+
+	<div id="jz-solucion-body"><p> Intenta completar la actividad por tu cuenta pero ten presente que si se te dificulta, puedes contactar a un <strong style="color: #00bff0"> tutor </strong> a través del chat de ayuda.<br><br>Aprender estos conceptos y saber cómo llevarlos a la práctica, te permitirá tener éxito en tu carrera como desarrollador. Entonces, esfuérzate al máximo y descarga la solución sólo si necesitas verificar tu trabajo o asegurarte de que estás en el camino correcto.<br>Recuerda, esta actividad te debería tomar aproximadamente <strong style="color: #00bff0">20 minutos</strong> en completar.</p></div>
+	<div id="buttons"><div id="jz-descargar-solucion"><a style="color: #20bcf3" href="https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/04_JavaScript/Ejercicios/WEB16S_C4_U4_L4_Ejercicio/solucion/solucion.zip"><p>Descargar Solución <span class="glyphicon glyphicon-download-alt" style="font-size: 25px;"></span></p></a></div></div>
+
+</div>
+</div>
+
+<script type="text/javascript" src="./iframeResizer.contentWindow.min.js.descarga"></script>
+<script src="./jquery.js.descarga"></script>
+<script src="./jquery-ui.min.js.descarga"></script>
+<script src="./bootstrap.min.js.descarga"></script>
+<script src="./config.js.descarga"></script>
+
+
+<div style="clear: both; display: block;"></div></body></html>

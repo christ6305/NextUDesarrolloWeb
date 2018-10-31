@@ -1852,7 +1852,108 @@
 				- KEYPRESS
 				- KEYDOWN
 				- KEYUP
-				- 
+			2. EVENTOS DE MOUSE
+				- ONCLICK()
+				- ONDOUBLECLICK()
+				- ONMOUSEOVER()
+				- ONMOUSEOUT()
+				- onmouseleave
+				- onmouseenter
+				- document.getElementById('astronauta').onclick=cambioFotoAstronauta()
+				- document.getElementById('extraterrestre').ondoubleclick=cambioFotoExtraterrestre
+				- document.getElementById('extraterrestre').onmouseover=cambioFotoPlanetas
+				- document.getElementById('planetas').onmouseover=cambioFotoPlanetas
+				- document.getElementById('nave_espacial').onmouseout=cambioFotoNave
+			3. OTROS EVENTOS COMUNES
+				- ONCHANGE
+				- ONLOAD
+				- ONFOCUS
+				- ONBLUR
+	U4. COMUNICACION CON APLICADOS
+		L1. QUE ES JSON
+			1. DEFINICION DE JSON
+				- ES UN FORMATO ESTANDAR DEFINIDO EN ECMAScript3 PROPIA DE JS
+				- ES UNA ESTRUCTURA LLAVE-VALOR
+				- LISTA ORDENADA DE VALORES ENTRE COMILLAS
+				- LOS VALORES PUEDEN SER CUALQUIER OTRO TIPO DE OBJETO
+				- WWW.JSON.ORG
+			2. XML VS JSON
+				- Durante mucho tiempo XML fue la única opción que existía para compartir datos entre servidores y sistemas. XML era la solución a todos los problemas de intercambio de datos. 
+				Uno de los mayores problemas de XML es que es muy poco legible para el usuario, ya que una estructura XML puede almacenar cualquier tipo de dato incluyendo imágenes, audio, video y mucho más, formando un código demasiado extenso. Esto puede ser peligroso a nivel de seguridad ya que se podría incluir código malicioso dentro de la estructura XML. Otra desventaja de los archivos XML es que son difíciles de tratar, además de que la sintaxis entre marcas, algo parecido al HTML, hace que sean muy pesados cuando tienen grandes cantidades de información.
+				- JSON es una estructura que está limitada a almacenar datos clásicos y comunes, como números y textos, permitiendo que sea un formato ligero ideal para el transporte de datos. En la actualidad es el formato estándar usado para la comunicación de datos, superando a XML.
+			3. VENTAJAS DE USAR JSON
+				- JSON soporta dos tipos de estructuras: un set de pares llave-valor contenidos por un objeto y la otra es un array de valores.
+				- JSON es una estructura totalmente independiente, no necesita de tecnologías alternas.
+				- JSON es totalmente flexible y para extenderlo solo hace falta agregar una nueva propiedad con los valores deseados.
+				- JSON permite definir estructuras de datos muy complejas.
+				- JSON es un formato muy intuitivo y fácil de comprender.
+				- JSON Tiene una alta velocidad de procesamiento y un menor tamaño con respecto a XML.
+				- En conclusión, JSON es usado con frecuencia en ambientes web en los que fluye mucha información entre el cliente y el servidor; y también donde los tiempos de respuesta son vitales para el rendimiento.
+		L2. ESTRUCTURA DE DATOS JSON
+			1. SINTAXIS
+				- SE INICA CON LLAVES Y DENTRO SE DEFINE LA ESTRUCTURA
+				- SI EL JSON ESTA DENTRO DE UN JS DEBE DEFINIRSE UNA VARIABLE OBJETO
+			2. COMPOSICION DE ESTRUCTURAS JSON COMPLEJAS 
+				- LLAVE - VALOR
+				- OBJETOS
+				- En un JSON sólo se pueden anidar objetos y arrays.
+			3. BUSQUEDAS Y PROCESAMIENTO DE JSON
+				- miObjeto.propiedad
+				- miArreglo["propiedad"]
+		L3. INTRODUCCION A LA GEOLOCALIZACION
+			1. QUE ES Y COMO FUNCIONA LA GEOLOCALIZACION HTML5
+				- Entre muchas de las nuevas funcionalidades que se incluyeron en la especificación 5 de HTML, la geolocalización fue, sin duda, una de las mejores.
+				La geolocalización fue creada para obtener facilmente la ubicación de los usuarios y ofrecer una mejor experiencia, además de proveer información acerca de la zona en la que se encuen- tran, lo cual resulta muy útil para aplicaciones que prestan servicios en esta área.
+				En el caso de la Web HTML5 utiliza el navegador para acceder a la ubicación a través de la IP o la Red WIFI, en el caso de los móviles se utiliza el GPS nativo del celular.
+				La Geolocalización está disponible a través del objeto Navigator, el cual estudiaremos detalladamente en el siguiente tema, este objeto se encarga de verificar si el navegador desde el cual se está accediendo a la web tiene soporte para la caracteristica de geolocalización deHTML, de ser así, el objeto navigator crea una propiedad llamada geolocation y es allí donde encontramos información detallada acerca de la ubicación del usuario.
+				En el siguiente cuadro podemos ver cómo verificar si el navegador soporta la geolocalización y la forma de acceder a la información del usuario, si no lo soporta, lanzamos una alerta indican- do que no se pudo obtener la información.
+			2. EL OBJETO NAVIGATOR
+				- Los objetos JavaScript del lado cliente son denominados como objetos del Navegador, para distinguirles de los objetos del lado servidor o de los objetos definidos por el usuario.
+				- NAVIGATOR ES UNA PROPIEDA GLOBAL QUE SE INCLUYE EN EL BOM "BROWSE OBJECT MODEL"
+				- PROVEE INFORMACION DETALLADA ACERCA DEL NAVEGADOR
+				- SI EL NAVEGADOR SOPORTA LA GEOLOCALIZACION, SE CREA EL OBJETO GEOLOCATION QUE CONTIENE UNA FUNCION LLAMADA getCurrentPosition(), LA CUAL DEVUELVE DATOS COMO: LATITUD, LONGITUD, EXACTITUD DE LA LOCALIZACION
+			3. USANDO GEOLOCALIZACION
+				- map.setCenter(pos): Sirve para que el mapa se ubique en las posiciones que capturamos del usuario.
+				- infoWindow.setPosition(pos): Sirve para que la ventana de información se sitúe en la posición del usuario.
+				- map.setZoom(15): Sirve para aumentar un poco el zoom de nuestro mapa.
+				- infoWindow.setContent(‘Ubicacion Encontrada’): Sirve para agregar el título de ubicación encontrado.
+		L4. PROGRAMACION FUNCIONAL
+			1. QUE ES ALMACENAMIENTO LOCAL
+				- Continuamos explorando las nuevas funcionalidades de HTML5 y sin duda otra de las mejores herramientas que se implementaron en esta versión Web Storage o Almacenamiento local. Esta herramienta guarda datos del usuario o de la aplicación directamente en la maquina del usuario y no en un servidor de bases de datos. Así, su funcionalidad facilita la vida de los desarrolladores a la hora de manipular datos que tienen que persistir constantemente. Para hacer uso de esta caracteristica solo es necesario Javascript, por lo que es otra ventaja grande frente a otros métodos de almacenamiento. Además, con esta funcionalidad podemos guardar hasta aproximadamente 5MB de datos en el disco duro del usuario. Existe otra forma de guardar datos localmente que se conoce como cookies pero estas tienen graves problemas de seguridad y solo soportan unos 4KB. Como en todas las nuevas características el factor Compatibilidad es esencial y debe ser tenido en cuenta a la hora de implementar estas funciones. La página de caniuse nos puede ayudar con eso.
+			2. TIPOS DE ALMACENAMIENTO Y DIFERENCIAS
+				- Existen dos tipos de almacenamiento local, LocalStorage & SessionStorage. Ambos son objetos globales asignados a window, por lo tanto también se puede acceder a ellos usando window.localStorage o window.sessionStorage. Estos objetos están en capacidad de almacenar datos llave-valor (key/value) y la única diferencia que existe entre ellos es que sessionStorage almacena los datos mientras el usuario se encuentre activo y no salga del navegador; una vez cerrado los datos se pierden.
+				- Por el contrario los datos almacenados en localStorage permanecen en el tiempo y el usuario puede cerrar el navegador sin ningun problema. La única manera de eliminarlos es borrar la caché del navegador. 
+				Para usar datos con el almacenamiento local lo indicado es usar formatos JSON. Por tanto usaremos el objeto nativo JSON para serializar y deserializar este tipo de formatos, empleando las funciones "JSON.stringify" y "JSON.parse". LocalStorage y sessionStorage ofrecen las siguientes funciones para la manipulación de los datos:
+			3. SESSIONSTORAGE
+				- ejercicio
+			4. LOCALSTORAGE
+				- LocalStorage y SessionStorage son dos atributos del objeto window, que se encargan de almacenar información en formato JSON, directamente en la computadora de los usuarios que ingresan al sitio web.
+				- La diferencia entre Local y SessionStorage es que con el segundo los datos son persistentes, siempre y cuando, el usuario no cierre el navegador.
+				- Con LocalStorage los datos persisten aunque se cierre el navegador y, la única manera en que estos datos se eliminan, es borrando la caché del navegador, acción que sólo puede hacer el propio usuario.
+		L5. INTRODUCCION A LOS WEB WORKERS
+			1. QUE SON LOS WEB WORKERS
+				- PERMITEN CREAR SUBPROCESOS, SE PUEDEN TENER VARIAS SENTENCIA DE COMANDOS EJECUTANDOSE AL MISMO TIEMPO Y COMUNICAR DATOS ENTRE ELLOS A TRAVES DE UN MODELO DE EMISION DE EVENTOS
+				- CUANDO LLEGA UN MENSAJE EN LA FUNCION DEL LISTENER, EL OBJETO E CONTIENEE.DATA
+				- new worker(): Para crearlo necesitas un archivo principal donde declares el worker. Y para que inicie necesitas crear la instancia y pasarle la ruta y el nombre del script que ejecutará.
+				- postMessage(): Es necesario para transmitir información entre el worker y el proceso principal.
+				- terminate(): Es la función con la cual puedes finalizar el proceso del worker.
+			2. MANEJO DE WEB WORKERS
+				- this y self:HACEN REFERENCIA A EL MISMO 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
