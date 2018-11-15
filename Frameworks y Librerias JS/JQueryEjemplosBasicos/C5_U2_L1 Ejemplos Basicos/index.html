@@ -1,0 +1,100 @@
+<html>
+   <head>
+     <!--Import Google Icon Font-->
+     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!--Import materialize.css-->
+     <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+
+     <!--Let browser know website is optimized for mobile-->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+     <link rel="stylesheet" href="css/estilos.css" media="screen" title="no title" charset="utf-8">
+
+      <script src="js/jquery-3.0.0.js" type="text/javascript"></script>
+
+
+      <script src="js/materialize.js" type="text/javascript"></script>
+      <script>
+        $(document).ready(function(){
+          $("#oceano-bt").click(function(){
+            $(".oceano").slideUp("slow");
+          });
+          $(".montana").hover(function(){
+            $(".montana").hide("slow");
+          });
+          $("#desierto-bt").click(function(){
+            $(".desierto").fadeIn("slow");
+          });
+
+        });
+      </script>
+
+   </head>
+   <body>
+      <div class="contenedor">
+        <div class="row">
+          <div class="s12 col indigo darken-4 top-banner">
+
+              <div class="s10 col">
+                <h1 class="titulo">Pagina</h1>
+              </div>
+              <div class="s1 col valign-wrapper boton-banner">
+                <a href="#" class="btn-floating blue waves-effect" id="oceano-bt"> <i class="material-icons large">visibility_off</i> </a>
+              </div>
+              <div class="s1 col valign-wrapper boton-banner">
+                <a href="#" class="btn-floating blue waves-effect" id="desierto-bt"> <i class="material-icons large">visibility</i> </a>
+              </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="s4 col">
+            <div class="card blue lighten-2 medium oceano">
+
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="img/ocean.jpg">
+              </div>
+
+              <div class="card-content white-text">
+                <span class="card-title">Oceanos</span>
+                <p>Oceano</p>
+              </div>
+            </div>
+          </div>
+          <div class="s4 col">
+
+            <div class="card blue lighten-2 medium montana">
+
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="img/mountain.jpg">
+              </div>
+
+              <div class="card-content white-text">
+                <span class="card-title">Mountain</span>
+                <p>Mountain</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="s4 col">
+
+            <div class="card blue lighten-2 medium desierto">
+
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="img/desert.jpg">
+              </div>
+
+              <div class="card-content white-text">
+                <span class="card-title">Desierto</span>
+                <p>Desierto</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+  </body>
+</html>

@@ -1940,6 +1940,327 @@
 			2. MANEJO DE WEB WORKERS
 				- this y self:HACEN REFERENCIA A EL MISMO 
 
+5. FRAMEWORKS Y LIBRERIAS CSS
+	U1. INTRODDUCCION A LOS FRAMEWORKS Y LIBRERIAS, USOS Y DIFERENCIAS
+		L1. QUE ES UN FRAMEWORK DE JAVASCRIPT
+			1. QUE ES UN FRAMEWORK
+				- PAQUETE DE LIBRERIAS DEL LADO DEL CLIENTE QUE SIRVEN DE BASE PARA CONSTRUIR APLICACIONES 
+				- LAS LIBRERIAS FORMAN UN FRAMEWORK
+				- SON CONSTRUIDOS POR DESARROLLADORES
+				- SE CONSTRUYEN BASADOS EN MVC
+				- SE SUGIERE BUSCAR UN FRAMEWORK
+					1. DOCUMENTACION
+					2. TIEMPO EN EL MERCADO
+					3. MANTENIMIENTO
+					4. QUE SE ADAPTE A REQUERIMIENTO
+					5. APLICACIONES YA HECHAS
+					6. POPULARIDAD
+					7. DESARROLLADOR
+			2. PORQUE DEBERIA USAR UN FRAMEWORK
+				- Los frameworks pueden compararse a casas prefabricadas. Vienen con muchas cosas ya hechas, tienen una estructura ya definida a la cual hay que adaptarse.Existen principios básicos por los cuales se desarrollaron los frameworks:
+					- Hacer menos código.
+					- No reinventar la rueda: existen tareas genéricas que ya otros han hecho y funcionan bien.
+					- Eficiencia:dejando las tareas genéricas a un lado es posible concentrarse en la lógica de negocio.
+					- Arquitectura: deben ayudar a organizar el código de tal forma que otros puedan mantenerlo después.
+				- ¿Cuándo usar un framework? Depende de lo que se vaya a hacer así se determina si usar un framework o no. Algunos consejos son:
+					- Complejidad: cuando lo que se va a desarrollar es varias veces más complejo que un “Hola mundo”.
+					- Cuando exista un framework que ya haga gran parte de lo que necesitas.
+					- Si se sabe que la aplicación va a crecer en el futuro.
+					- Si se va a ahorrar tiempo y esfuerzo. Cuando se necesita entregar con prontitud un proyecto.
+				- Falta de recursos (financieros o humanos): Puede que al equipo le falte profesionales que hagan mejor el trabajo de lo que lo puede hacer el framework.
+			3. VENTAJAS Y DESVENTAJAS
+				- Ventajas
+					- Agilizar código: Los frameworks te permiten agilizar el desarrollo despreocupándote de tareas que no están relacionadas con la lógica del negocio.
+					- Experiencia: Si eres atento y juicioso ganarás experiencia a la hora de resolver problemas, pues aprenderás cómo los desarrolladores del framework resolvieron los suyos.
+					- Optimización: Los frameworks fomentan el uso de buenas prácticas en programación lo que resulta en códigos más óptimos.
+					- Legado: Si el framework tiene buena documentación, los futuros desarrolladores que mantendrán el código tendrán una buena base para hacer mantenimiento. Aunque, por supuesto, queda por tu parte hacer un código limpio y legible.
+					- Estructura: Los frameworks brindan estructura al proyecto.
+					- Soporte: Si se utiliza un buen framework, este tendrá una buena comunidad de desarrolladores que ayudarían a dar soporte al mismo.
+				- Desventajas
+					- Sobrecarga: Cargar 200kb en un equipo core I7 de 8Gb de memoria con internet de 5Mb puede parecer rápido, pero cuando se trata de dispositivos móviles es otra cuestión.
+					- Curva de aprendizaje: Todo framework requiere una curva de aprendizaje y debe tenerse en cuenta a la hora de estimar el tiempo de proyecto. Cuando estudias un framework aprendes el framework, no el lenguaje.
+					- Te casas con él: Los frameworks determinan cómo se deben hacer las cosas. Entre más completo sea el framework menos libertad tiene el desarrollador.
+		L2. QUE ES UNA LIBRERIA DE JAVASCRIPT
+			1. QUE ES UNA LIBRERIA
+				- SON UN CONJUNTO DE OPERACIONES ESPECIFICAS Y DEFINIDAS, PARA EVITAR CODIGO DEFINIDO. 
+				- LA DIFERENCIA ENTRE UN FRAMEWORK Y UNA LIBRERIA ES QUE EL PRIMERO HACE UN LLAMADO A TU CODIGO Y EL SEGUNDO NO. 
+				- ES POSIBLE REEMPLAZAR UNA LIBRERIA POR OTRA PERO NO SE PUEDE HACER LO MISMO CON UN FRAMEWORK
+				- LAS LIBRERIAS SON CAJAS NEGRAS QUE RECIBEN PARAMETROS DE ENTRADA Y SE DEVUELVEN DE SALIDAS
+				- LAS LIBRERIAS ESTAN ENFOCADAS A UN AREA DEFINIDA
+			2. PORQUE USAR LIBRERIAS
+				- Hay miles de librerías de javascript que puedes usar en tus proyectos. Estas librerías pueden ayudarte en aspectos como animación, AJAX, manipulación del DOM, manejo de eventos del DOM, creación de gráficos, entre otros. Si debes decidir entre si usar una librería o escribir el código por tí mismo, a continuación encontrarás razones de por qué usar librerías:
+					- Código testeado: Por lo general el código de las librerías incluye tests que garantizan el buen funcionamiento de estas. Además los desarrolladores ya se habrán enfrentado a errores de código, descubierto por ellos o por la comunidad, lo cual hace que el código sea algo estable.
+					- Te enfocas en la lógica del negocio: Al usar librerías en las que ya se han considerado los casos aislados, las incompatibilidades y particularidades de los navegadores, ahorras tiempo que puedes invertir en desarrollar propiamente tu aplicación.
+					- Reusar código: Si encuentras una librería que soluciona lo que estás buscando, lo hace de una forma óptima y con buenas prácticas, es una buena opción utilizarla. Si la solución no se adapta a lo que necesitas puedes considerar hacer una contribución al desarrollo de la librería añadiendo tu funcionalidad, si tu contribución es aceptada, ¡excelente!, puedes usar la librería. Recuerda que una buena práctica es nunca modificar librerías de terceros localmente. Esto puede traer problemas de mantenimiento a la hora de actualizar la librería a una versión nueva.
+			    - Como desarrollador muchas veces te enfrentarás a la decisión de qué librería usar para un reto en particular. En ocasiones existen múltiples librerías diseñadas para dar solución al mismo problema, ¿cuál debes escoger? A continuación unos consejos:
+					- El desempeño debe ser bueno, de manera que no impacte de forma negativa el tiempo de respuesta de tu aplicación web.
+					- Que exista una comunidad de desarrollo activa.
+					- Buena documentación.
+					- Código Limpio.
+					- Que haya fácil integración con el proyecto.
+					- En lo posible, que las librerías en cuestión no dependan de otras librerías para su funcionamiento.
+				- Recuerda añadir solo las librerías estrictamente necesarias, a menor cantidad de librerías será más sencillo tener control del desempeño de tu código y hacer debug para encontrar cuellos de botella. 
+		L3. FRAMEWROKS Y LIBRERIAS DE JAVASCRIPT MAS USADOS
+			1. FRAMEWORKS JS MAS POPULARES
+				- ANGULARJS: EXTIENDE HTML, PROMUEVE PRACTICAS DE DESARROLLO, TRABAJO PARA APPS COMPLEJAS
+				- EMBERJS: SE ENFOCA EN LA PRODUCTIVIDAD, TRABAJO RAPIDO, FRAMEWORK QUE FUNCIONE SIN PRESUPUESTO Y TIEMPO
+				- AURELIA: MOVILES Y DESKTOP, CONVENCIONES SIMPLES, SE ENFOCA EN COMPONENTES WEB
+				- MOCHAJS: PARA TEST DE APPS
+			2. LIBRERIAS JS MAS POPULARES
+				- JQUERY: SIMPLICIDAD AL MOMENTO DE MANEJAR DOM, EVENTOS, ANIMACIONES
+				- JQUERYUI: AYUDA A MEJORAR LA INTERFAZ DE USUARIO, DATEPICKERS, SLIDERS, DRAG&DROP
+				- REACTJS: CREAR INTERFACES DE USUARIO REUTILIZABLES QUE PRESENTAN DATOS QUE CAMBIAN CON EL TIEMPO, DATOS QUE CAMBIAN EN EL TIEMPO
+				- BACKBONEJS: PARA DAR ESTRUCTURA A UNA APP, MVC, SE USA CUANDO SE REQUIERE ELABORARA UN SITIO WEB DE PAGINA UNICA Y QUE LA CURVA DE APRENDIZAJE NO SEA TAN ALTA
+				- _.JS|LODASHJS: PROPORCIONAN UN CONJUNTO DE FUNCIONES SIN NECESIDAD DE REACER LAS FUNCIONES DE JS,
+				- HIGHCHARTS: HACE QUE SEA FACIL CREAR GRAFICOS INTERACTIVOS, REPORTES 
+				- HANDLEBARS|MUSTACHEJS: PARA TRABAJAR PLANTILLAS DINAMICAS, SON UTILES CUANDO SE CARGA CONTENIDO DINAMICO JSON
+				- GRUNT|GULP: HERRAMIENTA PARA MINIMIZACION DE JS, PRUEBAS UNITARIAS
+				- CHAI: LIBRERIA PARA REALIZAR TEST
+		L4. CANVAS Y SUS FRAMEWORKS
+			1. QUE ES CANVAS
+				- GENERADO POR JS
+				- https://caniuse.com/#search=canvas
+				- LA ETIQUETA CANVAS PERMITE AL DESARROLLADOR PINTAR EN LA WEB, SIENDO JS EL PINCEL
+				- DEBE TENER DIMENSIONES: WIDTH:300PX, HEIGHT:150PX, EXISTE UNA DIMENSION INTERNA
+			2. INTRODUCCION A CANVAS
+				- ES NECESARIO OBTENER EL CONTEXTO
+				- LA ETIQUETA <canvas> PERMITE MODIFICAR LAS DIMENSIONES DE LA MISMA, 
+			3. KONVA
+				- Konva es un framework para canvas que permite añadir interactividad, hacer animaciones con buen desempeño, transiciones, capas, filtrado y más para aplicaciones de escritorio y móviles. A continuación haremos una comparación de los elementos antes vistos ahora utilizando Konva:
+				- EJEMPLOS
+					- CONVENCIONAL
+					context.beginPath();
+					context.moveTo(0,0);
+					context.lineTo(400,200);
+					context.stroke();
+					- KONVA
+					var line=new Konva.line({
+					points:[0,0,400,200],
+					stroke: "black",
+					strokeWidth: 1,
+					});
+					- CONVENCIONAL
+					context.rect(100, 50, 50, 100);
+					context.stroke();
+					- KONVA
+					ar rect=new Konva.Rect({
+					x: 100,
+					y: 50,
+					height: 100,
+					stroke: "black",
+					strokeWidth: 5,
+					fill: "blue"
+					});
+					- CONVENCIONAL
+					context.arc(100, 100, 50, Math.PI, Math.PI*1,5, false);
+					context.stroke();
+					- KONVA
+					var arc=new Konva.Arc({
+					x: 100,
+					y: 50,
+					innerRadius: 50,
+					outerRadius: 50,
+					angle: 90,
+					stroke: "black",
+					strokeWidth: 1,
+					rotation: 180
+					});
+					- CONVENCIONAL
+					context.arc(120, 120, 70,0, 2*Math.PI, false);
+					context.fillStyle="#FF8800";
+					context.fill();
+					- KONVA
+					var circle=new Konva.Circle({
+					x: 120,
+					y: 120,
+					radius: 70,
+					fill: "#FF8800"
+					});
+					- CONVENCIONAL
+					context.font="bold 30pt Arial, sans";
+					context.fillText("Hola mundo", 20, 50);
+					- KONVA
+					var text=new Konva.Text({
+					x: 120,
+					y: 120,
+					text: "Hola mundo",
+					fontSize: 30,
+					fontFamily: "Arial",
+					});
+					- CONVENCIONAL
+					var imageObj=new Image();
+					imageObj.onload=function(){
+					context.drawImage(imageObj, 50, 50, 200, 150);
+					};
+					imageObj.src="images/fruits.png"
+					- KONVA
+					var imageObj=new Image();
+					imageObj.onload=function (){
+					var fruits=new Konva.Image({
+					x: 50,
+					y: 50,
+					image: imageObj,
+					width: 200,
+					height: 150
+					});
+					layer.add(fruits);
+					stage.add(layer);
+					};
+					imageObj.src="images/fruits.png"
+				- Eventos: Para añadir manipuladores de eventos a figuras en Konva usamos el método on(). Para equipos de escritorio, Konva soporta los eventos mouseover, mouseout, mouseenter, mouseleave, mousemove, mousedown, mouseup, mousewheel, click, dblclick, dragstart, dragmove, y dragend En dispositivos móbiles, Konva soporta touchstart, touchmove, touchend, tap, dbltap, dragstart, dragmove, y dragend
+				- Arrastrar y soltar figura: Para arrastrar y soltar figuras con Konva, podemos utilizar el método draggable() ó configurar en true la propiedad draggable. Esto permite arrastrar y soltar figuras tanto en aplicaciones de escritorio como en móviles.
+				- Grupos: Agrupar figuras es muy útil cuando queremos hacerles alguna transformación por ejemplo mover, rotar o escalarlas al mismo tiempo. De hecho se pueden formar agrupaciones más complejas añadiendo grupos a los ya existentes.Para agrupar múltiples figuras con Konva podemos crear un objeto Konva.Group() y luego añadir figuras con el método add()
+				- Animaciones: Podemos usar el constructor Konva.Animation para crear animaciones. Este constructor acepta dos parámetros: una función de actualización y opcionalmente una capa o arreglo de capas que serán actualizadas en cada fotograma de la animación.La función de actualización sólo debe contener lógica que actualice propiedades de los nodos como position, rotation, scale, width, height, radius, colors, etc
+				Para iniciar la animación utilizamos el método start() y para detenerla el método stop().
+				Por ejemplo para hacer rotar una figura podemos hacerlo con:
+				var anim=new Konva.Animation(function(frame){
+				blueRect.rotate(frame.timeDiff*90/1000);
+				}, layer);
+				anim.start();
+				Donde la propiedad timeDiff del objeto frame es el número de milisegundos que han pasado desde el último fotograma.
+				- Mejorando el desempeño: Una de las formas que tiene Konva de mejorar el desempeño es el almacenamiento en Caché. Esta técnica te permite dibujar un elemento en un búfer de canvas y luego dibujarlo en el canvas. Para lograrlo se utiliza el método shape.cache()
+				Para ampliar más la información y ver la lista completa de opciones que Konva ofrece con sus respectivos ejemplos te invitamos a revisar la documentación oficial de Konva: http://konvajs.github.io/docs/
+	U2. SELECTORES DEL DOM, SINTAXIS Y EVENTOS JQUERY
+		L1. QUE ES JQUERY Y COMO FUNCIONA
+			1. QUE ES JQUERY
+				- jQuery es un framework, o librería JavaScript, para el desarrollo de sitios web que comprende una gran cantidad de características que permiten al desarrollador implementar elementos de JavaScript fácil y rápidamente. Además de ser la librería de JavaScript más utilizada en la actualidad es también un proyecto de software libre; lo que significa que su uso es completamente gratuito. jQuery fue lanzado en el 2006 por John Resig y desde entonces ha ido evolucionando hasta su versión más reciente: jQuery 3.0, lanzada el 9 de Junio de 2016.
+				- Esta librería se encarga principalmente de ejecutar las acciones que se pueden obtener con JavaScript pero con una reducción de código significativa. Una de las principales tareas de este framework es encargarse de la compatibilidad con todos los navegadores, ya que esta labor sin uso de jQuery requiere una gran cantidad de código. Además,  jQuery permite la manipulación de los elementos del DOM con gran facilidad gracias a su motor de selección Sizzle; una manera sencilla de capturar eventos, una gran variedad de animaciones prediseñadas, y de un tamaño muy pequeño que demanda poco espacio en la memoria al momento de incluirlo en un proyecto web.
+				- Cabe anotar que jQuery no es la única librería JavaScript disponible. Sin embargo, es la preferida por los desarrolladores web debido a su estabilidad, buena documentación y al soporte de toda una empresa velando por su mantenimiento y actualización hacia nuevas tecnologías. Otro de los puntos a favor de esta librería se basa en su popularidad, ya que en una comunidad tan grande de usuarios hay muchas personas realizando plantillas, componentes y plug-ins de jQuery disponibles para su uso. 
+			2. SINTAXIS DE JQUERY
+				- Como todas las demás librerías, jQuery requiere una sintaxis específica para hacer uso de sus características. Por ello, es muy importante relacionarnos con la estructura básica de las acciones que podemos definir usando este framework.
+				- En primera instancia debemos tener claro que jQuery es una librería de JavaScript. Es decir, es una manera simplificada de desarrollar con este lenguaje; lo que significa que todo lo que vayamos a codificar con este framework debe estar dentro de una etiqueta tipo <script>, o en un archivo con extensión “.js” enlazado a la página HTML en cuestión. 
+				- En la siguiente imágen se muestra la sintaxis básica de jQuery:
+				$(selector).accion()
+				- El primer elemento a tener en cuenta es el signo pesos «$». Este es uno de los caracteres más importantes ya que indica el acceso a la librería de jQuery. O sea, define lo que viene a continuación entre paréntesis como un objeto jQuery que puede hacer un llamado a todas las funcionalidades del framework.
+				- El segundo elemento es el selector, el cual se ubica entre los paréntesis después del signo pesos. Este se encarga de indicar sobre qué elemento del DOM se aplicará la característica de jQuery.
+				- El tercer elemento es el punto «.», que indica la invocación de un método propio de jQuery. Este método se especifica en el cuarto elemento que corresponde a la acción; es decir, a qué efecto se aplicará al elemento seleccionado previamente.
+				- Dentro de los paréntesis de la acción puede ir una función de JavaScript definiendo más acciones en cadena. Así, dentro de una sentencia de jQuery puede ir otra en su interior. Según lo anterior, es muy común ver una estructura como la siguiente:
+				$(selector).accion(function(){
+					$(selector).accion();
+				})
+			3. EJEMPLOS BASICOS
+				- JQUERY: https://jquery.com/download/
+				- DESCARGA
+				- AGREGAR AL PROYECTO
+		L2. SELECTORES JQUERY
+			1. SELECTORES ID, CLASE, ETIQUETA
+				- EL SELECTOR DEBE IR ENTRE COMILLAS
+				- $('#VALORIDELEMENTO').ACCION()
+				- $("#cuadro3").hide();//id
+            	- $(".cuadroAzul").hide();//clase
+            	- $("p").hide();//etiqueta
+			2. BUSQUEDA SOBRE UNA SELECCION
+				- $select('seleccion').find('sub-seleccion')
+				- ('.col').find('a[href^='https:']').css('color','yellow')
+				- DOS FORMAS 
+				- $("div h3").css("color","white");//elementos h3 que estan dentro de un div
+            	- $("div").find(":contains('Rojo')").css("color","blue"); //elemtentos que contengas rojo dentro de un div
+            	- $("div:has(h3)").css("color","white");
+            	- $("div:has(h3)").find(":contains('Rojo')").css("color","blue");
+        L3. MANIPULACION Y MODIFICACION DE ELEMENTOS, ATRIBUTOS Y ESTADOS CON JQUERY
+        	1. MODIFICACION DE ESTILOS 
+        		- PARA CONSULTAR ESTILOS O ASIGNAR NUEVOS ESTILOS .css()
+        		- $(selector).css('propiedad')
+        		- $(selector).css('['propiedad1','propiedad2'])
+        		- $(selector).css('propiedad','valor')
+        		- $(selector).css('propiedad',function(){})//para valores o posiciones dinamicas
+        		- $(selector).addClass('nuevaClase')
+        		- $(selector).removeClass('claseEliminar')
+      		2. MODIFICACION DE ATRIBUTOS
+      			- SE USA PARA ASIGNAR O CONSULTAR A UNO O MAS ATRIBUTOS .attr()
+      			- $('selector').attr('atributo')
+      			- $('selector').attr('propiedad','valor')
+      			- $('selector').attr('propiedad',function(){})
+      			- $('selector').attr({atributo1:'valor1',atributo2:'valor2'})
+      			- $('selector').removeAttr('atributoEliminar')
+      		3. MODIFICACION DE CONTENIDO PARTE 1
+      			- CONSULTA EL CONTENIDO DE TODOS LOS DESCENDIENTES DE UN ELEMENTO SELECCIONADO O ASIGNARLE UN TEXTO ESPECIFICADO EN LOS PARAMETROS text()
+      			- SIN PARAMETROS RETORNA EL CONTENIDO DEL ELEMENTO SELECCIONADO EN CODIGO HTML html()
+      			- PERMITE AÑADIR CONTENIDO AL FINAL DE UN ELEMENTO SELECCIONADO, NO REEMPLAZA EL CONTENIDO ORIGINAL DEL ELEMENTO Y SIEMPRE DEBE TENER DEFINIDO EN SU PARAMETRO EL NUEVO CONTENIDO A AÑADIR append()
+      			- CUMPLE LA MISMA FUNCION QUE APPEND CON LA DIFERENCIA QUE ESTE UBICA EL TEXTO U OBJETO INDICADO EN EL PARAMETRO ANTES DEL ELEMENTO SELECCIONADO prepend()
+      			- PRODUCEN EL MISMO EVENTO QUE LOS EVENTOS ANTERIORES RESPECTIVAMENTE, LA DIFERENCIA RADICA EN EL ORDEN appendTo(),prependTo()
+      		4. MODIFICACION DE CONTENIDO PARTE 2
+      			- PERMITE INSERTAR CONTENIDO DESPUES DEL ELEMENTO SELECCIONADO, SE AÑADE AFUERA DE LA ETIQUETA A DIFERENCIA DE APPEND, PUEDE SER TEXTO, HTML O UN ELEMENTO, PARA EL ULTIMO CASO, EL ELEMENTO ES MOVIDO DE LA POSICION ORIGINAL PARA UBICARSE DESPUES DEL ELEMENTO DE LA SELECCIO DEL METODO after()
+      			- ES SIMILAR AL ANTERIOR, UBICA LOS ELEMENTOS ANTES before()
+      			- CUMPLEN LA MISMA FUNCION DE LOS LAS FUNCIONES ORIGINALES, SOLO SE MODIFICA EL ORDEN insertAfter(), insertBefore()
+      	L4. MANEJO DE EVENTOS CON JQUERY
+      		1. EVENTOS DE OBJETOS NATIVOS
+      			- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
