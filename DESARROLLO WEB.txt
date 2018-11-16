@@ -2185,7 +2185,85 @@
       			- CUMPLEN LA MISMA FUNCION DE LOS LAS FUNCIONES ORIGINALES, SOLO SE MODIFICA EL ORDEN insertAfter(), insertBefore()
       	L4. MANEJO DE EVENTOS CON JQUERY
       		1. EVENTOS DE OBJETOS NATIVOS
-      			- 
+      			- SE ENCARGA DE EJECUTAR LA FUNCION EN LOS PARAMETROS UNA VEZ SE CARGA LA ESTRUCTURA DEL DOM .ready()
+      			- se dispara cada vez que se modifica el tamaño de la ventana del navegador que se muestra la pagina .resize()
+      			- se dispara cada vez que se realiza un desplazamiento abajo o arriba .scroll()
+      		2. EVENTOS SOBRE LOS ELEMENTOS DEL DOM
+      			- SE DISPARA EN EL MOMENTO EN EL QUE SE SELECCIONA UNA CAJA DE TEXTO O UN ELEMENTO A FIN focus()
+      			- EVENTO AL CUAL SE LE APLICA DEJA DE ESTAR SELECCIONADO blur()
+      			- SE DISPARA CADA VEZ QUE HAY UN CAMBIO EN EL ELEMENTO AL CUAL SE LE APLICA,SELECT,RADIOBUTTON,CHECKBUTTON change()
+      			- SE DISPARA CUANDO DENTRO DE UN ELEMENTO, ESTE ES SELECCIONADO POR EL USUARIO select()
+      			- SE DISPARA CADA VEZ QUE SE ENVIA UN FORMULARIO, ES UTILIZADO PARA LA VALIDACIONES ANTES DE QUE TODOS LOS CAMPOS HAYAN SIDO DILIGENCIADOS submit()
+      		3. EVENTOS DEL TECLADO Y MOUSE
+      			- SE DISPARA CUANDO SE HACE CLICK SOBRE EL ELEMENTO click()
+      			- SE DISPARA CADA VEZ QUE SE HACE CLICK DERECHO EN EL ELEMENTO DE LA SELECCION contextmenu()
+      			- SE DISPARA CADA VEZ QUE SE HACE DOBLE CLICK SOBRE EL ELEMENTO DE LA SELECCION dblclick
+      			- SE DISPARA CADA VEZ QUE EL MOUSE SE PONE ENCIMA DEL ELEMENTO DE LA SELECCION hover()
+      			- SE DISPARA CADA VEZ QUE EL MOUSE DEJA DE ESTA ENCIMA DEL ELEMENTO DE LA SELECCION, CADA VEZ QUE EL MOUSE SALE DE LA SELECCION mouseleave()
+      			- SE DISPARA CUANDO EL BOTON DERECHO DEL MOUSE ESTA PRESIONADO mousedown()
+      			- SE DISPARA CUANDO SE DEJA DE PRESIONAR EL BOTON IZQUIERDO DEL MOUSE mouseup()
+      			- SE DISPARA CADA VEZ QUE EL MOUSE SE MUEVE mousemove()
+      			- SE DISPARA CADA VEZ QUE SE PRESIONA UNA TECLA, SOBRE ELEMENTOS QUE RECIBEN TEXTO O SOBRE EL OBJETO DOCUMENT keypress()
+      			- SE DISPARA CUANDO UNA TECLA ESTA PRESIONADA keydown()
+      			- SE DISPARA CUANDO SE DEJA DE PRESIONAR UNA TECLA keyup()
+    U3. JQUERY ANIMACIONES Y EFECTOS 
+    	L1. EFECTOS PARA MOSTRAR/OCULTAR ELEMENTOS
+    		1. MOSTRAR ELEMENTOS
+    			- PERMITE MOSTRAR ELEMENTOS OCULTOS EN LA PAGINA, EL ELEMENTO DEBE ESTAR ESCONDIDO(:hide o display:none) .show() 
+    			- $('selector').show()
+    			- $('selector').show('slow')
+    			- $('selector').show('fast')
+    			- $('selector').show('slow','swing') HACE QUE EL EVENTO SE MUEVA MAS LENTO AL INICIO Y AL FINAL
+    			- $('selector').show('slow','linear') MANTIENE UNA MISMA VELOCIDAD 
+    			- $('selector').show('slow',function(){})
+    		2. OCULTAR ELEMENTOS
+    			- OCULTA LOS ELEMENTOS QUE DEBEN ESTAR VISIBLES .hide()
+    			- $('selector').hide()
+    			- $('selector').hide('slow')
+    			- $('selector').hide('fast')
+                - $('selector').hide('slow','swing') HACE QUE EL EVENTO SE MUEVA MAS LENTO AL INICIO Y AL FINAL
+    			- $('selector').hide('slow','linear') MANTIENE UNA MISMA VELOCIDAD 
+    			- $('selector').hide('slow','linear',function(){})
+    			- SE ENCARAGA DE ALTERNAR CADA VEZ QUE SE INVOCA, EN OCULTAR Y MOSTRAR UN ELEMENTO SELECCIONADO toggle()
+    			- $('selector').toggle()
+    			- $('selector').toggle('slow','linear',function(){})
+    		3. MOSTRAR Y OCULTAR ELEMENTOS A PARTIR DE EVENTOS
+    			- $("selectorDisparador").evento(function(){
+				     $("selectorObjetivo").show();
+				  });
+				- function funcionDefinida(){
+  					$("selectorObjetivo").show();
+  				  };
+  				  $("selectorDisparador").evento(funcionDefinida());
+  		L2. MANIPULACION AVANZADA DEL DOM
+  			1. ELIMINANDO ELEMENTOS
+  				- PERMITE ELIMINAR UN ELEMENTO DEL DOM COMPLETAMENTE, JUNTO CON SUS HIJOS Y EVENTOS ASOCIADOS remove()
+  				- $('#c1 div :first-child').remove()
+  				  $('#r1col2').append(temp)
+  				- EL EFECTO ES EL MISMO QUE REMOVE CON LA DIFERENCIA QUE NO ELIMINA TODOS LOS ELEMENTOS ASOCIADOS detach()
+  				- var temp=$('#c2').detach()
+  				  $('#r1col2').append(temp)
+  				- SE ENCARGA DE DEJAR VACIO UN ELEMENTO empty()
+  				  $('#c3 .card-content').empty()
+  				- ELIMINA EL PADRE DEL ELEMENTO SELECCIONADO Y LO UBICA EN SU POSICION, SUBE UN NIVEL EN EL DOM AL ELEMENTO SELECCIONADO AL ELIMINAR AL PADRE unwrap()
+  				  $('#c4 .card-content').unwrap()
+  			2. REEMPLAZANDO ELEMENTOS
+  				- SE ELIMINA UN ELEMENTO EN SU MISMA POSICION EN EL DOM Y SE UBICA UNO NUEVO replaceWith()
+  				- elementoViejo.replaceWith(elementoNuevo)
+  				- REALIZA LO MISMO, PERO SE ESPECIFICA PRIMERO EL NUEVO CONTENIDO replaceAll()
+  			3. ORDENAMIENTO ELEMENTOS
+  				- ORDENA LOS ELEMENTOS ALFABETICAMENTE O DE MENOR A MAYOR, SE DEBE INVOCAR DESDE UN ARREGLO sort()
+  				- INVIERTE EL ORDEN DE LOS ELEMENTOS reverse()
+  		
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,22 @@
+body{
+  color: white;
+}
+.bloque{
+  margin: 200px auto;
+  height: 400px;
+  width: 500px;
+  text-align: justify;
+}
+h1{
+  margin: 10px 10px;
+}
+p{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+img{
+  width: 60%;
+  border-radius: 20px;
+  margin-left: 90px;
+}

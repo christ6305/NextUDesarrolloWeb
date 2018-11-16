@@ -1,0 +1,50 @@
+nav{
+  height: 8vw;
+}
+
+.brand-logo img{
+  width: 100%;
+  margin-top: -50px;
+}
+
+nav ul li a{
+  color: #01579b;
+  font-size: 2vw;
+  margin-top: 20px;
+}
+
+body{
+  background: #e1f5fe;
+}
+h1{
+  color: #01579b;
+}
+
+.card-content{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.elemento-tabla{
+  width: 80%;
+}
+.elemento-selec{
+  width: 10%;
+}
+.listaCheck .collection-item{
+  height: 89px;
+}
+
+.opciones{
+  margin-top: 40px;
+}
+
+.dropdown-content li > a, .dropdown-content li > span{
+  color: #01579b;
+}
+
+.selected-item{
+  background-color: #01579b !important;
+  color: white !important;
+}

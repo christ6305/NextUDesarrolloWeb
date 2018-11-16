@@ -1,0 +1,172 @@
+.fondo{
+  background-image: url("../img/farm.svg");
+  background-size: cover;
+}
+body{
+  perspective: 1000px;
+}
+h1{
+  color: #fff176;
+  text-shadow: 2px 2px black;
+}
+h2{
+  color: #388e3c;
+}
+.btn{
+  width: 45%;
+}
+.animal{
+  position: absolute;
+  display: none;
+}
+.arbusto{
+  position: absolute;
+  display: none;
+}
+.cercaIzq{
+  transform: rotateY(75deg) translateZ(-20vw);
+  position: absolute;
+  display: block;
+}
+.cercaDer{
+  transform: rotateY(-85deg) translateZ(-20vw);
+  position: absolute;
+  display: block;
+}
+.cercaBack{
+  transform: translateZ(-20vw);
+  position: absolute;
+  display: block;
+}
+.cercaFront{
+  position: absolute;
+  display: block;
+}
+.puerta{
+  position: absolute;
+  display: block;
+}
+#vaca{
+  left: 30vw;
+  top: 40vw;
+}
+#cerdo{
+  left: 50vw;
+  top: 40vw;
+}
+#gallina{
+  left: 70vw;
+  top: 40vw;
+  z-index: 20;
+}
+#oveja{
+  left: 85vw;
+  top: 40vw;
+}
+#bush1{
+  left: 33vw;
+  top: 32vw;
+  z-index: -1;
+}
+#bush2{
+  left: 39vw;
+  top: 35vw;
+}
+#bush3{
+  left: 48vw;
+  top: 39vw;
+  z-index: -1;
+}
+#bush4{
+  left: -1.4vw;
+  top: 41vw;
+}
+#bush5{
+  left: 51vw;
+  top: 49vw;
+}
+#bush6{
+  left: 3vw;
+  top: 46vw;
+  z-index: 10;
+}
+#bush7{
+  left: 58vw;
+  top: 33vw;
+}
+#bush8{
+  left: 28vw;
+  top: 48vw;
+  z-index: 1;
+}
+#bush9{
+  left: 45vw;
+  top: 50vw;
+  z-index: 5;
+}
+#bush10{
+  left: 91vw;
+  top: 35vw;
+  z-index: -1;
+}
+#bush11{
+  left: 75vw;
+  top: 45vw;
+}
+#bush12{
+  left: 88vw;
+  top: 51vw;
+  z-index: 10;
+}
+#c1{
+  left: 51.5vw;
+  top: 40vw;
+}
+#c2{
+  left: 48vw;
+  top: 39vw;
+}
+#c3{
+  left: 37vw;
+  top: 44vw;
+}
+#c4{
+  left: 46.8vw;
+  top: 44vw;
+}
+#c5{
+  left: 56.6vw;
+  top: 44vw;
+}
+#c6{
+  left: 66.3vw;
+  top: 44vw;
+}
+#c7{
+  left: 47vw;
+  top: 45vw;
+}
+#c8{
+  left: 31.5vw;
+  top: 45vw;
+}
+#c9{
+  left: 41.3vw;
+  top: 45vw;
+}
+#c10{
+  left: 51.1vw;
+  top: 45vw;
+}
+#c11{
+  left: 60.8vw;
+  top: 45vw;
+}
+#c12{
+  left: 52.5vw;
+  top: 44vw;
+}
+#p1{
+  left: 71vw;
+  top: 41vw;
+}

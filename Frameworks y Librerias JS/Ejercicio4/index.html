@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,user-scalable=no">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/estilos.css" media="screen">
+  <title>Formulario</title>
+</head>
+<body class="fondo">
+  <header> <!-- Inicio barra de navegación -->
+    <nav class="navbar  gris">
+      <div class="container-fluid navbar-header">
+        <img src="img/logo.png" alt="Empresa" id="logo"/>
+      </div>
+      <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Regístrate</a></li>
+          <li><a href="#">Contácto</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header> <!-- Fin barra de navegación -->
+  <main>
+    <div class="container fondoMain">
+
+      <!-- Título del Formulario -->
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>Formulario de Registro</h1>
+          <hr>
+        </div>
+      </div>
+
+      <!-- Inicio Formulario -->
+      <form action="index.html" id="formulario">
+
+        <div class="row"> <!-- Fila 1 -->
+          <div class="col-sm-5"> <!-- Input nombre -->
+            <label for="nombre">Nombre</label>
+            <span class="info">Tu nombre como aparece en tu documento de identidad</span>
+            <span class="error">Este campo no puede ser vacío</span>
+            <input type="text" class="form-control" id="nombre">
+          </div>
+          <div class="col-sm-5 col-sm-offset-1"> <!-- Input apellido -->
+            <label for="apellido">Apellido</label>
+            <span class="info">Tu apellido como aparece en tu documento de identidad</span>
+            <span class="error">Este campo no puede ser vacío</span>
+            <input type="text" class="form-control" id="apellido">
+          </div>
+        </div> <!-- Fila 1 -->
+
+        <div class="row margenTop"> <!-- Fila 2 -->
+          <div class="col-sm-5"> <!-- Input Contraseña -->
+            <label for="nombre">Contraseña</label>
+            <span class="info">Crea una nueva contraseña</span>
+            <span class="error">Este campo no puede ser vacío</span>
+            <span class="errPsw">La contraseña no puede tener símbolos</span>
+            <input type="password" class="form-control" id="psw">
+          </div>
+          <div class="col-sm-5 col-sm-offset-1"> <!-- Input Contraseña Repeat -->
+            <label for="apellido">Repite la contraseña</label>
+            <span class="info">Esta constraseña debe coincidir con la anterior</span>
+            <span class="error">Este campo no puede ser vacío</span>
+            <span class="errPswRepeat">Las contraseñas no coinciden</span>
+            <input type="password" class="form-control" id="pswRepeat">
+          </div>
+        </div>
+
+        <div class="row margenTop"> <!-- Fila 3 -->
+          <div class="col-sm-5"> <!-- Input Fecha de nacimiento -->
+            <label for="fecha-nacimiento">Fecha de nacimiento</label>
+            <span class="info">Fecha de nacimiento como aparece en tu ID</span>
+            <span class="error">Debes definir una fecha de nacimiento</span>
+            <input type="date" class="form-control" id="fecha-nacimiento">
+          </div>
+          <div class="col-sm-5 col-sm-offset-1"> <!-- Input ciudad de residencia -->
+            <label for="ciudad-residencia">Ciudad de residencia</label>
+            <span class="info">Ciudad en la que resides actualmente</span>
+            <span class="error">Este campo no puede ser vacío</span>
+            <input type="text" class="form-control" id="ciudad-residencia">
+          </div>
+        </div>
+        <div class="row margenTop"> <!-- Fila 4 -->
+          <div class="col-sm-4"> <!-- Input Color favorito -->
+            <label for="fecha-nacimiento">Color favorito</label>
+            <span class="info">Selecciona un color de la lista</span>
+            <span class="error">Debes seleccionar un color</span>
+            <select class="form-control" id="color-favorito">
+              <option value="default" selected="selected" disabled="disabled">Seleciona...</option>
+              <option value="azul">Azul</option>
+              <option value="verde">Verde</option>
+              <option value="amarillo">Amarillo</option>
+              <option value="rojo">Rojo</option>
+              <option value="morado">Morado</option>
+              <option value="cafe">Café</option>
+            </select>
+          </div>
+          <div class="col-sm-1"> <!-- Cuadrado color favorito -->
+            <div class="cuadrado-color"></div>
+          </div>
+          <div class="col-sm-5 col-sm-offset-1"> <!-- Input correo electrónico -->
+            <label for="ciudad-residencia">Correo electrónico</label>
+            <span class="info">Email que revisas regularmente</span>
+            <span class="error">Este campo no puede ser vacío</span>
+            <span class="errMail">Debes ingresar un email válido</span>
+            <input type="email" class="form-control" id="email">
+          </div>
+        </div>
+        <div class="row margenTop"> <!-- Fila 5 -->
+          <div class="col-sm-12"> <!-- Panel prueba -->
+            <div class="panel panel-default">
+              <h2 class="margen-prueba">Prueba que no eres un Robot</h2>
+              <p class="margen-prueba">
+                Arrastra las piezas del rompecabezas para armar el corazón.
+              </p>
+              <div class="prueba-container">
+                <img src="img/r1.png" id="molde" class="imagen-molde"/>
+                <img src="img/r2.png" id="p1" class="imagen"/>
+                <img src="img/r3.png" id="p2" class="imagen"/>
+                <img src="img/r4.png" id="p3" class="imagen"/>
+                <img src="img/r5.png" id="p4" class="imagen"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row margenTop"> <!-- Fila 6 -->
+          <div class="col-sm-12 text-center"> <!-- Boton enviar -->
+            <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+          </div>
+        </div>
+      </form>
+      <!-- Fin formulario -->
+    </div>
+
+  </main>
+
+  <footer> <!-- Pié de página -->
+    <div class="container-fluid fondoFooter">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2 class="texto-footer">Página empresarial</h2>
+          <br> <br>
+          <h5 class="texto-footer">Contacto:</h5>
+          <ul class="texto-footer">
+            <li>Telefono 1: 8888888</li>
+            <li>Telefono 2: 7777777</li>
+            <li>Dirección: Carrera 1 22-22</li>
+            <li>Correo electrónico: email@empresa.com</li>
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <div class="jumbotron text-center">
+            <img src="img/logo.png" alt="Logo" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer> <!-- Fin pié de página -->
+
+  <script src="js/jquery-3.0.0.js" type="text/javascript"></script>
+  <script src="js/app.js" type="text/javascript"></script>
+</body>
+</html>

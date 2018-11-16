@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,user-scalable=no">
+  <title>Tabla</title>
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <link rel="stylesheet" href="css/estilos.css">
+
+</head>
+<body>
+  <header>
+
+    <nav class="light-blue lighten-4">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo"><img src="image/logo.png"/></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="sass.html">Inicio</a></li>
+          <li><a href="badges.html">Productos</a></li>
+          <li><a href="collapsible.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col s7">
+        <h1>Inventario</h1>
+      </div>
+      <div class="col s1">
+        <button class="btn-floating btn-large light-blue darken-4 opciones" id="borrar"><i class="material-icons">delete_sweep</i></button>
+      </div>
+      <div class="col s1">
+        <button class="btn-floating btn-large light-blue darken-4 opciones" id="deshacer"><i class="material-icons">undo</i></button>
+      </div>
+      <div class="col s1">
+        <button class="btn-floating btn-large light-blue darken-4 opciones" id="reemplazar"><i class="material-icons">cached</i></button>
+      </div>
+      <div class="col s2 input-field">
+        <select class="opciones" id="filtro">
+          <option value="nombre" selected>Nombre</option>
+          <option value="precio">Precio</option>
+          <option value="marca">Marca</option>
+        </select>
+        <label for="filtro" class="opciones">Ordenar por: </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <div class="card light-blue lighten-4">
+          <div class="card-content">
+            <div class="elemento-tabla">
+              <ul class="collection">
+                <li class="collection-item avatar" id="Cuchillo1">
+                  <img src="image/s2.png" class="circle" />
+                  <span class="title">Cuchillo Tipo 1</span>
+                  <p>
+                    <span>Marca Knife </span><br>
+                    <b>Precio: $10</b>
+                  </p>
+                </li>
+                <li class="collection-item avatar" id="Cuchillo2">
+                  <img src="image/s3.png" class="circle" />
+                  <span class="title">Cuchillo Tipo 2</span>
+                  <p>
+                    <span>Marca Knife</span> <br>
+                    <b>Precio: $15</b>
+                  </p>
+                </li>
+                <li class="collection-item avatar" id="Salero">
+                  <img src="image/s4.png" class="circle" />
+                  <span class="title">Salero</span>
+                  <p>
+                    <span>Marca Salt & Pepper</span> <br>
+                    <b>Precio: $4</b>
+                  </p>
+                </li>
+                <li class="collection-item avatar" id="Mezclador">
+                  <img src="image/s5.png" class="circle" />
+                  <span class="title">Mezclador</span>
+                  <p>
+                    <span>Marca Mixer</span> <br>
+                    <b>Precio: $6</b>
+                  </p>
+                </li>
+                <li class="collection-item avatar" id="Espatula">
+                  <img src="image/s6.png" class="circle" />
+                  <span class="title">Espátula</span>
+                  <p>
+                    <span>Marca Mixer</span> <br>
+                    <b>Precio: $12</b>
+                  </p>
+                </li>
+                <li class="collection-item avatar" id="Pimentero">
+                  <img src="image/s7.png" class="circle" />
+                  <span class="title">Pimentero</span>
+                  <p>
+                    <span>Marca Salt & Pepper</span> <br>
+                    <b>Precio: $14</b>
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div class="elemento-selec">
+              <ul class="collection listaCheck">
+                <li class="collection-item">
+                  <input type="checkbox" id="Cuchillo1Check" class="check"/>
+                  <label for="Cuchillo1Check"></label>
+                </li>
+                <li class="collection-item">
+                  <input type="checkbox" id="Cuchillo2Check" class="check"/>
+                  <label for="Cuchillo2Check"></label>
+                </li>
+                <li class="collection-item">
+                  <input type="checkbox" id="SaleroCheck" class="check"/>
+                  <label for="SaleroCheck"></label>
+                </li>
+                <li class="collection-item">
+                  <input type="checkbox" id="MezcladorCheck" class="check"/>
+                  <label for="MezcladorCheck"></label>
+                </li>
+                <li class="collection-item">
+                  <input type="checkbox" id="EspatulaCheck" class="check"/>
+                  <label for="EspatulaCheck"></label>
+                </li>
+                <li class="collection-item">
+                  <input type="checkbox" id="PimenteroCheck" class="check"/>
+                  <label for="PimenteroCheck"></label>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+  <script src="js/jquery-3.0.0.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
