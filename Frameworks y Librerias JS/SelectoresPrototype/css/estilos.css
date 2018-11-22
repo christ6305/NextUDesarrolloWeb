@@ -1,0 +1,28 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  font-family: helvetica;
+}
+.contenedor{
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.cuadro{
+  width: 30%;
+  height: 15em;
+  margin-top: 5em;
+}
+.rosa{
+  background-color: #F98EC4;
+}
+.azul{
+  background-color: #8E9DF9;
+}
+.verde{
+  background-color: #92F98E;
+}

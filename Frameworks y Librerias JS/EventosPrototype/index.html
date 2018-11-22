@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,user-scalable=no">
+        <title>Busquedas</title>
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+
+      <div class="contenedor">
+        <div class="titulo-row">
+          <h1 id="titulo">Ejemplo de Prototype</h1>
+        </div>
+        <div class="panel-formulario">
+          <h2>Formulario</h2>
+          <form id="formulario">
+            <div class="layout-formulario">
+              <div class="item-form">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" value="" id="nombre">
+              </div>
+              <div class="item-form">
+                <label for="apellido">Apellido</label>
+                <input type="text" name="apellido" value="" id="apellido">
+              </div>
+              <div class="item-form">
+                <label for="telefono">Teléfono</label>
+                <input type="text" name="telefono" value="" id="telefono">
+              </div>
+              <div class="item-form">
+                <label for="direccion">Dirección</label>
+                <input type="text" name="direccion" value="" id="direccion">
+              </div>
+              <div class="item-form">
+                <label for="email">Email</label>
+                <input type="email" name="email" value="" id="email">
+              </div>
+              <div class="item-form">
+                <label>Sexo</label>
+                <div class="radio-panel">
+                  <input type="radio" name="sexo" value="masculino" id="masculino">  <span>Masculino</span>
+                </div>
+                <div class="radio-panel">
+                  <input type="radio" name="sexo" value="femenino" id="femenino">  <span>Femenino</span>
+                </div>
+              </div>
+              <div class="item-form">
+                <label for="password1">Elige una contraseña</label>
+                <input type="password" name="password1" value="" id="password1">
+              </div>
+              <div class="item-form">
+                <label for="password2">Vuelve a escribir la contraseña</label>
+                <input type="password" name="password2" value="" id="password2">
+              </div>
+              <div class="item-form">
+                <label>Elige temas de interés</label>
+                <div class="radio-panel">
+                  <input type="checkbox" name="interes" value="autos" id="autos">  <span>Autos</span>
+                  <input type="checkbox" name="interes" value="deportes" id="deportes">  <span>Deportes</span>
+                </div>
+                <div class="radio-panel">
+                  <input type="checkbox" name="interes" value="jardineria" id="jardineria">  <span>Jardinería</span>
+                  <input type="checkbox" name="interes" value="carpinteria" id="carpinteria"> <span>Carpintería</span>
+                </div>
+              </div>
+            </div>
+            <div class="panel-botones">
+              <button name="enviar" class="btn-aceptar" id="boton-aceptar">Aceptar</button>
+              <button name="cancelar" class="btn-cancelar" id="boton-cancelar">Cancelar</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+
+
+      <script src="js/prototype.js" type="text/javascript"></script>
+      <script src="js/app.js" type="text/javascript"></script>
+    </body>
+</html>

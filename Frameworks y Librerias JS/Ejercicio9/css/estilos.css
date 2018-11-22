@@ -1,0 +1,61 @@
+.navbar-brand{
+  padding: 0;
+}
+@font-face {
+    font-family: superMario;
+    src: url(../fonts/SuperMario.ttf) format('truetype');
+}
+#tituloInicio{
+  font-family: superMario;
+  font-size: 10vw;
+}
+#textoQueEs{
+  font-size: 4vw;
+}
+
+@media (min-width: 768px) {
+  #textoQueEs{
+    font-size: 3vw;
+  }
+}
+@media (min-width: 992px) {
+  #textoQueEs{
+    font-size: 1.4vw;
+  }
+}
+
+
+.espaciado{
+  margin-top: 10px;
+}
+footer{
+  margin-top: 60px;
+}
+.panel{
+  min-height: 200px;
+}
+.marioFont{
+  font-family: superMario;
+  margin-left: 20px;
+}
+.botonRedondo{
+  border-radius: 90px;
+  min-width: 90px;
+  min-height: 90px;
+}
+
+#imagenInicio{
+  margin: 30px auto;
+  width: 80%;
+}
+.img-thumbnail{
+  min-height: 140px;
+  max-height: 150px;
+}
+.thumbnail{
+  min-height: 410px;
+  background: #e7e7e7;
+}
+.mensaje{
+  min-height: 180px;
+}

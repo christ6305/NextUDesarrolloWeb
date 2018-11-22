@@ -2254,30 +2254,89 @@
   			3. ORDENAMIENTO ELEMENTOS
   				- ORDENA LOS ELEMENTOS ALFABETICAMENTE O DE MENOR A MAYOR, SE DEBE INVOCAR DESDE UN ARREGLO sort()
   				- INVIERTE EL ORDEN DE LOS ELEMENTOS reverse()
-  		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  		L3. MANEJO DE TIEMPOS Y ANIMACIONES
+  			1. EFECTOS BASICOS
+  				- SE ENCARGA DE MOSTRAR UN EFECTO DE DIFUMIDADO fadeIn(), fadeIn(slow),fadeIn(fast),fadeIn(3000),fadeIn('slow','linear',function(){})
+  				- SE ENCARGA DE OCULTAR LOS ELEMENTOS CON EL EFECTO DE DIFUMINADO fadeOut()
+  				- PERMITE ALTERNAR ENTRE LOS DOS METODOS ANTERIORES fadeToggle()
+  				- MUESTRA UN ELEMENTO MEDIANTE UN EFECTO DESLIZANTE DESCENDENTE slideDown()
+  				- INTRODUCE EL EFECTO CONTRARIO AL ANTERIOR slideUp(), PERMITE ALTERNAR LOS DOS METODOS ANTERIORES slideToggle()
+  			2. ANIMATE
+  				- DEFINE CUALQUIER TIPO DE EFECTO SOBRE LOS ELEMENTOS DE LA PAGINA WEB A TRAVES DE LAS PROPIEDADES CSS QUE SE EJECUTAN DURANTE UN TIEMPO DETERMINADO animate()
+  				- selector.animate(){propiedad css, duracion, easing, callback}
+  				- backgroudPositionX, backgroundPositionY, borderWidth, borderBottomWidth, borderLeftWidth, borderRightWidth, borderTopWidth, borderSpacing, margin, marginBottom, marginLeft, marginRight, marginTop, outlineWidth,padding, paddingBottom, paddingLeft, paddingRight, paddingTop, height, width, maxHeight, maxWidth, minHeight, minWidth, fontSize, bottom, left, right, top, letterSpacing,wordSpacing, lineHeight, textIndent
+  			3. EFECTOS AVANZADOS
+  				- ANIMACIONES RECURSIVAS
+  		L4. INTRODUCCION AL JQUERY UI
+  			1. EFECTOS
+  				- ES UNA LIBRERIA CON UN CONJUNTO DE EFECTOS, WIDGETS, INTERACCIONES
+  				- EFECTOS DE CLASE: AddClass, RemoveClass, ToggleClass, SwitchClass(clase1,cladse2,tiempo)
+  			2. WIDGETS
+  				- COMPONENTE O ELEMENTO DE UNA PAGINA WEB 
+  				- Crear la estructura HTML de la página en la que vas a implementar el widget.
+  				- Descargar los archivos jQuery UI necesario para implementar el widget.
+  				- Importar los archivos jQuery UI necesarios, seleccionar los elementos HTML donde se aplicará el widget
+  				- Inicializar correctamente el widget en el archivo de JavaScript con el método correspondiente.
+  				- Abrir el archivo .html en el navegador para visualizar el resultado final.
+  			3. INTERACCIONES
+  				- DIFERENTES FORMAS QUE EL USUARIO PUEDE INTERACTUAR CON LOS ELEMENTOS DE LAS PAGINAS
+  				- MOVIMIENTO, ORGANIZACION, SELECCION, ETC
+  				- PERMITE QUE UN ELEMENTO SEA ARRASTRADO POR LA PAGINA AL SOSTENER EL CLICK draggable()
+  				- VERIFICA QUE UN ELEMENTO PUEDA O NO SER DEPOSITADO DENTRO DE UN CONTENEDOR droppable()
+  				- PERMITE MODIFICAR EL TAMAÑO DE UNA CAJA HACIENDO CLICK EN UNA DE SUS ESQUINAS resizable()
+  				- PERMITE REORGANIZAR LOS ITEMS DE UNA LISTA AL ARRASTRARLOS UNO ENCIMA DE OTRO sortable()
+  	U4. PROTOTYPE
+  		L1. QUE ES PROTOTYPE Y COMO FUNCIONA
+  			1. QUE ES PROTOTYPE
+  				- Prototype es un framework JavaScript creado por Sam Stephenson con el fin de optimizar y simplificar el desarrollo de páginas web. Esta librería se encarga, entre otras cosas, de facilitar la selección de elementos del DOM, manipularlos, e integrarlos para realizar páginas web altamente interactivas y dinámicas.
+  				- El enfoque principal de Prototype es la codificación orientada a objetos, es decir, manipular y crear elementos del DOM que sean afines al manejo de clases, atributos y métodos. Este framework incluye funcionalidades compatibles con Ajax y Ruby on Rails. Actualmente se encuentra en la versión 1.7.3, lanzada el 22 de Septiembre de 2015.
+  				- Al ser un framework JavaScript, Prototype es una alternativa a jQuery, por tal motivo es importante decidir qué tipo de librería se va a usar en un proyecto web, de acuerdo con las características y funcionalidades que puede aportar. Prototype es un framework recomendado para proyectos que integran Ruby on Rails, o para desarrolladores familiarizados con este, ya que su sintaxis y nomenclatura son muy similares a las de Prototype. A su vez, es muy útil en proyectos en los que hay un manejo predominante de clases y objetos.
+  			2. SINTAXIS
+  				- La sintaxis de Prototype es muy sencilla, ya que encapsula muchas funcionalidades y características JavaScript en sencillas funciones y objetos. En general maneja una sintaxis muy similar a la usada en jQuery involucrando tres partes principales: selector, punto y función.
+  					selector.función
+  				- El selector indica un elemento del DOM sobre el cual se realizarán las acciones, el punto es el carácter que indica la invocación de una función a un elemento determinado, y la función indica las acciones que se asignan al ítem seleccionado. Sin embargo, dado que Prototype es un framework basado en la programación orientada a objetos, involucra la sintaxis propia de la definición de objetos en JavaScript. Esto es, el uso de las llaves para encerrar la definición de un objeto, así como la presencia de un método initialize que se ejecuta al instanciar un objeto de la clase definida.
+  				- Adicionalmente en Prototype se usan objetos propios de la librería como Class, Element y Object que se usan en lugar del selector en la sintaxis descrita anteriormente.
+  			3. DESCARGA E INSTALACION
+  				- http://prototypejs.org/download
+  		L2. SELECTORES DE PROTOTYPE
+  			1. SELECTORES ID Y CSS
+  				- SELECTOR ID, NO SE USA NUMERAL $('cuadroAzul')
+  				- SELECTOR CSS, DOS SIGNOS PESOS AL PRINCIPIO $$('.cuadro')
+  			2. FUNCIONES DE SELECCION
+  				- PERMITE SELECCIONA EL ATRIBUTO VALUE DE UN ELEMENTO $F('idElemento')
+  				- PARA HERMANOS ANTERIORES.previous()
+  				- PARA HERMANOS POSTERIORES next()
+  				- ARROJA TODOS LOS ELEMENTOS HIJOS DE UN OBJETO Y LOS RETORNA COMO UN ARREGLO DE ELEMENTOS.childElements()
+  				- HIJOS DE LOS HIJOS descendants()
+  				- ELEMENTOS PADRE DEL ELEMENTO SELECCIONADO ancestors()
+  			3. BUSQUEDA SOBRE UNA SELECCION
+  				- SE ENCARGA DE SELECCIONAR O FILTRAR ELEMENTOS A PARTIR DE UNA SELECCION INICIAL .select()
+  					$('idSeleccion').select('reglaCss')
+  				- CLASE Selector
+  					var objSelect=new Selector('reglaCss')
+  					objSelect.findElements() DEVUELVE ARREGLO DE ELEMENTOS
+  					objSelect.Match()		 BOOLEANO
+  		L3. OBJETOS EN PROTOTYPE
+  			1. FUNCTION
+  				- OBJETO FUNCTION: argumentNames, bind, bindAsEventListener, curry, defer, delay, methodize, wrap
+  				- PERMITE ACCEDER A LOS NOMBRES DE LOS PARAMETROS  argumentNames()
+  				- ASIGNA UN CONTEXTO ESPECIFICO A UNA FUNCION bind()
+  				- APLAZA LA EJECUCION DE UNA FUNCION defer()
+  				- SIRVE COMO TIMEOUT DE JS QUE RECIBE EL LAPSO DE TIEMPO PARA EJECUTAR UNA FUNCION EN SEGUNDOS delay()
+  			2. OBJECT
+  				- SIRVE PARA HACER VALIDACIONES isArray, isDate, isElement, isFunction, isNumber, isString, isUndefined
+  			3. STRING
+  				- camelize, capitalize, empty, include, etc
+  		L4. EVENTOS CON PROTOTYPE
+  			1. DEFINICION DE EVENTOS
+  				- EXISTEN 2 MANERAS: 
+  					- CLASE EVENT
+  					- METODOS DIRECTAMENTE A OBJETOS DEL DOM .observe()
+  			2. MANEJO DEL CONTEXTO EN ELEMENTOS
+  				- CONTEXTO HACE REFERENCIA AL OBJETO QUE ENCIERRA UNA VARIABLE O FUNCION 
+  			3. CONTROL DE EVENTOS
+  				- REMUEVE UN EVENTO DE UN ELEMENTO stopObserving()
+  				
 
 
 

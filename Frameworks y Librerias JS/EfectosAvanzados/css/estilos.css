@@ -1,0 +1,91 @@
+*{
+  box-sizing: border-box;
+}
+body {
+  font-family: helvetica;
+  background: #000;
+}
+
+
+.fondo{
+  background-image: url("../image/fondo.jpg");
+  background-size: cover;;
+  background-repeat: space;
+  width: 90%;
+  margin: -400px auto;
+  height: 1340px;
+}
+
+.oculto{
+  display: none;
+}
+
+
+.panel-estadisticas{
+  position: absolute;
+  left: 450px;
+  top: 0;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px #444444;
+  display: none;
+}
+
+h1{
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  font-size: 5em;
+}
+
+.marcador{
+  position: absolute;
+  right: 100px;
+  top: 50px;
+  width: 200px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.marcador div{
+  width: 30%;
+  height: 50px;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px #444444;
+  padding: 10px;
+}
+
+.local{
+  background: #DF2929;
+}
+
+.visitante{
+  background: #26B1EC;
+}
+
+.marcador span{
+  font-size: 2em;
+  color: white;
+
+}
+
+#balon{
+  position: absolute;
+  left: 700px;
+  top: 600px;
+}
+
+#fHorizontal{
+  position: absolute;
+  left: 350px;
+  top: 10px;
+  width: 4%;
+}
+#fVertical{
+  position: absolute;
+  left: 305px;
+  top: 400px;
+  width: 5%;
+}

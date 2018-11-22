@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <div class="button">
+      <button id='btnAlerta' type="button" name="alerta">ALERTAR</button>
+    </div>
+
+    <script type="text/javascript" src="prototype.js"> </script>
+    <!-- <script type="text/javascript" >
+      function evalParams(elementoId,tipoSelector, tiempoEspera)
+      {
+
+      }
+      var functionParams=evalParams.argumentNames();
+      console.log(functionParams)
+    </script> -->
+    <!-- <script type="text/javascript">
+      var alertaClick=Class.create({
+        initialize:function(mensaje){
+          this.rsj=mensaje
+        },
+        capturarClick:function(event){
+          event.stop()
+          console.log(this)
+          alert(this.rsj)
+        }
+      })
+
+      var miAlerta=new alertaClick('hiciste click sobre el boton')
+      $('btnAlerta').observe('click',miAlerta.capturarClick.bind(miAlerta))
+    </script> -->
+    <script type="text/javascript">
+      function mostrarAlerta(mensaje){
+        alert(mensaje)
+      }
+
+      // mostrarAlerta('uno')
+      // mostrarAlerta.defer('dos')
+      // mostrarAlerta('tres')
+
+      mostrarAlerta.delay(5, 'se ejecuta 5 segundos despues')
+    </script>
+  </body>
+</html>

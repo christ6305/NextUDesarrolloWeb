@@ -1,0 +1,108 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  font-family: helvetica;
+  background-image: url("../image/fondo.jpg");
+}
+.contenedor{
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  background-color: rgba(211, 225, 239, 0.7);
+  border-radius: 15px;
+  padding: 30px;
+  height: 760px;
+}
+.titulo-row{
+  width: 100%;
+}
+.titulo-row h1{
+  font-size: 4em;
+  color: #1E4FD7;
+  text-align: center;
+}
+.panel-formulario{
+  width: 100%;
+
+}
+form{
+  height: 100%;
+}
+.layout-formulario{
+  height: 45vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.panel-formulario h2{
+  color: #fff;
+}
+.item-form{
+  min-height: 60px;
+  min-width: 30vw;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+}
+.radio-panel{
+  margin-top: 10px;
+  color: #fff;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+.activo{
+  color: yellow !important;
+}
+.radio-panel span{
+  width: 30%;
+}
+.radio-panel input{
+  width: 10%;
+  height: 18px;
+  margin-top: 0;
+}
+.item-form label{
+  margin-left: 10px;
+  color: #fff;
+}
+
+input{
+  font-size: 1.3em;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid #fff;
+  background-color: inherit;
+  color: #1E4FD7;
+}
+
+input:focus{
+  border-bottom: 2px solid #1E4FD7;
+}
+
+.panel-botones{
+  margin-top: 30px;
+  display: flex;
+  flex-flow: row-reverse nowrap;
+}
+
+.panel-botones button{
+  color: #fff;
+  width: 15%;
+  margin-left: 30px;
+  height: 50px;
+  font-size: 2em;
+}
+
+.btn-aceptar{
+  background: #7FEE73;
+}
+.btn-cancelar{
+  background: #E64646;
+}

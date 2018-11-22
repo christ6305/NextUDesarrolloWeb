@@ -1,0 +1,19 @@
+body {
+  font-family: helvetica;
+}
+
+
+.fondo{
+  background-image: url("../image/fondo.jpg");
+  background-size: cover;;
+  background-repeat: space;
+  width: 90%;
+  margin: -400px auto;
+  height: 1340px;
+}
+
+#balon{
+  position: absolute;
+  left: 700px;
+  top: 600px;
+}
