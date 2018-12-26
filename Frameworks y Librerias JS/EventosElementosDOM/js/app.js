@@ -19,7 +19,7 @@ $(function(){
     $("#mensaje").text("Seleccionaste un texto!");
   });
 
-  $("form").submit(function(){
+  $("form").submit(function(){//solo para elemento formulario
     $(".escondido").css("display", "block").delay(1000).fadeOut("slow");
     $("#mensaje").text("Enviaste el formulario!");
     event.preventDefault();//PARA QUE NO SE ENVIE EL FORMULARIO SIN QUE SE REALIZA LA ACCION ESPECIFICADA

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <!--Importar la fuente de los íconos de Google-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Importar la hojas de estilos de materialize css-->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/customColors.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/app.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <title>Información Básica</title>
+</head>
+<body class="grey lighten-5">
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="index.html">Perfil</a></li>
+    <li><a href="#!">Seguridad</a></li>
+    <li class="divider"></li>
+    <li><a href="logout.php">Cerrar Sesión</a></li>
+  </ul>
+  <nav class="light-green accent-4">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Trabajo.com</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <form>
+            <div class="input-field">
+              <input id="search" type="search" required>
+              <label for="search"><i class="material-icons">search</i></label>
+            </div>
+          </form>
+        </li>
+        <li><a href="index.html">Inicio<i class="material-icons right">home</i></a></li>
+        <li><a href="">Ajustes<i class="material-icons right">settings</i></a></li>
+        <li><a class="dropdown-button" data-activates="dropdown1">Juan Camilo<i class="material-icons right">face</i></a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="row">
+    <div class="col s10 offset-s1">
+      <h2 class="titulo">Información Básica</h2>
+    </div>
+    <div class="col s10 offset-s1">
+      <h5 class="subtitulo">Diligencia el formulario con tus datos personales</h5>
+    </div>
+    <form action="javascript:;" method="post" class="desc-form">
+      <div class="col s6 offset-s1">
+        <div class="row">
+          <div class="input-field col-s4">
+            <label class="form-label">Nombre:</label>
+          </div>
+          <div class="input-field col s8 offset-s4">
+            <input type="text" name="nombre" value="" placeholder="Nombre">
+          </div>
+        </div>
+        <div class="row no-margin">
+          <div class="input-field col s4">
+            <label class="form-label">Apellido:</label>
+          </div>
+          <div class="input-field col s8 offset-s4">
+            <input type="text" name="apellido" value="" placeholder="Apellido">
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <label class="form-label no-margin">Identificación:</label>
+          </div>
+          <div class="input-field col s4">
+            <select name="tipo_id">
+              <option value="cedula_ciudadania">Cédula de Ciudadanía</option>
+              <option value="cedula_extrangeria">Cédula de Extrangería</option>
+              <option value="tarjeta_identidad">Tarjeta de Identidad</option>
+              <option value="pasaporte">Pasaporte</option>
+            </select>
+          </div>
+          <div class="input-field col s4">
+            <input type="text" name="identificacion" value="" placeholder="Identificación">
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <label class="form-label no-margin">Fecha de <br> nacimiento:</label>
+          </div>
+          <div class="input-field col s8 offset-s4">
+            <input type="date" class="datepicker" placeholder="Fecha de nacimiento" name="fecha_nacimiento">
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <label class="form-label no-margin">Género:</label>
+          </div>
+          <div class="input-field col s3">
+            <input name="genero" type="radio" id="male" value="masculino"/>
+            <label for="male">Masculino</label>
+          </div>
+          <div class="input-field col s3">
+            <input name="genero" type="radio" id="female" value="femenino"/>
+            <label for="female">Femenino</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <label class="radio-label">Estado Civil:</label>
+          </div>
+          <div class="input-field col s8">
+            <select name="estado_civil">
+              <option value="soltero">Soltero</option>
+              <option value="casado">Casado</option>
+              <option value="viudo">Viudo</option>
+              <option value="unión Libre">Unión Libre</option>
+              <option value="divorciado">Divorciado</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <label class="radio-label">Teléfono:</label>
+          </div>
+          <div class="input-field col s3">
+            <select name="tipo_telefono">
+              <option value="celular">Celular</option>
+              <option value="fijo">Fijo</option>
+              <option value="oficina">Oficina</option>
+            </select>
+          </div>
+          <div class="input-field col s5">
+            <input type="text" name="telefono" value="" placeholder="Número">
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <label class="form-label no-margin">Lugar de <br> residencia:</label>
+          </div>
+          <div class="input-field col s4">
+            <input type="text" name="pais" value="" placeholder="País">
+          </div>
+          <div class="input-field col s4">
+            <input type="text" name="ciudad" value="" placeholder="Ciudad">
+          </div>
+        </div>
+      </div>
+      <div class="col s3 offset-s1">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-image">
+              <img src="img/default.png" alt="default" />
+            </div>
+          </div>
+        </div>
+        <div class="file-field input-field">
+          <div class="btn light-green accent-4">
+            <span><i class="material-icons">file_upload</i></span>
+            <input type="file" name="profile-img">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+        <span class="file-span">Sube una foto para completar tu perfil</span>
+      </div>
+      <div class="col s12">
+        <div class="input-field col s1 offset-s9">
+          <a href="index.html" class="btn grey waves-effect"><i class="material-icons">close</i></a>
+        </div>
+        <div class="input-field col s1">
+          <button type="submit" name="submit" class="btn light-green accent-4 waves-effect"><i class="material-icons">done</i></button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+    <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+  </div>
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/info_basica.js"></script>
+</body>
+</html>

@@ -4,7 +4,7 @@ $(function(){
 
   $(".contenedor")
     .droppable({
-      accept: ".izq",
+      accept: ".der",
       drop: function(event, ui){
         $(this).addClass("ui-state-highlight")
         alert("Correcto!")

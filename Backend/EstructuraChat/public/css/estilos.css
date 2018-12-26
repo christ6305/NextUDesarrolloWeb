@@ -1,0 +1,176 @@
+.container{
+  width: 80%;
+  height: auto;
+}
+.row{
+  margin-bottom: 0px;
+}
+.card-panel{
+  height: 700px;
+  padding: 0;
+}
+.superior{
+  height: 85%;
+}
+.inferior{
+  height: 20%;
+  background: #01266C;
+}
+.container .row{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.row .col{
+  padding: 0 0 !important;
+}
+
+.left-side{
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.titulo-chat{
+  height: 20%;
+  background: #01266C;
+  display: flex;
+  justify-content: space-around;
+}
+.titulo-chat h2{
+  width: 70%;
+  font-size: 3em;
+}
+.titulo-chat button{
+  margin-top: 25px;
+}
+
+.historial-chat{
+  height: 90%;
+  overflow-y: scroll;
+  padding: 20px;
+  margin: 0 0 !important;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-end;
+  align-content: flex-end;
+}
+.enviados, .recibidos{
+  width: 100%;
+  margin-top: 2px;
+}
+
+.mensaje{
+  width: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+  border-radius: 20px;
+  padding: 2px;
+}
+.enviados .mensaje{
+  background: #9FC3D2;
+  float: left;
+  justify-content: flex-start;
+}
+.recibidos .mensaje{
+  background: #EBE9A4;
+  float: right;
+  justify-content: flex-end;
+}
+.hora{
+  display: flex;
+  align-items: flex-end;
+}
+.numHora{
+  font-size: 0.8rem;
+  color: #6C6775;
+}
+.recibidos .imagen{
+  order: 3;
+}
+.recibidos .hora{
+  order: 1;
+}
+.recibidos .texto{
+  order: 2;
+  text-align: right;
+}
+
+.mensaje .imagen{
+  width: 15%;
+  margin: 5px 0;
+  text-align: center;
+}
+.mensaje .texto{
+  width: 70%;
+  margin: 0px 5px;
+}
+.mensaje .imagen img{
+  width: 90%;
+  border-radius: 50px;
+  border: 1px solid #01266C;
+}
+.nombre{
+  font-size: 0.9rem;
+}
+.collection-item p img{
+  width: 5%;
+}
+.right-side{
+  background: #01266C;
+  height: 100%;
+  overflow-y: scroll;
+}
+.collection{
+  margin-top: 0 !important;
+}
+.collection-header{
+  height: 105.333px;
+  font-size: 2rem;
+}
+.input-contenedor{
+  padding: 20px;
+  height: 90%;
+}
+.input-contenedor textarea{
+  background: #9FC3D2;
+  height: auto;
+  min-height: 100%;
+  width: 100%;
+  resize: none;
+  font-size: 1.2rem;
+}
+.input-contenedor button{
+  background: #9FC3D2;
+  font-size: 12px;
+}
+.input-contenedor button:hover{
+  background: #EBE9A4;
+  color: #000;
+}
+.row .col.s10{
+  height: 100%;
+}
+
+@media (max-width: 992px) {
+  .mensaje .imagen{
+    width: 30%;
+  }
+  .card-panel{
+    height: 90%;
+    padding: 0;
+  }
+  .container{
+    width: 95%;
+  }
+
+  .input-contenedor{
+    padding: 10px;
+  }
+  .input-contenedor button{
+    float: right;
+  }
+  .input-contenedor button:hover{
+    background: #9FC3D2;
+  }
+
+
+}

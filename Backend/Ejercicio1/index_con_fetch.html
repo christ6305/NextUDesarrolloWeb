@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<title>Comentarios</title>
+	</head>
+	<script
+	src="https://code.jquery.com/jquery-2.2.4.js"
+	integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+	crossorigin="anonymous"></script>
+	<script>
+
+	function insertarComentarios(comentarios){
+		$.each(comentarios,function(indice,elemento){
+			var insertar = "<div class='comentario'><div class='autor'>Por "+elemento.autor+" - <span class='fecha'>"+elemento.fecha+"</span></div><div class='description'>"+elemento.comentario+"</div></div>";
+			$(".comentarios").append(insertar);
+		});
+	}
+
+	function  cargarMasComentarios(){
+		fetch("./comentarios.json")
+		.then(function(respuesta){
+			respuesta.json().then(function(datos){
+				insertarComentarios(datos);
+			});
+		});
+	}
+
+	$( document ).ready(function() {
+		$(window).on('scroll', function(){
+			if( $(window).scrollTop() > $(document).height() - $(window).height() ) {
+				cargarMasComentarios();
+			}
+		}).scroll();
+		$( ".cargar-mas button" ).click(function() {
+			cargarMasComentarios();
+		});
+	});
+	</script>
+	<style>
+		body{
+			font-family: Arial;
+			font-size: 12pt;
+		}
+		.principal{
+			padding: 5px;
+			width: 250px;
+		}
+		.principal h1{
+			padding: 10px;
+			border-radius: 10px;
+			background-color: orange;
+			color: white;
+			text-align: center;
+		}
+		.comentario{
+			margin: 12px 10px;
+			background: #EEE;
+			padding: 10px;
+			border-radius: 4px;
+		}
+		.cargar-mas{
+			text-align: center;
+		}
+		.autor{
+			font-size: 9pt;
+			color: orange;
+			margin-bottom: 10px;
+		}
+		.autor .fecha{
+			color: #555;
+		}
+	</style>
+	<body>
+		<div class="principal">
+			<h1>Comentarios</h1>
+			<div class="comentarios">
+				<div class="comentario">
+					<div class="autor">Por Luis - <span class="fecha">Hace dos minutos</span></div>
+					<div class="description">Queria hacer un comentario largo que describa un poco la situacion que actualmente tenemos</div>
+				</div>
+				<div class="comentario">
+					<div class="autor">Por Luis - <span class="fecha">Hace dos minutos</span></div>
+					<div class="description">Queria hacer un comentario largo que describa un poco la situacion que actualmente tenemos</div>
+				</div>
+			</div>
+			<div class="cargar-mas">
+				<button >Ver más</button>
+			</div>
+		</div>
+	</body>
+</html>

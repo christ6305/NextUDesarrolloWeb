@@ -25,7 +25,7 @@ $(function(){
     if (event.which == 111) {
       $(".oculto").fadeToggle('slow','linear');
     }
-    if (event.which == 112) {
+    if (event.which == 111) {
       $(".panel-estadisticas").slideToggle('fast');
     }
   })

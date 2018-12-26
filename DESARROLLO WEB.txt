@@ -2336,7 +2336,983 @@
   				- CONTEXTO HACE REFERENCIA AL OBJETO QUE ENCIERRA UNA VARIABLE O FUNCION 
   			3. CONTROL DE EVENTOS
   				- REMUEVE UN EVENTO DE UN ELEMENTO stopObserving()
-  				
+
+6. BACKEND
+	U1. AJAX Y CALLBACKS
+		L1. QUE ES AJAX Y COMO FUNCIONA
+			1. QUE ES AJAX Y COMO FUNCIONA
+				- JAVASCRIPT ASINCRONO + XML
+				- ESTABLECE UNA COMUNICACION CON EL SERVIDOR VIA HTTP, QUE OBTIENE DATOS DE UNA MANERA DINAMICA SIN NECESIDAD DE REFRESCAR EL NAVEGADOR
+				- HTML+CSS XML/JSON
+				- XMLHttpRequest: INTERCAMBIO ASINCRONO DE INFORMACION
+			2. LOS CALLBACKS DENTRO DE AJAX
+				-  En cursos anteriores aprendimos qué son los callbacks y cómo estos nos hacen la vida más fácil a la hora de programar usando el lenguaje JavaScript.
+				Aunque en Javascript lo más común es utilizar librerías o paquetes de terceros para realizar la técnica AJAX, en este curso vamos aprender a hacerlo de las dos maneras, usando Javascript puro y luego usando librerías como jQuery. Los estados por los que pasa una petición XMLHttpRequest (Javascript puro) son los siguientes:
+    				- Petición no inicializada
+    				- Conexión establecida con el servidor
+    				- Petición recibida por el servidor
+    				- La petición está siendo procesada
+    				- La petición finalizó y la respuesta está lista
+				Con Javascript puro es fácil detectar el estado por el que está pasando la petición pero cuando estamos usando librerías como jQuery lo único que podemos hacer para controlar el tiempo en el que la petición esta lista es usando un callback, por eso para continuar con las unidades siguientes debes tener claro este concepto.
+				Ejemplo de AJAX usando jQuery y empleando 2 callbacks:    				
+					$ajax({
+						url:'http://url',
+						type:GET,
+						data:{},
+						beforeSend:function(){
+
+						},
+						success:function(){
+
+						}
+					})
+			3. EJEMPLOS DE AJAX BASICO
+				- var htmlNode=document.getElementById('datos')
+					$.ajax({
+					  url:'http://api.tvmaze.com/shows',
+					  type:'GET',
+					  data:{},
+					  success:function(){
+					    data.forEach(function(val,i){
+					      htmlNode.innerHtml=htmlNode.innerHtml+'<li>'+val.name+'</li>'
+					    })
+					  }
+					})
+		L2. INTRODUCCION A XMLHttpRequest
+			1. QUE ES XMLHttpRequest
+				- XMLHttpRequest o XHR como es conocido en el mundo del desarrollo web, es un objeto JavaScript desarrollado por Microsoft y adoptado por Google, Apple y Mozilla. Este objeto se convirtió en un estándar mantenido por la W3C y proporciona una funcionalidad capaz de obtener información de una manera fácil de una URL específica, sin necesidad recargar la página. Mediante este proceso podemos recargar solo una parte de la página sin bloquear lo que el usuario se encuentra haciendo. 
+				- XMLHttpRequest tiene un conjunto de métodos y propiedades que veremos en el siguiente tema y a pesar de su nombre, XML-HttpRequest, este objeto permite transferir cualquier tipo de dato, no necesariamente debe ser XML.
+			2. EL OBJETO XMLHttpRequest, SUS METODOS Y PROPIEDADES
+				- En esta ocasión veremos cómo está compuesto este objeto y cuáles son los métodos y propiedades que se encargan de realizar la funcionalidad.
+				Si abrimos una consola en el navegador, escribimos XMLHttpRequest y pulsamos Enter, podremos ver que es una función que corresponde a código nativo JavaScript:
+					XMLHttpRequest
+				Para poder ver su contenido, los métodos y las propiedades, es necesario instanciar un nuevo objeto a partir de esta función, el cual heredará todos su contenido. Esto lo hacemos de la siguiente manera: 
+					var miXMLHttpRequest= new XMLHttpRequest() 
+				- Propiedades
+					- readyState: valor numerico(entero) que almacena el estado de la peticion
+					- responseText: el contenido de la respuesta del servidor en forma de cadena de texto
+					- responseXML: el contenido de la respuesta del servidor en formato XML, el objeto devuelto se puede procesar como un objeto DOM
+					- status: el codigo de estado HTTP devuelto por el servidor (200 para una respuesta correcta, 400 para no encontrado, 500 para un error en el server, etc)
+					- statusText: el codigo de estado HTTP devuelto por el sevidor en forma de cadena de texto: ok, not found, internal server error, etc
+				- Valores de la propiedad readyState
+					- 0: no inicializado (objeto creado, pero no se ha invocado el metodo open)
+					- 1: cargado (objeto creado, pero no se ha invocado el metodo send)
+					- 2: cargado (se ha invocado el metodo send, pero el servidor aun no ha respondido)
+					- 3: interactivo (se han recibido algunos datos, aunque no se puede emplear la propiedad responseText)
+					- 4: completo (se han recibido todos los datos de la respuesta del servidor)
+				- METODOS
+					- abort(): detiene la peticion actual
+					- getAllResponseHeaders(): devuelve una cadena de texto con todas las cabeceras de la respuesta del servidor}
+					- getResponseHeader('cabecera'): devuelve una cadena de texto con el contenido de la cabecera solicitada
+					- onreadystatechange: responsable de manejar los eventos que se producen. Se invoca cada vez que se produce un cambio en el estado de la peticion HTTP. Normalmente es una referencia a una funcion js
+					- open('metodo','url'): establece los parametros de la peticion que se realiza al servidor. Los parametros necesarios son el metodo HTTP empleado y la URL destino(puede indicarse de manera absoluta o relativa)
+					- send(contenido): realiza la peticion HTTP al servidor
+					- setRequestHeader('cabecera','valor'): permite establecer cabeceras personalizadas en la peticion HTTP. Se debe invocar el metodo open() antes de setRequestHeader()
+			3. Ejemplo de XMLHttpRequest
+				-  (function($){
+					  var inputUser=$('#username')
+					  var url='https://api.github.com/users/'
+					  inputUser.on('keypress',function(e){
+					    if(e.which===13){
+					      var username=$(this).val().trim().toLowerCase()
+					      if(username!==''){
+					        var XHR=new XMLHttpRequest()
+					        var URLUser=url+username
+					        XHR.open('GET',URLUser)
+					        XHR.onreadystatechange=function(){
+					          if(XHR.readyState===4){
+					            var data =JSON.parse(XHR.responseText);
+					            if(data.message && data.message=='Not Found'){
+					              alert('el nombre de usuario no existe en github')
+					            }else{
+					              $('img').attr('src',data.avatar_url)
+					              $('.name').text(data.name)
+					              $('.username').text(data.login)
+					              $('.email').text(data.email)
+					              $('.company').text(data.company)
+					              $('.location').text(data.location)
+					              $('.followers').text(data.followers)
+					            }
+					          }
+					        }
+					        XHR.send(null)
+					      }else{
+					        alert('debe ingresar un nombre de usuario')
+					      }
+					    }
+					  })
+
+					})(jQuery)
+		L3. EJECUCION SINCRONA Y ASINCRONA
+			1. PETICIONES SINCRONAS
+				- SE BLOQUEA AL NAVEGADOR CUALQUIER TIPO DE PROCESO HASTA QUE LA PETICION SE REALICE CORRECTAMENTE
+			2. VENTAJAS Y DESVENTAJAS DE AJAX
+				- Ventajas
+					- Minimiza el número de transferencias de datos entre cliente y servidor.
+    				- Optimiza los recursos y el tiempo de las operaciones.
+    				- Mejora la experiencia de usuario al permitir traer datos desde el servidor, sin recargar la página.
+    				- Puede ser usado en cualquier navegador web que tenga activo JavaScript.
+ 				- Desventajas
+ 					- Utilizar AJAX para todo, incluidos formularios recuperación de contraseña.
+        			- Los tiempos de respuesta del servidor pueden ser cruciales en determinadas peticiones que manejan grandes volúmenes de datos.
+    				- Es necesario tener conocimiento sobre todas las tecnologías que hacen parte de AJAX para lograr usarlo de una manera correcta.
+    		3. Ejemplos de peticiones sincrónicas y asincrónicas usando jQuery
+    			- var inputUser= $('#username')
+					inputUser.on('keypress',function(e){
+					  if(e.which===13){
+					    ajaxAsync();
+					  }
+					})
+
+					function ajaxAsync(){
+					  var url='https://api.github.com/users/'
+					  var username=inputUser.val().trim().toLowerCase()
+					  if(username!==''){
+					    var URLUser=url+username
+					    $.ajax({
+					      url:URLUser,
+					      type:'GET',
+					      async:true,
+					      success:function(response){
+					        var data=response
+					        if(data.message && data.message=='Not Found'){
+					          alert('el nombre de usuario no existe en github')
+					        }else{
+					          $('img').attr('src',data.avatar_url)
+					          $('.name').text(data.name)
+					          $('.username').text(data.login)
+					          $('.email').text(data.email)
+					          $('.company').text(data.company)
+					          $('.location').text(data.location)
+					          $('.followers').text(data.followers)
+					        }
+					      }
+					    })
+					  }
+					}
+		L4. UTILIDADES Y OBJETOS AJAX
+			1. DIFERENTES LIBRERIAS PARA AJAX Y COMO FUNCIONAN
+				- En la actualidad existen muchas librerías que facilitan la forma cómo realizamos peticiones AJAX a un servidor de datos. La más popular, sin duda, es jQuery y su método $.ajax. Pero existen alternativas, incluso dentro del mismo jQuery, como $.get o $.post.
+				Estas son algunas de las alternativas a los métodos de jQuery: 
+					- superagent
+					Pequeña librería construida en Javascript, que utiliza el objeto XMLHttpRequest pero nos provee una forma más intuitiva y legible de realizar peticiones AJAX
+					Repositorio de GitHub: https://github.com/visionmedia/superagent
+					Documentación: http://visionmedia.github.io/superagent/
+					- request
+					Es otra de las alternativas que nos sirve para realizar todo tipo de peticiones http de tipo AJAX, incluidas GET, POST, PUT, DELETE y que está escrita en Javascript. Esta librería también utiliza el objeto XMLHttpRequest y permite realizar, de una forma más elegante, este tipo de operaciones. 
+					Repositorio de GitHub: https://github.com/request/request
+					- Fetch API
+					API que está incluida en JavaScript por defecto, o sea que no es una librería sino una función que hace parte del core del lenguaje. La función fetch () está disponible en el scope global por lo que puede ser accedida desde cualquier lugar de nuestra aplicación.
+					Fetch está hecha para obtener recursos, incluso datos que se encuentran en un servidor externo. Así, la API no utiliza el objeto XMLHttpRequest sino una personalizada interfaz construida en base a los objetos Request y Response propios del protocolo HTTP. 
+			2. jQuery.ajax() 
+				- for (var i=1;i<=80;i++){
+				    $.ajax({
+				      url:'http://pokeapi.co/api/v2/pokemon-form/'+i,
+				      type:'GET',
+				      data:{},
+				      dataType:'json',
+				      success:function(data){
+				        $('.pokemons').append('<li><img src="'+response.sprites.front_default+'" ></img></li>')
+				      }
+				    })
+				}
+			3. Fetch
+				- OFRECE LOS SIGUIENTES METODOS 
+					- .arrayBuffer(): DEVUELVE UNA PROMESA AL RESOLVERSE ENTREGA UN ARRAYBUFFER
+					- .blob(): DEVUELVE UNA PROMESA QUE AL RESOLVERSE ENTREGA UN BLOB
+					- .formData(): DEVUELVE UNA PROMESA QUE AL RESOLVERSE ENTREGA UN OBJETO DE TIPO FORMDATA
+					- .json(): DEVUELVE UNA PROMESA QUE AL RESOLVERSE ENTREGA UN JSON
+					- .text(): DEVUELVE UNA PROMESA QUE AL RESOLVERSE ENTREGA UNA RESPUESTA EN TEXTO PLANO
+	U2. APIS
+		L1. QUE ES UNA API?
+			1. QUE ES UNA API Y PARA QUE SIRVE
+				- Aplication Programming Interface
+				- INTERMEDIARIO. FACILITA LA INTERACCION ENTRE MODULOS DE CODIGO, APP, BACKENDS
+				- WEB API: POSIBILITA QUE LAS ORGANIZACIONES ABRAN SU BACKEND
+				- MAYOR AGILIDAD
+				- SEPARACION DE INTERESES
+				- SEGURIDAD
+				- ACCESO FACIL A FUNCIONALIDADES
+			2. COMO FUNCIONA UNA API
+				- CUANDO DOS COMPONENTES SE CONECTAN A TRAVES DE UNA API, DECIMOS QUE ESTAN INTEGRADOS
+				- LOS DATOS DEL TELEFONO NO ESTAN TOTALMENTE EXPUESTOS AL SERVIDOR, Y DEL MISMO MODO EL SERVIDOR NUNCA ESTARA TOTALMENTE EXPUESTO AL TELEFONO. EN SU LUGAR, CADA UNO SE COMUNICA CON PEQUEÑOS PAQUETES DE DATOS QUE EXPONEN SOLO LO QUE ES NECESARIO
+			3. Ejemplos de APIs en lenguajes de programación
+				-  Diariamente nuevas herramientas de desarrollo web son lanzadas al mercado. Como desarrolladores, para mantenernos actualizados debemos explorar constantemente nuevas tecnologías que mejorarán la calidad del código que entregamos. Por ende, existen miles de APIs que han sido diseñadas por compañías para ahorrar tiempo, resolver problemas de desarrollo o aumentar la popularidad de sus servicios. A continuación mostramos una lista de las APIs más populares y para qué sirve cada una:
+				1. Google Maps APIs
+
+				Estas APIs permiten incrustar Google Maps en sitios web. Están diseñadas para trabajar en dispositivos móviles y también para aplicaciones en navegadores de equipos de escritorio. Además, proporcionan datos geográficos como geocodificación, indicaciones, elevación, sitio e información de zonas horarias, entre otras. Un caso básico de su uso es el de dibujar lugares como marcadores en un mapa aunque nos permite también dibujar rutas hacia múltiples puntos. Usos más avanzados incluyen la creación de interacciones como hacer clic en un resultado de una búsqueda y resaltar el lugar en el mapa.
+				Proveedor: Google
+				Disponible en: https://developers.google.com/maps/
+				2. Twitter API:
+
+				Esta API provee acceso programático para leer y escribir datos de Twitter. Esto incluye actualizar líneas de tiempo, datos de status e información de usuario, crear un nuevo Tweet, y más. La API de busqueda le da la posibilidad a los desarrolladores de hacer búsquedas entre los Tweets más populares de tal forma que se pueda tener datos acerca de tendencias.
+				Proveedor: Twitter
+				Disponible en: https://dev.twitter.com/rest/publi
+				3. Facebook API:
+
+				La API de Facebook permite construir aplicaciones con funcionalidades de Facebook integradas. Incluir este tipo de tecnologías es una buena alternativa pues hace que tu sitio sea más social al usar las conecciones y la información de perfil de los usuarios, mostrando contenidos acorde con ésta información. La API de facebook tiene mucho por ofrecer, sin embargo podemos destacar dos funcionalidades. La primera es el inicio de sesión con Facebook para aplicaciones que es una forma cómoda, rápida y segura de iniciar sesión en una aplicación o un sitio web; la segunda es la facilidad a la hora de compartir contenidos ya que puedes agregar métodos rápidos y sencillos para que los usuarios publiquen contenido en Facebook directamente desde tu sitio web.
+				Proveedor: Facebook
+				Disponible en: https://developers.facebook.com/
+				4. Yahoo Weather API:
+
+				Con la API de clima de Yahoo puedes obtener información actualizada acerca del clima en tu ubicación. Estos datos pueden ser usados como un RSS feed en un lector de feeds o pueden ser integrados en aplicaciones de terceros. Con la API de Yahoo puedes obtener información de cualquier ubicación, incluyendo pronósticos de 5 dias, vientos, atmósfera, condiciones astronómicas y más. También puedes consultar el clima por el nombre de la ciudad o latitud/longitud.
+				Proveedor: Yahoo
+				Disponible en: http://developer.yahoo.com/weather/
+				YouTube APIs:
+
+				Las APIs de Youtube hacen posible integrar en tu sitio web muchas de las operaciones disponibles en el sitio web de YouTube. Esta API de datos permite buscar videos, y ver contenidos relacionados a ellos. Así, al autenticarse como usuario permitirá subir videos, crear y manejar listas de reproducción, entre otras. Además, la API de analíticas devuelve datos estadísticos de vistas, métricas de popularidad y más, para videos y canales de YouTube.
+				Proveedor: Google
+				Disponible en: https://developers.google.com/youtube/ 
+		L2. INTRODUCCION A LOS SERVICIOS WEB
+			1. QUE ES UN SERVICIO WEB
+				-  Existen múltiples definiciones sobre lo que son los servicios Web, lo que muestra su complejidad a la hora de dar una adecuada definición que englobe todo lo que son y lo que implican. En esta ocasión haremos un estudio del concepto de Servicios web y para qué sirven.
+				- Podemos definir Servicio web como una colección de protocolos abiertos y estándares usados para intercambiar datos entre aplicaciones o sistemas. Los servicios web pueden ser usados por aplicaciones de software que estén escritas en diferentes lenguajes de programación y que corran en varias plataformas, para intercambiar datos entre redes de computadores como la Internet, de manera similar a la comunicación entre procesos en un solo computador. Esta interoperabilidad, por ejemplo, entre Java y Python o entre aplicaciones Windows y Linux se da debido a los estándares abiertos. Una definición más concreta de servicio web es la siguiente: “aplicación que expone su funcionalidad a través de una interfaz de programación de aplicaciones API”.
+				- Recordemos que en la lección anterior aprendimos que una API hace posible la comunicación aplicación-aplicación. Aquí llegamos a un punto clave: los servicios web usan la web para ejecutar integración aplicación-aplicación.
+				- Así, entender el concepto de servicio es la clave para entender los servicios Web. Un servicio es una pieza de software que trabaja para otro software. En muchas circunstancias un servicio corre en un servidor esperando a que una aplicación lo llame y le pida hacer algún trabajo. En muchos casos, lo servicios no proveen ningún tipo de interfaz humana y la única forma de acceder al servicio es a través de su API.
+				- Un servicio web es un recurso que está diseñado para ser consumido por un software en vez de humanos. Ahora, un recurso web es cualquier tipo de objeto de información como una imágen, una cuenta de correo, un documento, una aplicación, entre otros, a los que puedes acceder a través de la web.
+				- En esto radica la diferencia entre un servicio web y un sitio web. Un sitio web representa un grupo de recursos web diseñados para ser accedidos por humanos, en cambio los servicios web son un grupo de recursos diseñados para ser accedidos por aplicaciones. El término servicio implica algo especial sobre diseño de aplicaciones. Se refiere a algo conocido como arquitectura orientada a los servicios del inglés service-oriented architecture (SOA).
+				- Una de las características más importantes del SOA es la separación de la interfaz de la implementación. Un servicio expone su funcionalidad a través de su interfaz y ésta, a su vez, esconde los trabajos de la aplicación. Por ende, la aplicación cliente no necesita entender cómo el servicio hace su trabajo, todo lo que debe saber es cómo usar la interfaz.
+				- A manera de ilustración tomemos el ejemplo de una lavadora.
+				Una lavadora tiene una interfaz que es fácil de usar, de tal forma que no necesitas saber cómo funciona por dentro el motor o los circuitos internos, pues sólo necesitas saber cómo usar la interfaz.
+				- ¿Para qué sirven?
+				Los servicios proporcionan mecanismos de comunicación estándares entre diferentes aplicaciones, que interactúan entre sí para presentar información dinámica al usuario. Para proporcionar interoperabilidad y extensibilidad entre estas aplicaciones, y que al mismo tiempo sea posible su combinación para realizar operaciones complejas, es necesaria una arquitectura de referencia estándar. 
+			2. COMO FUNCIONAN
+				- SE BASA ENTRE TRES ROLES: PROVEEDOR(SERVICE PROVIDER), SOLICITANTE(SERVICE REQUESTER), REGISTRO(SERVICE REGISTRY)(OPCIONAL)
+				- DESCRIPCION DEL SERVICIO(SERVICE DESCRIPTION): CONTIENE LOS DETALLES DE LA INTERFAZ Y LA IMPLEMENTACION DEL SERVICIO
+				- 3 COMPORTAMIENTOS: PUBLISH(PUBLICACION DE LA DESCRIPCION DEL SERVICIO), FIND(BUSQUEDA DE LA DESCRIPCION DEL SERVICIO), BIND(INVOCACION O ENLACE CON LOS SERVICIOS)
+				- 5 TECNOLOGIAS:
+					- DESCUBRIMIENTO: PROPORCIONA EL MECANISMO PARA QUE LOS CONSUMIDORES DEL SERVICIO, BUSQUEN LA DESCRIPCION DEL SERVICIO DE LOS PROVEEDORES 
+						- UDDI(UNIVERSAL DESCRIPTION DISCOVERY AND INTEGRATION): DIRECTORIO DONDE ES POSIBLE PUBLICAR LOS SERVICIOS WEB, PERMITIENDO QUE LOS USUARIOS DEL SERVICIO PUEDAN OBTENER TODA LA INFORMACION NECESARIA PARA LA INVOCACION Y EJECUCION DEL SERVICIO WEB
+					- DESCRIPCION: CONTIENE LA INFORMACION NECESARIA PARA QUE EL SOLICITANTE DEL SERVICIO, PUEDA SOLICITAR Y USAR EL SERVICIO
+						- WSDL(WEB SERVICE DESCRIPTION LANGUAGE): ES UN DOCUMENTO XML, QUE DESCRIBE UN WS QUE ACTUA COMO UN CONTRATO ENTRE EL SOLICITANTE Y PROVEEDOR
+					- EMPAQUETADO: PARA QUE LOS DATOS PUEDAN MOVERSE POR LA RED Y TODAS LAS PARTES PUEDAN ENTENDERLOS
+						- SOAP(SIMPLE OBJECT ACCESS PROTOCOL): FORMA DE EMPAQUETAMIENTO MUY COMUN EN XML
+					- TRANSPORTE: TECNOLOGIAS QUE HABILITAN LA COMUNICACION DIRECTA APLICACION - APLICACION (TCP, HTP, MSTP)
+					- RED: ES LA MISMA QUE LA DEL MODELO TCP/IP. PROPORCIONA COMUNICACION, DIRECCIONAMIENTO Y ENRUTAMIENTO
+			3. TIPOS DE SERVICIOS(SOAP,REST)
+				- SOAP: FORMA ESTANDARIZADA DE EMPAQUETAMIENTO PARA MENSAJES COMPARTIDOS POR APLICACIONES
+					- SOAP Envelope(required): ESPECIFICA QUE EL DOCUMENTO XML ES UN MENSAJE SOAP
+					- Header(optional): OBTIENE INFORMACION RELEVANTE COMO FECHA, DATOS AUTENTIFICACION
+					- Body(required): CONTIENE INFORMACION DE LA LLAMADA Y RESPUESTA
+						- Fault(optional): TIENE INFORMACION SOBRE ERRORES Y ESTADOS
+					- LOS MENSAJES SOAP SON INDEPENDIENTES DE LOS SISTEMAS OPERATIVOS Y PUEDEN SER TRANSPORTADOS POR LOS PROTOCOLOS QUE FUNCIONAN EN LA INTERNET: SMTP, MIME, HTTP
+					- LOS MENSAJES SOAP DEBEN SER TRANSPORTADOS SOBRE SOAP
+					- LA DESCRIPCION DE UN SERVICIO DEBE SER HECHA EN WSDL
+					- DEBE UTILIZAR UDDI PARA EL DESCUBRIMIENTO
+					EN RESUMEN:
+						- UDDI 			DESCUBRIMIENTO
+						- WSDL 			DESCRIPCION
+						- SOAP 			EMPAQUETADO
+						- TCP/HTTP/SMTP TRANSPORTE
+						- 				RED
+				- REST: (REPRESENTATION STATE TRANSFER) ESTILO DE ARQUITECTURA DE SOFTWARE QUE DEFINE PRINCIPIOS DE DISEÑO SOBRE COMO TRANSMITIR DATOS A TRAVES DE UNA INTERFAZ ESTANDARIZADA COMO HTTP
+					- NO CONTIENE UNA CAPA DE EMPAQUETAMIENTO DEL MENSAJE Y SE BASA EN RECURSOS
+					- RECURSO: ES UN OBJETO CON TIPO, DATOS ASOCIADOS, RELACIONES CON RECURSOS Y METODOS, PUEDE SER UNA INSTANCIA. SOLO TIENE METODOS ESTANDARES (HTTP GET, POST, PUT, DELETE)
+					- TODOS LOS RECURSOS SON IDENTIFICADOS CON UNA URI(UNIFORM RESOURCE IDENTIFIER) CADENA DE CARACTERES QUE IDENTIFICA UN RECURSO POR UBICACION, NOMBRE O AMBOS
+					- NO ESTA LIMITADO A XML. PERMITE HTML, XML, JSON
+				- CUANDO DESEAS PUBLICAR UNA API COMPLEJA SE RECOMIENDA SOAP
+				- CUANDO SE REQUIERE ALGO LIVIANO Y TRANSACCIONES SENCILLAS, CUANDO SE VA A HACER UN SERVICIO SIN ESTADO O SE REQUIERE DE MEJORAR EL DESEMPEÑO USANDO CACHE, SERIA MAS APROPIADO USAR REST
+		L3. ESTRUCTURA APIS REST
+			1. ¿Qué es una petición HTTP?
+				- MODELO OSI
+				- PARADIGMA REQUEST/RESPONSE
+				- PETICION: LINEA DE PETICION, CABECERA PETICION, CUERPO MENSAJE
+					- LINEA DE PETICION(REQUEST-LINE): 
+						- Request-method-name: GET(OBTIENE RECURSO), POST(CREA UN NUEVO RECURSO), PUT(EDITAR UN RECURSO), DELETE(BORRA RECURSO)
+						- request-URI: (UNIFORM RESOURCE IDENTIFIER)ESTA COMPUESTO POR (URL(INCLUYE HTTP Y DIRECCION),URN(INCLUYE LA DIRECCION))
+						- HTTP-version: HTTP/1,0 HTTP/1.1
+				- RESPUESTA: LINEA DE ESTADO, CABECERA RESPUESTA, CUERPO MENSAJE
+			2. Cabeceras (Autorización, Autenticación)
+				- PERMITEN ENVIAR INFORMACION DESCRIPTIVA
+				- META INFO
+				- CABECERAS EN PETICIONES: 
+					- user-agent: ACERCA DEL NAVEGADOR, SO,IDIOMA
+					- accept-encoding: SE ESPECIFICA LOS ALGORITMOS DE CODIFICACION
+					- accept-language: ESPECIFICA EL IDIOMA QUE PREFIERE EL CLIENTE 
+					- cookie: ENVIA LAS COOKIES GUARDAS DEL NAVEGADOR A ESE DOMINIO
+				- Authorization: scheme credentials: PROPORCIONA LA AUTORIZACION DEL CLIENTE PARA ACCEDER DATOS EN UNA URI
+				- Authorizacion: Basic ****************
+				- CABECERAS EN RESPUESTAS:
+					- server: NOMBRE Y NUMERO DE SERVIDOR
+					- location: UBICACION EXACTA DEL RECURSO QUE FUE IDENTIFICADO CON LA URI
+				- WWW-Authenticate: Basic realm='Admin'
+			3. CUERPO DE LA PETICION
+				- Hemos estudiado que un mensaje de petición HTTP se compone de las partes que se ilustran a continuación: 
+					LINEA PETICION
+					CABECERA PETICION
+					CABECERA DEL MENSAJE DE PETICION(opcional)
+				-  El cuerpo del mensaje es una parte opcional en un mensaje HTTP. Se debe incluir una línea en blanco que separa las cabeceras del cuerpo. Usualmente se incluyen las cabeceras content-type y content-length que especifican la naturaleza del cuerpo asociado.
+				- El cuerpo del mensaje es el que lleva los datos de la petición que el cliente quiere enviar al servidor incluyendo los datos de formulario. A diferencia del método, la URL o las cabeceras donde el protocolo HTTP requiere una estructura rígida, el cuerpo permite al cliente enviar cualquier información que necesite.
+				- En el siguiente ejemplo muestra un mensaje de petición http con todas sus partes. Allí la URL /prueba.php será usada para procesar los datos enviados y por consiguiente una respuesta será enviada. Observa que la cabecera content-type le dice al servidor que los datos enviados es un texto XML y la cabecera indica content-length que indica el tamaño de los datos puestos en el cuerpo del mensaje, en éste caso son 86 bytes.
+					POST /prueba.php HTTP/1.1
+					User-Agent: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)
+					Host: www.example.com
+					Content-Type: text/xml; charset=utf-8
+					Content-Length: 86
+					Accept-Language: en-us
+					Accept-Encoding: gzip, deflate
+					Connection: Keep-Alive
+
+					<?xml version="1.0" encoding="utf-8"?>
+					<string xmlns="http://test.com/">string</string >
+				- En el ejemplo anterior podemos observar las partes de un mensaje que hemos estudiado hasta el momento:
+				    - La primera línea: la línea de petición
+				    - Cabeceras
+				    - Una línea en blanco
+				    - Cuerpo del mensaje
+			4. CODIGOS DE ESTADO HTTP
+				-  La primera línea del mensaje de respuesta es la de estado y contiene el código de estado de la respuesta, el cual es generado por el servidor para indicar el resultado de la petición.
+				- El siguiente ejemplo muestra un mensaje de respuesta:
+					HTTP/1.1 200 OK
+					Date: Mon, 27 Jul 2009 12:28:53 GMT
+					Server: Apache/2.2.14 (Win32)
+					Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT
+					Content-Length: 88
+					Content-Type: text/html
+					Connection: Closed
+
+					<html>
+					<body>
+					<h1>Hello, World!</h1<
+					</body>
+					</html>
+
+				- En la línea de estado HTTP/1.1 200 OK observamos las siguientes partes:
+
+				    Versión HTTP: HTTP/1.1
+				    Codigo de estado: 200
+				    Comentario descriptivo de estado: OK
+
+				- El código de estado es un número de 3 dígitos y cada uno tiene un significado único.
+				- Existen varios tipos de códigos, continuación un listado de ellos con algunos de los códigos de estado más usados:
+				- 1. Informativos: 1xx
+				Indica que la petición se ha recibido y el servidor está continuando con el proceso.
+				100 Continue: El cliente debería continuar con su petición. El servidor debe enviar una respuesta final luego que la petición ha sido completada.
+				101 Switching Protocols: El servidor acepta el cambio de protocolo propuesto por el navegador.
+				- 2. Éxito: 2xx
+				Este tipo de código de estado indica que la petición del cliente fue exitosamente recibida, entendida, aceptada y servida.
+				200 OK: La petición ha sido completada exitosamente. Es el código de estado estándar para peticiones exitosas.
+				201 Created: La petición ha sido completada y resultó en la creación de un nuevo recurso.
+				204 No Content: El servidor ha completado la petición con éxito pero no necesita enviar cuerpo en el mensaje de respuesta. La respuesta 204 no debe incluir cuerpo del mensaje y por lo tanto debe finalizar con la línea en vacía después de las cabeceras.
+				- 3. Redireccionamiento: 3xx
+				Indica que el cliente debe ejecutar una acción adicional para poder completar la petición.
+				301 Move Permanently: El recurso pedido ha sido movido permanentemente a una nueva ubicación. La url de la nueva ubicación está dada por la cabecera de respuesta llamada Location.
+				02 Found & Redirect (Move Temporarily): El recurso solicitado ha sido movido a una nueva ubicación pero sólo por tiempo limitado.
+				304 Not Modified: El servidor notifica que el recurso pedido no ha sido modificado. Por lo general, el cliente hace una petición con una cabecera como If-Modified-Since para indicarle al servidor la fecha con la cual comparar. Un mensaje de respuesta con código 304 no debe contener cuerpo.
+				- 4. Error del cliente: 4xx
+				Este tipo de código de estado se utiliza para casos cuando al parecer el cliente ha errado en la petición.
+				400 Bad Request: El servidor no puede interpretar o entender la petición.
+				401 Unauthorized: El recurso solicitado está protegido, y requiere de las credenciales cliente. El cliente debe volver a hacer la petición con sus credenciales (usuario/contraseña).
+				403 Forbidden: El servidor no puede proveer el recurso solicitado independientemente de la identidad del cliente.
+				404 Not Found: El recurso solicitado no pudo ser encontrado en el servidor.
+				409 Conflict: La petición no se ha podido completar porque se ha producido un conflicto con el recurso solicitado. El caso más habitual es el de las peticiones de tipo PUT que intentan modificar un recurso que a su vez ya ha sido modificado por otro lado.
+				- 5. Error del servidor: 5xx
+				Indica que el servidor ha errado o es incapaz de realizar una petición aparentemente válida.
+				500 Internal Server Error: El servidor encontró una condición inesperada que le impidió completar la petición.
+				502 Bad Gateway: El servidor actuando como gateway o proxy, recibió una respuesta inválida del servidor de flujo ascendente(upstream server).
+				504 Gateway Timeout: El servidor actuando como gateway o proxy, no recibió a tiempo respuesta del servidor de flujo ascendente(upstream server). 
+		L4. CONSUMIR APIS EXTERNOS
+			1. CONSUMIENDO UN JSON EXTERNO
+				-   $.ajax({
+						url:'https://api.openbrewerydb.org/breweries',
+						success:function(response,xhr,settings){
+							console.log(response)
+						}
+					}) 
+			2. Consumiendo la API de GitHub
+				- Consumir Web APIs es común en las aplicaciones web. En el tema de hoy vamos a estudiar como consumir el API de Github.
+				- El concepto de real time o tiempo real se basa en usar un conjunto de tecnologías y herramientas que nos permitan abrir un canal de comunicación entre el cliente y el servidor y que éste se mantenga abierto en todo momento, entonces no tenemos que preocuparnos por estar preguntándole al servidor si tiene nueva información que entregarnos, sino que cuando el servidor tiene nuevos datos se los notifica al cliente y viceversa.
+				- La documentación oficial la encuentras en este sitio web: https://developer.github.com/v3/
+				- Sin embargo te recomendamos leer una página guía que ayuda mucho a entender mejor la API: https://developer.github.com/guides/getting-started/
+				- En el tema anterior estudiamos cómo consumir un JSON externo mediante AJAX. Es muy útil saberlo porque el API de Github funciona con JSON.
+				- URL de API de github
+				Las operaciones del api se realizan a través de la url  https://api.github.com. Recordando el tema anterior, reemplazamos en el código base la url por la url de github.
+				- Algo muy útil de la API de Github es que si hacemos una simple solicitud a esta url nos responde con las posibles urls que podemos utilizar. 
+				- Encontramos que dentro del objeto responseJSON se encuentra la información relevante a la API.
+				- Podríamos encontrar términos que no conozcamos y eso es bueno, así nos familiarizamos con Github. Pero de los que si reconocemos serían: usuarios, repositorios u organizaciones.
+				- Mostrar un usuario
+				- Tomemos cómo ejemplo los usuarios. Consultemos al usuario ‘defunkt’ (provisto por la guía de Github): De acuerdo a la información anterior, la url sería así:  https://api.github.com/users/defunkt 
+				- Obtener repositorios de un usuario
+				Ahora obtenemos más información interesante, por ejemplo, obtengamos los repositorios del usuario: la url se observa en el parámetro repos_url:  https://api.github.com/users/defunkt/repos
+				-Autenticación
+				Hasta este punto, podemos seguir explorando diferentes url y analizar la información que obtenemos. Sin embargo, ahora probemos algo básico para trabajar más con la API: Autenticación. La documentación oficial presenta diferentes métodos de autenticación, en este tema estudiaremos la forma básica. Un punto importante de la autenticación es que te aumenta el número posible de solicitudes por hora, de 60 a 5000.
+				- La función nativa de javascript ‘btoa’ convierte a base64 una cadena de caracteres.
+				- Recordemos que en la pestaña Network podemos obtener información importante de la respuesta.
+				- Por ejemplo encontramos los parámetros:
+					- X-RateLimit-Limit:5000
+					- X-RateLimit-Remaining:4999
+					- Content-Type:application/json; charset=utf-8
+				- Los parámetros que inician con X- son exclusivos de github. Vemos que X-RateLimit-Limit tiene asignado el valor 5000, lo que muestra que si nos autenticamos correctamente.
+				- Crear un repositorio
+				Ahora que ya sabemos autenticarnos, podemos hacer operaciones más complejas, por ejemplo, creemos un repositorio.
+				Para crear un repositorio necesitamos hacer una operación extra. Por motivos de seguridad, es necesario otorgar permisos a un usuario para poder hacer determinadas operaciones utilizando la API, Github provee el uso de tokens para hacer estas operaciones, de tal modo que cada token puede o no hacerlas.
+				- Lo primero que observamos es que la url usada es de autorizaciones, la primera en la lista cuando hicimos un llamado simple a la API. Seguidamente encontramos los headers de autenticación y luego encontramos el siguiente cambio. El parámetro type está definido como POST, esto se debe a que vamos a solicitar crear un token. Finalmente encontramos el parámetro data y es MUY IMPORTANTE que notes que el contenido de data es dentro de la función JSON.stringify, esto se debe a que la API solo funciona con JSON, por lo tanto debes hacer este procedimiento para que la API entienda las instrucciones. Dentro de data encontramos el parámetro scope, es un array que contiene los permisos que se van a otorgar, asignamos simplemente ‘repo’. El parámetro note es opcional.
+				- A continuación encontramos en la función complete una validación, recuerda que el status 201 significa que el recurso fue creado, por lo tanto si este no es el status, no podemos continuar.
+				- Habrás notado que en la parte superior definimos unas variables globales token y token_id, ahora observa que sus valores son definidos dentro del complete del ajax, se usarán más adelante. 
+				- Primero, la URL, esta al encontramos en la documentación de Github:  https://developer.github.com/v3/repos/#create. A continuación el type, nuevamente POST, porque vamos a crear un repositorio. Sin embargo, ahora la autenticación es diferente, es mediante token, ¿cuál token? El token que obtuvimos cómo respuesta en el llamado anterior. Seguidamente de la información, recordemos que debe estar cómo JSON y para eso se usa la función JSON.stringify. Finalmente, el complete, al igual que en el llamado ajax anterior, es necesario validar el status 201.
+				- Lo más notorio de este llamado ajax es la URL, observemos que cuenta con el token_id obtenido en respuesta de la primera función y el status de la función complete que es 204, que significa No Content.
+	U3. PHP
+		L1. INTROUDUCCION A PHP
+			1. QUE ES PHP
+				- PHP es el acrónimo recursivo de Hypertext Protocol . Es un lenguaje de programación que se ejecuta del lado del servidor y se usa especialmente para el desarrollo de proyectos web. PHP es un lenguaje muy versátil y puede ser usado en múltiples aplicaciones. En su uso más común es un lenguaje interpretado, es decir, que sus instrucciones se traducen una a una en tiempo de ejecución; sin embargo, si se usa para aplicaciones de escritorio, apoyado en motores adicionales, puede convertirse en un lenguaje compilado.
+			2. QUE PUEDO HACER CON PHP
+				- PHP es un lenguaje de programación de uso general de código del lado del servidor originalmente diseñado para el desarrollo web de contenido dinámico. A continuación hemos diseñado un recurso para ti sobre las bondades de PHP.
+				- https://s3.amazonaws.com/nextu-content-production/Desarrollador_Web/06_BackEnd/Infografias/C6U3L1_Infografia2.pdf
+			3. INSTALACION
+				- https://www.apachefriends.org/es/index.html
+			4. INTRODUCCION A PHP
+				- UBICACION POR DEFAULT DE PROYECTOS HTDOCS
+		L2. SINTAXIS Y ESTRUCTURAS DE CONTROL
+			1. SINTAXIS BASICA
+				- <?php apertura
+				- ?> cierre
+				- CODIGO MIXTO PHP HTML
+				- COMENTARIOS CON: // /**/
+			2. VARIABLES
+				- $NombreVariable
+				- UTILIZAR LA PALABRA global PARA INVOCAR A UNA VARIABLE GLOBAL DENTRO DEL AMBITO LOCAL DE UNA FUNCION
+				- EN EL MOMENTO DE ASIGNAR UNA VARIABLE, EL INTERPRETE ASIGNA EL TIPO DE VARIABLE
+				- SE CONCATENA CON .
+				- PARA SABER EL TIPO DE DATO .gettype($VARIABLE);
+				- 8 TIPOS PRIMITIVOS: 
+					- ESCALARES
+						- BOOLEAN
+						- INTEGER
+						- FLOAT
+						- STRING
+					- COMPUESTOS
+						- ARRAY
+						- OBJECT
+					- ESPECIALES
+						- RESOURCE ($DBConnection)
+						- NULL
+			3. CONSTANTES
+				- const: para propiedades de una clase(escalares)
+				- define: define('A',Valor)(array, object, resource, NULL)
+				- PUEDEN SER ACCEDIDAS DESDE CUALQUIER AMBITO
+				- LINE: NUMERO DE LINEA ACTUAL EL CACHE
+				- FILE: RUTA Y NOMBRE DEL FICHERO ACTUAL
+				- DIR: CONTIENE EL NOMBRE DEL DIRECTORIO EN EL QUE SE ENCUENTRA EL FICHERO ACTUAL
+				- FUNCTION: NOMBRE DE LA FUNCION
+				- CLASS: NOMBRE DE LA CLASE
+				- METHOD: NO0MBRE DEL METODO DE LA CLASE
+				- TRAIT: JUNTO CON EL ESPACION DEL NOMBRE
+				- NAMESPACE: NOMBRE DEL ESPACIO DE NOMBRES ACTUAL
+			4. OPERADORES Y CONDICIONALES
+				- OPERADORES DE ASIGNACION
+					- =
+					- +=
+					- -=
+					- *=
+					- /=
+					- .=
+				- OPERADORES ARITMETICOS
+					- OPERADORES BASICOS
+					- ** POTENCIACION
+					- % MODULO
+				- OPERADORES DE COMPARACION
+					- ==
+					- !=
+					- >
+					- <
+					- >=
+					- <=
+					- ===
+					- !==
+				- OPERADORES ADICIONALES
+					- <=> -1 SI A ES MENOR, 0 SON IGUALES, 1 SI A ES MENOR QUE B
+				- OPERADOR DE FUSION
+				 	- 
+				- OPERADORES LOGICOS
+				 	- AND O $$
+				 	- OR O ||
+				 	- XOR SI ALGUNO DE LOS OPERANDOS ES TRUE PERO NO AMBOS 
+				 	- ! NOT
+				 - CONDICIONALES
+				 	- IF(CONDICION){
+				 		ACCION1
+				 	}ELSE{
+				 		ACCION2
+				 	}
+				 	- ELSEIF(){
+
+				 	}ELSE{
+
+				 	}
+			5. CICLOS
+				- while(codicion){
+					acciones
+				}
+				- do{
+					acciones
+				}while(codicion)
+				- for(){
+					acciones
+				}
+				- foreach(){
+					acciones
+				}
+		L3. FUNCIONES Y OBJETOS
+			1. FUNCIONES
+				- LAS FUNCIONES SON GLOBALES
+				- function nombreFuncion(){
+					acciones
+				} 
+				- function nombreFuncion(argumentos){
+					acciones
+					return resultado
+				}
+			2. CLASES E INSTANCIAS
+				- CLASS NombreClase{
+					PROPIEDADES
+					METODOS
+				}
+				- PUBLIC
+				- PROTECTED (SOLO DESDE LA MISMA CLASE O CLASE HEREDADA)
+				- PRIVATE (SOLO POR LA MISMA CLASE QUE LO DEFINIO)
+				- CLASE ESTATICA
+			3. INCLUSION DE ARCHIVOS
+				- SE INCLUYEN ARCHIVOS MEDIANTE LA PALABRA INCLUDE
+				- Require -->INCLUSION OBLIGATORIA NO SE EJECUTA LA PAGINA
+			4. EXCEPCIONES
+				- TRY{
+					CODIGO
+				}CATCH(EXCEPTION $E){
+					ACCIONES AL LANZAR EXCEPCION
+				}FINALLY{
+					ACCIONES QUE SIEMPRE SE EJECUTAN
+				}
+		L4. FORMULARIOS
+			1. GESTION DEL FORMULARIO HTML
+				- <form action='form.php'> indica asi que archivo se dirige la informacion del formulario
+				- method: la forma en la que se enviaran los datos 
+			2. RECEPCION Y ENVIO DE DATOS ENTRE ARCHIVOS
+				- GET: ENVIA LOS DATOS DESDE EL SERVIDOR MEDIANTE LA URL. ESTOS DATOS SE ALMACENAN EN PHP $_GET['nombre']
+				- POST: ENVIA DATOS DDE MANERA OCULTA Y NO SE MUESTRAN EN LA URL DE LA PAGINA. LOS DATOS SE OBTIENEN CON $_POST['nombre']
+				- ES RECOMENDABLE USAR POST PARA ENVIO DATOS SECRETOS COMO PASS Y DATOS PERSONALES
+			3. ENVIO DE FORMULARIOS USANDO AJAX
+				- PARA SEPARAR FRONT Y BACK 
+		L5. CONCEPTOS AVANZADOS
+			1. PATRON MVC
+				- CONJUNTO DE SUGERENCIAS Y RECOMENDACIONES PARA ORGANIZAR LOS ARCHIVOS, PROCESOS Y FUNCIONALIDADES DEL PROYECTO
+				- 3 CAPAS
+				- VISTA: PAGINAS, 
+				- MODELO: PROCESO DE DATOS, ALMACENAMIENTO, OPERACIONES, 
+				- CONTROLADOR: COMUNICA MODELO-VISTA
+			2. GESTION DE ARCHIVOS
+				- CREAR Y ABRIR ARCHIVOS: fopen('ruta/nombre_archivo','w'). SI NO EXISTE SE CREA UN ARCHIVO, SI EXISTE SE ABRE
+				- EXPLORAR EL CONTENIDO DE UN ARCHIVO ABIERTO: fread($archivoAbierto,bytes)
+				- CERRAR ARCHIVOS: fclose($archivoAbierto)
+				- ESCRIBIR ARCHIVOS ABIERTOS: fwrite($archivoAbierto), fwrite($archivoAbierto, $contenidoAEscribir)
+			3. CARGA DE ARCHIVOS
+				- CARGA ARCHIVOS EN VARIOS FORMATOS
+			4. VARIABLES DE SESION Y COOKIES
+				- COOKIES: VARIABLES QUE ALMACENAN VALORES EN EL LADO DEL CLIENTE, NAVEGADOR, setcookie('nombre', 'valor','tiempo', '/')
+				- VARIABLE DE SESION: SE ALMACENA DEL LADO DEL SERVIDOR, TODO EL TIEMPO EN LA PAGINA session_start(), _$SESSION['nombre'], session_destroy()
+	U4. NODE.js
+		L1. Qué es Node.js y cómo funciona
+			1. Qué es Node.js
+				- Node.js es un entorno de ejecución multiplataforma, de código abierto, totalmente asíncrono, con una entrada y salida de datos basada en una arquitectura orientada a eventos.
+				Node.js es JavaScript pero del lado del servidor, utiliza la máquina virtual de Google Chrome (V8) para la interpretación y ejecución del código de javascript. Node fue desarrollado con la misión de crear programas y servidores web de alto rendimiento y fácilmente escalables.
+				Node.js es ideal para crear servidores que manejen muchas conexiones simultáneas y una concurrencia de usuarios/datos bastante alta.
+				- ¿Qué es V8?
+				V8 es el motor de JavaScript creado por Google para su navegador Chrome que se encarga de interpretar y ejecutar el código. Es un intérprete bastante poderoso con una característica especial, OPEN-SOURCE, es decir de código abierto, y cualquier persona puede descargar el código fuente de este intérprete y hacerlo funcionar en una aplicación. Node usa la máquina virtual V8 y le da otro propósito para usarlo en el servidor.
+				- ¿Por qué no utilizar el mismo lenguaje que usted emplea en el cliente para programar el servidor ?
+				Fue una de las preguntas con las que se inició la idea, la posibilidad de crear una arquitectura que contemplara el lenguaje Javascript tanto del lado del cliente como del servidor.
+				- Programación orientada a eventos:
+				Hemos escuchado que existen varios paradigmas de programación muy populares como POO(Programación Orientada a Objetos), el cual es muy común encontrarlo en la mayoría de lenguajes más populares de la actualidad.
+				Node usa el paradigma de Programación Orientada a Eventos. Al igual que en el lado del cliente estamos a la espera de acciones del usuario y sus correspondientes eventos, en el lado del servidor no es nada diferente, aunque no se están presionando botones ni llenando formularios, en otros niveles están sucediendo eventos, como establecimiento de conexiones, envío y recepción de datos y todas las demás actividades para las que un servidor debe estar en capacidad de responder.
+			2. Cómo funciona Node.js
+				- ES ASINCRONO 
+				- TRABAJA CON UN UNICO HILO DE EJECUCION. SE EJECUTAN A TRAVES DE UN MODELO LLAMADO EVENT LOOP QUE SE EJECUTA EN EL HILO PRINCIPAL. SE ENCARGA DE LOS PROCESOS Y TAREAS QUE VIENEN DE UN CALLBACK Y SERA LA FUNCION QUE SE EJECUTA UNA VEZ TERMINADA LA TAREA
+				- DETRAS DE NODE ESTA LA LIBRERIA LIBUV, MULTIPLES HILOS DE EJECUCION ASINCRONOS. RECIBE LAS TAREAS DEL EVENT LOOP Y LAS ASIGNAS A SUS HILOS.
+			3. DESCARGA E INSTALACION
+				- Para tener Node.js en nuestra máquina, es necesario descargar el binario e instalarlo.
+				- Si estás en MacOS existen varias formas:
+					- Utiliza Brew (el administrador de paquetes para MacOS), abre la terminal y digita:
+					- Otra forma es ir directamente a la página oficial: https://nodejs.org y descargar alguna de las versiones disponibles:
+					Actualmente existen dos versiones de Node.js disponibles, la versión 4.x es LTS (Long Term Support), es decir, una versión que estará estable por mucho tiempo y no sufrirá cambios drásticos que puedan romper el ecosistema, es la versión más recomendada para la mayoría de usuarios.
+					La versión 6 es en la cual se incorporan y se prueban las nuevas características y funcionalidades y es posible que sufra muchos cambios y corrección de errores. Esto puede causar que dejen de funcionar algunas propiedades. No se recomienda para aplicaciones en producción.
+					Si estás en Windows, para instalar Node.js debes descargar el archivo ejecutable desde la página oficial, aceptar los términos y condiciones y hacer clic en siguiente hasta finalizar la instalación.
+					Si estás en linux - Debian o algún derivado es porque eres un usuario un poco más avanzado, la recomendación que hacemos es que instales Node.js via PPA, agregando el repositorio de NodeSource y luego descargando via apt-get.
+					- Ahora sólo falta verificar que Node.js esté correctamente instalado en la máquina, para lo que debes ingresar a una terminal y digitar “node --version”:
+					- La Terminal te devuelve la versión de node que está instalada.
+			4. Node.js REPL
+				- REPL ES UN PROGRAMA QUE LEE UN COMANDO DE UN USUARIO, INTERPRETA, EVALUA E IMPRIME. SE USA PARA ACCEDER A LA FUNCIONALIDAD DE UN PROGRAMA
+		L2. Node Package Manager (NPM)
+			1. Qué es NPM
+				- No es conocido, a excepción de sus creadores, el verdadero significado de las siglas N.P.M. Lo que sí sabemos es que es un maravilloso gestor de paquetes y dependencias para JavaScript, diseñado para funcionar en la línea de comandos. Es un sistema que viene integrado con Node.js y se instala en el mismo momento que se instala Node en la máquina.
+				- Casualmente N.P.M. se acomoda perfectamente al nombre de Node Package Manager y así es como se conoce entre la comunidad de desarrolladores JavaScript. N.P.M. es una plataforma de código abierto, en la que miles de programadores de todo el mundo pueden crear librerías o paquetes como son conocidos en el ecosistema Node.js y publicarlos para que puedan ser descargados y usados por otras personas.
+				- En palabras concretas, N.P.M. es un gestor de módulos y paquetes para Node.js en el cual los desarrolladores crean, comparten y reutilizan módulos en las aplicaciones.
+				- N.P.M. cuenta con una cantidad de paquetes increíbles, los cuales nos ayudan a resolver muchos de los problemas que nos encontramos dia dia como desarrolladores Node.js 
+			2. Iniciar con NPM
+				- >npm
+				- ESTA BASADO EN UN ARCHIVO package.json QUE ESE CREA EN LA RAIZ DEL PROYECTO, QUE TIENE UN CONJUNTO DE INFORMACION DEL PROYECTO
+			3. Paquetes Propios y crear un servidor simple en Node
+				- ES UNA PLATAFORMA MODULAR QUE SE DEBEN IMPORTAR DESDE EL CORE. require('modulo')
+				- https://nodejs.org/dist/latest-v6.x/docs/api
+				- npm install --save httpdispatcher: almacena el paquete descargado en node_modules y actualiza package.json
+			4. Paquetes NPM
+				- Express.js INFRAESTURA WEB RAPIDA Y MINIMALISTA PARA ADMINISTRAT EL SERVER
+		L3. CREAR UNA APLICACION NODE.JS
+			1. Explicación y estructura del proyecto
+				- ARQUITECTURA DEL PROYECTO Y API
+			2. CONSTRUYENDO LA API
+				- /chat/get/users
+				- /chat/get/messages
+				- /chat/post/users
+				- /chat/post/messages
+			3. ALMACENAMIENTO DE DATOS
+				- server/storage/index.js
+				- modulo file system para interactuar con el sistema de archivos de la computadora
+				- saveData y getData
+				- SE UTILIZA PROMESAS PARA EL MANEJO DE TAREAS ASINCRONAS. PARA CONTROLAR LOS TIEMPOS DE EJECUCION
+				- DEVUELVE RESOLVE Y REJECT
+			4. CREANDO EL FRONTEND
+				- public/js/app.js
+			5. INTEGRANDO EL FRONTEND Y BACKEND
+				- body-parser: Módulo que permite al servidor interpretar datos en formato JSON.
+				- http: Módulo que permite la creación de un servidor.
+				- express: Framework que posee un módulo que permite el enrutamiento de peticiones.
+				- fs: Módulo que interactúa con el sistema de archivos del servidor.
+		L4. REALTIME
+			1. Qué es el Realtime y su filosofía 
+				- En el ecosistema del desarrollo web existe una tendencia conocida como las aplicaciones real-time es decir que funcionan en tiempo real y no necesitas hacer click en botones ni ejecutar acciones para que se vean reflejados los cambios o se reciban las nuevas actualizaciones.
+				- El concepto de real time o tiempo real se basa en usar un conjunto de tecnologías y herramientas que nos permitan abrir un canal de comunicación entre el cliente y el servidor y que éste se mantenga abierto en todo momento, entonces no tenemos que preocuparnos por estar preguntándole al servidor si tiene nueva información que entregarnos, sino que cuando el servidor tiene nuevos datos se los notifica al cliente y viceversa.
+				- Los sistemas en tiempo real se caracterizan por sus tiempos de respuesta, que son inmediatos. Entre las aplicaciones más comunes que funcionan en tiempo real están los chats, notificaciones, mensajería, monitoreo de datos y procesos.
+				- Filosofía de una aplicación Real-Time tipo CHAT
+				Imaginate a 3 personas conectadas al mismo sitio web, desde cualquier lugar del mundo. El sitio web es una sala de chat y las personas se encuentran en la misma conversación.
+				Retomando el tema del modelo basado en eventos, supongamos que cada vez que un usuario envía un mensaje se emite un evento llamado “mensaje”.
+				Entonces, todos los usuarios en línea están suscritos a ese evento: mensaje.
+				Si pensamos en el flujo de la información, el usuario envía el mensaje y se emite el evento, éste llega al servidor y el servidor notifica a todos los usuarios suscritos que hay nueva información.
+				Todo este proceso sucede en tiempo real, sin necesidad de que los otros usuarios estén enviando peticiones al servidor para preguntarle por nuevos mensajes que posiblemente hayan emitido otros usuarios.
+				Aunque enviar peticiones, por ejemplo, cada segundo sea una opción válida y el envío de mensajes puede hacerse, esto sería malo a nivel de rendimiento ya que enviar tantas peticiones tan repetidamente puede causar que nuestra máquina se ponga un poco más lenta, aparte de esto, al segundo de intervalo entre cada petición debemos sumarle el tiempo que se demora en responder el servidor entre cada petición, uno o dos segundos adicionales. Por otro lado, si hubieran enviado varios mensajes en el intervalo del segundo todos los mensajes llegaron juntos y se renderizaron al mismo tiempo esto podría causar un efecto pésimo para la experiencia del usuario.
+				Lo que se espera de este tipo de aplicaciones es que el flujo de datos y la comunicación entre los diferentes usuarios sea instantánea, sin intervalos, sin ejecutar acciones para pedir actualizaciones, muy transparente para el usuario y ante todo muy eficiente.
+				En los proximos videos agregaremos la funcionalidad realtime a nuestro chat para poder comunicarnos con las otras personas.
+			2. WebSockets y Socket.io
+				- WEBSOCKET: TECNOLOGIA QUE PERMITE UNA COMUNICACION CONSTANTE ENTRE CLIENTE Y SERVIDOR. PERMITE ENVIAR DATOS Y RECIBIR SIN NECESIDAD DE CONSULTAR
+				- SOCKET.IO-CLIENT Y SOCKET.IO: API PARA NODE DONDE LA RECEPCION Y ENVIO DE DATOS SE CONTROLA POR EVENTOS
+				- http://socket.io 
+				- var socket=io('http://midominio.com')
+			3. Agregar la funcionalidad Realtime al chat
+				- agrega socket a codigo anterior
+		L5. ECMAScript 6
+			1. let, const
+				- NUEVA FORMA DE DEFINIR CONST PARA CONSTANTES Y LET PARA VARIABLES EN LUGAR DE VAR
+			2. Arrow functions, lexical this
+				- ARROW FUNCTIONS,fatarrow(=>)
+				- var self=this reemplaza
+				- let myFunc=()=>{}
+			3. Parametros por defecto, template string
+				- TEMPLATE STRINGS: var x=`el nombre es: ${this.nombre}`
+				- PARAMETROS POR DEFECTO: FUNCTION(A,B=10){}
+			4. Clases, modulos, object/array destructuring
+				- CLASES COMO .NET
+				- ES ACCEDE A UN ARRAY POR POSICION ARR[0]
+			5. Reescribiendo el proyecto en ES6
+				- Template string que mezcla variables y cadenas de caracteres (`Hola$(nombre)`)
+				- Crea una función que no define un nuevo alcance (=>)
+				- Define una variable con alcance local (let)
+				- Crea una nueva clase (class)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

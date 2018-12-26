@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title></title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.0.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Alfa code 2</th>
+          <th>Alfa code 3</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script type="text/javascript">
+ 
+    $.ajax({
+	url:'https://api.openbrewerydb.org/breweries',
+	success:function(response,xhr,settings){
+		console.log(response)
+	}
+    })
+
+  </script>
+</body>
+</html>

@@ -118,7 +118,7 @@ $(function(){
       event.preventDefault();
     });
     //Función anidada que cambia la posición de la pieza si se presiona el click y se mueve
-    $(".prueba-container").mousemove(function(event){
+    $(".col-1").mousemove(function(event){
       self.css("left", function(){
         var newLeft = event.pageX - 234;
         return newLeft+"px";
@@ -134,7 +134,7 @@ $(function(){
   var contador=0;
 
   //Función que ubica las piezas del rompecabezas correctamente si se dejan en puntos cercanos a los adecuedos en el molde
-  $(".prueba-container").mouseup(function(event){
+  $(".col-1").mouseup(function(event){
     $(event.target).removeClass("imagen-seleccionada");
     $(this).off("mousemove");
     var x = parseFloat($(event.target).css("left"));

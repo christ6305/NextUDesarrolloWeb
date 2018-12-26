@@ -1,0 +1,19 @@
+{
+  "name": "simpleserver",
+  "version": "0.1.0",
+  "description": "a simple server writing for next university developer program",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node.js",
+    "Http"
+  ],
+  "author": "NextU",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "httpdispatcher": "^1.0.0"
+  }
+}

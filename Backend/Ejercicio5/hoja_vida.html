@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <!--Importar la fuente de los íconos de Google-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Importar la hojas de estilos de materialize css-->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/customColors.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/app.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <title>Hoja de Vida</title>
+</head>
+<body class="grey lighten-5">
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="index.html">Perfil</a></li>
+    <li><a href="#!">Seguridad</a></li>
+    <li class="divider"></li>
+    <li><a href="logout.php">Cerrar Sesión</a></li>
+  </ul>
+  <nav class="light-green accent-4">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Trabajo.com</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <form>
+            <div class="input-field">
+              <input id="search" type="search" required>
+              <label for="search"><i class="material-icons">search</i></label>
+            </div>
+          </form>
+        </li>
+        <li><a href="index.html">Inicio<i class="material-icons right">home</i></a></li>
+        <li><a href="">Ajustes<i class="material-icons right">settings</i></a></li>
+        <li><a class="dropdown-button" data-activates="dropdown1">Juan Camilo<i class="material-icons right">face</i></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <h2 class="titulo">Hoja de Vida</h2>
+      <h5 class="subtitulo">Adjunta tu hoja de vida al sistema</h5>
+      <form action="javascript:;" method="post" class="desc-form">
+        <div class="file-field input-field">
+          <div class="btn light-green accent-4">
+            <span><i class="material-icons">file_upload</i></span>
+            <input type="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="input-field col s2 offset-s8">
+            <a href="index.html" class="btn grey waves-effect"><i class="material-icons">close</i></a>
+          </div>
+          <div class="input-field col s2">
+            <button type="submit" name="submit" class="btn light-green accent-4 waves-effect"><i class="material-icons">done</i></button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/hoja_vida.js"></script>
+</body>
+</html>

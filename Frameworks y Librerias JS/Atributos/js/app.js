@@ -14,7 +14,7 @@ $( document ).ready(function() {
     $("#s3").attr("width","70%");
 
     for (var i = 1; i < 4; i++) {//recorre los tres input
-      var seleccion = "form div:nth-of-type("+i+") input";//selecciona un input por cada iteraccion
+      var seleccion = "form div:nth-of-type("+i+") input";//selecciona un input diferente por cada iteraccion
       $(seleccion).attr("id", function(){
         return "input"+i;
       });
