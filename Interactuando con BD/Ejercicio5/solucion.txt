@@ -1,0 +1,26 @@
+//Insertar 5 registros a la tabla productos
+r.db('tienda').table('productos').insert({codigo: '1001', nombre: 'Televisor 40 pulgadas', precio: 2500, cantidad: 4})
+r.db('tienda').table('productos').insert({codigo: '1002', nombre: 'Computador 13 pulgadas', precio: 2000, cantidad: 2})
+r.db('tienda').table('productos').insert({codigo: '1003', nombre: 'Smatphone', precio: 1200, cantidad: 7})
+r.db('tienda').table('productos').insert({codigo: '1004', nombre: 'Tablet', precio: 1800, cantidad: 5})
+
+//Insertar 2 vendedores
+r.db('tienda').table('vendedores').insert({id: '1023221', nombre: 'Santiago Gonzáles', telefono: '7165239854'})
+r.db('tienda').table('vendedores').insert({id: '3654873', nombre: 'Gabriela Gómez', telefono: '6458932543'})
+
+//Insertar 4 clientes
+r.db('tienda').table('clientes').insert({id: '1232545', nombre: 'Luis Salazar', telefono: '3454432133', email: 'luis.s@mail.com'})
+r.db('tienda').table('clientes').insert({id: '8739987', nombre: 'Laura Peña', telefono: '7346198873', email: 'lau.pe@mail.com'})
+r.db('tienda').table('clientes').insert({id: '1234873', nombre: 'Rodrigo Cardozo', telefono: '8270493874', email: 'roca@mail.com'})
+r.db('tienda').table('clientes').insert({id: '5342849', nombre: 'Edinson Jaramillo', telefono: '7259385564', email: 'jaramillo.ed@mail.com'})
+
+//Ver los registros de las 3 tablas
+r.db('tienda').table('productos')
+r.db('tienda').table('vendedores')
+r.db('tienda').table('clientes')
+
+//Filtrar los productos por precio
+r.db('tienda').table('productos').filter({precio: 1200})
+
+//Eliminar el cliente con el nombre Luis Salazar
+r.db('tienda').table('clientes').filter({nombre: 'Luis Salazar'}).delete()

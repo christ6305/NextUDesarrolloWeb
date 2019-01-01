@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Roboto Condensed', sans-serif;
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  height: 5em;
+  text-align: center;
+  background-color: #1155c1;
+}
+
+header h1 {
+  font-size: 2em;
+  padding-top: 1em;
+  color: white;
+}
+.container {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.formulario {
+  margin-top: 5em;
+  width: 30%;
+  height: auto;
+  border: 2px solid black;
+  text-align: center;
+}
+
+.form-control {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.form-control label{
+  display: block;
+  margin-top: 1em;
+}
+
+.form-control input{
+  display: block;
+  width: 100%;
+  height: 3em;
+  border: 2px solid blue;
+  border-radius: 5px;
+}
+
+.fem, .mas {
+  display: block;
+}
+
+.fem input, .fem label, .mas input, .mas label {
+  width: 5%;
+  display: inline-block;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: middle;
+}
+
+
+button {
+  width: 80%;
+  height: 3em;
+  border: 1px solid blue;
+  background-color: white;
+  cursor: pointer;
+  margin: 2em 0;
+  font-size: 1em;
+}
+
+button:hover {
+  border: 1px solid white;
+  background-color: blue;
+  color: white;
+}
+
+.tablaUsuarios {
+  margin-left: 3em;
+  text-align: center;
+  width: 60%;
+}
+
+.tablaUsuarios table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 2px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+#Eliminar {
+  width: 5em;
+  border: 1px solid red;
+  color: red;
+  background-color: white;
+}
+
+#Eliminar:hover {
+  border: 1px solid white;
+  color: white;
+  background-color: red;
+}
+
+#Activo {
+  width: 5em;
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+
+#Inactivo {
+  width: 5em;
+  background-color: orange;
+  color: white;
+  text-align: center;
+}

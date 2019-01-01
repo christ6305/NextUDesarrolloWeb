@@ -3014,6 +3014,1032 @@
 				- Crea una función que no define un nuevo alcance (=>)
 				- Define una variable con alcance local (let)
 				- Crea una nueva clase (class)
+7. INTERACTUANDO CON BASES DE DATOS
+	U1.  Estructura SQL – Estructura NoSQL
+		L1. QUE ES UNA BASE DE DATOS
+			1. DEFINICION DE BASES DE DATOS
+				---
+			2. Por qué utilizar una base de datos
+				- Traducir:
+					-DataBase Management System por Sistema de Gestión de Bases de datos
+					-DBMS por SGBD
+					-Programming por Programación
+					-Data por Datos
+				- Como hemos aprendido en esta lección, las bases de datos son de mucha ayuda para almacenar datos en un servidor. Para que estos datos se puedan administrar de una manera más eficiente, existe un conjunto de aplicaciones que, unidas, forman un Sistema Gestor de Base de Datos (SGBD).
+				Pero de esto nos surgen varios interrogantes: ¿Por qué utilizar una base de datos? ó ¿Por qué utilizar un SGBD? ¿Por qué no simplemente almacenar los datos en archivos de texto?
+				- Las respuestas a estas preguntas se resuelven analizando las ventajas que tienen las bases de datos y los SGBDs. Entre estas ventajas tenemos:
+    				1. Potencial para reforzar estándares
+    					Una Base de Datos permite al Administrador (DBA) definir y reforzar estándares entre los usuarios que acceden a los datos en una organización, facilitando la comunicación y la cooperación entre varios departamentos, proyectos y usuarios en la organización.
+						Los estándares pueden estar definidos por nombres y formatos de datos, reporte de estructuras, terminología, entre otros.
+						En una base de datos, el administrador puede reforzar estándares de una manera centralizada sin tener el problema de asignar las reglas de uso de datos a cada usuario o a cada aplicación.
+    				2. Flexibilidad
+    					En ocasiones, los requerimientos de la aplicación cambian y es necesario cambiar la estructura de la base de datos. Por ejemplo, puede surgir un nuevo grupo de usuarios que necesite información que no está actualmente en la base de datos. Los SGBDs modernos permiten algunos cambios en la estructura sin afectar los datos guardados y los programas de la aplicación existente. 
+    				3. Aislamiento de los datos y el Software
+    					Al utilizar una base de datos tienes los datos en un lugar independiente de tu aplicación, lo que permite el acceso desde diferentes lugares o programas. Esto facilita que los cambios en la estructura de datos sean manejados por el SGBD y no estén embebidos en el Software. 
+    				4. Reducción del tiempo de desarrollo del Software
+    					Diseñar e implementar una base de datos desde 0 puede tomar más tiempo que escribir un solo archivo especializado. Sin embargo, una vez que la base de datos está configurada y funcionando, generalmente se requiere menos tiempo para crear nuevas aplicaciones utilizando las facilidades de un SGBD. 
+    				5. Seguridad
+    					No todos los usuarios tienen los mismos permisos o privilegios de acceso a los datos. Los SGBDs facilitan el manejo y el control de la Seguridad de las Bases de Datos que almacena; permitiendo crear usuarios, grupos de usuarios y roles. A cada uno de estos grupos se les pueden asignar unos permisos y privilegios. 
+    				6. Restricción de Acceso No Autorizado
+    					Cuando múltiples usuarios comparten una base de datos es probable que algunos usuarios no estén autorizados para acceder a toda la información. Por ejemplo, para datos confidenciales, algunos usuarios pueden estar autorizados sólo para devolver datos, mientras que otros pueden estar autorizados para devolver y actualizar. Sólo los administradores de la base de datos deben tener permitido ciertos privilegios, como crear nuevas cuentas o asignar permisos de acceso. 
+    				7. Compartir datos y sistema multiusuario
+    					Un sistema de base de datos multiusuario debe permitir el acceso de múltiples usuarios a la base de datos al mismo tiempo. Por lo tanto, el sistema gestor de la base de datos debe tener control del acceso al mismo tiempo que la información, garantizando que no se generen datos repetidos con diferente información, que siempre estén actualizados y que éstos sean correctos. A esta característica se le llama “integridad de datos”.
+    				8. Backup y recuperación de datos
+    					Un Sistema de Base de Datos proporciona la capacidad de guardar los datos en un momento determinado y esta copia se guarda independiente del SGBD, a este proceso se le conoce como backup o copia de seguridad, lo cual se hace para prevenir la pérdida de datos por fallos en el Software, Hardware o errores del usuario al momento de interactuar con la base de datos.
+						El sistema de recuperación y el backup son los responsables de la restauración del sistema. Si un sistema falla en medio de un programa complejo de actualización, el SGBD debe restaurar la base de datos al estado en el que estaba antes de que el programa comenzara a ejecutarse. 
+    		3. Base de datos relacional
+    			- ---
+    		4. Conceptos y restricciones
+    			- Recordemos que una base de datos relacional es una colección de elementos de datos organizados en múltiples tablas descritas detalladamente, desde las que podemos acceder y/o gestionar los datos de diversas maneras sin tener la necesidad de reorganizar la base de datos. Después de mencionar lo anterior, es momento de que veamos los conceptos y restricciones que nos van a garantizar el buen funcionamiento de nuestra base de datos.
+    			- CONCEPTOS
+					1. Tablas: dentro de una base de datos relacional, las tablas son las estructuras que se encargan de almacenar y/o alojar la información de la base de datos. Las tablas son usadas para ordenar y entregar la información almacenada, éstas están compuestas por filas y columnas, las cuales pueden ser llenadas con cualquier tipo de datos.
+					2. Campos o atributos: los campos o atributos de una tabla son cada una de las columnas que la componen, donde cada campo almacena un dato en concreto, por ejemplo, el campo ‘Nombre’. A cada campo se le asigna el tipo de dato que almacenará, es decir, si el dato es un número, una cadena de texto, un dato booleano, etc., con el fin de darle un orden a la información que se está almacenando.
+					3. Registros: los registros son cada una de las filas que componen la tabla y su función es agrupar toda la información de un mismo elemento.
+					4. Llaves o Claves: una clave o llave es un campo en el cual su valor o contenido no puede estar duplicado dentro de la misma tabla, ya que éste nos permitirá identificar y diferenciar cada registro de los demás. Los principales tipos de llaves o claves que existen son:
+						- Llave o clave primaria (Primary Key - PK): es un campo único e irrepetible que nos permite identificar y diferenciar la información de una tabla.
+						- Llave o clave foránea (Foreign Key - FK): la clave foránea es una clave secundaria que se utiliza en una tabla, haciendo referencia a la clave primaria de la tabla con la cual está relacionada.
+						- Llave o clave candidata: también conocida como clave única, esta llave es usada cuando aún no se define una clave o llave primaria. Se conoce como clave o llave candidata ya que es uno de los datos que no tiene tendencia a repetirse en otros registros. 
+					5. Relación: dentro de una base de datos relacional, una relación es un vínculo que se establece entre dos o más tablas, el cual permite trabajar con todos los datos de éstas como si estuvieran en una sola tabla. Existen 3 tipos de relaciones entre tablas y son los siguientes:
+						- Relación de uno a uno: es el tipo de relación menos frecuente entre tablas y sucede cuando un solo elemento de una entidad o tabla se relaciona con un solo elemento de otra. Un ejemplo de esta relación lo encontramos entre países y capitales: un país sólo puede tener una capital y una capital sólo puede estar en un país.
+						- Relación de uno a muchos: es el tipo más frecuente de relación entre tablas. Una relación uno a muchos se da cuando un registro de una tabla se relaciona con más de un registro de otra. Por ejemplo, país y ciudad es una relación de uno a muchos porque un país tiene muchas ciudades, pero una ciudad sólo puede pertenecer a un país.
+						- Relación de muchos a muchos: es aquella en la que los registros de dos tablas pueden relacionarse con más de un elemento de otra tabla. Por ejemplo, la relación entre personas y ciudades de residencia: una persona puede vivir en más de una ciudad durante su vida y, a su vez, una ciudad alberga más de una persona.
+					6. Consultas: en las bases de datos, una consulta es el método por medio del cual podemos acceder a los datos de nuestra base de datos; éstas nos permiten insertar, eliminar, modificar y borrar los datos de nuestras bases de datos a través de un lenguaje de consultas. En la actualidad el más utilizado es el SQL, cuyas siglas en inglés significan Structured Query Lenguage, y en español significa Lenguaje de Consulta Estructurada.
+					Como vimos anteriormente, existen múltiples conceptos a tener presentes en el momento de trabajar con bases de datos relacionales, pero es necesario saber qué restricciones se presentan.
+				- Restricciones: las restricciones en las bases de datos relacionales son un conjunto de reglas y/o condiciones que se deben cumplir al pie de la letra para el manejo adecuado de los datos dentro de las tablas que la componen, con el fin de garantizar la integridad de los datos para realizar cualquier tipo de operación con ellos. Algunas de estas restricciones no son definidas por el usuario, ya que al trabajar con bases de datos relacionales, éstas ya tienen definidas ciertas restricciones que el usuario debe respetar, mientras que otras son definidas por el mismo usuario, por ejemplo: el tipo de dato de un campo, la longitud de caracteres, si el campo es obligatorio o no.
+				Estas son algunas de las restricciones más comunes:
+    				- Ninguna llave primaria puede ser un valor nulo.
+    				- Para que una llave foránea exista dentro de una tabla, debe ser delegada previamente como la llave primaria en la tabla con la cual se relaciona.
+    				- Los valores que se ingresan en una columna de la tabla deben corresponder al tipo de dato que se le asignó previamente al campo, es decir, si se creó el campo ‘Fecha’, el valor que éste debe almacenar no debe ser numérico o de texto, sino que debe ser de tipo fecha, por ejemplo: 11-11-1992 o 11/11/1992, según el formato que éste maneje.
+    				- Los campos que se marquen como obligatorios no pueden ser nulos o estar vacíos.
+    				- Los campos que forman una clave candidata deben tomar siempre valores distintos para cada posible registro.
+    		5. Normalización
+    			- Como mencionamos anteriormente, una base de datos relacional está compuesta de tablas que se relacionan una a otra a través de llaves. Las columnas de la base de datos se llaman atributos y las tablas se relacionan a través de una o varias llaves, esto depende de la base de datos que estemos trabajando. Cuando una llave primaria está compuesta de varios campos la llamamos Llave Compuesta o Compuound Key.
+    			- Llave Compuesta → idReserva+NoHabitacion+idCliente
+				Pero para llegar a tener una base de datos en la que las tablas tengan información que no se repita, hay que seguir un proceso que se llama Normalización, que tiene como propósito organizar las columnas de las tablas con sus respectivas relaciones para eliminar la redundancia y mejorar la integridad de los datos.
+				- El proceso de Normalización está dividido en tres conjuntos de reglas:
+				1. Primera Forma Normal (1FN)
+				2. Segunda Forma Normal (2FN)
+				3. Tercera Forma Normal (3FN)
+				- Según Edgar Frank Codd, cada uno de estos conjuntos de reglas tienen el propósito de solucionar o prevenir los siguientes problemas:
+    				- Quitar de la colección de datos las dependencias no deseadas al momento de insertar, actualizar o eliminar datos.
+    				- Reducir la necesidad de reestructurar las relaciones entre los datos cuando se añaden nuevos atributos o nuevas tablas a la base de datos.
+    				- Hacer que la colección de relaciones sea neutral a las estadísticas de consulta, donde estas estadísticas pueden cambiar a lo largo del tiempo.
+    				- Hacer que el modelo relacional proporcione más información a los usuarios de las bases de datos.
+				- Aunque en la práctica no todas las reglas se cumplen, entre más se cumplan se diría que una base de datos es ‘más relacional’.
+				- Para entender cómo ejecutar el proceso de normalización, partiremos de la siguiente base de datos que está representada por esta tabla no normalizada.
+				- 1. Primer nivel de normalización:
+    				- Eliminar atributos repetidos dentro de una relación.
+    				- Agrupar los elementos repetidos en una tabla.
+    				- Identificar cada fila de la tabla con una columna.
+				- Para nuestro ejemplo, esto se transforma en reducir los atributos “dirección1” y “dirección2”, que pertenecen al mismo contacto. Como resultado tenemos la siguiente tabla:
+				- Por lo que podemos ver, para la relación “envíos” no existen campos repetidos pero hay filas que generan redundancia, como la repetición del nombre de un contacto o el nombre de la empresa. Para esto aplicaremos el segundo nivel de normalización.
+				- 2. Segundo nivel de normalización:
+    				- Separar en una tabla los datos que se repiten en varias filas que puedan generar errores en la integridad de los datos.
+    				- Identificar la nueva tabla de relaciones con claves primarias.
+				- Para el caso de la relación “envíos”, la columna “empresa” contiene datos que pueden corromper la integridad cuando se vaya a actualizar el nombre de una empresa. Esto genera como resultado una tabla de “empresas” y otra tabla de “envíos”.
+				- Vemos que se agregó la relación “empresas” y que se relaciona con la tabla principal de envíos mediante una clave foránea. Ahora veamos cómo aplicar el tercer nivel de normalización.
+				- 3. Tercer nivel de normalización:
+    				- Eliminar los campos que pueden ser claves únicas y que no están relacionados con la clave primaria en tablas aparte.
+				- En el caso de la base de datos de envíos, este campo sería el atributo “contacto” y puede ser agrupado en la relación existente entre las empresas, así quedamos con las siguientes tablas:
+				- Estos tres niveles de normalización son los que se usan principalmente en el diseño de las bases de datos, pero puedes consultar por tu cuenta: la forma normal de Boyce-Codd, la cuarta Forma Normal (4FN) o la quinta Forma Normal (5FN).
+		L2. Lenguaje SQL - DDL
+			1. Instalación de PostgreSQL
+				--- 
+			2. Diseño de una Base de datos Relacional
+				-- 
+			3. Actualizar registros
+				---
+			4. Creación de relaciones y restricciones
+				-- 
+		L3. Lenguaje SQL - DML
+			1. Inserción de datos
+				- TABLA FUERTE: NINGUNA COLUMNA ES LLAVE FORANEA. PRIMERO INSERTAR REGISTROS EN LA TABLA FUERTE
+				- TABLA DEBIL: AL MENOS UNA ES LLAVE FORANEA
+			2. Actualizar y eliminar registros
+				---
+			3. Consultas básicas
+				---
+			4. Consultas avanzadas
+				---
+			5. Consultas basadas en relaciones
+				---
+		L4. Qué es y cómo funciona una base de datos tipo No Relacional
+			1. Que es una BD NoSql y como funciona
+				- Desde la llegada de la web 2.0 el término de NoSQL hace parte del día a día de la industria. Anteriormente, lo más común era escuchar hablar solo de bases de datos SQL como MySQL, Oracle o SQLServer de Microsoft.
+				NoSQL hace referencia a No solo SQL (Not Only SQL), este concepto se presenta por el crecimiento exponencial a nivel de información que estaban afrontando compañías como Twitter o Facebook donde los usuarios están subiendo contenido e información constantemente, y la gestión y escalabilidad de estos datos, representados en bases de datos relacionales, era extremadamente compleja y costosa.
+				Entonces cuando hablamos de bases de datos NoSQL nos referimos a estructuras que permiten almacenar información que en una arquitectura SQL genera ciertos problemas de rendimiento y accesibilidad, y donde, por lo general, suceden millones de consultas e ingresan miles de usuarios en concurrencia.
+				- Cómo funcionan las bases de datos NoSQL
+				En los sistemas de bases de datos NoSQL la información no está representada en entidades ni tablas, tampoco sigue el esquema entidad-relación, por el contrario, las bases de datos NoSQL utilizan diferentes estructuras de almacenamiento como objetos, documentos JSON, formatos clave-valor y grafos, entre otros.
+				- NoSQL orientado a documentos
+					- En una estructura relacional:
+					- En documento JSON
+				- Este es el tipo de bases de datos NoSQL más utilizado en reemplazo a las estructuras SQL. Es bastante versátil, ya que está basado en una estructura tipo JSON de un único documento por registro.
+			2. Ventajas y desventajas
+				- Ventajas:
+					- Código abierto:
+					La mayoría de bases de datos NoSQL son de código abierto (open source), esto aporta gran confiabilidad a los desarrolladores, aparte de ser un servicio sin costo alguno.
+					- Nivel de escalabilidad:
+					El escalamiento de este tipo de bases de datos es simple, solo se deben agregar nodos para distribuir la carga de los datos. Una base de datos permite distribuir la carga entre varios hosts.
+					- Diferentes DB’s para diferentes soluciones:
+					En la actualidad existen muchas bases de datos NoSQL especializadas en diferentes cosas; para proyectos en tiempo real, altos volúmenes de información, almacenamientos de sesiones o caché.
+					- Almacenar grandes cantidades de información.
+				- Desventajas:
+					- No utilizan SQL como lenguaje de consultas:
+					Los desarrolladores están acostumbrados a los lenguajes SQL para acceder a la información de sus bases de datos, pues en los sistemas NoSQL se evita utilizar esto y, en su reemplazo, se utilizan lenguajes basados en JSON.
+					- No hay una estructura fija:
+					En los motores NoSQL no hay una estructura definida que deban cumplir cada uno de sus registros, por el contrario, cada documento o registro puede almacenar estructuras diferentes.
+					- Limitaciones en la lógica del negocio:
+					Las estructuras SQL ayudan mucho en cuanto a la lógica de negocio de una aplicación, ya que por la implementación del modelo entidad-relación se obtienen muchas ventajas en esa parte. 
+			3. Bases de datos NoSQL más comunes
+				- MONGODB: ESCRITA EN C++, DOCUMENTOS JSON, TIPOS BSON(BINARIO)
+				- REDIS: TIPO CLAVE VALOR QUE ALMACENA DATOS EN MEMORIA, SISTEMAS DISTRIBUIDOS CON VARIOS NODOS, NO PERMITE CONSULTAS SOLO INSERTA Y OBTIENE
+				- COUCHDB: ORIENTADA A DOCUMENTOS, LOS DATOS SE INSERTAN A TRAVES DE UNA API REST, UTILIZA JSON, 
+				- CASSANDRA: JAVA, CQL
+				- RETHINKDB: ORIENTADO A DOCUMENTOS, UTILIZA JSON, RQL
+		L5. Realizar consultas en base de datos No Relacional
+			1. Instalar RethinkDB
+				- RethinkDB está disponible oficialmente para MacOS, Windows y para distribuciones Linux como Debian, Ubuntu y CentOS, y la comunidad ofrece soporte para otras distribuciones derivadas como Linux Mint, OpenSUSE, Fedora, Arch y Raspbian.
+				Si estás en un sistemas operativo MacOS te recomiendo usar el manejador de paquetes brew, ejecuta el siguiente comando en la terminal:
+				- RethinkDB es todo un servidor que se instala en nuestra máquina y se ejecuta por defecto en el puerto 8080. Si vamos al browser y entramos a localhost:8080 debemos ver el dashboard de administración de la base de datos:
+				- Para detener o lanzar el servidor de RethinkDB a través de brew, usamos los siguientes comandos:
+					- Iniciar el servicio: brew services start rethinkdb
+					- Detener el servicio: brew services stop rethinkdb
+				- Si estás en un sistema operativo de Windows o Linux, te recomiendo visitar la página oficial de RethinkDB: https://www.rethinkdb.com/docs/install/ , donde puedes encontrar los instaladores para cada una de las plataformas y, adicionalmente, hay una guía para cada uno.
+			2. Dashboard RethinkDB
+				- Una vez tengamos instalado el RethinkDB y esté corriendo perfectamente en nuestra máquina, vamos a explorar un poco el dashboard de administración, a crear una base de datos, una tabla y, posteriormente, a insertar algunos registros.
+				- Abriremos el panel de administración en un navegador ingresando a localhost:8080:
+				- En el menú superior ingresamos en la sección “Tables”
+				- Por defecto, Rethink crea una base de datos llamada test; adicional a esta, vamos a crear una nueva llamada NextUCourse, haciendo clic sobre el botón create database.
+				- Luego de ingresar el nombre que queremos ponerle a la base de datos, esta aparecerá en el panel y nos habilitará la opción de crear una nueva tabla.
+				- Aquí crearemos una tabla llamada “students”.
+				- Está todo listo para empezar a insertar registros, ahora en el menú superior vamos a la sección “Data explorer”
+				- En este recuadro podemos ejecutar la sentencia ReQL (Rethink Query Language). Por ahora las dos sentencias que utilizaremos serán para insertar y leer registros.
+				La sentencia para insertar un nuevo registro es la siguiente:
+					r.db('NextUCourse').table('students').insert({name:'thalia', lastname:'andrade'})
+				- ReQL funciona encadenando funciones, primero invocamos el objeto “r” que contiene todas las operaciones de Rethink, luego invocamos la base de datos NextUCourse y después hacemos referencia a la tabla Students. Por último, ejecutamos la función INSERT pasándole un objeto como parámetro, este objeto es el registro como tal.
+				Escribimos la sentencia y damos clic en el botón RUN.
+			3. Realizar consultas
+				- r.db('NextUCourse').table('students')
+				- r.db('NextUCourse').table('students').filter({name:'thalia'})
+				- r.db('NextUCourse').table('students').orderby('name')
+				- r.db('NextUCourse').table('students').orderby('name').limit(2)
+	U2. PHP-MYSQL
+		L1. ¿Cómo interactúa PHP con una base de datos?
+			1. Interacción con una bases de datos
+				- FRONTEND, SERVIDOR, CONTROLADOR, BD
+			2. ¿Qué es un controlador?
+				- Un controlador o driver, como es mejor conocido en el mundo del desarrollo Web, es una herramienta de software que hace las veces de intérprete entre una base de datos y un sistema Web. Su funcionamiento se basa en el uso de bibliotecas propias de los Sistemas Gestores de Bases de Datos que alojan la información que interactúa con el sistema a enlazar, otorgando una conexión entre el servidor del sistema web y la base de datos correspondiente.
+				- Como cada Sistema Gestor de Base de Datos (SGBD) posee características particulares, así como cada entorno de back-end, o tecnología, que pueda consumir la base de datos, también puede ser muy diferente una de otra; para cada una de ellas, existen controladores específicos.
+				- En nuestro caso usaremos uno de los SGBD más usados en el desarrollo Web: MySQL. También usaremos el lenguaje PHP para los procesos del servidor que interactuarán con la base de datos. Consecuentemente, usaremos un driver específico para crear conexiones desde PHP a MySQL, el cual nos permitirá acceder desde nuestro proyecto de desarrollo a una base de datos a la cual podremos agregar y consultar datos para mostrarlos en una página Web.
+				- Para PHP, específicamente, existen una gran cantidad de controladores y de sus respectivas extensiones para cumplir las funciones de conexión a bases de datos. Las extensiones más comunes, que están incluidas en el core de PHP 7, son PDO y MySQLi, de las cuales hablaremos con mayor profundidad en esta lección.  
+			3. PDO y MySQLi
+				- PDO
+				PDO (Objetos de Datos de PHP) es una extensión que define una interfaz para establecer una comunicación con bases de datos, es un intermediario que permite que un script de PHP pueda lanzar sentencias que se ejecuten en una base de datos. Su característica particular consta de su flexibilidad, ya que puede ser usado para una gran variedad de SGBD sólo cambiando algunos parámetros en sus métodos de acuerdo al sistema.
+				- MySQLi
+				MySQLi es una extensión incluida en PHP para realizar conexiones a bases de datos MySQL. Sus siglas significan MySql improved o MySql mejorado, ya que nace como la mejora a una versión antigua de la extensión para PHP y MySQL por defecto llamada MySQL. Esta versión anterior ya se encuentra descontinuada y la documentación oficial de PHP sugiere el uso de MySQLi, la cual corresponde a una extensión poderosa y rica en métodos para que el desarrollador pueda sacar todo el provecho de la interacción con la base de datos MySql.
+			4. PHP MyAdmin
+				- localhost/phpmyadmin
+		L2. Crear una base de datos MySQL
+			1. Conexión a un servidor de Base de Datos
+				- PDO Y MYSQLI SON CONTROLADORES PHP
+				- $conexion=new PDO('mysql:host=localhost;dbname=prueba','christian','12345');
+				- $conexion=new mysqli('localhost','christian','12345','prueba');
+			2. Creación de una Base de Datos
+				- $sql = 'CREATE DATABASE inventario_db';
+    			 $conexion->exec($sql);
+    			 echo "La base de datos inventario_db fue creada exitosamente"; 
+    			- $sql = 'CREATE DATABASE ventas_db';
+				 if ($conexion->query($sql) === TRUE) {
+				 	echo "La base de datos ventas_db se creó exitosamente";
+				 }
+			3. Creación de una tabla
+				- lib.php para conexion
+				- test.php para test de conexion
+			4. Creación de relaciones y restricciones
+				- $sql='ALTER TABLE '.$tabla.' '.$restriccion;
+				- $sql='ALTER TABLE '.$from_tbl.' ADD FOREIGN KEY ('.$from_field.') REFERENCES '.$to_tbl.'('.$to_field.');';
+		L3. DML desde PHP
+			1. Insertar registros
+				- --
+			2. Prepare
+				- $conexion = $con->getConexion();
+			    $insert = $conexion->prepare('INSERT INTO usuarios (id, nombre, email, telefono, fk_ciudad) VALUES (?,?,?,?,?)');
+			    $insert->bind_param("isssi", $id, $nombre, $email, $telefono, $fk_ciudad);
+			    $id = 1;
+			    $nombre = 'Pablo Gonzales';
+			    $email = 'pablo.g@mail.com';
+			    $telefono = '8876473';
+			    $fk_ciudad = 2;
+			    $insert->execute();
+			    $id = 2;
+			    $nombre = 'Maria Rodriguez';
+			    $email = 'm_rodriguez@mail.com';
+			    $telefono = '8347210';
+			    $fk_ciudad = 2;
+			    $insert->execute();
+			3. Actualizar registros
+				- $datos['nombre'] = "'Thalia Andrade'";
+    			$datos['telefono'] = "'0994542688'";
+    			if ($con->actualizarRegistro('usuarios', $datos, "id=2")) {
+      				echo "Se han actualizado los datos correctamente";
+			 	}
+			4. Eliminar registros
+			 	-   if ($con->eliminarRegistro('usuarios', "telefono like '4%'")) {
+      					echo "Se han eliminado los datos correctamente";
+      				}
+      	L4. Consultas a la base de datos
+      		1. Realizar consultas
+      			- if ($con->consultar(['usuarios'], ['*'])) {
+     			 	echo "Se consultaron los registros exitosamente";
+    			}		 
+    		2. Recepción de resultados
+    			- if ($resultado=$con->consultar(['usuarios'], ['*'])) {
+					while($fila=$resultado->fetch_assoc()){
+          				echo $fila['id'].' '.$fila['nombre']." ".$fila['email']." ".$fila['telefono']." ".$fila['ciudad']."</br>";
+      				}
+      				echo "Se consultaron los registros exitosamente";
+    			}
+    		3. Invocación de Procedimientos almacenados
+    			- Como ya lo viste en la unidad anterior, los procedimientos almacenados son estructuras internas de la base de datos que permiten automatizar procesos de la misma para aumentar la seguridad y proveer soluciones rápidas ante las necesidades de los servicios que deben ser alimentados por dichos datos.
+				- La invocación de un procedimiento almacenado, una vez definido en una base de datos MySQL, se realiza mediante el comando CALL, seguido del nombre del procedimiento a invocar y los parámetros correspondientes.
+					CALL procedimiento1( param1, param2);
+				- Para realizar este tipo de invocaciones desde un script de PHP se debe seguir el mismo procedimiento para ejecutar una sentencia SQL en la base de datos. De tal manera, se usa la extensión PDO ó MySQLi para crear un objeto conexión e invocar el método Query. En los parámetros de dicho método se envía la sentencia de invocación del procedimiento; si tiene un retorno específico, lo retornará como si fuese una consulta convencional. De este modo es posible aplicar el método fetch_assoc sobre el resultado y obtener los datos resultado del procedimiento en un arreglo de PHP.
+					$resultado = $conexion->query(‘CALL nombre_procedimiento(23, ‘Hombre’)’);
+					while ($fila = $resultado->fetch_assoc()){
+						echo $fila[‘resultado_procedimiento’];
+					}
+				- En resumen, la invocación de un procedimiento almacenado desde un script de PHP a una base de datos MySQL, se realiza de la misma manera que se invoca cualquier tipo de sentencia y se gestionan sus resultados como una consulta de tipo SELECT. 
+	U3. NODE.js – MongoDb
+		L1. ¿Qué es MongoDB? Descarga e instalación
+			1. ¿Qué es mongoDB?
+				- MongoDB es una base de datos NoSQL orientada a documentos. Esta utiliza un formato llamado BSON, que es una representación en binario de un documento JSON.
+				Mongo es un motor de bases de datos multiplataforma de esquema libre, es decir, que cada registro puede contener una estructura diferente y esto no generará ningún problema a la hora de hacer la inserción.
+				Esta base de datos posee una interfaz de línea de comandos (REPL) con la que podemos interactuar directamente con el servidor, también nos permite instalarla de forma distribuida y balancear el peso de la base de datos en diferentes servidores.  
+			2. Como funciona MongoDb - Instalación
+				- En un par de ocasiones ya hemos mencionado que mongo es una base de datos orientada a documentos de tipo JSON con un esquema dinámico y totalmente flexible.
+				- MongoDB está escrita en C++ y contiene una capa bastante especial en la que convierte los datos en un formato bastante ligero conocido como BSON, este formato es el que le brinda el alto nivel de escalabilidad, pero no solo eso, además existen otras características que son importantes de Mongo:
+					- Soporte de índices para mejorar el rendimiento en las consultas que interactúan con tablas de muchos registros.
+					- Replicación y alta disponibilidad.
+					- Consultas basadas en la sintaxis de los objetos JSON. - Auto-Sharding, permitiendo escalar horizontalmente la base de datos.
+				- Recordemos los tipos de datos que puede contener un documento JSON:
+					- String
+					- Number
+					- Boolean (true o false)
+					- Object
+					- Array
+					- Null
+				- NOTA: Cualquier instalación de MongoDB, independiente del sistema operativo, necesita crear una carpeta en la raíz del sistema llamada /data/db. Este directorio es donde se almacena toda la información de la base de datos.
+			3. Servicios (Mongod, Mongo, MongoExport, MongoImport)
+				- mongod: inicia la base de datos y escuchar las conexiones, debe estar corriendo siempre
+				- mongodump
+				- mongoexport: sirve para crear archivos json o csv generados a partir de la bd, realiza backups, mongoexport --dbtest--collectiontest testData.json
+				- mongofiles
+				- mongoimport: toma un archivo e importa a la bd, mongoimport --dbtest --collectiontest--file testData.json
+				- mongooplog
+				- mongoperf
+				- mongorestore
+				- mongos
+				- mongosniff
+				- mongostat
+				- mongotop
+		L2. Tipos de conexión a la base de datos
+			1. Mongo (REPL)
+				- EL SERVICIO mongod DEBE ESTAR CORRIENDO EN OTRA TERMINAL
+				- use nuevaDB
+				show dbs
+				show collections
+				db.users.insert({nombre:'thalia',apellido:'andrade',edad:24})
+				db.users.find()
+			2. Driver Nativo Node.js
+				- Luego de ver el REPL en funcionamiento y conocer cuáles son los principales servicios que ofrece MongoDB junto con su instalación, vamos a ver cómo interactúa con node.js y cómo establecer una conexión entre ambos utilizando el driver nativo.
+				Lo primero que haremos es iniciar un proyecto vacío con NPM y luego instalar el paquete mongodb:
+					npm init
+				- Ahora vamos a instalar la librería:
+					npm install --save mongodb
+				- Este paquete se llama tal cual como la base de datos, y contiene un conjunto de métodos y propiedades que nos permiten realizar una conexión e interactuar entre mongodb y node.js
+					var MongoClient = require('mongodb').MongoClient;
+					var url = "mongodb://localhost:27017/test";
+
+					MongoClient.connect(url, function(error, db) {
+					  console.log("Se establecio conexion con el servidor correctamente");
+					  /*
+					  * Hacer algo con la base de datos
+					  */
+					  db.close();
+					})
+				- Referenciar una colección:
+					MongoClient.connect(url, function(error, db){
+						console.log("se establecio la conexion con el servidor correctamente")
+						//Referenciar una coleccion
+						let users = db.colletion("users")
+						/*
+						* Hacer algo con la base de datos
+						*/
+						db.close()
+					})
+				- Insertar registros en la colección:
+				MongoClient.connect(url, function(error, db){
+					console.log("se establecio la conexion con el servidor correctamente")
+					let users = db.colletion("users")
+					users.insertMany([name: "Estiven gonzales", age: 24}, {name: "Radamel Falcao", age:24}], function(err, res){
+					})
+					/*
+					*Hacer algo con la base de datos
+					*/
+					db.close()
+				})
+				- Esto es una introducción al driver nativo de node.js, en el próximo video veremos qué otras opciones existen para realizar una conexión entre mongodb y node.js.
+			3. Drivers para trabajar MongoDb con NodeJS
+				- En la actualidad tenemos dos opciones para trabajar MongoDB junto con Node.js y tener un flujo de trabajo amigable para el desarrollador.
+				- En primer lugar se encuentra el driver nativo de Node.js (mongodb). Este driver nos provee una interfaz para realizar conexiones, manipular la información e incluso configurar programáticamente las funciones de replicación y auto-sharding.
+				- En npm podemos ver toda la descripción completa del driver.
+				- Por otro lado, existe una alternativa bastante utilizada por los desarrolladores alrededor del mundo. Su nombre es Mongoose y sobresale sobre el driver nativo, ya que, además de realizar todas las funcionalidades que realiza el driver, contiene una capa para el modelado de los datos, es decir, Mongoose me obliga a crear un esquema y a mantener una consistencia en los registros que ingresan a la base de datos. Esto es una gran ventaja, porque la información que tengamos almacenada siempre tendrá la misma estructura, facilitando el trabajo de los desarrolladores a la hora de manipular estos datos.
+		L3. INTERACCION CON LA BASE DE DATOS
+			1. Insertar registros
+				- module.exports.insertarRegistro=function(db,callback){
+				  let colleccion=db.collection('users')
+				  colleccion.insertMany([
+				    {nombre:'christian',edad:29,peso:100},
+				    {nombre:'talhii',edad:24,peso:60}
+				  ],(error,result)=>{
+				    console.log('resultado de insert '+result.toString());
+				  })
+				}
+			2. Eliminar registros
+				- insertMany(): Permite ingresar múltiples registros en una sola operación a nuestra base de datos
+				- deleteMany(): Permite eliminar todos los registros que coincidan con el filtro específico
+				- remove(): Permite eliminar uno o todos los documentos que coincidan con un filtro en específico, el cual corresponde a un objeto enviado como parámetro.
+				- deleteOne(): Permite eliminar sólo el primer registro que coincida con el filtro especificado
+				- module.exports.eliminarRegistro=function(db,callback){
+				  let colleccion=db.collection('users')
+				  try {
+				    colleccion.deleteOne({edad:29})
+				    console.log('se elimino el registro correctamente');
+				  } catch (e) {
+				    console.log('se genero un eror: '+e)
+				  }
+				}
+			3. Consultar y actualizar registros
+				- module.exports.consultarActualizarRegistro=function(db,callback){
+				  let colleccion=db.collection('users')
+				  colleccion.find().toArray((error,documents)=>{
+				    if(error)console.log(error);
+				    console.log(documents);
+				  })
+				  try {
+				    colleccion.updateOne({nombre:'talhii'},{$set:{peso:50}})
+				    console.log('se ha actualizado correctamente')
+				  } catch (e) {
+				    console.log('error actualizando el registro')
+				  }
+				  colleccion.find().toArray((error,documents)=>{
+				    if(error)console.log(error);
+				    console.log(documents);
+				  })
+				}
+		L4.	Mongoose
+			1. Que es mongoose, instalación
+				- Mongoose.js es una librería para Node.js que nos permite mapear los documentos de la base de datos en objetos JavaScript, esto es conocido como un ODM (Object Data Mapping).
+				- Además de convertir los documentos en objetos Javascript para ser tratados con mayor facilidad dentro de nuestra aplicación, Mongoose nos provee una solución para realizar el modelado de nuestros documentos, es decir, definir un esquema consistente, manejando tipos de datos y relaciones dentro de las colecciones. Estos son conocidos como esquemas y modelos, un esquema es un objeto JavaScript donde definimos los campos y el tipo de dato que corresponde a cada campo dentro de un documento específico.
+				- Ejemplo de un esquema con Mongoose: 
+					let UserSchema = new mongoose.Schema ({
+					nombre: { type: String, required: true},
+					edad: { type: Number, required: true},
+					peso: { type: Number, required: true},
+				})
+				- Instalación:
+				La url oficial donde se encuentra el paquete Mongoose en NPM es la siguiente: https://www.npmjs.com/package/mongoose
+				- La página oficial de Mongoose es la siguiente: http://mongoosejs.com/
+				- Aquí podemos encontrar toda la documentación oficial y las guías de trabajo. La instalación será a través de NPM, así que en la terminal y en el directorio del proyecto escribimos el comando
+					npm install --save mongoose
+			2. Schemas & Modelos
+				- Un schema se conoce como la definición de las propiedades y los tipos de datos que almacenarán estas propiedades dentro de la colección.
+				- Un modelo es la representación del schema a través de un nombre específico, este nombre será usado en cualquier parte de la aplicación para hacer referencia a dicha colección.
+			3. CRUD con mongoose
+				- module.exports.insertarRegistro=function(callback){
+				  let christian=new User({nombre:'christian',edad:29,peso:90})
+				  christian.save((error)=>{
+				    if(error)callback(error)
+				    callback(null,'registro guardado')
+				  })
+				}
+				module.exports.eliminarRegistro=function(callback){
+				  User.remove({edad:29},(error)=>{
+				    if(error)callback(error)
+				    callback(null,'se elimino correctamente el registro')
+				  })
+				}
+				module.exports.consultarActualizarRegistro=function(callback){
+				  User.find({}).exec((error,result)=>{
+				      if(error)callback(error)
+				      console.log(result)
+				      User.update({nombre:'talhii'},{peso:55},(error,result)=>{
+				        if(error)callback(error)
+				        callback(null,result)
+				      })
+				  })
+				}
+	U4.INTEGRACION CON EL FRONTEND
+		L1. Guardar información en una base de datos SQL
+			1. Acceso a la base de datos desde el Front-end y PHP
+				- conector.php
+				- login.php
+			2. Usuarios y roles
+				- ACCESO A ALGUNAS PARTES DE LA BASE
+				- LEER/INGRESAR/MODIFICAR/REGISTROS
+			3. Encriptación de contraseñas
+				- El almacenamiento de la información en una base de datos involucra un viaje importante de cada dato, desde su digitación hasta llegar a un registro de una tabla. Es posible que, durante este trayecto, la información sea interceptada por violaciones a la seguridad del sistema y los datos caigan en manos no deseadas. Por lo tanto, una de las mejores estrategias para contrarrestar la fuga de información es la encriptación de los datos.
+				- Encriptar es una técnica para codificar información evitando que ésta sea accedida por terceros. En la informática se usan diferentes tipos de algoritmos para realizar esta codificación al enviar mensajes y decodificarlos al recibirlos.
+				- Al momento de guardar contraseñas en una base de datos, por ejemplo, es vital que éstas se codifiquen en el servidor mediante un algoritmo de encriptación, de tal manera que si alguien no deseado logra acceder a la base de datos, no podrá descifrar cuáles son realmente los datos que está viendo.
+				- PHP ofrece un algoritmo de codificación que le otorga gran seguridad al manejo de contraseñas. Los algoritmos de encriptación más comunes son MD5, SHA1 o SHA256, los cuales son métodos que, a partir de una cadena de caracteres ingresada por el usuario, generan un resultado encriptado de la información.
+				- En la gráfica puedes ver que tenemos un dato con la palabra ‘Manzana’ y al someterlo al algoritmo de encriptación MD5 se transforma en un conjunto de números y letras de una longitud mayor. Como puedes verlo, es imposible descifrar la cadena encriptada a simple vista.
+				- Estos algoritmos son los más comunes debido a su rapidez y eficiencia de operación, sin embargo no son lo suficientemente seguros para ser aplicados a las contraseñas de nuestros sistemas de información, ya que con técnicas modernas de fuerza bruta se convierte en algo sencillo decodificarlas. Es por esto que, para algo tan importante como una contraseña, se deben usar algoritmos de máxima seguridad que reduzcan su vulnerabilidad al máximo.
+				- PHP ofrece dentro de su core un método para la encriptación de contraseñas llamado password_hash(). Este método recibe como parámetro la cadena a codificar y una constante de algoritmo de contraseñas que indique bajo qué algoritmo se realizará el proceso. Se recomienda usar el valor por defecto con la constante PASSWORD_DEFAULT, en la encriptación la palabra hash hace referencia al resultado del procedimiento, es decir, la cadena encriptada.
+					password_hash(‘Manzana’, PASSWORD_DEFAULT)
+				- El valor retornado por el método es una cadena de caracteres correspondiente al hash del valor original. Este valor es el que se debe almacenar en la base de datos, sin embargo, es importante que, al definir la tabla que lo va a almacenar, su campo correspondiente sea de tipo cadena de caracteres y con un tamaño de 255, ya que la longitud del hash puede variar.
+				- Si necesitamos verificar una contraseña ingresada con la almacenada en una base de datos, tal y como se realiza en un proceso de Log in, se usa el método password_verify(). Este método recibe como parámetros una cadena a comparar y un hash creado por medio de la función password_hash.
+					password_verify(‘Árbol’, $hash)
+			4. Del formulario a la Base de Datos
+				- --
+		L2. Obtener información desde una base de datos SQL
+			1. fetch_assoc
+				- Una de las principales necesidades al momento de integrar una base de datos a un sistema Web, es mostrar la información que se almacena de manera óptima en el navegador. En este punto, sabes que para obtener información de la base de datos se usan las consultas SQL. Sin embargo, es necesario hacer uso de algunas herramientas que provee PHP para enviar los resultados de dichas consultas a la vista para que sean renderizadas.
+				- El resultado de la ejecución de una consulta sobre la base de datos desde PHP, se almacena en un objeto que almacena toda la información recibida.
+					$resultado = $conexion->query(‘SELECT * FROM tabla’);
+				- Sin embargo, es preciso que el objeto con el resultado de la consulta sea procesado para poder acceder a los datos que contiene. Este procesamiento se realiza por medio del método fetch_assoc, el cual convierte un objeto, resultado de una consulta SQL, en un arreglo asociativo de valores. De esta manera, podemos acceder a los valores recibidos de la consulta, indicando, en la llave del arreglo asociativo, el nombre del campo al que deseamos acceder.
+					$fila = $resultado->fetch_assoc();
+				- Es importante tener en cuenta que éste método sólo convierte una fila del resultado a la vez. Esto quiere decir que, si la consulta arroja más de una fila como resultado, debemos usar un ciclo para recorrer la información de todas las filas. Generalmente se usa un ciclo while para realizar este recorrido.
+					while($fila = $resultado->fetch_assoc()){
+						echo $fila[‘nombre’];
+					}
+				- Este método retorna true si los valores coinciden, de lo contrario retorna false.
+				- En el ejemplo anterior, vemos en pantalla el valor del campo nombre arrojado por la consulta de todas las filas resultantes, así que la salida en pantalla puede ser algo similar a lo siguiente:
+					Juan Ramirez
+					Pedro García
+					Carlos Suarez 
+			2. Mostrar información en el front-end
+				- --
+			3. Gráficos a partir de consultas
+				- Dentro de las muchas aplicaciones que se le puede dar a una integración entre el front-end y una base de datos, la presentación de los datos en gráficas es una de las más importantes. La presentación de la información gráficamente es una práctica comúnmente usada para la fácil toma de decisiones, y por lo tanto es muy importante que estés preparado para implementar este tipo de herramientas en tus proyectos web.
+				- Existe una gran cantidad de herramientas que permiten tomar datos y crear gráficas vistozas e interactivas mediante JavaScript, HTML5 y SVG. A continuación veremos unas de las librerías más usadas para esta práctica.
+				- D3.js
+				Esta librería es una de las más populares debido a su flexibilidad y modularidad, lo cual permite crear tantas gráficas como puedas imaginarlas. D3 renderiza gráficos a partir de cualquier tipo de datos y los renderiza a través de HTML5 y SVG, siendo compatible con jQuery y Prototype para la definición JavaScript de sus componentes.
+				- Google Charts
+				La librería propuesta por Google para la realización de gráficos. Es muy sencilla de utilizar y contiene una gran cantidad de gráficos prediseñados. Usa HTML5 y SVG, siendo compatible con Internet Explorer y dispositivos móviles.
+		L3. Guardar información en una base de datos NoSQL
+			1. Explicación del frontend
+				- --
+			2. Construcción del server y rutas
+				- 1. DESCARGAR LOS PAQUETES A UTILIZAR: EXPRESS, BODY-PARSER, MONGOOSE
+				- 2. ABRIR LA TERMINAL, SITUANDOSE EN EL DIRECTORIO DEL PROYECTO Y EJECUTAR EL COMANDO: npm install --save express body-parse mongoose
+				- 3. UTILIZAR LA PALABRA CONST EN EL ARCHIVO INDEX Y DEFINIR 5 CONSTANTES A LAS QUE SE LE ASIGNARA SU RESPECTIVO MODULO
+				- 4. DEFINIR EL PUERTO Y LA APLICACION EXPRESS, Y CREAR EL SERVIDOR A PARTIR DEL MODULO HTTP
+				- 5. ESTABLECER EN LA APLICACION DE EXPRESS EL USO DEL MODULO BODY-PARSER, EJECUTAR LA FUNCION LISTEN SOBRE EL SERVIDOR Y CREAR LAS RUTAS DEL SERVIDOR
+			3. Conexión con mongoDB, esquema y modelo usuario
+				- En los videos anteriores, construimos el servidor y las rutas necesarias para la interacción entre el cliente, el servidor y la base de datos.
+				- En esta pequeña lectura vamos a agregar la conexión a la base de datos y a generar el modelo con su esquema correspondiente para la colección usuarios
+				- 1. Crea un archivo dentro del directorio server llamado model.js:
+				- 2. Conexión con MongoDB a través de Mongoose:
+					mongoose.connect('mongodb://localhost/c7')
+				La base de datos la llamaremos c7 (curso 7). Para probar que la conexión se realiza con éxito y se crean tanto la base de datos como la colección, abriremos una terminal: entramos al REPL de Mongo y listamos las bases de datos con el comando show dbs. Recuerda tener corriendo el servicio MongoD.
+				- 3. Ve a las bases de datos y verifica que existe c7:
+					>show dbs
+					c7        0.000GB
+				- 4. Usa la base de datos y verifica que exista la colección usuarios:
+					> use c7
+					switched to db c7
+					> show colletion
+					usuarios
+					>
+				Con esto, nuestro servidor se encuentra correctamente enlazado con MongoDB y tiene el modelo de usuarios definido. 
+		L4. Obtener información desde una base de datos NoSQL
+			1. Métodos para guardar/obtener información
+				- save: Se ejecuta sobre la instancia del modelo y, al pasarle un callback, se puede verificar si ocurrió algún error o emitir un mensaje de que el registro se guardó correctamente.
+				- slash all: Es la encargada de devolver el total de usuarios registrados en la base de datos.
+				- req.body: Se usa para acceder a los datos del cuerpo de la petición
+				- slash new: Es la encargada de registrar un nuevo usuario, el cual se recibe como un JSON en el cuerpo de la petición
+			2. Mostrar la información en el frontend
+				- Ahora que ya tenemos nuestras rutas funcionando correctamente, solo tendremos que agregar un poco de código en el archivo client/app.js. En este archivo utilizaremos 3 funcionalidades básicas: la primera será obtener los datos iniciales, es decir, consultar la base de datos y pintar en el HTML los registros que se encuentran almacenados.
+					function obtenerDataInicial() {
+					    $.ajax({
+					      url: '/users/all',
+					      method: 'GET',
+					      data: {},
+					      success: function(data) {
+					        pintarDatos(data)
+					      }
+					    })
+				}
+				Esta función realiza una petición AJAX de tipo GET utilizando jQuery, lo siguiente es definir la función pintarDatos, la cual se encarga de agregar el HTML con los registros a la tabla.
+					function pintarDatos(datos){
+					    let table = $('table tbody')
+					    let template = ""+
+					                      ":nombres:"+
+					                      ":apellidos:"+
+					                      ":edad:"+
+					                      ":sexo:"+
+					                      ":estado:"+
+					                      "
+
+				"+
+					                  ""
+					    $.each(datos, function(i, user) {
+					        let estado = user.estado == "Activo" ? "
+				Activo
+				": "
+				Inactivo
+				"
+					        let row = template.replace(':nombres:', user.nombres)
+					                          .replace(':apellidos:', user.apellidos)
+					                          .replace(':edad:', user.edad)
+					                          .replace(':sexo:', user.sexo)
+					                          .replace(':estado:', estado)
+					        table.append(row)
+					    })
+				}
+				Por último, solo debemos ejecutar al inicio la función obtenerDataInicial y luego escuchar el evento clic sobre el botón de guardar. En este evento enviaremos el objeto con los datos a la ruta del servidor para que éste se encargue de almacenarla.
+				obtenerDataInicial()
+				$('.Guardar').on('click', function(e) {
+				    e.preventDefault()
+				    if ($('#Nombres').val() !== "") {
+				      let url = '/users/new'
+				      let user = {
+				          nombres: $('#Nombres').val(),
+				          apellidos: $('#Apellidos').val(),
+				          edad: $('#Edad').val(),
+				          sexo: $('input:checked')[0].value
+				      }
+				      $.post(url, user, function(confirm) {
+				          alert(confirm)
+				          pintarDatos([user])
+				      })
+				    } else {
+				      alert("Complete los datos")
+				    }
+				})
+				Ahora solo nos queda lanzar de nuevo el servidor, abrir el navegador en el puerto 8082, verificar que la interfaz cargue correctamente y que podemos ingresar un usuario.
+			3. REALIZAR UN FILTRO
+				- --
+8. Herramientas, Build Systems y Tecnologías Emergentes
+	U1. AUTOMATIZACION DE TAREAS
+		L1. Task Runners (Automatización de tareas)
+			1. Introducción a la automatización de tarea
+				- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
