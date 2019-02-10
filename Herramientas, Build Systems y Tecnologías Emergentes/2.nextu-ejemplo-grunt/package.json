@@ -1,0 +1,15 @@
+{
+  "name": "2.nextu-ejemplo-grunt",
+  "version": "1.0.0",
+  "description": "ejemplo grunt",
+  "main": "gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "christian",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-contrib-uglify": "^4.0.0"
+  }
+}

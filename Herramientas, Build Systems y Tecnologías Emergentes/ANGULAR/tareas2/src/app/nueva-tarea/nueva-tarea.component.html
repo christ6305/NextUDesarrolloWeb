@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-content">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Título tarea" type="text" class="validate input-titulo" formControlName="titulo" required>
+        </div>
+        <div class="col m7 s10">
+          <label for="descripcion">Descripción</label>
+          <div class="input-field col s12">
+            <textarea id="descripcion" class="materialize-textarea" formControlName="descripcion" required></textarea>
+          </div>
+        </div>
+        <div class="col m4 s2 offset-m1">
+          <label for="fecha">Fecha:</label>
+          <ng2-datepicker id="fecha" [(ngModel)]="date" formControlName="fecha" required></ng2-datepicker>
+          <br>
+          <label>Grupo:</label>
+          <select class="browser-default" formControlName="grupo" required>
+            <option value="" disabled selected>Grupo</option>
+            <option *ngFor="let item of grupos" value="{{item.nombre}}">{{item.nombre}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <button class="btn-floating green right" type="submit"><i class="material-icons">check</i></button>
+          <button class="btn-floating red right"><i class="material-icons">close</i></button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

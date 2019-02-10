@@ -1,0 +1,19 @@
+<div class="col-sm-6 well col-sm-offset-3">
+  <h1>Nuevo Grupo</h1>
+  <form [formGroup]="miFormulario" (ngSubmit)="enviarFormulario()">
+    <div class="form-group">
+      <label for="nombre-input">Nombre del grupo</label>
+      <input type="text" id="nombre-input"  class="form-control" formControlName="nombre-grupo">
+      <label *ngIf="!miFormulario.controls['nombre-grupo'].valid">Debe ingresar un nombre para el grupo</label>
+    </div>
+    <div class="form-group">
+      <label for="size-input">Tamaño del grupo</label>
+      <input type="number" class="form-control" id="size-input" formControlName="size-grupo">
+    </div>
+    <div class="form-group">
+      <label for="categoria-input">Categoría</label>
+      <input type="text" class="form-control" id="categoria-input" formControlName="categoria-grupo">
+    </div>
+    <button type="submit" class="btn btn-success center-block" [disabled]="!miFormulario.valid">Enviar</button>
+  </form>
+</div>

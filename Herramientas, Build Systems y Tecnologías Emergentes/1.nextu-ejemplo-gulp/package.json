@@ -1,0 +1,16 @@
+{
+  "name": "1.nextu-ejemplo",
+  "version": "1.0.0",
+  "description": "ejemplo 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"HOLA A TODOS\" && exit 1"
+  },
+  "author": "christian",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-stylus": "^2.7.0",
+    "gulp-uglify": "^3.0.1"
+  }
+}

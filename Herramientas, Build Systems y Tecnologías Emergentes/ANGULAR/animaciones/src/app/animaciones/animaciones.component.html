@@ -1,0 +1,21 @@
+<h1>Animaciones</h1>
+<hr>
+<button class="btn btn-default" (click)="cambiarEstado()">Animar</button>
+
+<div class="cuadrado" [@moverCuadro]="estado"></div>
+
+<br>
+<hr>
+<form class="form-inline">
+  <div class="form-group">
+    <input type="text" class="form-control" id="text-input" #input>
+    <button type="button" class="btn btn-default" (click)="newItem(input.value)">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </button>
+  </div>
+</form>
+
+<br>
+<ul class="list-group col-sm-6">
+  <li [@animarLista]="estadoNuevoItem" class="list-group-item" *ngFor="let item of dias">{{item}}</li>
+</ul>

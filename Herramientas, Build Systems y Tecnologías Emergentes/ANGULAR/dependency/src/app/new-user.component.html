@@ -1,0 +1,20 @@
+<div class="col-sm-6">
+  <div class="page-header">
+    <h2>Nuevo Usuario</h2>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Nombre" #input>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default" (click)="onNewUser(input.value)">Añadir</button>
+        <button type="button" class="btn btn-default" (click)="onLog(input.value)">Log</button>
+      </div>
+    </div>
+  </div>
+
+
+</div>

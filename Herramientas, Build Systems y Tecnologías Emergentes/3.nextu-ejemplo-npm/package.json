@@ -1,0 +1,16 @@
+{
+  "name": "3.nextu-ejemplo-npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "css": "mkdir -p build/css && stylus src/css/estilo.styl -o build/css/",
+    "js": "mkdir -p build/js && stylus src/js/main.js -o build/js/main.min.js",
+    "build": "npm run css && npm run js && echo '####'\n se ha terminado el proceso\n"
+  },
+  "author": "christian",
+  "license": "ISC",
+  "devDependencies": {
+    "uglify-js": "^3.4.9"
+  }
+}

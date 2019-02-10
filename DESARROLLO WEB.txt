@@ -3584,7 +3584,1650 @@
 	U1. AUTOMATIZACION DE TAREAS
 		L1. Task Runners (Automatización de tareas)
 			1. Introducción a la automatización de tarea
+				- ¿Qué es?
+				La automatización nos permite ejecutar tareas que por lo general están escritas como plugins. Veamos cuáles podemos ejecutar y cómo llamarlas.
+				Las siguientes son algunas de las tareas más usadas en el desarrollo en Javascript. Úsalas como inspiración para integrarlas a los proyectos en los que creas que puedan ser beneficiosas pero recuerda: siempre debes pensar si implementar una nueva tarea facilitará tu flujo de trabajo o, por el contrario, lo complica. ¿Por qué? A veces podemos tener infraestructuras complejas de tareas que en lugar de reducirnos el trabajo lo incrementan.
+				Tareas más comunes de automatización
+				- 1. Minify
+				Consiste en comprimir código, ya sea js - css - html o cualquier otro archivo, en un archivo de lógica, estilo y estructura equivalente que pesa menos, eliminando espacios innecesarios, reduciendo los nombres de variables a pocas letras y eliminando comentarios.
+				- 2. Linting
+				Se refiere a mostrar posibles bugs del código sin ejecutarlo y advertencias o errores que se pueden agregar, para ayudarnos a seguir guías de estilo o evitar patrones de código que indican malas prácticas.
+				- 3. Transpiling
+				Es el proceso de convertir un lenguaje interpretado a otro, es equivalente a compilar.
+				En este caso el lenguaje objetivo será Javascript pero podemos partir desde otras versiones de Javascript (ES6), código en otros lenguajes ya existentes (Java, Scala, Ruby, Python, C/C++) o lenguajes creados exclusivamente para ser transpilados a js (Coffeescript o Typescript).
+				- 4. Licensing and Versioning
+				Podemos aprovechar cada vez que construimos nuestro proyecto para escribir en el compilado final (build) la licencia de nuestro código, información de autoría y versiones.
+				- 5. Sourcemaps
+				Si hacemos procesos de minificacion o transpiling podemos generar mapas de código que nos permitan ver cómo se transformó nuestro código y utilizar esta información para debugear el código.
+				- 6. Rename, delete, create y map functions through files
+				También es muy fácil ejecutar tareas propias de los sistemas de archivos, reemplazar, cortar pedazos, renombrar archivos, borrarlos, crear nuevos archivos copiando anteriores o procesar archivos con funciones y luego guardarlos nuevamente con otros nombres. Todas estas tareas son sencillas y muy poderosas.
+				- 7. Documentación
+				Existen múltiples herramientas que nos permiten crear la documentación en el momento de compilación para tenerla siempre al día.
+				Usos más avanzados nos permiten, por ejemplo, generar la documentación y, si estamos desplegando a producción, actualizar el sitio estático que mantiene la documentación con la nueva versión de la documentación y, además, medir cómo es el cubrimiento de la documentación de la base de código, a medida que crece.
+				- 8. Ejecución y cubrimiento de pruebas
+				Así como podemos generar la documentación cada vez que construimos el proyecto, también podemos correr las pruebas unitarias que hayamos creado y ver el cubrimiento, así como podemos detener la carga del código a la producción si éstas fallan y emitir alarmas a los desarrolladores.
+				- 9. Despliegue automático de integración continua
+				La integración continua es sencilla de implementar si utilizamos algunas tareas que ejecuten las herramientas respectivas. La rama ‘production’ de tu repositorio puede ser probada (tests unitarios) y luego desplegada así: si todo sale bien, todos los días en la madrugada, justo cuando el tráfico en el sitio es el mínimo, y si algo sale mal, puedes configurar emails o alertas automáticas a los desarrolladores.
+				- 10. Uso automático de repositorios
+				Imagina configurar útiles metodologías de trabajo como por ejemplo: que cada vez que tu código compile y estén todas las pruebas bien, automáticamente se actualice tu rama de desarrollo de git, o con un sólo comando combine la rama de producción, active hooks de git en los servidores relevantes y despliegue el código.
+				- 11. Servir aplicaciones
+				Existen también múltiples herramientas que fácilmente nos dan servidores de desarrollo con características como sockets, o que incluso pueden emular bases de datos de mockup o ambientes particulares.
+				- 12. Descargar URL's
+				Podemos escuchar URLs específicas donde se desplieguen los recursos y descargarlos para ponerlos en nuestra versión actual de la aplicación.
+				- 13. Watchers
+				Nos permiten observar continuamente archivos y actuar ante el cambio en estos. Entonces, si guardamos el archivo en el editor o un archivo en particular, por ejemplo, podemos aprovechar para hacer un git pull - merge - push y servir de nuevo la versión de desarrollo.
+				- 14. Livereload
+				Existen plugins que también nos permiten empujar nuevas versiones de la aplicación, a clientes que ya están ejecutándose, usando sockets de manera automática.
+				- 15. Procesamiento de imágenes
+				Muchas tareas como descargar, generar thumbnails, cortar o procesar imágenes para añadir marcas de agua o efectos, pueden ser ejecutadas en tiempo de compilación de las tareas.
+				- 16. Servir y subir archivos vía FTP / SSH
+				También podemos crear servidores FTP directamente desde nuestras tareas o pedir y enviar archivos a un servidor vía SSH, lo que nos permite desplegar nuestra aplicación directamente en nuestras tareas.
+				- 17. Renderizar componentes web en el servidor
+				Podemos utilizar emulación del browser en el lado del servidor para que si nuestros clientes no pueden ejecutar el Javascript de nuestras páginas les sirvamos una versión ya renderizada en html. Estas versiones son generadas por las tareas con herramientas como phantomjs.
+				- 18. Construir múltiples versiones de nuestras aplicaciones
+				Si nuestro código de Javascript, por ejemplo, alimenta un sitio web, una aplicación de electrón (escritorio) y una aplicación móvil, podemos construirlos todos a la vez , probarlos todos a la vez, o hacer cualquier tarea que se nos ocurra con tantos objetivos de compilación como queramos.
+				- 19. Enviar emails
+				Crear y enviar emails de manera automatizada para avisar de cambios de versión, despliegues de código, alarmas, entre otros.	
+				- 20. Gestionar archivos estáticos en CDN’s
+				Si nuestra infraestructura de archivos estáticos se vuelve muy compleja, podemos administrar múltiples CDN (Redes de envío de contenido), cambiar estas URLs en nuestros archivos estáticos y automatizar toda esta infraestructura de contenido fácilmente.
+				Con la variedad de tareas que podemos automatizar, podremos realizar diversos proyectos muy interesantes, llevando tareas manuales muy complejas a una forma simple y fácil, complementando nuestros proyectos con muy buenas tecnologías.
+			2. Ejecutando mi primera tarea
+				- Abrimos un terminal de nuestra computadora y nos dirigimos con nuestra terminal al lugar de hayamos creado nuestro proyecto. Por medio del siguiente comando iniciamos un nuevo proyecto nodejs npm init.
+				- Después aparecerá dentro de la consola una solicitud de ciertos campos que responderemos con los datos solicitados.
+				- Confirmamos y hemos creado nuestro nuevo proyecto. Aparece un nuevo archivo package.json
+				- Debido a que este archivo está en formato json, buscamos la clave nombrada con scripts. Allí encontramos la clave con el nombre de test que viene por defecto cuando creamos nuestro primer proyecto node.
+				- Para ejecutar las tareas que definimos en este lugar, realizamos la siguiente operación en la consola “npm run test”. Esta operación imprime el mensaje escapeado dentro de comillas.
+		L2. Gulp.JS
+			1. Qué es Gulp.JS y cómo lo implementamos
+				- Es una herramienta en forma de script, escrita en Nodejs, que ayuda a automatizar tareas comunes en el desarrollo de aplicaciones. Muchos programadores front-end solemos realizar tareas muy repetitivas. Esta herramienta fue creada para facilitar el proceso de desarrollo, gastando menos tiempo en el proceso de escribir código, realizar validaciones y pruebas de nuestro código.
+				Para iniciar un nuevo proyecto con esta herramienta tan sólo debemos ejecutar unos pocos comandos para tener nuestros paquetes listos para su uso. Son los siguientes:
+ 					npm install gulp-cli -g
+ 				Después de instalar nuestro paquete de forma global, nos ubicamos en nuestra base de nuestro proyecto, donde encontramos nuestro archivo package.json y instalamos el siguiente paquete:
+ 					npm install gulp --save-dev
+ 				Este comando indica que vamos a instalar un paquete o librería con el nombre gulp y que deseamos que se guarde como un librería de dependencia, únicamente de desarrollo, que no la vamos a necesitar obligatoriamente en producción, sino que únicamente la usaremos en un entorno de desarrollo donde hacemos normalmente nuestras pruebas locales, mucho antes de realizar un proceso de lanzamiento en nuestro sitio oficial.
+				Enseguida, después de realizar este proceso, creamos en la base de nuestro proyecto un nuevo archivo con el nombre de gulpfile.js donde definiremos 	nuestras tareas o procesos a automatizar, en la base de nuestro proyecto deberíamos de tener la siguiente estructura:
+					.
+					..
+					gulpfile.js
+					node_modules
+					package.json
+				Para ver realmente el funcionamiento de esta herramienta, debemos conocer la forma en que trabaja, en la siguiente imagen veremos la forma en que trabaja Gulp.
+					SISTEMA DE ARCHIVOS->LEE ARCHIVOS->MODIFICA->MODIFICA->ESCRIBE ARCHIVOS->SISTEMA DE ARCHIVOS
+				- Las tareas que normalmente realizamos en el desarrollo de aplicaciones, suelen ser tareas como preprocesadores de estilos, ya sean realizadas con Stylus, Sass, Less, entre otros, que vienen siendo archivos físicos con la sintaxis determinada por la herramienta que se haya usado. Estos archivos físicos no son válidos o no podemos usarlos directamente en nuestro navegador, sino que debemos hacer una tarea de procesar ese archivo para obtener nuestro archivo válido o que nuestro navegador pueda entender o interpretar.
+				En este caso sería pasar un archivo .styl a .css. Aquí veríamos el flujo real de gulp, pues tomamos los archivos que necesiten ser procesados y luego modificados, procesados o concatenados y reescritos en nuevos archivos, que serán los archivos que agregaremos a nuestro aplicativo o desarrollo que estemos realizando.
+				Veamos un ejemplo sencillo de procesar un archivo stylus a css:
+				En la base de nuestro proyecto creamos la siguiente estructura de carpetas “src/css/”.
+				Dentro de esta estructura creamos un archivo estilo.styl que viene siendo archivo que vamos a procesar por medio de gulp. Deberíamos tener, hasta este punto, la siguiente estructura y archivos:
+					SRC
+						CSS
+							style.styl
+					gulpfile.js
+					package.json
+				- Ya que contamos con estos archivos y nuestra estructura de carpeta deseada, programaremos nuestra tarea en el archivo gulpfile.js, que procese nuestro archivo estilo.styl y como resultado, crearemos la siguiente estructura de carpetas “build/css/estilos.css” desde la base de nuestro proyecto. 
+					gulp.task('style',function(){
+						gulp.src('./src/css/*.styl')
+						.pipe(stylus())
+						.pipe(gulp.dest('./build/css'));
+					})
+				- Como vemos, registramos una nueva tarea de gulp con la siguiente función gulp.task(‘’, ‘’) que es la función que utilizamos para registrar nuevas tareas en gulp.
+				Registramos nuestra tarea con el nombre de “style” y a continuación pasamos una función anónima.
+				La función que encontramos dentro de la función anónima, osea, gulp.src(‘’), es la que realiza la búsqueda del archivo o archivos que vamos a procesar.
+				A continuación encontramos la función .pipe(), dentro de esta función. Ejecutamos una función que va a ser la encargada de procesar o convertir nuestro archivo o archivos según lo que hemos asignado en el gulp.src(‘’).
+				La función que se ejecuta en este caso es stylus(), pero te preguntarás de dónde proviene esta función. Pues bien, la definimos en un lugar previo, antes de definir nuestras tareas, así:
+					var gulp=require('gulp')
+					var stylus=require('gulp-stylus')
+				- Para que realmente todo funcione correctamente, debemos instalar primero nuestros paquetes necesarios y luego definirlos dentro de nuestro archivo gulpfile.js
+				En este caso tenemos dos paquetes que debemos instalar:
+    				- El que ya hemos mencionado y es con el siguiente comando: “npm install gulp --save-dev”
+    				- Y una nueva librería, esta es la encargada de procesar los archivos .styl y la instalamos con el siguiente comando “npm install gulp-stylus --save-dev”
+				De esta forma ya tendríamos todo finalizado y listo para ejecutar nuestra primera tarea automatizada en nuestros flujos de trabajo diario.
+				Este sería nuestro resultado a nivel de archivo gulpfile.js.
+					var gulp=require('gulp')
+					var stylus=require('gulp-stylus')
+					gulp.task('default',function(){
+						console.log('hola este es mi primer task con gulp')
+					});
+					gulp.task('style',function(){
+						gulp.src('./src/css/*.styl')
+						.pipe(stylus())
+						.pipe(gulp.dest('./build/css'));
+					});
+				- Y la ejecución de esta tarea daría el siguiente resultado:
+					build
+						css
+							estilo.css
+					node_modules
+					src
+						css
+							estilo.styl
+					gulpfile.js
+					package.json
+			2. Funciones esenciales de Gulp
+				- Las siguientes son funciones que trae la librería Gulp y que nos facilitan la programación:
+				- src(‘url-file’ o [‘url-file’,’url-file’]):
+				Esta función devuelve un archivo o una lista de archivos en formato blob (un formato manejado por Javascript). Esta función recibe como parámetros un listado o array de string, que vienen siendo direcciones de archivos o patrones para identificar archivos. Además, nos ayuda a obtener los archivos que vayamos a procesar, sea el caso de procesar hojas de estilos o templates como jade, entre otros ejemplos.
+				- dest(‘’):
+				Esta función no facilita el traslado de los archivos procesados por gulp, realmente aplica como un especie de return o respuesta final de cada tarea, aunque realmente no siempre devolvamos archivos físicos procesados. Nos permite dar un lugar en específico a los archivos que acaban de ser tratados, según las indicaciones que hayamos dado a nuestra tarea.
+				Un ejemplo muy claro del uso de esta función es cuando procesamos un archivo de algún preprocesador de estilos ya sea Stylus, Sass, Less y queremos darle destino a nuestro archivo resultado, dentro de la función .pipe(gulp.dest(‘./build/css’)). Este sería un ejemplo claro de la forma en que utilizamos esta función.
+				- task(‘’, [‘’], fn):
+				Esta función nos permite definir nuestras tareas o una operación a automatizar. El primer parámetro que recibe esta función es el nombre que le vamos a asignar a esta tarea. Este nombre debe ir entre comillas ‘nombre fn’, seguido de este parámetro que es opcional, es un listado o un array de tareas ya definidas, que se quiere que se realicen antes de ejecutar nuestra tarea que hemos definido, ejemplo, [‘compitarjs’,’compilarcss’] entre otros. Y en nuestro último parámetro que lo he definido como fn o función, asignamos una función anónima, que la definimos normalmente de la siguiente manera, function(){}, de esta forma podemos definir nuestras tareas.
+				- watch(‘url-files or url-file’, opts, [task]/fn):
+				Esta función nos permite disparar una función, tan pronto el blob que le hemos pasado en el primer parámetro haya sido editado, eliminado, renombrado o agregado. Esta función es muy útil ya que nos ayuda a automatizar, ya sea una tarea o un conjunto de tareas.
+				- Ya que hemos conocido las funciones básicas de gulp, podemos aplicar estas funciones en tareas más comunes en el desarrollo de aplicaciones que realizamos diariamente, tales como concatenar archivos javascript o poder realizar un transpiler de archivos escritos en Ecma6, minificar archivos js o css, procesar hojas de estilos escritas ya sea en Stylus, Less o Sass, entre muchas otras tareas que encontramos en el diario vivir de un desarrollador o programador front-end.
+			3. Probando Gulp
+				- npm install --save-dev gulp-uglify
+		L3. Grunt.JS
+			1. ¿Qué es Grunt.JS y cómo lo implementamos?
+				- Continuando con nuestras herramientas de automatización, nos encontramos con una librería o paquete de Nodejs llamada Grunt.
+				- Grunt es una herramienta que nos facilita el desarrollo de aplicaciones web pues optimiza nuestro tiempo mientras realizamos tareas complejas.
+				- Es decir que las tareas que anteriormente demandaban mucho tiempo, a pesar de ser realizadas diariamente, se realizan en segundos por medio de una configuración básica en la que creamos un archivo en la base de nuestro proyecto, con el nombre de: gruntfile.js
+				Para eso, debemos:
+				    - Tener instalado Nodejs en cada uno de los computadores en los que realizaremos pruebas o desarrollaremos nuestro proyecto. También debemos contar con el archivo package.json en la base de nuestro proyecto, ya que este archivo nos indicará qué librerías de Nodejs tenemos o hemos instalado, siendo ésta una información muy importante al momento de configurar nuestro automatizador de tareas Grunt.
+				- Ahora que sabemos qué es Grunt, veamos qué tareas podemos realizar con esta herramienta o qué necesitamos para ejecutarla y cómo es su funcionamiento.
+				- En esta imagen podemos observar el flujo o el manejo que Grunt le da a nuestros archivos.
+				- Por cada modificación de un archivo, si continua una nueva tarea, crea un archivo temporal y continúa con las modificaciones. Si no continua, termina su ciclo en la modificación, dejando el archivo ya transformado según la tarea que le hayamos asignado.
+				- Para que veamos ejemplificados lo que podemos realizar con Grunt, debemos tener la siguiente configuración para tener nuestro ambiente de automatización de tareas listo para ejecutar nuestras tareas con Grunt.
+				- Debemos instalar los paquetes necesarios, en este caso que es grunt debemos instalar de forma global el paquete grunt-cli con la siguiente línea de comando en nuestra consola principal.
+					npm install -g grunt-cli
+				- Tenga en cuenta que la instalación de grunt-cli no instala el corredor de tareas Grunt! El trabajo de la CLI de Grunt es simple: ejecuta la versión de Grunt que se ha instalado junto a un Gruntfile. Esto permite que múltiples versiones de Grunt se instalen simultáneamente en la misma máquina.
+				- luego de haber instalado esta librería, instalamos el paquete que correrá nuestras tareas previamente configuradas en el archivo Gruntfile.js, el paquete llamado Grunt es nuestra librería qué necesitamos para completar la funcionalidad ya que nos brinda muchas de las funcionalidades que se ejecutan el archivo de configuración y la instalación la realizamos de la siguiente manera
+					npm install grunt --save-dev
+				- Ya con los paquetes instalados podemos comenzar a utilizar grunt en nuestro proyecto, seguido a esto, solo es comenzar con la configuración de nuestra herramienta en nuestro nuevo archivo Gruntfile.js y lo haremos de la siguiente manera
+					module.exports=function(grunt){
+						grunt.initConfig({
+							pkg.grunt.file.readJSON('package.json')
+							author:'christian'
+						});
+						grunt.registerTask('hola','mi primera tarea registrada',function(){
+							grunt.log.writeln('hola esta es mi primer tarea por '+grunt.config('author'))
+						})
+					}
+				- Luego de que tengamos una configuración básica, podemos entrar a ejecutar nuestra primera tarea y lo podremos hacer de la siguiente manera, debemos acceder por medio de la consola y ubicarnos en la raíz de nuestro proyecto y ejecutaremos nuestro comando de la siguiente manera y obtendremos el siguiente resultado. 
+					grunt hola
+				- Así de simple podremos tener nuestro ambiente configurado con esta herramienta para automatizar tareas y poder realizar nuestras tareas en menos tiempo y utilizando las mejores prácticas al momento de programar.
+				- En Grunt encontramos las siguientes funciones que nos ofrece esta librería, para sacar mejor provecho de esta herramienta y son las siguientes.
+				- Encontramos dentro de nuestra librería la siguiente función nombrada como initConfig(), esta función explícitamente nos da a entender que es para inicializar nuestra configuración de grunt y poder configurar nuestras tareas que deseamos utilizar, también nos ofrece la librería de Grunt con el nombre de resgiterTask() y esta función nos ayuda a registrar nuestras tareas las cuales llamaremos por medio de la consola con la palabra grunt (+) más el nombre que asignemos a nuestra tarea, también nos provee de una función para poder ejecutar multitareas con el nombre de registerMultiTask() que veremos en un breve ejemplo más adelante estas son algunas de las funciones que nos provee Grunt para la realización de tareas automatizadas. 
+			2. PROBANDO GRUNT
+				- npm install --save-dev grunt
+		L4.	NPM como herramienta para automatización de tareas
+			1. NPM como automatizador de tareas
+				- Creamos un proyecto con el nombre de proyecto-npm
+				- Iniciamos un nuevo proyecto nodejs con el comando npm init
+				- Llenamos la información que nos solicita y encontramos una parte de nuestro archivo nuevo generado package.json, con el nombre scripts.
+				- Allí comenzaremos a registrar las tareas que sean necesarias para nuestro proyecto.
+			2. Usos comunes y buenas prácticas de NPM
+				- Usos comunes:
+				Si necesitas llevar a cabo operaciones en tu paquete, antes de que sea usado y de manera que no dependa del sistema operativo o la arquitectura de la consola de destino, usa el script prepublish.
+				Éste incluye tareas como:
+				    - Compilar el código de origen de CoffeeScript en JavaScript.
+				    - Crear versiones minificadas del código de origen de JavaScript.
+				    - Atraer recursos remotos que tu paquete usará.
+				La ventaja de hacer todo esto durante el prepublish es que es de inmediato y en un mismo lugar, de esta forma puedes reducir la complejidad y la variabilidad. Esto significa que:
+    				- Puedes depender de coffee-script como un devDependency. De esta manera tus usuarios no necesitarán tenerlo instalado.
+				    - No necesitas incluir minificadores en tu paquete. Esto reduce el tamaño para tus usuarios.
+				    - No necesitas apoyarte en que tus usuarios tengan curl, wget u otras herramientas del sistema.
+				- Buenas prácticas:
+    				- No salgas con un código de error no nulo, a no ser que así lo quieras. Excepto por los scripts que no están instalados, esto hará que la acción de npm falle y retroceda. Si la falla es mínima o solo va a prevenir algunas características opcionales, es mejor solo imprimir una advertencia y la salida satisfactoriamente.
+    				- Intenta no usar scripts para que hagan lo que npm puede hacer por ti. Lee sobre package.json para que veas todas las cosas que puedes especificar y habilitar solo describiendo apropiadamente tu paquete. En general, esto te guiará a un estado más robusto y consistente.
+    				- Inspecciona el ambiente para determinar dónde poner las cosas. Por ejemplo, si el ambiente variable de npm_config_binroot está configurado como /home/user/bin, entonces no trates de instalar ejecutables en /usr/local/bin, ya que el usuario probablemente lo configuró así por una razón.
+    				- No le pongas prefijos a tus comandos de scripts con “sudo”. Si los permisos de raíz son requeridos por alguna razón, entonces fallará con ese error y el usuario deberá ser sudo para ejecutar el comando npm.
+    				- No uses instalar, usa el archivo .gyp para compilación y usa prepublish para todo lo demás. Casi nunca deberías configurar explícitamente una preinstalación o una instalación de script. Si estás haciendo esto, considera si tienes otra opción, ya que el único uso válido de la instalación o preinstalación de scripts es para la compilación, lo cual debe hacerse en la arquitectura.
+    U2. SINGLE PAGE APPS
+    	L1. Introducción a la SPA
+    		1. ¿Qué son las SPA's?
+    			- El término SPA (Single Page Application) es usado exclusivamente para hacer referencia a las aplicaciones Web, las cuales contienen un único documento HTML y un alto nivel de interacción. El funcionamiento de una SPA se fundamenta en la carga desde el servidor de un sólo archivo HTML, sobre el cual se añaden o modifican los contenidos dinámicamente por medio de la lógica creada en el o los archivos JavaScript asociados.
+				- Dentro de la terminología y la lógica JavaScript de una aplicación SPA es común el uso de tecnologías como AJAX, para establecer comunicaciones asincrónicas con el Back-end sin necesidad de cargar páginas HTML diferentes, el manejo de las rutas o URL’s en el lado del cliente, y las plantillas HTML o templates que se renderizan dependiendo de la ruta que sea invocada por el usuario a partir de una acción.
+				- Las SPA son una gran tendencia en el desarrollo Web moderno y hay un sin fin de librerías y frameworks que están utilizando este modelo dentro de su core.
+				- Podemos pensar en una SPA como un sistema modular, cada elemento que hace parte de la aplicación conforma una pequeña pieza de un rompecabezas. En algunos frameworks, estos elementos son llamados componentes y contienen datos gráficos para mostrar en pantalla, o ya bien, hacen parte de la lógica, entre muchas otras funcionalidades más. Juntos conforman una SPA funcional y eficiente.
+				- El archivo, o el conjunto de archivos, JavaScript se encarga de comunicarse con el servidor o Back-end vía AJAX para obtener o enviar los datos necesarios de cada módulo, página o vista. 
+			2. Cómo funciona una SPA
+				- El funcionamiento de una SPA está basado principalmente en JavaScript, pero en realidad se necesita más que eso para su correcto funcionamiento, en caso de no usar alguno de los frameworks actuales como Angular, o una librería como React.js, la implementación de una SPA se basa en las siguientes técnicas:
+					- AJAX
+					- WebSockets
+					- Arquitecturas de servidor (API REST en la mayoría de los casos)
+					- Librerías para el manejo de las rutas del lado del cliente (Page.js)
+				- AJAX:
+				Permite la comunicación asíncrona entre el cliente y el servidor, transportando datos de punto a punto sin necesidad de recargar la página en la que se encuentra el navegador.
+				- WebSockets:
+				Los WebSockets son un medio de comunicación entre el cliente y el servidor, el cual siempre permanece abierto y por donde puede la viajar información sin necesidad de que un lado le esté enviando peticiones al otro, simplemente, al momento en el que alguno de los dos puntos tenga información para notificar al otro punto, éste podrá emitirla sin problemas y el otro punto estará preparado siempre para procesarla. Esto se conoce como una comunicación Realtime y en términos de rendimiento es superior a AJAX.
+				- API REST:
+				Estructurar una API de manera correcta para tener los datos a disposición del cliente de una manera clara es uno de los puntos claves de las SPA, la gestión de los datos 	debe ser de una forma sencilla y predecible. REST, la abreviatura de Representational State Transfer, se usa para describir cualquier interfaz que utilice HTTP directamente para la comunicación de datos entre dos puntos.
+				- Librerías para el control de rutas en el Front-end:
+				Page.js es una librería JavaScript inspirada en el router de express pero para el lado del cliente, fue creada por visionmedia y es una gran herramienta que nos ayudará en la elaboración de una Single Page App. 
+			3. Librerías y Tecnologías con filosofía SPA
+				- ANGULARJS: FRAMEWORK PARA APLICACIONES COMPLEJAS, EN LA ACTUALIDAD EXISTE LA VERSION 2, 
+				- REACTJS: NO ES UN FRAMEWORK, ES UNA LIBRERIA POR FACEBOOK, SE ENCARGA DE LA PARTE DE LA VISTA, MANEJA INTERFACES DONDE LOS DATOS CAMBIAN. UTILIZA VIRTUAL DOM QUE ES UNA COPIA DEL DOM, SE UTILIZA PARA REALIZAR CAMBIOS. ANGULAR UTILIZA FLUJO DE DATOS BIDIRECCIONAL Y REACTJS FLUJO DE DATOS UNIDIRECCIONAL
+				- EMBER
+				- AURELIA
+				- VJS
+				- CIRCLEJS
+				- BACKBONEJS
+		L2. Construir el cliente, usando JQuery
+			1. Construcción de las vistas
+				- --
+			2. Interacciones
+				- --
+		L3.  Page.JS
+			1. ¿Qué es Page.JS?
+				- Page.js es una librería que sirve de enrutador en el Front-end. Creada y mantenida por visionmedia, esta librería es muy liviana y fácil de usar, con la cual se realiza enrutamiento de las vistas en JavaScript. Está inspirada en Express, el enrutador que funciona en el Back-end y su usabilidad es muy sencilla. En el siguiente enlace se encuentra su página oficial, desde la cual es posible hacer la descarga de la librería, las instrucciones de uso y las otras maneras de instalación con las que cuenta. Page.js
+				- Una SPA se caracteriza por eliminar la navegación entre varios archivos HTML para acceder a cada una de las vistas del sistema. Sin embargo, reemplazar la navegación entre archivos por funciones en JavaScript que muestran y esconden, o inserten código y lo eliminen, puede tornarse un poco dispendioso para proyectos que involucren muchas vistas.
+				- Una de las dificultades principales que enfrenta la navegación entre vistas por JavaScript es la recarga o actualización de la página. Cuando se hace una recarga de la página en el navegador, no importa en qué vista se encuentre el usuario, siempre se cargará la vista inicial que se encuentra en el archivo HTML como tal, generando sin duda problemas en la usabilidad y eficiencia del sistema. 
+				-Enrutador:
+				Ante estas y las demás dificultades que pueden experimentar los desarrolladores al implementar navegaciones en SPA, surgen los enrutadores. Un enrutador es una librería JavaScript que se encarga de asociar la URL a la que acceden los enlaces y la barra de navegación, con funciones específicas de JavaScript. Esto quiere decir que, al redireccionar el navegador a la ruta de un archivo diferente, se invoca una función JavaScript que gestiona la visibilidad de los elementos para dar la sensación de cambio de vista. De esta manera, así el navegador sea recargado, se va a mostrar el contenido previamente renderizado, ya que la URL se asocia con la invocación de las funciones que muestran y ocultan las vistas.
+			2. Enrutamiento con Page.JS
+				- --
+		L4. Back-end en una SPA
+			1. AJAX y la SPA
+				- La característica principal de una Single Page Application consta de realizar una sola petición inicial al servidor para cargar una página HTML que, por medio de JavaScript, muestra una serie de vistas, dando el efecto de navegación al usuario. Sin embargo, es importante conocer la forma en la que se establece una comunicación entre SPA y Back-end a medida que el usuario navega por la aplicación y requiere enviar o recibir datos después de la petición inicial mencionada.
+				-  Asynchronous JavaScript And XML
+				Recuerda que AJAX es una tecnología que permite realizar peticiones de manera asíncrona a un servidor y este es el secreto que permite a AJAX ser la manera más adecuada para establecer una comunicación entre SPA y servidor.
+				Las peticiones asincrónicas de las que se vale AJAX, permite fácilmente hacer peticiones al servidor sin necesidad de cargar una nueva página HTML en el navegador o, en su defecto, de cargar múltiples páginas que hacen llamados diferentes a una API. Por el contrario, las peticiones que se realizan con AJAX pueden realizarse en el contexto de una SPA, puesto que pueden ser accionadas desde JavaScript y gestionadas asincrónicamente para determinar los diferentes tipos de reacciones ante las respuestas del servidor.
+				Es por este motivo que AJAX es la tecnología por excelencia usada para las comunicaciones entre una SPA y el servidor. En los diferentes frameworks que existen, y que tendrás la posibilidad de conocer en profundidad, verás que todos tienen módulos que hacen del uso de AJAX algo óptimo y reusable para tener una comunicación efectiva con el Back-end.  
+			2. Enlace del Front-end con la API
+				- PASO 1:Después de crear la vista, añadir el evento clic al botón buscar justo después de añadirlo en la función abrir explorar. En el callback de este evento llamar la función getFotos y crear una variable con la URL de la API a consultar
+				- PASO 2: Creamos una petición a la API con el método AJAX de jQuery donde se especifique la URL de la variable creada, el tipo de dato JSON y el tipo de petición GET. Añadir la propiedad success con el callback para la respuesta de la API, invocando la función renderFotos y gestionar el error en la petición.
+				- PASO 3: Crear la función renderFotos, eliminar todo el contenido de búsquedas anteriores en el contenedor filaExplorar. Luego, con la función each de jQuery, recorrer cada uno de los objetos que están en el JSON de respuesta de la API. Por cada uno de estos objetos añadir a la filaExplorar una imagen respuesta y añadir el nombre del usuario que subió la imagen en el título del elemento card.
+				- PASO 4: En la función abrir explorar, añadir dos eventos para el document llamados ajax start y ajax stop para mostrar un loader o animación de carga cada vez que se realice una petición AJAX en el portal, y probar la SPA en el navegador.
+	U3. ANGULAR 2
+		L1.  ¿Qué es Angular y cómo funciona?
+			1. ¿Qué es Angular 2?
+				- Angular 2 es un framework JavaScript de código abierto promovido por Google y la comunidad de desarrollo libre. Enfocado en la filosofía mobile-first, es uno de los frameworks para el desarrollo de SPAs con mayor renombre en el mundo.
+				Fue lanzado en su versión estable en Mayo de 2016 y desde entonces, su comunidad de desarrolladores ha crecido exponencialmente.
+				- Ventajas de Angular 2:
+				A continuación, se presentan algunas de las principales ventajas y características de Angular 2:
+					 - Multiplataforma: con Angular 2 es posible desarrollar páginas Web tipo SPA de alto rendimiento. Sin embargo, es posible, por medio de la integración con otras herramientas y frameworks, crear aplicaciones móviles nativas o híbridas, así como aplicaciones de escritorio en múltiples sistemas operativos.
+					 - Rapidez y desempeño: mediante la generación de plantillas y el uso de componentes para la reutilización de código, la rapidez en la que se desarrollan las aplicaciones es mucho más alta que el desarrollo Web tradicional. Además, gracias al enrutador de componentes (Component Router), los usuarios sólo cargan el código necesario para la vista que desean acceder en ese instante, mejorando notoriamente el rendimiento de la aplicación y contribuyendo a una experiencia de usuarios fluida y veloz.
+    				- Productividad: Angular CLI como herramienta de ayuda desde la línea de comandos, permite crear proyectos, elementos de la aplicación y mucho más, con gran facilidad y rapidez. Además, existe una gran variedad de IDEs con funcionalidades para autocompletar código, detección de errores, entre muchas más.
+    				- Herramientas completas de desarrollo: Angular 2 incluye tecnologías como Karma para pruebas unitarias y Protractor para la creación de espacios de testing estables y rápidos. Además, es posible crear complejas animaciones de alto desempeño con poco código a través de la API de Angular, la cual es sumamente intuitiva y de fácil uso.
+    		2. Arquitectura 
+    			- Angular 2 es un framework que se encarga de crear aplicaciones del lado del cliente, usando diferentes elementos propios de su estructura para obtener un resultado óptimo en cuanto a eficiencia, desempeño y usabilidad.
+				La arquitectura de este framework se resume en el siguiente gráfico:
+				- Cada uno de los elementos que hacen parte de la arquitectura de Angular 2 serán estudiados con mayor profundidad más adelante, sin embargo es importante anotar que este framework se considera como modular, es decir, que utiliza módulos reutilizables para la construcción de la aplicación.
+				- Los módulos están integrados por componentes que contienen la vista a través de las plantillas y las directivas, la lógica a través de los servicios y las asignaciones, tanto de eventos, como propiedades para las interacciones dinámicas entre las vistas y la lógica.
+			3. CONFIGURACION DEL AMBIENTE
+				- ANGULAR CLI: ES LA LINEA DE COMANDOS QUE SIRVE DE ASISTENTE PARA EL DESARROLLO, CREAR ELEMENTOS PROPIOS DEL FRAMEWORK, CREAR BLOQUES DE CODIGO, CORRER UNA APLICACION
+				- NODE VERSION 4 O SUPERIOR, NPM VERSION 3 O SUPERIOR
+				- node -v
+				- npm -v
+				- npm install -g angular-cli 
+			4. Introducción a TypeScript
+				- A medida que empieces a conocer un poco más sobre Angular 2, e iniciemos la codificación de algunos elementos, te darás cuenta que existen algunos elementos en el lenguaje diferentes a lo que habíamos trabajado en JavaScript. La explicación para esto es que el lenguaje que usamos para codificar aplicaciones en Angular 2 técnicamente no es JavaScript sino TypeScript. ¿Sabes qué es?
+				- ¿Qué es TypeScript?
+				TypeScript es un lenguaje de programación creado por Microsoft y de código abierto, que comprende un set de características adicionales a JavaScript para la creación de scripts Web. En resumen, podríamos decir que es un complemento de JavaScript que añade unas cuantas herramientas adicionales de gran uso para los desarrolladores.
+				- Compilación
+				Tal vez te haya surgido la siguiente pregunta: si el único lenguaje que es interpretado por todos los navegadores es JavaScript, ¿cómo hace TypeScript para funcionar? La respuesta está en la misma pregunta, es decir, los archivos TypeScript se compilan a JavaScript plano para después ser interpretados por los navegadores. El compilador de TypeScript convierte el código propio de este lenguaje en un equivalente de JavaScript ECMAScript 3 o superior, esto quiere decir que todo código JavaScript funciona correctamente en un archivo TypeScript.
+				- Diferencias entre TypeScript y JavaScript plano
+				Como ya lo mencionamos, TypeScript corresponde a un set adicional de herramientas para JavaScript. Dentro de las principales novedades que se encuentran en este lenguaje están:
+    				- Imports: la manera de importar código desde otro módulo es muy sencilla, haciendo que la modularidad en los proyectos sea fluida y eficiente.
+    					import{Component} from '@angular/core';
+    				- Decoradores: los decoradores son funciones adjuntas a un objeto que realizan acciones en segundo plano y modifican el objeto al que están unidos para un fin específico.
+    					@Component({
+    						selector: 'app-root',
+    						templateUrl: './app.component.html',
+    						styleUrls: ['.app/.component.css']
+    					})
+    				- Clases: la forma en que TypeScript define las clases permite que la programación orientada a objetos sea muy sencilla y correcta.
+    					export class AppComponent{
+    						title:'hola thali';
+    					}
+    				- Interfaces: elemento que no existe en JavaScript, sirve para forzar la implementación de atributos y métodos en una clase determinada.
+    					interface Persona{
+    						Nombre:string;
+    						Apellido1:string;
+    						Apellido2:string;
+    					}
+    				- Tipos: como bien sabes, en JavaScript no se definen los tipos de datos para las variables creadas, y por lo tanto, éstas pueden tener cualquier tipo de valor. TypeScript añade un nivel adicional de seguridad en el código mediante la asignación de tipos a las variables o atributos de un objeto. De allí viene su nombre, ya que Type en inglés es Tipo.
+    					function informacion(ciudad:string,habitantes:number){
+    						return 'HAY '+habitantes+' habitantes en' +ciudad;
+    					}
+    				- ¿Por qué usar TypeScript?
+					Si el código TyeScript es compilado en JavaScript plano, ¿por qué no hacerlo todo en JavaScript desde el principio? En realidad hay muchas razones por las cuales se usa TypeScript en el desarrollo de aplicaciones con Angular 2:
+    					- 1. Lenguaje fuertemente tipado: TypeScript añade tipos de datos a variables y a atributos de objetos, esto aumenta el nivel de seguridad en el código evitando que valores inapropiados sean asignados y permitiendo fácilmente la detección de errores en la compilación, o que incluso el mismo IDE pueda identificar errores y alertas que te permitan, como desarrollador, detectar estas situaciones con gran facilidad.
+    					- 2. Características de nueva generación: las herramientas de TypeScript mejoran en gran medida algunos elementos de JavaScript, lo que aumenta la calidad del código escrito y las posibilidades que se pueden alcanzar con él.
+    					- 3. Nuevas características: TypeScript, además de mejorar lo existente en JavaScript, también añade nuevos elementos como las interfaces y los genéricos, ampliando la gama de herramientas para que el desarrollador cree scripts de alto rendimiento y funcionalidad.
+    					- 4. Lenguaje principal de Angular 2: los creadores de Angular 2 eligieron a TypeScript como el lenguaje principal del framework, lo que significa que crear aplicaciones en Angular 2 usando TypeScript produce una fluidez y compatibilidad óptimas en la codificación y la compilación.
+    					- 5. Documentación y soporte: al ser TypeScript el lenguaje principal para Angular 2, la gran mayoría de documentación y soporte que encontrarás por parte de la comunidad de desarrolladores, estará en dicho lenguaje; permitiendo encontrar ayuda de los expertos con gran facilidad.
+    	L2. COMPONENTES Y DIRECTIVAS
+    		1. COMPONENTES
+    			- UN COMPONENTE ES UNA VISTA - CONTROLADOR
+    			- app.component.ts: ESTA EN TYPESCRIPT, IMPORTA EL CORE DE ANGULAR, DECORADOR PLANO 
+    			- LOS DECORADORES EN LOS COMPONENTES SIRVEN PARA EJECUTAR ACCIONES EN SEGUNDO 
+    			- selector: ES UN IDENTIFICADOR DEL COMPONENTE COMO UNA ETIQUETA HTML
+    			- templateUrl: PLANTILLA O RUTA HTML QUE DEFINE LA VISTA DEL COMPONENTE, HACE REFERENCIA A LA VISTA QUE REPRESENTA A DICHO COMPONENTE
+    			- styleUrls: HACE REFERENCIA A UNO O MAS ARCHIVOS DE ESTILOS, RECIBE UN ARREGLO DE RUTAS
+    			- app.component.spec.ts: SON USADOS PARA TESTING, DEFINE QUE HACE EL COMPONENTE 
+    		2. CREACION DE COMPONENTES
+    			- ng g component <nombre componente>
+    			- ng serve
+    		3. Databinding
+    			- Una de las características principales en el desarrollo de aplicaciones usando Angular 2 es el concepto de databinding. Este término puede traducirse como enlace de datos y hace referencia a la comunicación que existe entre la vista y la lógica en una aplicación, es decir, la manera en la que se pasan datos desde las clases TypeScript a las plantillas HTML de los componentes.
+				- Existen 4 tipos de databinding:
+				    - String Interpolation
+				    - Property Binding
+				    - Event Binding
+				    - Two-way Binding
+				- String Interpolation
+				La interpolación de cadenas de caracteres, o como mejor se conoce por los desarrolladores que usan este framework string interpolation, es una forma de comunicación entre la lógica en la vista para pasar valores de tipo string o que pueden ser convertidos a string. A continuación, verás una clase en TypeScript correspondiente a un componente, en ella se define una variable con el nombre de nombreUsuario, y otra con el nombre de edadUsuario, y se le asignan valores a ambas.
+					import { Component } from '@angular/core';
+					import {BarraSuperiorComponent} from './barra-superior/barra-superior.component'
+
+					@Component({
+					  selector: 'app-root',
+					  templateUrl: './app.component.html',
+					  styleUrls: ['./app.component.css']
+					})
+					export class AppComponent {
+					  title = 'Hola Puerto Quito!';
+					  nombreUsuario='christian andres';
+					  edadUsuario=29;
+					}
+				- Para realizar una interpolación de cadena se usa el operador doble llave y, en su interior, el nombre de la variable que queremos asignar a esa parte de la plantilla. 
+					{{variable}}
+				- Ahora veamos la plantilla HTML correspondiente a este componente. Hemos creado un párrafo y, mediante el operador de doble llave, hemos indicado que deben interpolarse las variables nombreUsuario y edadUsuario.
+					<div class="contenedor-principal">
+					  <barra-superior></barra-superior>
+					  <h1>{{title}}</h1>
+					  <p>mi nombre es {{nombreUsuario}} y tengo {{edadUsuario}} años</p>
+					</div>
+				- Si vemos el resultado en el navegador, observamos que las variables se han interpolado y hemos pasado a la vista un valor asignado desde la clase TypeScript.
+					Hola Puerto Quito!
+					ni nombre es christian andres y tengo 29 años
+				- Property Binding:
+				El enlace de propiedades, o property binding, hace referencia a pasar datos desde la clase TypeScript de un componente a una plantilla HTML para asignar propiedades a los elementos de dicha plantilla. Funciona de manera muy similar a la interpolación de cadenas, con la diferencia que ésta se enfoca sólo en propiedades de los elementos HTML. Si añadimos, por ejemplo, un elemento de tipo input a la plantilla del componente app, podemos hacer un enlace de propiedad usando el operador corchete:
+					[nombre_propiedad]="variable o expresion"
+
+					<div class="contenedor-principal">
+					  <barra-superior></barra-superior>
+					  <h1>{{title}}</h1>
+					  <p>mi nombre es {{nombreUsuario}} y tengo {{edadUsuario}} años</p>
+					  <input type="text" [value]="nombreUsuario"></input>
+					</div>
+				- Si vemos el resultado en el navegador, podemos observar que la propiedad value del campo de texto tomó el valor de la variable nombreUsuario asignada en la clase TypeScript del componente. 
+					Hola Puerto Quito!
+					ni nombre es christian andres y tengo 29 años
+					christian andres
+				- Event binding:
+				La asignación de eventos, o event binding como es mejor conocida, es el método por el cual se asignan eventos a los elementos de las plantillas HTML de los componentes, asociándolos con los métodos que deben disparar dichos eventos. Vamos a definir primero un método en la clase del componente app que muestre una alerta, indicando que se disparó el evento click.
+					import { Component } from '@angular/core';
+					import {BarraSuperiorComponent} from './barra-superior/barra-superior.component'
+
+					@Component({
+					  selector: 'app-root',
+					  templateUrl: './app.component.html',
+					  styleUrls: ['./app.component.css']
+					})
+					export class AppComponent {
+					  title = 'Hola Puerto Quito!';
+					  nombreUsuario='christian andres';
+					  edadUsuario=29;
+
+					  titleClicked(){
+					  	alert('se ha disparado un evento click');
+					  }
+					}
+				- Ahora vamos a la plantilla HTML de este componente y realicemos un enlace de evento. Para enlazar un evento se usa el operador paréntesis para encerrar el nombre del evento que dicho elemento va a disparar, y se hace igual al método que debe ejecutarse al dispararse el evento indicado.
+					(nombre_evento) = “método a ejecutar”
+				- Por ejemplo, al elemento h1 de nuestra plantilla HTML vamos a asignarle un evento click, y lo hacemos igual al método que acabamos de crear: titleClicked().
+					<div class="contenedor-principal">
+					  <barra-superior></barra-superior>
+					  <h1 (click)="titleClicked()">
+					  {{title}}
+					  </h1>
+					  <p>mi nombre es {{nombreUsuario}} y tengo {{edadUsuario}} años</p>
+					  <input type="text" [value]="nombreUsuario"></input>
+					</div>
+				- Si probamos esto en el navegador, observamos que se ha asignado el evento y se dispara el método que creamos en la clase del componente.
+				- Two-way Binding:
+				El enlace bidireccional, o two-way binding como es conocido en Angular 2, hace referencia a una combinación de los dos tipos de Databinding vistos previamente: property binding y event binding. El concepto bidireccional indica que se envían datos desde la clase TypeScript y de la misma manera se reciben desde la plantilla HTML. Para definir un enlace bidireccional se deben usar, tanto los corchetes como los paréntesis, y al interior usar la palabra NgModel. A continuación, se debe asignar una propiedad de algún objeto que interactúe con la asignación:
+					[(NgModel)] = “objeto.propiedad”
+				- Añadimos a continuación un objeto a la clase del componente llamado persona y le definimos dos atributos, nombre y edad.
+					import { Component } from '@angular/core';
+					import {BarraSuperiorComponent} from './barra-superior/barra-superior.component'
+
+					@Component({
+					  selector: 'app-root',
+					  templateUrl: './app.component.html',
+					  styleUrls: ['./app.component.css']
+					})
+					export class AppComponent {
+					  title = 'Hola Puerto Quito!';
+					  nombreUsuario='christian andres';
+					  edadUsuario=29;
+
+					  titleClicked(){
+					  	alert('se ha disparado un evento click');
+					  }
+
+					  persona={
+					  	nombre:"andres";
+					  	edad:23;
+					  }
+					}
+				- Ahora agregaremos dos elementos de tipo input a la plantilla HTML y en sus propiedades añadimos la especificación de un enlace bidireccional. 
+					<div class="contenedor-principal">
+					  <barra-superior></barra-superior>
+					  <h1 (click)="titleClicked()">
+					  {{title}}
+					  </h1>
+					  <p>mi nombre es {{nombreUsuario}} y tengo {{edadUsuario}} años</p>
+					  <input type="text" [(ngModel)]="persona.nombre"></input>
+					  <input type="text" [(ngModel)]="persona.edad"></input>
+					</div>
+				- Si probamos esto en el navegador, podremos observar que, al modificar el valor de uno de los dos campos de texto, modifica el valor del otro, ya que un evento se envía al cambiar el valor del input, y al tiempo se envía el nuevo valor del atributo nombre de persona al otro campo de texto en la vista.
+				- String Interpolation: Es una forma de comunicación entre la lógica en la vista para pasar valores de tipo string o que pueden ser convertidos a string.
+				- Property Binding: Hace referencia a pasar datos desde la clase TypeScript de un componente a una plantilla HTML para asignar propiedades a los elementos de dicha plantilla.
+				- Event Binding: Es el método por el cual se asignan eventos a los elementos de las plantillas HTML de los componentes, asociándolos con los métodos que deben disparar dichos eventos.
+				- Two-way Binding: Indica que se envían datos desde la clase TypeScript y de la misma manera se reciben desde la plantilla HTML.
+			3. DIRECTIVAS
+				- DIRECTIVA: SET DE INSTRUCCIONES ESPECIFICAS PARA LOS ELEMENTOS DEL DOM
+				- LOS COMPONENTES SON UN TIPO DE DIRECTIVA
+				- DE ATRIBUTO: AÑADEN O REMUEVEN ATRIBUTOS A LOS ELEMENTOS HTML SEGUN LA LOGICA DE LA APLICACION
+				- ESTRUCTURALES: ALTERAN O MODIFICAN LA ESTRUCTURA DEL DOM, GENERALMENTE AÑADEN O REMUEVEN ELEMENTOS, *NOMBREDIRECTIVA
+				- ngFor: Sirve para insertar iterativamente elementos en el DOM
+				- ngIf: Sirve para añadir o no un elemento de acuerdo con una condición especificada.
+				- ngStyle: Es muy útil para asignar estilos a los elementos del DOM
+				- ngClass: Añade o remueve clases CSS de un elemento.
+		L3. PIPES, SERVICIOS Y ROUTING
+			1. PIPES
+				- O TUBO: TRANSFORMA VALORES PROCEDENTES DE LA CLASE DEL MODELO EN LA VISTA SIN AFECTARLOS EN LA LOGICA
+				- https://angular.io/api?type=pipe
+				- ng g pipe <nombrepipe>
+			2. Routing
+				- LA FILOSIFIA ES CREAR SPA
+				- ROUTING: NAVEGACION ENTRE VISTAS 
+			3. Servicios
+				- Una de las herramientas más usadas en el desarrollo de aplicaciones con Angular 2 son los servicios, por lo tanto, es preciso comprender un poco más a fondo este importante concepto y tener claro en qué situaciones nos puede ser de utilidad para el desarrollo de nuestros proyectos.
+				Cuando creamos componentes para conformar una vista o un módulo completo, encontramos que no sólo debemos definir plantillas HTML o estilos CSS para dar una apariencia adecuada a cada elemento, sino que también debemos crear ciertos métodos en la lógica del componente para ejecutar determinadas acciones como eventos, procesos, entre otros.
+				Al trabajar de esta manera, es muy posible que veamos métodos que tienen la misma funcionalidad en componentes diferentes y, de esta manera, encontramos métodos repetidos con el mismo código en más de un archivo. Un ejemplo de esto puede ser un método que se encargue de ordenar un arreglo de palabras en orden alfabético, el cual puede ser utilizado en un componente que muestre una tabla con los usuarios del sistema, pero también se usa en un componente que muestra los grupos creados u otro que muestre listas con cualquier tipo de información. En este caso, el método ordenarAlfabeticamente estaría definido en 3 o más componentes, así tenga el mismo código cada vez.
+				- Lo mostrado en el ejemplo es claramente una mala práctica de desarrollo y para solucionarlo, Angular2 ofrece los servicios. Un servicio es una clase que puede ser instanciada en uno o más componentes, y de la cual se pueden ejecutar métodos y obtener propiedades que sirvan para la lógica y procesamiento de la aplicación. Un servicio puede ser instanciado en componentes, directivas o clases en general. Su principal objetivo es la reusabilidad del código, eliminando los métodos duplicados que puedan afectar al rendimiento de la aplicación. 
+				- Para crear un nuevo servicio en un proyecto, hacemos uso del asistente Angular CLI, el cual crea el archivo del servicio con la estructura necesaria. El código a ejecutar en la terminal para crear un nuevo servicio es el siguiente:
+				- Este comando genera un archivo TypeScript con una clase acompañada por un decorador que explicaremos más adelante. En el siguiente ejemplo se muestra el código generado para un servicio llamado ordenamiento:
+				- En la clase creada, OrdenamientosService, es donde podremos crear los métodos y atributos que serán usados por los componentes, directivas o clases al implementar el servicio, de esta manera se crean servicios y se añade el código pertinente para que podamos usar estas herramientas desde diversos elementos de la aplicación, evitando la duplicación de código y aumentando así el rendimiento general del sistema. 
+			4. Dependency Injection
+				- UN SERVICIO ES UNA CLASE QUE PUEDE SER INSTANCIADA EN COMPONENTES, DIRECTIVAS U OTRAS CLASES
+				- DEPENDENCY INJECTION: USAR UN SERVICIO DESDE UN ELEMENTO
+				- SE PUEDE INYECTAR SERVICIOS EN OTROS SERVICIOS
+		L4. COMUNICACION CON EL BACKEND
+			1. HTTP Y OBSERVABLES
+				- Angular 2 es un framework que permite estructurar aplicaciones Web tipo SPA y trabaja por medio de la filosofía de componentes. Sin embargo, como toda aplicación debe estar en constante comunicación con un Back-end que contenga la lógica del negocio, Angular provee un sistema muy conveniente para este tipo de comunicación.
+				Para crear una comunicación adecuada entre una API, o ya bien cualquier tipo de servicio de Back-end, Angular usa el módulo Http, el cual incluye una gran cantidad de herramientas y utilidades que permiten hacer peticiones, recibir respuestas y gestionar dichas comunicaciones.
+				Uno de los elementos más importantes en la comunicación con servicios de Back-end desde un aplicación construída en Angular 2 son los observables, los cuales son elementos que se asignan a un determinado tipo de petición para estar pendientes (observando) de los posibles flujos de datos que existan en la comunicación. Esto quiere decir que un observable se asigna a una ruta específica de una API por ejemplo, y cada vez que se reciba una respuesta, el observable disparará un callback determinado para darle un destino a los datos recibidos desde el Back-end.
+				El método por el cual se asigna un observable a un servicio determinado se llama subscribe, del inglés suscribir, ya que el observable técnicamente se suscribe a una comunicación pendiente de todo tipo de peticiones y respuestas que sean ejecutadas.
+				Si usas el asistente Angular CLI para la creación de proyectos, puedes ver que por defecto se realiza la importación del módulo Http en el archivo app.module.ts, el cual recibe las importaciones a nivel global de la aplicación. Esto quiere decir, que al incluir el módulo Http en este archivo, podremos usarlo en cualquier elemento de la aplicación. A continuación, se muestra la importación del módulo Http que permite la creación de observables:
+					import {HttpModule} from '@angular/http'
+			2. Enviar una petición GET
+				- https://ejemplo-http-515e6.firebaseio.com/.json
+			3. Enviar una petición POST
 				- 
+			4. Recepción de datos con observables
+				- En el proyecto que construimos para las peticiones GET y POST, pudiste observar que las respuestas del Back-end se mostraban en la consola. Por ejemplo, en el método getUsers() que creamos para obtener los usuarios registrados en la base de datos, sólo imprimimos en consola la respuesta de tipo Response:
+					getUsers(){
+					    this.httpService.getDatos()
+					      .subscribe(
+					        (data: Response) => console.log(data)
+					      )
+					    return this.usuarios;
+					  }
+				- Sin embargo, para mostrar los resultados en la vista, es preciso realizar un proceso de conversión, ya que obtenemos un objeto por parte de la API y debemos convertirlo en un arreglo para poder iterar sobre sus elementos y utilizar ngFor para listarlos en la vista.
+				Una de las maneras más fáciles de hacerlo es usar un ciclo for y un arreglo temporal donde se vayan almacenando cada uno de los elementos del objeto JSON que retorna la API en la propiedad nombre y luego hacer que el arreglo de usuarios, por ejemplo, sea igual a este arreglo auxiliar:
+					getUsers(){
+					    this.httpService.getDatos()
+					      .subscribe(
+					        (data: Response) => {
+					        	let aux:any[]=[];
+					        	for(let key in data){
+					        		aux.push(data[key].nombre);
+					        	}
+					        	this.usuarios=aux;
+					        }
+					      )
+					    return this.usuarios;
+					  }
+				- Con este método hemos creado un arreglo de strings con todos los nombres almacenados. Sin embargo, por la naturaleza asincrónica de las peticiones HTTP, es preciso crear un botón en el componente show-users para actualizar la vista. Además, le asignamos por event binding un evento clic que dispare el método onUpdate().
+					<button (click)="onUpdate()" class="btn btn-default">Actualizar</button>
+				- Por último, en la clase correspondiente a este componente, implementamos el método onUpdate para que se ejecute el método getUsers del servicio Data. De esta manera, obtendremos el resultado del observable, es decir el arreglo de nombres, y los pasaremos a la vista.
+					onUpdate(){
+						this.usuarios=this.dataService.getUsers();
+					}
+		L5. Formularios, Animaciones y Deployment
+			1. Formularios según plantillas
+				- ng-touched: Ya se hizo clic en el campo.
+				- ng-dirty: El valor del campo se modificó por defecto
+				- ng-invalid: El valor del campo no es válido.
+			2. Formularios según datos
+				- --
+			3. Animaciones
+				- --
+			4. Deployment
+				- Conocer las herramientas y facilidades que otorga un framework para la creación de aplicaciones de alta calidad es uno de los procesos más importantes al aprender este tipo de tecnologías. Ya hemos abordado la mayoría de elementos necesarios para dominar Angular 2 y sacar el mayor provecho de todas sus características, sin embargo, todavía nos falta conocer cómo preparar la aplicación para el deployment, es decir, para ser publicada en la Web.
+				Para entender este proceso, debemos tener en cuenta que la creación de un nuevo proyecto por medio de Angular CLI genera una estructura de directorios y archivos donde se prepara un ambiente para desarrollo por defecto. Al momento de hacer deployment, debemos cambiar el ambiente a producción, pero antes de ver cómo se hace, veamos con más detalle estos dos términos.
+				- Ambiente de desarrollo:
+				El ambiente de desarrollo, o dev environment, es una configuración del proyecto apta para la construcción de una aplicación. Es el ambiente por defecto al crear una aplicación en Angular 2 y se caracteriza por contener archivos de tipo TypeScript, información detallada en consola para la detección de errores, división en múltiples archivos y carpetas, entre otros.
+				- Ambiente de producción:
+				El ambiente de producción, o prod environment, es una configuración del proyecto propicia para correr en un servidor Web. Este ambiente se usa cuando la aplicación está terminada y lista para su publicación, por lo tanto comprende una estructura de menor peso en memoria, código compilado, mensajes de error simples en consola, código minificado, entre otros.
+				- Deployment usando Angular CLI
+				Así como usamos Angular CLI para la creación de proyectos en Angular 2, componentes, servicios, directivas, etc., este asistente nos permite realizar la construcción o build del proyecto para tenerlo listo para su deployment, también se encarga de cambiar el ambiente de desarrollo por el de producción y de ejecutar los procesos necesarios para obtener el bundle final que contendrá el código de toda la aplicación.
+				- Para construir una aplicación lista para deployment nos ubicamos en la terminal en el directorio del proyecto de Angular2:
+				- Una vez estemos dentro del directorio general del proyecto solo debemos ejecutar el comando ng build -prod:
+				- Después de que el asistente construye el proyecto, se genera un directorio en la misma ruta del proyecto llamado dist. Allí se ubican los archivos finales, los cuales están listos para ser ubicados en un servidor y publicados en la Web. 
+				- PASO 1: Ubicarse en la terminal en el directorio del proyecto de Angular2
+				- PASO 2: Ejecutar el comando ng build -prod
+				- PASO 3: Se genera un directorio en la misma ruta del proyecto llamado dist. Allí se ubican los archivos finales, los cuales están listos para ser ubicados en un servidor y publicados en la Web
+	U4. REACTJS
+		L1. QUE ES REACTJS?
+			1. INTRODUCCION A REACTJS
+				- WEB COMPONENTS: PERMITE CONSTRUIR APLICACIONES POR DIFERENTES COMPONENTES, CUENTAN CON SU PROPIA CSS, JS Y HTML
+				- OFRECEN LA POSIBILIDAD DE REUTILIZARLOS
+				- ES UNA LIBRERIA DESARROLLADA POR FACEBOOK CON EL FIN DE CREAR COMPONENTES
+				- RENDIMIENTO Y EFICIENCIA: PROCESOS ORGANIZADOS Y DETALLADOS AL RENDERIZAR Y DETALLAR COMPONENTES
+				- FLUJO DE DATOS UNIDIRECCIONAL: PERMITE IDENTIFICAR FACILMENTE LOS ERRORES
+				- DOM VIRTUAL: SE ENCARGA DE GUARDAR EN MEMORIA UN ESTADO INICIAL DE CADA UNO DE LOS COMPONENTES,CON EL FIN DE IDENTIFICAR CUALES DETECTAN CAMBIOS 
+				- RE-RENDERIZAR: RENDERIZA LOS COMPONENTES QUE PRESENTAN CAMBIOS
+				- COMPATIBILIDAD: CON DIFERENTES NAVEGADORES Y OTROS FRAMEWORKS Y LIBRERIAS JS
+				- FACIL DE APRENDER
+				- ORIENTADA A COMPONENTES
+				- APLICACIONES CONOCIDAS: FACEBOOK, INSTAGRAM, NETFLIX, HIPCHAT, 
+			2. Ventajas y desventajas de ReactJS
+				- Como ya lo sabes, ReactJS es una de las librerías Front-end de JavaScript más potentes que existe actualmente y que cuenta con una comunidad de desarrolladores que hacen que cada vez mejore más y tenga nuevas características para ofrecerle a quienes lo usan en la creación de sus aplicaciones Web. ReactJS, como cualquier otra librería JavaScript, tiene sus ventajas y desventajas, así que veamos cuáles son:
+				- Ventajas de ReactJS:
+					- Es una herramienta fácil de aprender, ya que cuenta con una documentación y una comunidad de desarrolladores muy amplia que siempre está abierta a resolver dudas o inquietudes. Adicionalmente, a nivel de sintaxis es simple, ya que si comprendemos apropiadamente el concepto de Web components y cómo es esta tendencia de trabajo para la creación de aplicaciones Web, será bastante fácil aprender ReactJS.
+					- Al trabajar con componentes independientes, la creación y el mantenimiento de nuestras aplicaciones se convierte en una tarea muy sencilla y rápida. Detectar los errores no toma mucho tiempo y agregar nuevas funcionalidades a la aplicación se convierte en algo bastante simple.
+					- Su capacidad para renderizar rápidamente cada uno de los componentes de la aplicación permite brindar una mejor experiencia de usuario.
+					- Es posible combinar React con otros frameworks o bibliotecas para lograr funcionalidades necesarias con las que este no cuenta pero con los que se está combinando y/o integrando.
+				- REACT + JS LIBRARIES
+				- Contar con una comunidad de desarrollo tan amplia y con un grupo de desarrolladores tan expertos y reconocidos detrás de su creación hace pensar que es una librería que estará un buen periodo de tiempo en el mundo del desarrollo Front-end.
+				- ReactJS es de las pocas librerías JavaScript que se integra y soporta versiones antiguas de Internet Explorer, de forma que, si dentro de los requisitos de desarrollo de tu aplicación Web se encuentra el soporte de versiones antiguas de Internet Explorer, ReactJS es la librería que necesitas.
+				- Desventajas de ReactJS
+					- React, al tener un DOM virtual que se encarga de actualizar el estado y el contenido de cada componente de manera individual, no se lleva bien con librerías como jQuery que buscan tener una manipulación total del DOM, lo que en ocasiones, al juntarlas, causa que no se muestre o no se renderice la aplicación por la compatibilidad de éstos.
+					- Si se tiene un volumen de datos complejo y bastante amplio, en algunas ocasiones el tiempo de renderizado puede tomar más tiempo de lo esperado.
+					- Aunque mencionamos que React es compatible con otras librerías y frameworks que agregan ciertas funcionalidades a nuestras aplicaciones, al momento de compilarlas y desplegarlas puede tomar un poco más de tiempo, ya que debe instalar dependencia de dichas librerías que se usaron para agregar funciones requeridas y que, como mencionamos, React no posee, por eso lo conocen como el “Frankenstein” de las librerías JavaScript.
+					- Como podemos ver, ReactJS tiene más ventajas que desventajas. A decir verdad, es una librería muy potente y muy sencilla de implementar para trabajar la parte visual de nuestra aplicación y con el pasar del tiempo continuará creciendo y mejorando para que todas estas desventajas empiecen a desaparecer. 
+			3. ¿Cómo funciona ReactJS?
+				- ReactJS es conocida por ser una de las librerías JavaScript con mayor rendimiento gracias a todas la herramientas y/o características que ésta posee, especialmente por su DOM virtual, pero veamos cómo es el funcionamiento de ReactJS que hace que su rendimiento sea tan alto.
+				- Funcionamiento de react
+				ReactJS está creado con el fin de de manejar funciones que permitan tener un control muy preciso sobre los diferentes componentes que construimos y que conforman nuestra página Web, dicho control se logra a través de un elemento fundamental conocido como el estado o state. La primera vez que nuestra aplicación es renderizada, el DOM virtual de React guarda en memoria el estado inicial de todos lo componentes de nuestra página y los mantiene en constante vigilancia. Una vez ocurre algún cambio en alguno de los estados de los componentes de nuestra aplicación, el ya mencionado DOM virtual se encarga de identificar dichos componentes que sufrieron modificaciones de estado comparándolos con el estado inicial que tiene almacenado en memoria y se da el proceso por el cual se considera que el rendimiento de React es tan alto. El DOM virtual se encarga de renderizar nuevamente los componentes que presentan cambios, guardando este nuevo estado en memoria y sin tener la necesidad de cargar y renderizar nuevamente nuestra aplicación para notar los cambios que presentan nuestros componentes.
+				- Flujo de datos:
+				Dentro del funcionamiento de React, hay una característica y/o punto muy importante que debemos mencionar: el flujo de datos unidireccional, también conocido como flujo de datos en un solo sentido. Éste permite planear la forma de construir las aplicaciones más complejas e identificar los diferentes errores que se pueden presentar en éstas. A diferencia de las demás librerías que manejan un flujo de datos bidireccional, el flujo en un solo sentido permite hacer un seguimiento muy detenido al funcionamiento de nuestra aplicación y transporte de información, y así obtener una respuesta mucho más rápida. Es aquí donde podemos respaldar lo que hablábamos inicialmente cuando dijimos que React es una de las librerías con un alto rendimiento a comparación de las demás.
+				Esta es la razón por la que el funcionamiento de ReactJS es tan alto, pues cada una de las características o herramientas que la componen tiene una tarea en específico que va cumpliendo a medida que los componentes van cambiando y se le van mostrando al usuario, reduciendo los tiempos de carga y permitiendo reutilizar dichos componentes para desarrollar futuras aplicaciones. 
+			4. Por qué trabajar con ReactJS
+				- Existen diferentes librerías y frameworks Front-end de JavaScript que nos permiten crear las vistas de nuestras aplicaciones Web de forma rápida y eficiente, lo que dificulta la decisión cuando debemos seleccionar una de estas librerías para implementar en la creación de nuestros proyectos. ReactJS es una de ellas, de la cual hemos venido hablando, ésta nos ofrece muchas características para trabajar, así que te invitamos a explorar algunas de las razones por las cuales deberíamos seleccionarla para crear la interfaz gráfica de nuestras aplicaciones Web:
+				- WebComponents o Componentes Web
+				En la actualidad, el desarrollo de componentes es una tendencia o filosofía de trabajo que se está implementado fuertemente en el proceso de creación de aplicaciones Web y móviles. ReactJs y React Native nos ofrecen la posibilidad de trabajar y crear nuestros propios componentes, los cuales podemos reusar y modificar para construir diferentes aplicaciones en el momento en que sea necesario, estos componentes tienen un ciclo de vida dentro de la aplicación.
+				- Eficiencia
+				El hecho de que React tiene su propio DOM virtual, donde cada uno de los componentes de nuestra aplicación está activo, hace que el rendimiento de la aplicación sea más 	flexible y amplio, ya que React puede saber qué componente cambió y en qué momento lo hizo sin actualizar toda la aplicación sino solo esa parte que sufrió cambio, lo que hace que el usuario no tenga tiempo de espera mientras se recarga nuevamente la aplicación sino que con ésta mostrándose normalmente en pantalla podrá notar que los componentes se van actualizando uno a uno sin afectar la carga o visualización de los demás.
+				- Mejoramiento y crecimiento continuo
+				Los ingenieros de desarrollo de Facebook fueron los encargados de crear esta librería y una vez fue publicada, la comunidad de desarrolladores empezó a aportar. Esto lo vienen haciendo hasta la fecha para que la librería se mantenga y tenga un constante crecimiento y mejoramiento.
+				- Compatibilidad con los navegadores
+				ReactJS es de las pocas librerías JavaScript que se integra y soporta versiones antiguas de Internet Explorer de manera que, si dentro de los requisitos de desarrollo de tu aplicación Web se encuentra el soporte de versiones antiguas de Internet Explorer, ReactJS será la librería que necesitas. Adicionalmente, se integra a la perfección con los demás navegadores como Safari, Google Chrome, Opera, Firefox, etc.
+				- Otras de las razones para elegir ReactJS como la librería Front-end para crear nuestras aplicaciones Web son:
+					- Navegadores como Google Chrome tienen herramientas y extensiones en la Chrome Store que nos permiten hacerle seguimiento a nuestro código a través del navegador y hacer seguimiento de cómo va funcionando el DOM virtual de ReactJS.
+    				- Cuando se crea una aplicación Web con ReactJS, si se desea crear una aplicación móvil en la parte del Front-end existe React Native, la cual tiene una estructura similar y la transición no es es compleja.
+    	L2. Configuración ReactJS
+    		1. Babel.JS
+    			- Babel es una herramienta que nos permitirá implementar las características de JavaScript ECMAScript 6-ES6, convirtiendo el código en ES5 para que sea leído por cualquier navegador. ¿Cómo? Aquí lo verás.
+    			- La razón:
+				ES6 presenta nuevas características que hacen que desarrolladores, como tú, prefieran trabajar con este lenguaje, lo cual es muy crítico pues la mayoría de los navegadores y las plataformas de Javascript tienen poco soporte para él.
+				Pues bien, Babel.js implementa plugins -conocidos como presets- que realizan dicha transformación para React, ES2015 y npm. Por eso, podemos decir técnicamente que es un transcompilador.
+				Es importante tener presente que, si quisieramos hacer uso de Babel, necesitamos tener instalado Node.js pues está escrito en JavaScript.
+				- Babel.js y Node.js:
+				Para usar node.js e instalar el cliente de Babel.js usamos:
+					npm install babel-preset-es2015
+					npm install babel-cli
+				- Así, pasamos a crear el fichero “.babelrc” y a configurarlo para que por defecto quede ES 2015, así:
+					{ “presets”: [“es2015”] }
+				- En este momento, usamos el cliente de Babel.js a partir de un fichero llamado origen.js, que contiene el código de ES6 y usa las nuevas arrow functions para convertirlo a ES6: 
+					var lista=[2,3,5,7];
+					lista.map(x=> x*x).forEach(x=>console.log(x));
+				- Además, utilizamos la línea de comandos:
+					babel origen.js –out-file destino.js
+				- Este código, que para quien trabaje con ES5 es fácil de reconocer, debemos cargarlo en un navegador, imprimiendo los números que se encuentran en el array, por consola.
+				- Una información importante es que podremos configurar Babel.js para que, siempre que modifiquemos el fichero origen.js, actualice de manera automática el fichero de destino con un watcher:
+					babel origen.js –watch –out-file destino.js
+			2. CONFIGURACION DEL AMBIENTE
+				- npm install -g babel
+				- npm install -g babel-cli
+				- npm install webpack --save
+				- npm install webpack-dev-server --save
+				- npm install react --save
+				- npm install react-dom --save
+				- npm install babel-core
+				- npm install babel-loader
+				- npm install babel-preset-react
+				- npm install babel-preset-es2015
+				- crear carpeta de proyecto
+				- npm init
+				- npm install react --save
+				- crear los siguientes archivos dentro del proyecto: App.jsx, index.html, main.js, webpack.config.js
+				- programar
+				- npm start
+			3. WebPack
+				- Webpack se define como un bundler, o sistema de empaquetado de módulos, que permite compactar los recursos o assets de una aplicación, mejorando el desempeño en la carga inicial de la misma desde el cliente. Este tipo de empaquetadores se usan en proyectos que involucran gran cantidad de archivos y directorios enlazados mediante importaciones de diferentes tipos. Al usar ReactJS como framework en el desarrollo de una aplicación, encontramos una gran cantidad de archivos e importaciones a paquetes locales y externos. Por tal motivo, Webpack es un aliado necesario en la estructura global de la aplicación.
+				- Bundle:
+				Un bundle, o paquete, es un archivo JavaScript que incluye todos los recursos que requiere la aplicación para funcionar adecuadamente. Dentro de este paquete podemos encontrar archivos JavaScript, CSS, Imágenes, LESS, SASS, entre otros.
+				- ¿Cómo funciona?
+				Webpack hace un recorrido por todo el código del proyecto buscando por sentencias en las que se importan archivos. Por ejemplo, en archivos JavaScript, la palabra reservada import es detectada por Webpack, así como en archivos CSS importados. Luego de identificar todas estas importaciones, Webpack realiza un bundle o paquete general donde reúne todos los recursos o assets y los organiza de tal manera que sus importaciones no se vean afectadas, manteniendo el correcto funcionamiento de la aplicación.
+				- Instalación:
+				Para instalar Webpack en un proyecto debes tener instalado en tu máquina node y npm. Ejecuta el siguiente comando para instalar Webpack a nivel global:
+					$ npm install webpack -g
+				- Configuración:
+				Para configurar Webpack se debe crear un archivo JavaScript con el nombre webpack.config.js, el cual cuenta con la siguiente estructura:
+					const path = require('path');
+					var config ={
+					  entry:'./main.js',
+					  output:{
+					    path: path.resolve(__dirname, './'),
+					    filename:'index.js'
+					  },
+					  devServer:{
+					    inline: true,
+					    port: 8080
+					  },
+
+					  module:{
+					    loaders:[
+					      {
+					        test:/\.jsx?$/,
+					        loader:'babel-loader',
+					        exclude: /node_modules/,
+					        query:{
+					          presets:['es2015','react']
+					        }
+					      }
+					    ]
+					  }
+					};
+
+					module.exports = config;
+				- El archivo de configuración consta de un objeto llamado config, el cual cuenta con las propiedades que se definen por el desarrollador para indicarle a Webpack determinados parámetros de funcionamiento. Aunque existen muchos otros parámetros, los más comunes son: entry, output, y module. Entry sirve para especificar el archivo JavaScript principal de entrada de la aplicación, se puede pensar como la raíz de las importaciones del proyecto. Output permite especificar en qué ruta y qué nombre llevará el archivo JavaScript que genera Webpack como bundle. Module permite definir los módulos del proyecto, entre ellos los loaders o cargadores, los cuales permiten especificar qué tipo de recursos serán incluidos en el paquete. 			
+				- Module: Permite definir los módulos del proyecto, entre ellos los loaders o cargadores, los cuales permiten especificar qué tipo de recursos serán incluidos en el paquete
+				- Output: Permite especificar en qué ruta y qué nombre llevará el archivo JavaScript que genera Webpack como bundle
+				- Entry: Sirve para especificar el archivo JavaScript principal de entrada de la aplicación, se puede pensar como la raíz de las importaciones del proyecto
+		L3. WEB COMPONENTS
+			1. JSX
+				- A continuación te explicaremos de qué se trata el lenguaje JSX.
+				- Este lenguaje es una extensión de JavaScript, creado por Facebook, para el uso con la librería React.
+				- También es un preprocesador que transforma el código de JavaScript. Así que no te preocupes si al comienzo pareciera que mezclas código HTML con los ficheros JavaScript porque no es cierto. 
+				- Lo cierto es que: aunque parece que estuvieras escribiendo en HTML, en realidad es JavaScript. Observa: 
+					var Icon = (
+					  <div className='icon-container'>
+					    <img
+					      src='icon-react.png'
+					      className='icon-image'
+					    />
+					  </div>)
+						ReactDOM.render(Icon, document.getElementById('app'))
+				- Es muy importante que tengas presente que algunas palabras reservadas se nombran de otra manera. Por ejemplo, Class (para definir clases de CSS) con JSX se escribe: className
+				- Usar JSX, en la medida en que nuestros proyectos vayan creciendo y sumamos más componentes, será la forma de agilizar los desarrollos. Por eso, una recomendación es que utilices un Bundler integrado al entorno de desarrollo, como: WebPack o Browserify, que sea éste el que aplique la transformación antes de publicar en producción.
+				- Recuerda: No es escribir HTML dentro de JS. Es crear JS de una forma más práctica. 
+			2. Componentes
+				- ES LA UNIDAD BASICA DE REACTJS, PORCIONES DE UN PROYECTO
+			3. DOM Virtual
+				- El DOM Virtual puede ser similar a una tabla con datos, en una página HTML, que en cada fila tiene un botón de edición para cambiar, de forma rápida, los datos.
+					DOM VIRTUAL A:
+					Dato 1 	Dato 2 	Dato 3 	Edit
+					Dato 4 	Dato 5 	Dato 6 	Edit
+					Dato 7 	Dato 8 	Dato 9 	Edit
+
+					Por ejemplo, podemos cambiar el Dato 9 por el Dato 10. DOM VIRTUAL B:
+					Dato 1 	Dato 2 	Dato 3 	Edit
+					Dato 4 	Dato 5 	Dato 6 	Edit
+					Dato 7 	Dato 8 	Dato 10 	Edit
+				- Esto se explica de la siguiente manera:
+				Como la tabla se genera desde un array de objetos, cuando lo editamos se actualiza y, al terminar, se vuelve a generar.
+				Pero pon mucha atención porque, a pesar de que la edición es muy sencilla y en cada dato, entre más nodos cambiamos en el DOM, menor es el rendimiento del navegador al hacer la actualización.
+				- ¿Por qué?
+				Volviendo al ejemplo de la tabla, el navegador debe validar, entre los 9 datos que la componen, cuáles cambiaron y después se renderiza. 
+				- Efectivamente, el DOM Virtual aplica los cambios en los 20 datos y renderiza solo esos cambios. Recuerda que el DOM virtual guarda en memoria el estado inicial de todos lo componentes de nuestra página y los mantiene en constante vigilancia, de esta manera, cuando ocurre algún cambio en alguno de los estados de los componentes de nuestra aplicación, éste se encarga de identificar dichos componentes y los compara con el estado inicial que tiene almacenado en memoria, luego renderiza nuevamente los componentes que presentan cambios, guardando este nuevo estado en memoria
+			4. States & Props
+				- STATES: PERMITEN CREAR COMPONENTES INTERACTIVOS Y DINAMICOS BASADOS EN SU COMPORTAMIENTO
+				- PROPS: PROPIEDADES, SON PARA LOS COMPONENTES LO MISMO QUE LOS ATRIBUTOS, SON CARACTERISTICAS, SON EMUTABLES, NO PUEDEN SER EDITADOS, PUEDEN SER PASADOS DE UN COMPONENTE PADRE A UN HIJO.
+		L4. CICLO DE VIDA DEL COMPONENTE
+			1. API Components
+				- Dentro del ciclo de vida de un componente ReactJS, nos encontramos con diversos métodos que nos permite leerlo, visualizar su atributos, actualizarlo y modificarlo, con el fin de obtener determinados resultados de ser necesario. En el API de componentes, encontramos 3 métodos bastante interesantes que nos permiten actualizar los atributos como los estados y las características visuales de nuestros componentes, siempre y cuando dichos atributos o características no sean las props o propiedades pues éstas son inmutables, es decir, las propiedades no pueden ser alteradas y/o modificadas. Los métodos de los componentes API a los que nos referimos son setState, forceUpdate & findDOMNode.
+				Veamos cómo funcionan:
+				- Método setState()
+				Este es uno de los métodos más usados en React, ya que a través de él podemos actualizar el estado de un componente. Se debe tener presente que este método no se debe utilizar dentro del método render, ya que puede ocasionar un bucle infinito debido a que al detectarse una modificación de estado se intenta renderizar nuevamente el componente, entraría otra vez al método setState, se volvería a actualizar el estado y se volvería a renderizar ocasionando el ya mencionado bucle infinito.
+				Veamos cómo podemos utilizar el método setState():
+					import React from 'react';
+
+					class App extends React.Component{
+					  constructor(){
+					    super()
+					    this.state= { mensaje:'bienvenido a reactjs con nextu',
+					                  mensaje2:'estamos aprendiendo props y states'
+					                }
+					  }
+
+					  render(){
+					    return (
+					      <div>
+					        <h1>{this.state.mensaje}</h1>					      
+					        <div>
+					          <button onClick={this.changeState.bind(this)}>cambiar estado</button>
+					        </div>
+					      </div>
+					    )
+					  }
+
+					  changeState(){
+					    this.setState({mensaje:'este es mi nuevo valor'})
+					  }
+					}
+
+					export default App;
+				- Método forceUpdate()
+				Este método, a diferencia del método anterior, no es usado para actualizar el estado del componente sino que es usado para forzar la actualización del componente en general en cualquier momento. Es necesario tener presente que al ser un método que modifica un componente no puede ser puesto dentro del render porque nos ocasionará un error, la manera de evitar este error es crear una función por fuera del método render e invocar el atributo onClick de alguno de los elementos HTML o agregarla en alguno de los métodos del ciclo de vida de un componente a excepción del método render.
+				Veamos cómo utilizar el método forceUpdate():
+					import React from 'react';
+
+					class App extends React.Component{
+					  updateMethod(){
+					  	this.forceUpdate()
+					  }
+
+					  render(){
+					    return (
+					      <div>
+					        <h1>{this.state.mensaje}</h1>
+					        <div>
+					           <button onClick={this.updateMethod.bind(this)}>forzar actualizacion</button>
+					        </div>
+					      </div>
+					    )
+					  }
+					}
+
+					export default App;
+				- Método FindDOMNode()
+				Este método permite manipular el DOM y todos sus nodos y/o elementos, para ello es necesario importar react-dom para que podamos usar el método ReactDOM.findDOMNode(). Este método, al igual que los anteriores, no puede ser usado dentro del método render, ya que éste busca actualizar las propiedades de los elementos del DOM y en el momento en el que éste se ejecuta, los elementos todavía no se han cargado en el DOM y produce un error.
+					import React from 'react';
+					import ReactDOM from 'react-dom'
+
+					class App extends React.Component{
+					  constructor(){
+					    super()
+					    this.state= { mensaje:'bienvenido a reactjs con nextu',
+					                  mensaje2:'estamos aprendiendo props y states'
+					                }
+					  }
+
+					  findDomElement(){
+					  	var idMensaje=document.getElementById('welcome');
+					  	ReactDom.findDomElement(idMensaje).style.color='blue';
+					  }
+
+					  render(){
+					    return (
+					      <div>
+					        <h1>{this.state.mensaje}</h1>
+					         <div>
+					           <button onClick={this.findDomElement.bind(this)}>cambiar color</button>
+					         </div>
+					      </div>
+					    )
+					  }
+					}
+
+					export default App;
+				- Esto es solo una parte de los métodos del API de componentes, no mencionamos los demás pues la mayoría fueron removidos desde la actualización 0.14 de React, en cambio éstos aún son utilizados y continúan en la versión actual.
+			2. Ciclo de montaje
+				- CICLO DE MONTAJE: ES EL PROCESO DE UN COMPONENTE DESDE DE HABERLO INSTANCIADO, O CUANDO DESDE EL PADRE SE LLAMA AL HIJO
+				- 4 FASES
+				- constructor: METODO PREVIO AL MONTAJE, INICIALIZA TODOS LOS ESTADOS DEL COMPONENTE, VA CON EL METODO SUPER(). SI NO SE INICIALIZA UN ESTADO, NO SE UTILIZA SUPER()
+				- componentWillMount: CARGA DATOS, EJECUTA FUNCIONES, TIENE INFO PRECARGADA Y SOLO ES INVOCADA UNA UNICA VEZ EN EL CLIENTE
+				- render: es metodo mas importate y obligatorio, agrega el componente principal en la interfaz de usuario y de integrar los componentes hijos, se puede integrar variable, ciclos, validaciones etc. no se debe modificar el valor de los estados dentro de este
+				- componentDidMount: se ejecuta cuando el componente ya se monto, despues de render, es el ultimo metodo del ciclo de montaje, se pueden modificar, estados, variables, funciones, se ejecutar una unica vez en el cliente
+			3. Ciclo de actualización y desmontaje
+				- Los ciclos de actualización y desmontaje son los ciclos que, aunque muchos no implementan durante el trabajo con componentes, tienen una vital importancia en el ciclo de vida de éstos, ya que ambos ciclos tienen una relación directa con los states o estados y con los props o propiedades, pues el proceso de actualización se da por dos motivos: cuando hay nuevos props o propiedades que está recibiendo el componente o cuando en determinado momento se realiza un cambio o modificación sobre el estado del componente. Éste consta de 5 fases o métodos, mientras que el proceso de destrucción o desmontaje consta de un solo solo método, el cual, como su nombre lo dice, se encarga de destruir o demostrar el componente y es considerado como la última fase o fase final.
+				Veamos más a fondo estos dos ciclos o procesos:
+				- Ciclo de actualización:
+				Como ya se mencionó anteriormente, el ciclo de actualización se da en el momento en que nuestro documento recibe nuevas props o propiedades, o porque de 	alguna u otra manera el estado del componente cambió. El ciclo o proceso de actualización consta de 5 etapas fundamentales, entre la cuales encontramos:
+					- componentWillReceiveProps:
+					este método es ejecutado única y exclusivamente cuando el componente hijo recibe nuevas props o propiedades de parte de su componente padre y tiene como parámetro dichas props que va a recibir de parte de su componente padre.
+						componentWillReceiveProps(next_props){
+							this.setState({loading:true})
+						}
+					- componentWillUpdate:
+					este método debe ser llamado antes del método render, justo en el momento en el que se reciben las nuevas props o propiedades y los nuevos states o estados, ya que aquí es donde podemos hacer los preparativos justo antes de que ocurra la actualización del componente y reciba como parámetros nuevas props o propiedades y nuevos estados o states. Es clave tener siempre presente que dentro de este método por ningún motivo podemos hacer uso de this.setState(), ya que lo más probable es que aparezca un error en nuestra aplicación, causándonos un bucle infinito que no permitirá que nuestro componente se renderice apropiadamente.
+						componentWillUpdate(next_props,next_state){
+							console.log('nuevas propiedades o props: ',next_props,' nuevos estados o states ',next_states)
+						}
+					- Render:
+					el método render es considerado el método más importante en ReactJS, ya que básicamente es el que nos permite montar nuestros componentes a la interfaz gráfica. En el ciclo de actualización de un componente es necesario tener presente que si el método shouldComponentUpdate retorna false como resultado, el método render se cancelará hasta que se presente un nuevo cambio de atributos, es decir, un nuevo cambio de states o props.
+						import React from 'react';
+
+						class App extends React.Component{
+						  render(){
+						    return (
+						      <div>hola, bienvenido christian
+						      </div>
+						    )
+						  }
+						}
+
+						export default App;
+					- componentDidUpdate:
+					una vez se renderiza nuestro componente, el método invoca el método componentDidUpdate, con el fin de realizar determinada operación en el DOM después de que se haya actualizado el componente, éste puede compararse con el método del ciclo de montaje componentDidMount en el sentido en el que ambos se dan o se ejecutan posterior a la renderización de nuestro componente.
+						componentDidUpdate(previous_props, previous_state){
+							console.log('props ',previous_props,' state ',previous_state)
+						}
+				- Ciclo de desmontaje o destrucción:
+				El ciclo de desmontaje es la última fase que se da en el ciclo de vida de un componente, ya que es aquí donde el componente se destruye o se desmonta del DOM. Este ciclo consta de un solo método y es el método componentWillUnmount.
+					- componentWillUnmount:
+					este método es utilizado para realizar diferentes operaciones de limpieza, cómo eliminar elementos que se crearon durante el componentDidMount, timers y otros elementos que puedan influir en el rendimiento de nuestra aplicación. Adicionalmente, ejecuta otras múltiples operaciones de limpieza con el fin de mantener siempre el buen rendimiento que tienen las aplicaciones React.
+						componentWillUnmount(){
+
+						}
+		L5. Routers & Complementos
+			1. React Router
+				- LAS RUTAS SON UTILIZADAS PARA NAVEGAR EN LAS APLICACIONES Y PASAR DE UNA VISTA A OTRA.
+				- REACT-ROUTER: ES UNA LIBRERIA QUE PERMITE GESTIONAR RUTAS PARA CARGAR LOS COMPONENTES Y SECCIONES 
+				- ROUTER: ES EL ENCARDO DE ENCAPSULAR LAS RUTAS DENTRO DE LA APP
+				- ROUTES: REPRESENTAN CADA UNA DE LAS RUTAS QUE SE MOSTRARAN LOS COMPONENTES EN LA APLICACION 
+				- ATRIBUTO PATH: SE ASIGNA LA RUTA EN LA CUAL SE VISUALIZA EL COMPONENTE 
+				- ATRIBUTO COMPONENT: SE AGREGA EL NOMBRE QUE SE MOSTRARA CUANDO LA RUTA QUE SE SOLICITA CON EL NAVEGADOR, COINCIDA 	
+				- HISTORIES: SON LAS ENCARGADAS DE ESCUCHAR LA BARRA DE DIRECCION DEL NAVEGADOR PARA ANALIZAR Y CAMBIAR LAS URLS, RENDERIZAN LOS COMPONENTES SEGUN COINCIDAN LAS URL
+					- browserHistory
+					- hashHistory
+					- createMemoryHistory
+				- NESTEAD ROUTES: RUTAS ANIDADAS, CONSTAN DE ENCAPSULAR DENTRO DE OTRA
+					- IndexRoute: ES EL ELEMENTO QUE SE RENDERIZARA 
+			2. Super Agent - cargando y enviando datos al Back-end
+				- La mayoría de librerías y frameworks JavaScript utilizan AJAX como la herramienta para establecer comunicación entre el Front-end y el Back-end, con el fin de enviar y cargar datos desde nuestra base de datos. Pero cuando trabajamos con ReactJS nos encontramos con la que es quizás, una de sus limitaciones más notorias: su incompatibilidad o mala comunicación con otras librerías que tratan de controlar el DOM, como jQuery. Usar AJAX directamente no es lo más óptimo cuando estamos tratando de conectar el Back-end y el Front-end para nuestras aplicaciones React. Por lo que es necesario buscar una herramienta que sea eficiente, óptima, funcional, que permita conectar ambas partes de la aplicación y gestionar nuestros datos.
+				Es allí donde aparece el SuperAgent.
+				- SUPERAGENT
+				Esta es una librería de peticiones del lado del cliente que posee muchas características HTTP de alto nivel. SuperAgent es una API tipo AJAX diseñada para ofrecer eficiencia, flexibilidad, dinamismo, orden y un aprendizaje rápido. SuperAgent apareció como una solución fácil de usar después de que varios desarrolladores se vieran en algunos aprietos con otras librerías cuando pretendían establecer comunicación entre el Back-end y Front-end por cuestiones de compatibilidad entre librerías.
+				La manera de incorporar SuperAgent en nuestros proyectos es instalarlo a través del comando npm de la siguiente manera:
+					npm install superagent --save
+				Uno de los temas más importantes que debemos tener presente al momento de trabajar con SuperAgent son los request o peticiones, que través de sus métodos nos permiten comunicar las dos partes de nuestra aplicación y obtener o enviar la información que necesitamos.
+				Veamos un poco cómo trabajar con request o peticiones:
+				- REQUEST / PETICIONES
+				Para trabajar apropiadamente con las peticiones o requests lo primero que debemos hacer es elegir e invocar el método apropiado para comunicar nuestro Back-end con nuestro Front-end.
+				Adicionalmente, debemos saber qué obtendremos como resultado para saber cómo manejarlo, es decir, si obtenemos un objeto, un array, una ruta, etc. Finalmente, si estamos hablando de carga de información debemos tener claro cómo vamos a procesar dichos datos para entregarlos al usuario, o para almacenarlos en la base de datos, si estamos hablando de envío de información.
+				Cuando queremos usar SuperAgent en nuestras aplicaciones ReactJS, lo primero que debemos hacer después de instalarlo es importarlo en el componente en que crearemos los métodos de comunicación con el Back-end y lo hacemos de la siguiente manera:
+					import * as request from ‘superagent’
+				Así ya tendremos disponible todas las características que trae SuperAgent por defecto, de esta manera comenzamos a trabajar SuperAgent y ReactJS:
+					componentWillMount(){
+						request{
+							.get('/api/users/search')
+							.end('err,res')=>{(
+
+							)}
+						}
+					}
+				Cuando trabajamos con request o peticiones en SuperAgent, o en cualquier otra librería, tenemos disponibles una serie de campos y métodos fundamentales que nos permiten construir apropiadamente dichas peticiones, los principales son:
+				- HEADERS
+				Los header o cabeceras son determinados campos que nos permiten determinar ciertas condiciones al momento de crear nuestra petición y que son fundamentales para obtener el resultado que esperamos en ésta. Dentro de dichas condiciones encontramos el tipo de contenido que retornará nuestra petición, si se requiere o no la autenticación para realizar nuestra aplicación, entre otras. Configurar y/o setear los campos en nuestras cabeceras es bastante simple, para ello invocamos .set() con un nombre para el campo y su respectivo valor, por ejemplo, .set(‘nombreCampo’, ‘Valor’). Veamos cómo se inician nuestras peticiones y cómo configurar los campos de los headers o cabeceras:
+					componentWillMount(){
+						request{
+							.get('/api/users/search')
+							.set('API-Key','foobar')
+							.set('Content-Type','application/json')
+							.end('err,res')=>{(
+
+							)}
+						}
+					}
+				Como podemos ver, tenemos varios métodos set donde estamos pasando los headers dentro de un request, sin embargo, podemos pasar todos estos campos dentro de un solo .set(). Veamos cómo hacerlo:
+					componentWillMount(){
+						request{
+							.get('/api/users/search')
+							.set({'API-Key':'foobar','Content-Type':'application/json'})
+							.end('err,res')=>{(
+
+							)}
+						}
+					}
+				- PETICIONES GET CON SUPERAGENT
+				Para trabajar peticiones GET con SuperAgent, lo único que debemos hacer es agregar el método .get() debajo del request y dentro de los paréntesis agregar la ruta a la cual nos vamos a conectar para obtener información de nuestro Back-end. Veamos cómo hacerlo:
+					componentWillMount(){
+						request{
+							.get('/api/users/search')
+							.set({'API-Key':'foobar','Content-Type':'application/json'})
+						}
+					}
+				En las peticiones GET también podemos pasar parámetros que requiere el Back-end para realizar una consulta y obtener los datos en específico que se mostrarán en Front-end después de enviarlos en la respuesta de la petición. Veamos cómo se hace:
+					componentWillMount(){
+						var curso='WEB'
+						request{
+							.get('/api/users/search?curso='+curso)
+							.set({'API-Key':'foobar','Content-Type':'application/json'})
+						}
+					}
+				Esta es una forma de enviar parámetros, aunque hay una mucho más elegante y es haciendo uso del método .query(), el cual se encarga de recibir nuestros parámetros como objetos.
+				Veamos cómo hacerlo:
+					componentWillMount(){
+						var nombrePrograma='WEB'
+						var unidadActual='ReactJS'
+
+						request{
+							.get('/api/users/search')
+							.query({programa:nombrePrograma})
+							.query({unidad:unidadActual})
+							.set({'API-Key':'foobar','Content-Type':'application/json'})
+						}
+					}
+				Finalmente, podemos decir que si tenemos múltiples parámetros para pasar en la petición GET, no es necesario tener múltiples métodos .query() sino que podemos hacerlo dentro de uno solo.
+				Veamos cómo:
+					componentWillMount(){
+						var nombrePrograma='WEB'
+						var unidadActual='ReactJS'
+
+						request{
+							.get('/api/users/search')
+							.query({programa:nombrePrograma,unidad:unidadActual})
+							.set({'API-Key':'foobar','Content-Type':'application/json'})
+						}
+					}
+				- PETICIONES POST / PUT
+				Al igual que se hace con las peticiones GET, para hacer peticiones POST y PUT con SuperAgent, solo hace falta agregar el respectivo método debajo del objeto request con la respectiva ruta entre comillas y debajo de éste los parámetros con los datos que vamos a enviar al Back-end para almacenar en nuestra base de datos.
+				Veamos cómo hacerlo:
+				POST
+					guardarDatos(){
+						request{
+							.post('/api/usuarios/registrarUsuarios')
+							.send({nombre:'christian',apellido:'gaibor',edad:29})
+							.set({Content-Type':'application/json'})
+						}	
+					}
+				PUT
+					modificarDatos(){
+						request{
+							.put('/api/usuarios/modificarUsuarios')
+							.send({edad:29})
+							.set({Content-Type':'application/json'})
+						}	
+					}
+				END()
+				Finalmente llegamos al método en el que ya vamos a encontrar una respuesta y/o resultado al conectar el Front-end con el Back-end: el método .end().
+				En éste creamos una función a la cual se le pasan dos parámetros, uno para el error y el otro para la respuesta, dentro de ésta ya procesamos los datos y notificaciones que se le mostrarán al usuario para que éste sepa qué sucedió al conectar el Back-end con el Front-end.
+				Veamos cómo se hace:
+					componentWillMount(){
+						.get('/api/usuarios/buscarUsuarios')
+						.set({Content-Type':'application/json'})
+						.end((err,res){
+							if(err||!res.ok){
+								console.log('se encontro un error en la aplicacion'+err)
+							}else{
+								this.setState({data:{res.body}})
+							}
+						})
+					}
+				END() - PETICIONES GET
+					guardarDatos(){
+						.post('/api/usuarios/registrarUsuarios')
+						.send({nombre:'christian',apellido:'gaibor',edad:29})
+						.set({Content-Type':'application/json'})
+						.end((err,res){
+							if(err||!res.ok){
+								console.log('se encontro un error en la aplicacion'+err)
+							}else{
+								console.log('los datos se guardaron satisfactoriamente')
+							}
+						})
+					}
+				END() - PETICIONES POST
+					modificarDatos(){
+						.put('/api/usuarios/modificarUsuarios')
+						.send({edad:29})
+						.set({Content-Type':'application/json'})
+						.end((err,res){
+							if(err||!res.ok){
+								console.log('se encontro un error en la aplicacion'+err)
+							}else{
+								console.log('los datos se actualizaron satisfactoriamente')
+							}
+						})
+					}
+				END() - PETICIONES PUT
+				En el método .end() debemos tener presente algo en el momento de crear la función interna de éste, ya que como puedes ver en las imágenes anteriores no la estamos representando con function sino con =>, debido a que cuando usamos function y dentro de la función usamos this encontraremos problemas de contexto, por tal motivo usamos => para evitar dichos problemas y que todo funcione adecuadamente. 
+			3. Buenas prácticas en ReactJs
+				- Así como en todo lenguaje de programación se invita a los desarrolladores a hacer uso de buenas prácticas al momento de escribir el código, las librerías y frameworks que hacen parte de éstos también sugieren lo mismo, ya que hacen que los desarrolladores creen código ordenado, intuitivo, claro y coherente con respecto a la funcionalidad puntual de cada clase, función y/o método que se cree.
+				- ReactJS, al ser una librería JavaScript, sugiere la mayoría de reglas, principios y estándares de buena programación que tiene JavaScript, pero como librería tiene sus propias reglas para escribir código adecuadamente y las veremos a continuación:
+				- Definición de variables
+				En el momento en el que el programador va a definir una variable, debe tener siempre presente el tipo de datos que almacenará la variable, el nombre que le asignará y el tipo de variable, es decir, si es global o local, por lo que se considera una buena práctica de programación en el lenguaje JavaScript que los programadores en el momento de asignarle nombre a las variables, les asignen uno que tenga que ver con el valor que va a guardar y su tipo de dato. Adicionalmente, si se usara un nombre compuesto, se sugiere usar camelcase, iniciando la primera palabra en minúscula sin dejar espacio y la segunda palabra debe iniciar en mayúscula.
+				- Creación de funciones
+				En el momento de crear funciones se sugiere que éstas tengan un nombre asociado con su funcionalidad, que se puedan diferenciar las variables globales de las locales, que no tengan muchas líneas de código, con el fin de prestarles un soporte que no sea muy complicado y que con solo verla el desarrollador pueda identificar qué hace, es decir, qué rol cumple determinada función dentro de nuestra aplicación.
+				- Validación de Props
+				Una de las principales buenas prácticas de desarrollo de aplicaciones ReactJS es definir el tipo de prop que le está pasando el componente padre al componente hijo, es decir, definir el tipo de dato de éstas. Después de crear el componente hijo y cerrar la clase en la que éste se creó, validamos el tipo de props que le heredó su componente padre, es decir, si son propiedades de tipo numéricas, cadenas de texto, valores booleanos, objetos, arrays y/o funciones. 
+				- Inicialización de estados
+				Es vital que el proceso para inicializar estados se dé única y exclusivamente dentro del constructor, ya que éste es el primero de los métodos de la clase del componente que se ejecuta, su valor se almacena en memoria y quedan activos en el DOM virtual para cambios en funciones que se puedan encontrar más adelante. Adicionalmente, se recomienda que tengan un nombre relacionado con el valor que se almacena y un tipo de dato.
+				- Modificación de estados
+				Esta operación solo tiene dos recomendaciones que al implementarlas ya nos llevan al uso de buenas prácticas de codificación. La primera de ellas es la más importante: nunca realizar una modificación de states o estados dentro del método Render, ya que esto ocasiona que se congele nuestro navegador debido a que el evento render se va a accionar cada vez que encuentra el cambio más minucioso en uno de los componentes. Evidentemente no va renderizar nuestra aplicación todo el tiempo, pero se está cambiando un valor de un estado dentro de este método cada vez que se intenta renderizar y/o actualizar un componente. La segunda sugerencia es más simple: evitar la modificación innecesaria y reiterativa de un solo estado, ya que no tiene sentido cambiar el valor de un estado en todas las funciones, es necesario analizar dónde y cuándo se requiere el cambio, así como a qué está sujeto, es decir, de qué depende que éste cambie. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
